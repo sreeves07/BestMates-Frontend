@@ -1,12 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Best Mates App</h1>
-      </header>
+      <Router>
+        <header className="App-header">
+          <h1>Best Mates App</h1>
+        </header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/user/:id" element={<Show />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
