@@ -10,7 +10,11 @@ function App() {
         </header>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/user/new" element={<New />} />
+          <Route path="/user/:id/edit" element={<Edit />} />
+          <Route path="/user" element={<Index />} />
           <Route path="/user/:id" element={<Show />} />
+          <Route path="/not-found" element={<FourOFour />} />
         </Routes>
       </Router>
     </div>
