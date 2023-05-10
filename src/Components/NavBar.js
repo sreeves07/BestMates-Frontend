@@ -8,6 +8,10 @@ const NavBar = () => {
       <Link to="/" id="home">
         Home
       </Link>
+
+      <Link to="/userIndex" id="userIndex">
+        Index
+      </Link>
     </nav>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import UserIndex from "./UserIndex";
+import User from "./User";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -9,7 +9,7 @@ function UserIndex() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     axios
-      .get(`${API}/users`)
+      .get(`${API}/user`)
       .then((response) => {
         console.log(response.data);
         setUsers(response.data);
@@ -21,7 +21,7 @@ function UserIndex() {
     <div>
       <p className="users">
         {users.map((user) => {
-          return <UserIndex key={user.id} user={user} />;
+          return <User key={user.id} user={user} />;
         })}
       </p>
     </div>
