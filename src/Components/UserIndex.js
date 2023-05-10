@@ -11,7 +11,7 @@ function UserIndex() {
     axios
       .get(`${API}/user`)
       .then((response) => {
-        console.log(response.data);
+        console.log("user api response data=", response.data);
         setUsers(response.data);
       })
       .catch((c) => console.warn("catch", c));
