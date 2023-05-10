@@ -16,10 +16,10 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/userIndex/new" element={<New />} />
-            <Route path="/userIndex/:id/edit" element={<EditUser />} />
-            <Route path="/userIndex" element={<Index />} />
-            <Route path="/userIndex/:id" element={<Show />} />
+            <Route path="/users/new" element={<New />} />
+            <Route path="/users/:id/edit" element={<EditUser />} />
+            <Route path="/users" element={<Index />} />
+            <Route path="/users/:id" element={<Show />} />
             <Route path="/not-found" element={<FourOFour />} />
           </Routes>
         </main>
