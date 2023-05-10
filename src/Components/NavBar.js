@@ -9,8 +9,8 @@ const NavBar = () => {
         Home
       </Link>
 
-      <Link to="/userIndex" id="userIndex">
-        Index
+      <Link to="/users" id="users">
+        Users
       </Link>
     </nav>
   );

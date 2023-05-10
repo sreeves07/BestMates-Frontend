@@ -5,7 +5,7 @@ import User from "./User";
 
 const API = process.env.REACT_APP_API_URL;
 
-function UserIndex() {
+function AllUsers() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     axios
@@ -28,4 +28,4 @@ function UserIndex() {
   );
 }
 
-export default UserIndex;
+export default AllUsers;
