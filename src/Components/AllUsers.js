@@ -19,11 +19,13 @@ function AllUsers() {
 
   return (
     <div>
-      <p className="users">
+      <p>"user list pending"</p>
+      {/* <p className="users">
         {users.map((user) => {
           return <User key={user.id} user={user} />;
         })}
-      </p>
+      </p> */}
+      
     </div>
   );
 }
