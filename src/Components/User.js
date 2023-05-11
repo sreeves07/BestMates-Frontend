@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import avatarImage from "../Images/unisex-profile-pic.png";
 
 // ARTWORK DISPLAYED IN gallery.map in GALLERY.js
-const User = (user) => {
-  // const { first_name, age, gender, sexual_orientation, is_religious } = user;
+const User = ({user}) => {
+const { first_name, age, gender, sexual_orientation, is_religious } = user;
 
   return (
     <div>
@@ -11,12 +11,11 @@ const User = (user) => {
         <img
           id="profileImage"
           src={avatarImage}
-          // style={{ width: "25", height: "25" }}
           alt="user profile image"
-        />
-        <p> Name: {user.first_name} </p>
-        <p> Age:{user.age} </p>
-        <p>Gender: {user.gender}</p>
+        /> <br/>
+        <span className="userCard-fname"> Name: {first_name} </span> <br/>
+        <span className="userCard-age"> Age:{age} </span> <br/>
+        <span className="userCard-gender">Gender: {gender}</span>
       </div>
       {/* <Link to={`/gallery/${user.id}`}>
         <h4 id="seeArtworkDetails">See User details!</h4>
