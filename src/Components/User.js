@@ -3,7 +3,7 @@ import avatarImage from "../Images/unisex-profile-pic.png";
 
 // ARTWORK DISPLAYED IN gallery.map in GALLERY.js
 const User = ({user}) => {
-const { first_name, age, gender, sexual_orientation, is_religious } = user;
+const { first_name, age, gender, id } = user;
 
   return (
     <div>
@@ -17,9 +17,9 @@ const { first_name, age, gender, sexual_orientation, is_religious } = user;
         <span className="userCard-age"> Age:{age} </span> <br/>
         <span className="userCard-gender">Gender: {gender}</span>
       </div>
-      {/* <Link to={`/gallery/${user.id}`}>
-        <h4 id="seeArtworkDetails">See User details!</h4>
-      </Link> */}
+      <Link to={`/users/${id}`}>
+        <h4 id="profilePic">See RoomMate details!</h4>
+      </Link>
     </div>
   );
 };
