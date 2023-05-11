@@ -15,32 +15,39 @@ code {
 /* ***************** User Profile Card ************** */
 
 #profileImage {
-  height: 165px;
-  width: 175px;
+  height: 100px;
+  width: 130px;
   margin-top: 3vh;
 }
 
 .users {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   height: 80vh;
   width: 70vw;
-  grid-gap: 15px;
+  grid-gap: 7px;
+  row-gap: 7px;
 
 }
 
 .userCard{
-  width: 200px;
-  height: 300px;
+  width: 170px;
+  height: 195px;
   margin: 0 auto 0 auto;
   border: 2px solid black;
   box-shadow: 5px 5px 5px 5px rgba(138, 162, 185, 0.67);;
   background-color: rgba(213, 181, 243, 0.484);
 }
 
-.userCard-fname, .userCard-age, .userCard-gender{
+.userCard-fname, .userCard-info{
   font-size: 12pt;
   font-weight: bold;
+  line-height: 2px;
+}
+.userCard-info{
+  font-size: 10pt;
+  text-align: left;
+  font-style: italic;
   line-height: 2px;
 }
