@@ -12,6 +12,10 @@ const NavBar = () => {
       <Link to="/users" id="users">
         Users
       </Link>
+
+      <Link to="/users/new" id="new">
+        Sign_Up
+      </Link>
     </nav>
   );
 };

@@ -5,7 +5,6 @@ import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
-// ARTWORK DISPLAYED IN gallery.map in GALLERY.js
 const User = ({user}) => {
 const { first_name, age, gender, id } = user;
 

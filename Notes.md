@@ -47,6 +47,74 @@ CREATE TABLE answers (
     mate_id INTEGER REFERENCES mate (id)
     ON DELETE CASCADE
 );
+
+
+ import React from 'react'
+import { useState } from "react";
+import "../newUserForm.css";
+
+function NewUserForm() {
+
+  const [checked, setChecked] = useState(false)
+  const [input, setInput] = useState("")
+
+  const handleTextChange = (event) => {
+    setInput(event.target.value)
+   }
+
+   function handleCheckboxChange() {
+    setChecked(!checked);
+  }
+  
+   function handleSubmit(event){
+    event.preventDefault()
+  }
+
+  
+   
+
+  return (
+    <div>
+      <form onSubmit={(e) => handleSubmit(e)}>
+      
+        <label for="fName">First Name:</label>
+        <input 
+              className='fName'
+              id="firstName" 
+              name="firstName" 
+              type="text" 
+              onChange={ (event) => handleTextChange(event)}
+              value={input}
+              />
+        <label for="fName">Last Name:</label>
+        <input 
+              className='lName'
+              id="lastName" 
+              name="lastName" 
+              type="text" 
+              onChange={ (event) => handleTextChange(event)}
+              value={input}
+              />
+      
+      <h3>Preferences</h3>
+ 
+        <input type="checkbox" id="has_room" name="has_room" value="HTML">
+         <label for="has_room">Has_Room</label><br>
+        <button type="submit">Submit</button>
+   </form>
+    </div>
+  )
+}
+
+export default NewUserForm
+
+
+  {/* <input type="submit" value="Submit"></input> */}
+
+
+
+
+
     
 
     
