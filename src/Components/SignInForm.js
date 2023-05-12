@@ -1,16 +1,24 @@
-import { useState } from "react";
-import { auth } from "../firebase";
+import { useContext, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { auth } from "../Firebase/config";
 import { signInWithEmailAndPassword, GoogleAuthProvider } from "firebase/auth";
+import { AuthContext } from '../Firebase/context';
 
 const SignInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const navigate = useNavigate();
+
+  const {user, setUser} = useContext(AuthContext);
+
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      setUser(auth.currentUser.uid)
+      navigate("/users")
     } catch (error) {
       setErrorMessage(error.message);
     }
