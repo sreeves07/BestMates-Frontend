@@ -12,17 +12,7 @@ function NewUserForm() {
   const [checked, setChecked] = useState(false)
   const [input, setInput] = useState("")
 
-  axios
-  .post(`${API}/users`, newUser)
-  .then(
-    () => {
-      navigate(`/snacks`);
-    },
-    (error) => console.error(error)
-  )
-  .catch((c) => console.warn("catch", c));
-
-const [newUser, setNewUser] = useState({
+  const [newUser, setNewUser] = useState({
     First_Name: "",
     Last_Name: "",
     Password: "",
@@ -48,6 +38,19 @@ const [newUser, setNewUser] = useState({
 });
 
 
+
+  axios
+  .post(`${API}/users`, newUser)
+  .then(
+    () => {
+      navigate(`/snacks`);
+    },
+    (error) => console.error(error)
+  )
+  .catch((c) => console.warn("catch", c));
+
+
+
   const handleTextChange = (event) => {
     setInput(event.target.value)
    }
@@ -60,13 +63,11 @@ const [newUser, setNewUser] = useState({
     event.preventDefault()
   }
 
-  
-   
 
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
-          <label for="fName">First Name:</label><br/>
+          <label for="fName">First Name: </label>
           <input 
                 className='fName'
                 id="firstName" 
@@ -74,9 +75,9 @@ const [newUser, setNewUser] = useState({
                 type="text" 
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
-          <label for="lName">Last Name:</label><br/>
+          <label for="lName">Last Name: </label>
           <input 
                 className='lName'
                 id="lastName" 
@@ -84,9 +85,9 @@ const [newUser, setNewUser] = useState({
                 type="text" 
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
-          <label for="age">Age:</label><br/>
+          <label for="age">Age: </label>
           <input 
                 className='age'
                 id="age" 
@@ -94,9 +95,9 @@ const [newUser, setNewUser] = useState({
                 type= "number"
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
-          <label for="email">Email:</label><br/>
+          <label for="email">Email: </label>
           <input 
                 className='email'
                 id="email" 
@@ -104,9 +105,9 @@ const [newUser, setNewUser] = useState({
                 type="text" 
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
-          <label for="city">City:</label><br/>
+          <label for="city">City: </label>
           <input 
                 className='city'
                 id="city" 
@@ -114,9 +115,9 @@ const [newUser, setNewUser] = useState({
                 type= "text"
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
-          <label for="state">State:</label><br/>
+          <label for="state">State: </label>
           <input 
                 className='state'
                 id="state" 
@@ -124,9 +125,10 @@ const [newUser, setNewUser] = useState({
                 type="text" 
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
+              
 
-          <label for="birthday">Date of Birth:</label><br/>
+          <label for="birthday">Date of Birth: </label>
           <input 
                 className='birthday'
                 id="birthday" 
@@ -134,9 +136,9 @@ const [newUser, setNewUser] = useState({
                 type="date" 
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
-          <label for="gender">Gender:</label><br/>
+          <label for="gender">Gender: </label>
           <input 
                 className='gender'
                 id="gender" 
@@ -144,9 +146,9 @@ const [newUser, setNewUser] = useState({
                 type="text" 
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
-          <label for="sexualOrientation">Sexual Orientation:</label><br/>
+          <label for="sexualOrientation">Sexual Orientation: </label>
           <input 
                 className='sexualOrientation'
                 id="sexualOrientation" 
@@ -154,9 +156,9 @@ const [newUser, setNewUser] = useState({
                 type="text" 
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
-<label for="hasPets">Has Pets:</label><br/>
+<label for="hasPets">Has Pets: </label>
           <input 
                 className='hasPets'
                 id="hasPets" 
@@ -164,9 +166,9 @@ const [newUser, setNewUser] = useState({
                 type="checkbox" 
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
-          <label for="hasOpenRooms">Has Open Rooms:</label><br/>
+          <label for="hasOpenRooms">Has Open Rooms: </label>
           <input 
                 className='hasOpenRooms'
                 id="hasOpenRooms" 
@@ -174,9 +176,9 @@ const [newUser, setNewUser] = useState({
                 type="checkbox" 
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
-          <label for="state">State:</label><br/>
+          <label for="state">State: </label>
           <input 
                 className='state'
                 id="state" 
@@ -184,9 +186,9 @@ const [newUser, setNewUser] = useState({
                 type="text" 
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
-          <label for="isSmoker">Is A Smoker:</label><br/>
+          <label for="isSmoker">Is A Smoker: </label>
           <input 
                 className='isSmoker'
                 id="isSmoker" 
@@ -194,9 +196,9 @@ const [newUser, setNewUser] = useState({
                 type="text" 
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
-          <label for="hasKids">Has Kids:</label><br/>
+          <label for="hasKids">Has Kids: </label>
           <input 
                 className='hasKids'
                 id="hasKids" 
@@ -204,7 +206,7 @@ const [newUser, setNewUser] = useState({
                 type="checkbox" 
                 onChange={ (event) => handleTextChange(event)}
                 value={input}
-                />
+                /><br/><br/>
 
           <button type="submit">Submit</button>
           
