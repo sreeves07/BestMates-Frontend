@@ -13,8 +13,12 @@ const NavBar = () => {
         Users
       </Link>
 
-      <Link to="/users/new" id="new">
-        Sign_Up
+      <Link to="/signin">
+        Login
+      </Link>
+
+      <Link to="/signup">
+        Sign Up
       </Link>
     </nav>
   );
