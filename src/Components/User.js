@@ -1,25 +1,42 @@
 import { Link } from "react-router-dom";
 import avatarImage from "../Images/unisex-profile-pic.png";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-// ARTWORK DISPLAYED IN gallery.map in GALLERY.js
+const API = process.env.REACT_APP_API_URL;
+
 const User = ({user}) => {
-const { first_name, age, gender, sexual_orientation, is_religious } = user;
+const { first_name, age, gender, id } = user;
+
+
+const [image, setImage] = useState([]);
+
+useEffect(() => {
+  axios
+    .get(`${API}/user/${id}/images`)
+    .then((response) => {
+      console.log("user api response data for images=", response.data);
+      setImage(response.data[0].profile_image);
+    })
+    .catch((c) => console.warn("catch", c));
+}, [id]);
 
   return (
     <div>
-      <div className="userCard">
-        <img
-          id="profileImage"
-          src={avatarImage}
-          alt="user profile image"
-        /> <br/>
-        <span className="userCard-fname"> Name: {first_name} </span> <br/>
-        <span className="userCard-age"> Age:{age} </span> <br/>
-        <span className="userCard-gender">Gender: {gender}</span>
-      </div>
-      {/* <Link to={`/gallery/${user.id}`}>
-        <h4 id="seeArtworkDetails">See User details!</h4>
-      </Link> */}
+       <Link to={`/users/${id}`}>
+          <div className="userCard">
+            <img
+              id="profileImage"
+              // src={avatarImage}
+              // src={`/users/id/{image}`}
+              src={image}
+              alt="user profile"
+            /> <br/>
+            <span className="userCard-fname">{first_name} </span> <br/>
+            <span className="userCard-info"> Age:{age}, {gender}  </span> <br/>
+            {/* <span className="userCard-gender">Gender: </span> */}
+          </div>
+      </Link>
     </div>
   );
 };

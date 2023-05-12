@@ -4,14 +4,13 @@
     width: 100vw;
     height: 15vh;
     margin-bottom: 4%;
-    background-image: linear-gradient(to bottom right, rgb(40, 106, 187), rgb(0, 191, 255));
-    color: white;
+    background-image: linear-gradient(to bottom right, rgb(91, 40, 187), rgb(136, 87, 183));
+    color: greenyellow;
     justify-content: center;
     text-align: left;
     box-shadow: 7px 7px 7px 7px GREY;
-
-
 }
+
 
 .navBar h1 {
     margin-left: 10%;
