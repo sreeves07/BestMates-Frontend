@@ -20,6 +20,10 @@ const NavBar = () => {
       <Link to="/signup">
         Sign Up
       </Link>
+
+      <Link to="/new-user-attributes">
+        New User Attributes
+      </Link>
     </nav>
   );
 };

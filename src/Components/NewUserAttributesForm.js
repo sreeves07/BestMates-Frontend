@@ -7,7 +7,7 @@ import { useNavigate, Link } from "react-router-dom";
 const API = process.env.REACT_APP_API_URL;
 
 
-function NewUserForm() {
+function NewUserAttributesForm() {
   let navigate = useNavigate();
   const [checked, setChecked] = useState(false)
   const [input, setInput] = useState("")
@@ -217,7 +217,7 @@ function NewUserForm() {
   )
 }
 
-export default NewUserForm
+export default NewUserAttributesForm
 
 
 
