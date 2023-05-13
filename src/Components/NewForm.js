@@ -42,10 +42,10 @@ function NewUserAttributesForm() {
 // AXIOS CALL 1 -  make an axios call to backend to be able to post info re new user from form
 const addNewUser = (user)
   axios
-  .post(`${API}/users`, user)
+  .post(`${API}/user`, user)
   .then(
     () => {
-      navigate(`/users`);
+      navigate(`/user`);
     },
     (error) => console.error(error)
   )
@@ -119,7 +119,7 @@ const addNewUser = (user)
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
-          <label for="firstName">First Name: </label>
+          <label htmlFor="firstName">First Name: </label>
           <input 
                 className='firstName'
                 id="First_Name" 
@@ -130,7 +130,7 @@ const addNewUser = (user)
                 required
                 /><br/><br/>
 
-          <label for="lastName">Last Name: </label>
+          <label htmlFor="lastName">Last Name: </label>
           <input 
                 className='lastName'
                 id="Last_Name" 
@@ -140,7 +140,7 @@ const addNewUser = (user)
                 value={input}
                 /><br/><br/>
 
-          <label for="age">Age: </label>
+          <label htmlFor="age">Age: </label>
           <input 
                 className='age'
                 id="Age" 
@@ -150,7 +150,7 @@ const addNewUser = (user)
                 value={input}
                 /><br/><br/>
 
-          <label for="email">Email: </label>
+          <label htmlFor="email">Email: </label>
           <input 
                 className='email'
                 id="Email" 
@@ -160,7 +160,7 @@ const addNewUser = (user)
                 value={input}
                 /><br/><br/>
 
-          <label for="city">City: </label>
+          <label htmlFor="city">City: </label>
           <input 
                 className='city'
                 id="City" 
@@ -170,7 +170,7 @@ const addNewUser = (user)
                 value={input}
                 /><br/><br/>
 
-          <label for="state">State: </label>
+          <label htmlFor="state">State: </label>
           <input 
                 className='state'
                 id="state" 
@@ -181,7 +181,7 @@ const addNewUser = (user)
                 /><br/><br/>
               
 
-          <label for="birthday">Date of Birth: </label>
+          <label htmlFor="birthday">Date of Birth: </label>
           <input 
                 className='birthday'
                 id="Birthday" 
@@ -191,7 +191,7 @@ const addNewUser = (user)
                 value={input}
                 /><br/><br/>
 
-          <label for="gender">Gender: </label>
+          <label htmlFor="gender">Gender: </label>
           <input 
                 className='gender'
                 id="gender" 
@@ -201,7 +201,7 @@ const addNewUser = (user)
                 value={input}
                 /><br/><br/>
 
-          <label for="sexualOrientation">Sexual Orientation: </label>
+          <label htmlFor="sexualOrientation">Sexual Orientation: </label>
           <input 
                 className='sexualOrientation'
                 id="sexualOrientation" 
@@ -213,7 +213,7 @@ const addNewUser = (user)
 
           {/* Checkboxes - Boolean Values */}
 
-          <label for="hasPets">Has Pets: </label>
+          <label htmlFor="hasPets">Has Pets: </label>
           <input 
                 className='hasPets'
                 id="Has_Pets" 
@@ -223,7 +223,7 @@ const addNewUser = (user)
                 checked={user.Has_Pets}
                 /><br/><br/>
 
-          <label for="hasOpenRooms">Has Open Rooms: </label>
+          <label htmlFor="hasOpenRooms">Has Open Rooms: </label>
           <input 
                 className='hasOpenRooms'
                 id="Has_Open_Rooms" 
@@ -236,7 +236,7 @@ const addNewUser = (user)
 
 
 
-          <label for="isSmoker">Is A Smoker: </label>
+          <label htmlFor="isSmoker">Is A Smoker: </label>
           <input 
                 className='isSmoker'
                 id="is_Smoker" 
@@ -247,7 +247,7 @@ const addNewUser = (user)
                 checked={user.Is_Smoker}
                 /><br/><br/>
 
-          <label for="hasKids">Has Kids: </label>
+          <label htmlFor="hasKids">Has Kids: </label>
           <input 
                 className='hasKids'
                 id="Has_Kids" 
@@ -258,7 +258,7 @@ const addNewUser = (user)
                 checked={user.Has_Kids}
                 /><br/><br/>
 
-          <label for="disabled">Disabled: </label>
+          <label htmlFor="disabled">Disabled: </label>
           <input 
                 className='disabled'
                 id="Is_Disabled" 
@@ -270,7 +270,7 @@ const addNewUser = (user)
                 /><br/><br/>
 
 
-          <label for="isSharingBills">Agree to Share Bills: </label>
+          <label htmlFor="isSharingBills">Agree to Share Bills: </label>
           <input 
                 className='isSharingBills'
                 id="Is_Sharing_bills" 
@@ -281,7 +281,7 @@ const addNewUser = (user)
                 /><br/><br/>
 
 
-          <label for="isNeat">Prefer Neatness (Is very clean): </label>
+          <label htmlFor="isNeat">Prefer Neatness (Is very clean): </label>
           <input 
                 className='isNeat'
                 id="Is_Neat" 
@@ -292,7 +292,7 @@ const addNewUser = (user)
                 /><br/><br/>
 
 
-          <label for="isReligious">Is Religious: </label>
+          <label htmlFor="isReligious">Is Religious: </label>
           <input 
                 className='isReligious'
                 id="Is_Religious:" 
@@ -302,7 +302,7 @@ const addNewUser = (user)
                 value={input}
                 /><br/><br/>
 
-          <label for="moveInDate">Desired Move-in Date: </label>
+          <label htmlFor="moveInDate">Desired Move-in Date: </label>
           <input 
                 className='moveInDate'
                 id="Move_In_Date" 
@@ -312,7 +312,7 @@ const addNewUser = (user)
                 value={input}
                 /><br/><br/>
 
-          <label for="maxRent">Maximum Rent: </label>
+          <label htmlFor="maxRent">Maximum Rent: </label>
           <input 
                 className='maxRent'
                 id="Max_Rent" 
@@ -322,7 +322,7 @@ const addNewUser = (user)
                 value={input}
                 /><br/><br/>
 
-          <label for="creditScore">Credit Score: </label>
+          <label htmlFor="creditScore">Credit Score: </label>
           <input 
                 className='creditScore'
                 id="Credit_Score" 
@@ -332,7 +332,7 @@ const addNewUser = (user)
             //     value={input}
                 /><br/><br/>
 
-          <label for="income">Income: </label>
+          <label htmlFor="income">Income: </label>
           <input 
                 className='income'
                 id="Income" 
