@@ -6,8 +6,8 @@ import EditUser from "./Pages/Edit";
 import Show from "./Pages/Show";
 import Index from "./Pages/Index";
 import FourOFour from "./Pages/FourOFour";
-import SignIn from './Pages/SignIn';
-import SignUp from './Pages/SignUp';
+// import SignIn from './Pages/SignIn';
+// import SignUp from './Pages/SignUp';
 import NewUserAttributes from './Pages/NewUserAttributes';
 import "./App.css";
 
@@ -18,8 +18,8 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
+            {/* <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} /> */}
             <Route path="/new-user-attributes" element={<NewUserAttributes />} />
             <Route path="/users/:id/edit" element={<EditUser />} />
             <Route path="/users" element={<Index />} />

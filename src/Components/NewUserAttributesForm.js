@@ -208,6 +208,93 @@ function NewUserAttributesForm() {
                 value={input}
                 /><br/><br/>
 
+
+
+
+<label for="disabled">Disabled: </label>
+          <input 
+                className='disabled'
+                id="disabled" 
+                name="disabled" 
+                type="checkbox" 
+                onChange={ (event) => handleTextChange(event)}
+                value={input}
+                /><br/><br/>
+
+
+<label for="isSharingBills">Agree to Share Bills: </label>
+          <input 
+                className='isSharingBills'
+                id="isSharingBills" 
+                name="isSharingBills" 
+                type="checkbox" 
+                onChange={ (event) => handleTextChange(event)}
+                value={input}
+                /><br/><br/>
+
+
+<label for="isNeat">Prefer Neatness (Is very clean): </label>
+          <input 
+                className='isNeat'
+                id="isNeat" 
+                name="isNeat" 
+                type="checkbox" 
+                onChange={ (event) => handleTextChange(event)}
+                value={input}
+                /><br/><br/>
+
+
+<label for="isReligious">Is Religious: </label>
+          <input 
+                className='isReligious'
+                id="isReligious" 
+                name="isReligious" 
+                type="checkbox" 
+                onChange={ (event) => handleTextChange(event)}
+                value={input}
+                /><br/><br/>
+
+<label for="moveInDate">Desired Move-in Date: </label>
+          <input 
+                className='moveInDate'
+                id="moveInDate" 
+                name="moveInDate" 
+                type="checkbox" 
+                onChange={ (event) => handleTextChange(event)}
+                value={input}
+                /><br/><br/>
+
+<label for="maxRent">Maximum Rent: </label>
+          <input 
+                className='maxRent'
+                id="maxRent" 
+                name="maxRent" 
+                type="checkbox" 
+                onChange={ (event) => handleTextChange(event)}
+                value={input}
+                /><br/><br/>
+
+<label for="creditScore">Credit Score: </label>
+          <input 
+                className='creditScore'
+                id="creditScore" 
+                name="creditScore" 
+                type="text" 
+                onChange={ (event) => handleTextChange(event)}
+                value={input}
+                /><br/><br/>
+
+<label for="income">Income: </label>
+          <input 
+                className='income'
+                id="income" 
+                name="income" 
+                type="text" 
+                onChange={ (event) => handleTextChange(event)}
+                value={input}
+                /><br/><br/>
+
+
           <button type="submit">Submit</button>
           
         </form>
