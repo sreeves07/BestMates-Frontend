@@ -22,3 +22,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# notes
+.Notes1-schemas.md
+.Notes2-reference1.md
+.Notes3-reference2.md
+.Notes4-questions.md

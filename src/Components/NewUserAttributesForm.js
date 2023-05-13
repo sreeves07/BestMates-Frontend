@@ -11,8 +11,9 @@ function NewUserAttributesForm() {
   let navigate = useNavigate();
   const [checked, setChecked] = useState(false)
   const [input, setInput] = useState("")
-
-  const [newUser, setNewUser] = useState({
+  const [image, setImage] = useState("")
+  
+  const [user, setUser] = useState({
     First_Name: "",
     Last_Name: "",
     Password: "",
@@ -38,82 +39,134 @@ function NewUserAttributesForm() {
 });
 
 
-
+// AXIOS CALL 1 -  make an axios call to backend to be able to post info re new user from form
+const addNewUser = (user)
   axios
-  .post(`${API}/users`, newUser)
+  .post(`${API}/users`, user)
   .then(
     () => {
-      navigate(`/snacks`);
+      navigate(`/users`);
     },
     (error) => console.error(error)
   )
   .catch((c) => console.warn("catch", c));
 
 
+//   AXIOS CALL 2 - add user image for new user by posting to backend Image table
 
-  const handleTextChange = (event) => {
-    setInput(event.target.value)
-   }
+//   const addUserImage = (image)
+//   axios
+//   .post(`${API}/user.${id}/images`, image)
+//   .then(
+//     () => {
+//       navigate(`/users`);
+//     },
+//     (error) => console.error(error)
+//   )
+//  .catch((c) => console.warn("catch", c));
 
-   function handleCheckboxChange() {
-    setChecked(!checked);
-  }
+
+
+  // ****  Handle toggle for checkboxes in new user attributes form *******
+
+   const handleTextChange = (event) => {
+      setUser({ ...user, [event.target.id]: event.target.value });
+      console.log("newly added user", user)
+    };
+//     const handleImageChange = (event) => {
+//       setImage({ ...image, [event.target.id]: event.target.value });
+//       console.log("newly added user image", image)
+//     };
+
+    const handleCheckboxChange1 = () => {
+      setUser({ ...user, Has_Pets: !user.Has_Pets });
+    };
+    const handleCheckboxChange2 = () => {
+      setUser({ ...user, Has_Open_Rooms: !user.Has_Open_Rooms });
+    };
+    const handleCheckboxChange3 = () => {
+      setUser({ ...user, Is_Smoker: !user.Is_Smoker });
+    };
+    const handleCheckboxChange4 = () => {
+      setUser({ ...user, Has_Kids: !user.Has_Kids });
+    };
+    const handleCheckboxChange5 = () => {
+      setUser({ ...user, Is_Disabled: !user.Is_Disabled });
+    };
+    const handleCheckboxChange6 = () => {
+      setUser({ ...user, Is_Sharing_bills: !user.Is_Sharing_bills });
+    };
+    const handleCheckboxChange7 = () => {
+      setUser({ ...user, Is_Neat: !user.Is_Neat });
+    };
+    const handleCheckboxChange8 = () => {
+      setUser({ ...user, Is_Religious: !user.Is_Religious });
+    };
+    const handleCheckboxChange9 = () => {
+      setUser({ ...user, Move_In_Date: !user.Is_Religious });
+    };
+    const handleCheckboxChange10 = () => {
+      setUser({ ...user, Max_Rent: !user.Is_Religious });
+    };
+   
   
    function handleSubmit(event){
     event.preventDefault()
+    addNewUser(user)
+    //addUserImage(image)
   }
-
 
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
-          <label for="fName">First Name: </label>
+          <label for="firstName">First Name: </label>
           <input 
-                className='fName'
-                id="firstName" 
+                className='firstName'
+                id="First_Name" 
                 name="firstName" 
                 type="text" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={handleTextChange}
                 value={input}
+                required
                 /><br/><br/>
 
-          <label for="lName">Last Name: </label>
+          <label for="lastName">Last Name: </label>
           <input 
-                className='lName'
-                id="lastName" 
+                className='lastName'
+                id="Last_Name" 
                 name="lastName" 
                 type="text" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={handleTextChange}
                 value={input}
                 /><br/><br/>
 
           <label for="age">Age: </label>
           <input 
                 className='age'
-                id="age" 
+                id="Age" 
                 name="age" 
                 type= "number"
-                onChange={ (event) => handleTextChange(event)}
+                onChange={handleTextChange}
                 value={input}
                 /><br/><br/>
 
           <label for="email">Email: </label>
           <input 
                 className='email'
-                id="email" 
+                id="Email" 
                 name="email" 
                 type="text" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={handleTextChange}
                 value={input}
                 /><br/><br/>
 
           <label for="city">City: </label>
           <input 
                 className='city'
-                id="city" 
+                id="City" 
                 name="city" 
                 type= "text"
-                onChange={ (event) => handleTextChange(event)}
+                onChange={handleTextChange}
                 value={input}
                 /><br/><br/>
 
@@ -123,7 +176,7 @@ function NewUserAttributesForm() {
                 id="state" 
                 name="state" 
                 type="text" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={handleTextChange}
                 value={input}
                 /><br/><br/>
               
@@ -131,10 +184,10 @@ function NewUserAttributesForm() {
           <label for="birthday">Date of Birth: </label>
           <input 
                 className='birthday'
-                id="birthday" 
+                id="Birthday" 
                 name="birthday" 
                 type="date" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={handleTextChange}
                 value={input}
                 /><br/><br/>
 
@@ -144,7 +197,7 @@ function NewUserAttributesForm() {
                 id="gender" 
                 name="gender" 
                 type="text" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={handleTextChange}
                 value={input}
                 /><br/><br/>
 
@@ -152,151 +205,157 @@ function NewUserAttributesForm() {
           <input 
                 className='sexualOrientation'
                 id="sexualOrientation" 
-                name="sexualOrientation" 
+                name="Sexual_Orientation" 
                 type="text" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={handleTextChange}
                 value={input}
                 /><br/><br/>
 
-<label for="hasPets">Has Pets: </label>
+          {/* Checkboxes - Boolean Values */}
+
+          <label for="hasPets">Has Pets: </label>
           <input 
                 className='hasPets'
-                id="hasPets" 
+                id="Has_Pets" 
                 name="hasPets" 
                 type="checkbox" 
-                onChange={ (event) => handleTextChange(event)}
-                value={input}
+                onChange={ (event) => handleCheckboxChange1(event)}
+                checked={user.Has_Pets}
                 /><br/><br/>
 
           <label for="hasOpenRooms">Has Open Rooms: </label>
           <input 
                 className='hasOpenRooms'
-                id="hasOpenRooms" 
+                id="Has_Open_Rooms" 
                 name="hasOpenRooms" 
                 type="checkbox" 
-                onChange={ (event) => handleTextChange(event)}
-                value={input}
+                onChange={ (event) => handleCheckboxChange2(event)}
+                //value={input}
+                checked={user.Has_Open_Rooms}
                 /><br/><br/>
 
-          <label for="state">State: </label>
-          <input 
-                className='state'
-                id="state" 
-                name="state" 
-                type="text" 
-                onChange={ (event) => handleTextChange(event)}
-                value={input}
-                /><br/><br/>
+
 
           <label for="isSmoker">Is A Smoker: </label>
           <input 
                 className='isSmoker'
-                id="isSmoker" 
+                id="is_Smoker" 
                 name="isSmoker" 
                 type="text" 
-                onChange={ (event) => handleTextChange(event)}
-                value={input}
+                onChange={ (event) => handleCheckboxChange3(event)}
+                //value={input}
+                checked={user.Is_Smoker}
                 /><br/><br/>
 
           <label for="hasKids">Has Kids: </label>
           <input 
                 className='hasKids'
-                id="hasKids" 
+                id="Has_Kids" 
                 name="hasKids" 
                 type="checkbox" 
-                onChange={ (event) => handleTextChange(event)}
-                value={input}
+                onChange={ (event) => handleCheckboxChange4(event)}
+                //value={input}
+                checked={user.Has_Kids}
                 /><br/><br/>
 
-
-
-
-<label for="disabled">Disabled: </label>
+          <label for="disabled">Disabled: </label>
           <input 
                 className='disabled'
-                id="disabled" 
+                id="Is_Disabled" 
                 name="disabled" 
                 type="checkbox" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={ (event) => handleCheckboxChange5(event)}
                 value={input}
+                checked={user.Is_Disabled}
                 /><br/><br/>
 
 
-<label for="isSharingBills">Agree to Share Bills: </label>
+          <label for="isSharingBills">Agree to Share Bills: </label>
           <input 
                 className='isSharingBills'
-                id="isSharingBills" 
+                id="Is_Sharing_bills" 
                 name="isSharingBills" 
                 type="checkbox" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={ (event) => handleCheckboxChange6(event)}
                 value={input}
                 /><br/><br/>
 
 
-<label for="isNeat">Prefer Neatness (Is very clean): </label>
+          <label for="isNeat">Prefer Neatness (Is very clean): </label>
           <input 
                 className='isNeat'
-                id="isNeat" 
+                id="Is_Neat" 
                 name="isNeat" 
                 type="checkbox" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={ (event) => handleCheckboxChange7(event)}
                 value={input}
                 /><br/><br/>
 
 
-<label for="isReligious">Is Religious: </label>
+          <label for="isReligious">Is Religious: </label>
           <input 
                 className='isReligious'
-                id="isReligious" 
+                id="Is_Religious:" 
                 name="isReligious" 
                 type="checkbox" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={ (event) => handleCheckboxChange8(event)}
                 value={input}
                 /><br/><br/>
 
-<label for="moveInDate">Desired Move-in Date: </label>
+          <label for="moveInDate">Desired Move-in Date: </label>
           <input 
                 className='moveInDate'
-                id="moveInDate" 
+                id="Move_In_Date" 
                 name="moveInDate" 
                 type="checkbox" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={ (event) => handleCheckboxChange9(event)}
                 value={input}
                 /><br/><br/>
 
-<label for="maxRent">Maximum Rent: </label>
+          <label for="maxRent">Maximum Rent: </label>
           <input 
                 className='maxRent'
-                id="maxRent" 
+                id="Max_Rent" 
                 name="maxRent" 
                 type="checkbox" 
-                onChange={ (event) => handleTextChange(event)}
+                onChange={ (event) => handleCheckboxChange10(event)}
                 value={input}
                 /><br/><br/>
 
-<label for="creditScore">Credit Score: </label>
+          <label for="creditScore">Credit Score: </label>
           <input 
                 className='creditScore'
-                id="creditScore" 
+                id="Credit_Score" 
                 name="creditScore" 
                 type="text" 
-                onChange={ (event) => handleTextChange(event)}
-                value={input}
+                onChange={handleTextChange}
+            //     value={input}
                 /><br/><br/>
 
-<label for="income">Income: </label>
+          <label for="income">Income: </label>
           <input 
                 className='income'
-                id="income" 
+                id="Income" 
                 name="income" 
                 type="text" 
-                onChange={ (event) => handleTextChange(event)}
-                value={input}
+                onChange={handleTextChange}
+            //     value={input}
                 /><br/><br/>
 
-
+          {/* <label htmlFor="profileImage">Image URL:</label>
+          <input
+              id="Profile_Image"
+              type="text"
+              pattern="http[s]*://.+"
+            
+              value={images.image}
+              placeholder="http://"
+              onChange={handleImageChange}
+            /> */}
           <button type="submit">Submit</button>
-          
+          <Link to={`/`}>
+            <button className="CancelNewUserButton">Cancel</button>
+          </Link>
         </form>
 
 
