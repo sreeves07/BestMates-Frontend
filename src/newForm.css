@@ -1,0 +1,301 @@
+.newForm{
+    margin: auto;
+    width: 90vw;
+    height: 70vh;
+    padding-top: 20px;
+    border: 2px solid rgb(128, 77, 234);   /* color in logo */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 12px;
+    column-gap: 12px;
+}
+
+/* *********** NEW FORM HEADINGS   ********** */
+
+.newFormHdg{
+    font-size: 21px;
+}
+
+.newFormSubHdg{
+    font-size: 16px;
+}
+
+.newFormMsg{
+    font-size: 13px;
+    font-style: italic;
+}
+
+
+/* *********** [    BASIC INFO    ]  ********** */
+/* ***********  NEW FORM GRID ROW 1  ********** */
+
+.newFormLabel{
+    font-size: 16px;
+    font-style: italic;
+    width: 15vh;
+}
+
+.basicInfo1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 1
+}
+.firstName{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 1
+}
+
+.basicInfo2{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 1
+}
+.lastName{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 1
+}
+
+.basicInfo3{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 1
+}
+.age{
+    grid-row: 1;
+    grid-column-start: 6;
+    grid-column-end: 7;
+}
+
+
+/* *********** FORM GRID ROW 2   ********** */
+
+.basicInfo4{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 2
+}
+.email{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 2
+}
+
+.basicInfo5{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 2
+}
+.city{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 2
+}
+.basicInfo6{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 2
+}
+.state{
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row: 2
+    
+}
+
+/* *********** FORM GRID ROW 3   ********** */
+
+.basicInfo7{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 3
+}
+.birthday{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 3
+}
+
+.basicInfo8{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 3
+}
+.gender{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 3
+}
+.basicInfo9{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 3
+}
+.sexuaOrientation{
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row: 3
+    
+}
+
+/* *********** [  ATTRIBUTES  ]   ********** */
+/*            (SKIP ROW 4 -BLANK)            */
+
+/* ***********  FORM GRID ROW 5   ********** */
+
+.attribute1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 5
+}
+.hasPets{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 5
+}
+
+.attribute2{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 5
+}
+.hasOpenRooms{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 5
+}
+
+.attribute3{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 5
+}
+.isSmoker{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row: 5 
+}
+
+.attribute4{
+    grid-column-start: 7;
+    grid-column-end: 8;
+    grid-row: 5
+}
+.hasKids{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row: 5  
+}
+
+/* *********** FORM GRID ROW 6   ********** */
+
+.attribute5{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 6
+}
+.isDisabled{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 6
+}
+
+.attribute6{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 6
+}
+.isSharingBills{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 6
+}
+
+.attribute7{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 6
+}
+.isNeat{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row: 6 
+}
+
+.attribute8{
+    grid-column-start: 7;
+    grid-column-end: 8;
+    grid-row: 6
+}
+.isReligious{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row: 6 
+}
+
+/* *********** FORM GRID ROW 7   ********** */
+
+.attribute9{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 7
+}
+.moveInDate{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 7
+}
+
+.attribute9{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 7
+}
+.maxRent{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 7
+}
+
+.attribute9{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 7
+}
+.creditScore{
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row: 7
+}
+
+.attribute9{
+    grid-column-start: 7;
+    grid-column-end: 8;
+    grid-row: 7
+}
+.income{
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row: 7 
+}
+
+
+/* ***********    ********** */

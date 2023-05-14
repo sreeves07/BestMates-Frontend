@@ -10,7 +10,7 @@ const NavBar = () => {
       </Link>
 
       <Link to="/users" id="users">
-        Users
+        All Roomates
       </Link>
 
       <Link to="/signin">
@@ -21,8 +21,8 @@ const NavBar = () => {
         Sign Up
       </Link>
 
-      <Link to="/new-user-attributes">
-        New User Attributes
+      <Link to="/new">
+        New Attributes
       </Link>
     </nav>
   );
