@@ -106,9 +106,6 @@ const addNewUser = (newUser) => {
       setNewUser({ ...newUser, Is_Religious: !newUser.Is_Religious });
     };
     
-
-   
-  
    function handleSubmit(event){
     event.preventDefault()
     //addNewUser(newUser)
@@ -134,8 +131,7 @@ const addNewUser = (newUser) => {
                 onChange={handleTextChange}
                 //value={input}
                 required
-                /><br/><br/>
-
+                />
           <label className='newFormLabel basicInfo2-lastName' htmlFor="lastName">Last Name: </label>
           <input 
                 className='lastName'
@@ -144,8 +140,7 @@ const addNewUser = (newUser) => {
                 type="text" 
                 onChange={handleTextChange}
                 //value={input}
-                /><br/><br/>
-
+                />
           <label className='newFormLabel basicInfo3-age' htmlFor="age">Age: </label>
           <input 
                 className='age'
@@ -154,8 +149,7 @@ const addNewUser = (newUser) => {
                 type= "number"
                 onChange={handleTextChange}
                 //value={input}
-                /><br/><br/>
-
+                />
           <label className='newFormLabel basicInfo4-birthDate'  htmlFor="birthDate">Date of Birth: </label>
           <input 
                 className='birthDate'
@@ -164,12 +158,11 @@ const addNewUser = (newUser) => {
                 type="date" 
                 onChange={handleTextChange}
                 //value={input}
-                /><br/><br/>
-
+                />
 
            {/* ****** Grid Row 2 ***** */}
            {/* Basic Info Continued */}
-
+           
           <label className='newFormLabel basicInfo5-city'  htmlFor="city">City: </label>
           <input 
                 className='city'
@@ -178,7 +171,7 @@ const addNewUser = (newUser) => {
                 type= "text"
                 onChange={handleTextChange}
                // value={input}
-                /><br/><br/>
+                />
 
           <label className='newFormLabel basicInfo6-state'  htmlFor="state">State: </label>
           <input 
@@ -188,9 +181,7 @@ const addNewUser = (newUser) => {
                 type="text" 
                 onChange={handleTextChange}
                 //value={input}
-                /><br/><br/>
-
-      
+                />
           <label className='newFormLabel basicInfo7-email' htmlFor="email">Email: </label>
           <input 
                 className='email'
@@ -199,8 +190,7 @@ const addNewUser = (newUser) => {
                 type="text" 
                 onChange={handleTextChange}
                 //value={input}
-                /><br/><br/>        
-
+                />        
           <label className='newFormLabel basicInfo8-gender'  htmlFor="gender">Gender: </label>
           <input 
                 className='gender'
@@ -209,11 +199,8 @@ const addNewUser = (newUser) => {
                 type="text" 
                 onChange={handleTextChange}
                 //value={input}
-                /><br/><br/>
-
-
-
-
+                />
+                
           {/* ****** Grid Row 3 ***** */}
           {/* Attributes - text fields and dates */}
           
@@ -225,8 +212,7 @@ const addNewUser = (newUser) => {
                 type="text" 
                 onChange={handleTextChange}
                 //value={input}
-                /><br/><br/>
-
+                />
           <label className='newFormLabel attribute2-creditScore'  htmlFor="creditScore">Credit Score: </label>
           <input 
                 className='creditScore'
@@ -235,8 +221,7 @@ const addNewUser = (newUser) => {
                 type="text" 
                 onChange={handleTextChange}
                 //value={input}
-                /><br/><br/>
-
+                />
           <label className='newFormLabel attribute3-maxRent'  htmlFor="maxRent">Maximum Rent: </label>
           <input 
                 className='maxRent'
@@ -245,17 +230,16 @@ const addNewUser = (newUser) => {
                 type="checkbox" 
                 onChange={handleTextChange}
                 //value={input}
-                /><br/><br/>
-
-         <label className='newFormLabel basicInfo9-sexOrient'  htmlFor="sexualOrientation">Sexual Orientation: </label>
+                />
+         <label className='newFormLabel basicInfo9-sexOrient'  htmlFor="sexOrient">Sexual Orientation: </label>
           <input 
-                className='sexualOrientation'
-                id="sexualOrientation" 
-                name="Sexual_Orientation" 
+                className='sexOrient'
+                id="Sexual_Orientation" 
+                name="sexOrient" 
                 type="text" 
                 onChange={handleTextChange}
                // value={input}
-                /><br/><br/>
+                />
 
          {/* ****** Grid Row 4 ***** */}
          {/* Attributes - Date field */}
@@ -268,8 +252,7 @@ const addNewUser = (newUser) => {
                 type="date" 
                 onChange={handleTextChange}
                 //value={input}
-                /><br/><br/>
-
+                />
       
           {/* ****** Grid Row 5 ***** */}
           {/* Attributes - Checkboxes - Boolean Values */}
@@ -283,8 +266,7 @@ const addNewUser = (newUser) => {
                 onChange={ (event) => handleCheckboxChange1(event)}
                 //value={input}
                 checked={newUser.Is_Sharing_bills}
-                /><br/><br/>
-
+                />
           <label className='newFormLabel attribute6-hasOpenRooms'  htmlFor="hasOpenRooms">Has Open Rooms: </label>
           <input 
                 className='hasOpenRooms'
@@ -295,7 +277,6 @@ const addNewUser = (newUser) => {
                 //value={input}
                 checked={newUser.Has_Open_Rooms}
                 /><br/><br/>
-
          <label className='newFormLabel attribute7-hasKids'  htmlFor="hasKids">Has Kids: </label>
           <input 
                 className='hasKids'
@@ -305,9 +286,7 @@ const addNewUser = (newUser) => {
                 onChange={ (event) => handleCheckboxChange3(event)}
                 //value={input}
                 checked={newUser.Has_Kids}
-                /><br/><br/>
-
-
+                />
           <label className='newFormLabel attribute8-hasPets'  htmlFor="hasPets">Has Pets: </label>
           <input 
                 className='hasPets'
@@ -316,9 +295,7 @@ const addNewUser = (newUser) => {
                 type="checkbox" 
                 onChange={ (event) => handleCheckboxChange4(event)}
                 checked={newUser.Has_Pets}
-                /><br/><br/>
-
-
+                />
           <label className='newFormLabel attribute9-isSmoker'  htmlFor="isSmoker">Is A Smoker: </label>
           <input 
                 className='isSmoker'
@@ -342,9 +319,7 @@ const addNewUser = (newUser) => {
                 onChange={ (event) => handleCheckboxChange6(event)}
                 //value={input}
                 checked={newUser.Is_Disabled}
-                /><br/><br/>
-
-
+                />
           <label  className='newFormLabel attribute11-isNeat' htmlFor="isNeat">Very neat? </label>
           <input 
                 className='isNeat'
@@ -354,9 +329,7 @@ const addNewUser = (newUser) => {
                 onChange={ (event) => handleCheckboxChange7(event)}
                 //value={input}
                 checked={newUser.Is_Neat}
-                /><br/><br/>
-
-
+                />
           <label className='newFormLabel attribute12-isReligious'  htmlFor="isReligious">Is Religious: </label>
           <input 
                 className='isReligious'
@@ -366,7 +339,21 @@ const addNewUser = (newUser) => {
                 onChange={ (event) => handleCheckboxChange8(event)}
                 //value={input}
                 checked={newUser.Is_Religious}
-                /><br/><br/>
+                />
+           <span className='newFormButtonsBox'>
+                <button className='submitButton-newForm' type="submit">Submit</button>
+
+                  <Link className="cancelButton-newForm" to={`/`}>
+                        <button className='cancelBtn-nf'>Cancel</button>
+                  </Link>
+          </span>
+        </form>
+    </div>
+  )
+}
+
+export default NewForm
+
 
           {/* <label htmlFor="profileImage">Image URL:</label>
           <input
@@ -378,21 +365,6 @@ const addNewUser = (newUser) => {
               placeholder="http://"
               onChange={handleImageChange}
             /> */}
-          <button type="submit">Submit</button>
-          <Link to={`/`}>
-            <button className="CancelNewUserButton">Cancel</button>
-          </Link>
-        </form>
-
-
-    </div>
-  )
-}
-
-export default NewForm
-
-
-
 
 
 

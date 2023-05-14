@@ -5,10 +5,13 @@
     padding-top: 20px;
     border: 2px solid rgb(128, 77, 234);   /* color in logo */
     display: grid;
-    grid-template-columns: .7fr 1fr .7fr 1fr .7fr 1fr .7fr 1fr;
+    grid-template-columns: 1fr 1fr .7fr 1fr .7fr 1fr .7fr 1fr;
     grid-template-rows: .5fr .5fr .5fr 1fr .5fr .5fr .5fr .5fr;
     row-gap: 12px;
     column-gap: 8px;
+    background-color: rgb(219, 208, 228);
+    border-left: black;
+    border-bottom: blue;
 }
 
 /* *********** NEW FORM HEADINGS   ********** */
@@ -89,29 +92,29 @@
     grid-row: 2
 }
 .city{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 2
+}
+.basicInfo6-state{
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row: 2
 }
-.basicInfo6-state{
+.state{
     grid-column-start: 4;
     grid-column-end: 5;
-    grid-row: 2
-}
-.state{
-    grid-column-start: 5;
-    grid-column-end: 6;
     grid-row: 2  
 }
 
 .basicInfo7-email{
-    grid-column-start: 6;
-    grid-column-end: 7;
+    grid-column-start: 5;
+    grid-column-end: 6;
     grid-row: 2
 }
 .email{
-    grid-column-start: 7;
-    grid-column-end: 8;
+    grid-column-start: 6;
+    grid-column-end: 7;
     grid-row: 2
 }
 
@@ -167,7 +170,7 @@
     grid-column-end: 8;
     grid-row: 3
 } 
-.sexuaOrientation{ 
+.sexOrient{ 
     grid-column-start: 8;
     grid-column-end: 9;
     grid-row: 3 
@@ -194,16 +197,16 @@
 /* ***********  FORM GRID ROW 5   ********** */
 
 .attribute5-isSharingBills{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row: 6
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 4
 }
 .isSharingBills{
     width: 1.7em;
     height: 1.7em;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row: 6
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 4;
 }
 
 .attribute6-hasOpenRooms{
@@ -264,12 +267,14 @@
 /* *********** FORM GRID ROW 6   ********** */
 
 .attribute10-isDisabled{
+    width: 2.7em;
+    height: 1.7em;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row: 6
 }
 .isDisabled{
-    width: 1.7em;
+    width: 2.7em;
     height: 1.7em;
     grid-column-start: 2;
     grid-column-end: 3;
@@ -304,49 +309,51 @@
 
 /* *********** FORM GRID ROW 7   ********** */
 
-/* .attribute9{ -moved to row 4
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row: 7
-}
-.moveInDate{  - moved to row 4
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row: 7
-} */
 
-/* .attribute10{ -moved to row 3
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row: 7
-}
-.maxRent{ -moved to row 3
+.newFormButtonsBox{
+    width: 16.5em;
+    height: 2.7em; 
+    margin-left: -1.75em;
+    padding-top: 1em;
     grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row: 7
-}
-
-.attribute11{ -moved to row 3
-    grid-column-start: 5;
-    grid-column-end: 6;
-    grid-row: 7
-}
-.creditScore{ -moved to row 3
-    grid-column-start: 6;
     grid-column-end: 7;
-    grid-row: 7
+    grid-row: 7 ;
+    border: 1px solid rgba(70, 51, 88, 0.405);
 }
 
-.attribute12{ -moved to row 3
-    grid-column-start: 7;
-    grid-column-end: 8;
-    grid-row: 7
+.submitButton-newForm{
+    width: 7em;
+    height: 2.7em;
+    background-color:rgb(63, 30, 95);
+    color: yellowgreen;
+    border: 2px solid rgb(111, 21, 127);
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(63, 30, 95);
+    background-color: rgb(58, 244, 21);
 }
-.income{ -moved to row 3
-    grid-column-start: 8;
-    grid-column-end: 9;
-    grid-row: 7 
-} */
+a.cancelButton-newForm{
+    margin-left: 3em;
+}
+.cancelBtn-nf{
+    width: 7em;
+    height: 2.7em;
+    color: rgb(58, 244, 21);
+    border: 2px solid rgb(130, 7, 7);
+    background-color: rgb(77, 17, 122);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.submitButton-newForm:hover{
+    background-color:yellow;
+    border: 3.5px solid black
+}
+.cancelBtn-nf:hover{
+    background-color:rgb(193, 14, 14);
+    border: 3.5px solid black
+}
+
 
 
 /* ***********    ********** */
