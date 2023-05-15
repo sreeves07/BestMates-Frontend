@@ -1,8 +1,13 @@
-
 const Home = () => {
   return (
     <div className="Home">
-      <h1 className="header">Hello User!</h1>
+      <div className="homeHdgBox">
+        <h1 className="header">Welcome to BestMates</h1>
+      </div>
+        <div className="homeImage1"></div>
+        <div className="homeImage2"></div>
+        <div className="homeImage3"></div>
+        <div className="homeImage4"></div>
     </div>
   );
 };

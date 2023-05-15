@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import avatarImage from "../Images/unisex-profile-pic.png";
+//import avatarImage from "../Images/unisex-profile-pic.png";
 import { useState, useEffect } from "react";
 import axios from "axios";
 

@@ -1,3 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap');
+
+
 body {
  box-sizing: border-box;
   margin: 0;
@@ -7,6 +12,62 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.Home{
+  width: 100vw;
+  height: 90vh;
+  background-image: url("./Images/kenny-eliason-Wp7t4cWN-68-unsplash.jpg");
+  background-size:cover ;
+  font-family: 'Petit Formal Script', cursive;
+}
+
+.homeHdgBox{
+  background-color:rgba(127, 255, 212, 0.444);
+  color:blueviolet;
+}
+
+.homeImage1{
+  width: 350px;
+  height: 325px;
+  background-image: url("./Images/pexels-cottonbro-studio-4778404.jpg");
+  background-size:cover ;
+  border: 4px solid chartreuse
+}
+
+.homeImage2{
+  margin-top: -89px;
+  width: 325px;
+  height: 325px;
+  background-image: url("./Images/microsoft-365-epexwY0jH1M-unsplash.jpg");
+  background-size:cover ;
+  background-size: cover;
+  margin-left: 750px;
+  border: 4px solid rgb(166, 19, 198);
+}
+
+.homeImage3{
+  margin-top: -60px;
+  margin-left: 108px;
+  width: 150px;
+  height: 125px;
+  background-image: url(".//Images/microsoft-365-epexwY0jH1M-unsplash.jpg");
+  background-size:cover ;
+  border: 4px solid rgb(179, 0, 255)
+}
+.homeImage4{
+  margin-top: -590px;
+  margin-left: 970px;
+  width: 150px;
+  height: 125px;
+  background-image: url("./Images/pexels-liza-summer-6383207.jpg");
+  background-size:cover ;
+  border: 4px solid chartreuse
+}
+
+
+
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
