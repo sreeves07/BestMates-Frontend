@@ -7,7 +7,20 @@ function SearchBar({
   searchResult,
   setSearchResult,
 }) {
-  const copyStudents = [...searchResult];
+  // Declare state for search data
+  const [searchResult, setSearchResult] = useState(data);
+
+  // Declare state for selected students
+  const [mates, setMates] = useState(data);
+
+  // Declare State to store user inputted search
+  const [search, setSearch] = useState('');
+  // Declare State for selection value
+  const [select, setSelect] = useState('all');
+
+  // Declare state for search data
+  const [searchResult, setSearchResult] = useState(data);
+  const copyMates = [...searchResult];
 
   // function for filtering students by search value
   function searchFilter(input) {
@@ -39,15 +52,27 @@ function SearchBar({
   }
 
   return (
-    <input
-      id="searchbar"
-      type="text"
-      placeholder="Search Students"
-      value={search}
-      onChange={(event) => {
-        handleSearch(event);
-      }}
-    />
+    <>
+      <p>
+        <SearchBar
+          setStudents={setStudents}
+          search={search}
+          setSearch={setSearch}
+          searchResult={searchResult}
+          setSearchResult={setSearchResult}
+        />
+      </p>
+
+      <input
+        id="searchbar"
+        type="text"
+        placeholder="Search Students"
+        value={search}
+        onChange={(event) => {
+          handleSearch(event);
+        }}
+      />
+    </>
   );
 }
 
