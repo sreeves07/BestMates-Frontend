@@ -7,20 +7,20 @@ function SearchBar({
   searchResult,
   setSearchResult,
 }) {
-  // Declare state for search data
-  const [searchResult, setSearchResult] = useState(data);
+  //   // Declare state for search data
+  //   const [searchResult, setSearchResult] = useState(data);
 
-  // Declare state for selected students
-  const [mates, setMates] = useState(data);
+  //   // Declare state for selected students
+  //   const [mates, setMates] = useState(data);
 
-  // Declare State to store user inputted search
-  const [search, setSearch] = useState('');
-  // Declare State for selection value
-  const [select, setSelect] = useState('all');
+  //   // Declare State to store user inputted search
+  //   const [search, setSearch] = useState('');
+  //   // Declare State for selection value
+  //   const [select, setSelect] = useState('all');
 
-  // Declare state for search data
-  const [searchResult, setSearchResult] = useState(data);
-  const copyMates = [...searchResult];
+  //   // Declare state for search data
+  //   const [searchResult, setSearchResult] = useState(data);
+  //   const copyMates = [...searchResult];
 
   // function for filtering students by search value
   function searchFilter(input) {
