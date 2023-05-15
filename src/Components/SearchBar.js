@@ -1,8 +1,7 @@
 import React from 'react';
-import { middleName } from '../data/helperFunctions';
 
 function SearchBar({
-  setStudents,
+  setMates,
   search,
   setSearch,
   searchResult,
@@ -15,12 +14,7 @@ function SearchBar({
     const string = input.toLowerCase();
 
     const searchedStudent = copyStudents.filter(({ names }) => {
-      const studentLowerCaseMiddle = `${names.preferredName.toLowerCase()} ${middleName(
-        names.middleName,
-      )
-        .toLowerCase()
-        .replace(`.`, ``)} ${names.surname.toLowerCase()}`;
-
+      const studentLowerCaseMiddle = `${names.preferredName.toLowerCase()} ${names.surname.toLowerCase()}`;
       const studentLowerCaseLast = `${names.preferredName.toLowerCase()} ${names.surname.toLowerCase()}`;
 
       if (input === '') {
@@ -33,7 +27,7 @@ function SearchBar({
       }
     });
 
-    setStudents(searchedStudent);
+    setMates(searchedStudent);
   }
 
   // function for on change in search bar
