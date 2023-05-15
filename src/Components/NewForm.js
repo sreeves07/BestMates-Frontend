@@ -15,28 +15,28 @@ function NewForm() {
   //const [image, setImage] = useState("")
   
   const [newUser, setNewUser] = useState({
-    First_Name: "",
-    Last_Name: "",
-    Password: "",
-    Age: "",
-    Email: "", 
-    City: "",
-    State: "",
-    Birthday: "",
-    Gender: "",
-    Sexual_Orientation: "",
-    Has_Pets: false, 
-    Has_Open_Rooms: false,
-    Is_Smoker: false,
-    Has_Kids: false,
-    Is_Disabled: false,
-    Is_Sharing_bills: false,
-    Is_Neat: false,
-    Is_Religious: false,
-    Move_In_Date: "",
-    Max_Rent: "",
-    Credit_Score: "",
-    Income: ""
+    first_name: "",
+    last_name: "",
+    password: "",
+    email: "", 
+    city: "",
+    state: "",
+    zip_code: "",
+    birthday: "",
+    gender: "",
+    sexual_orientation: "",
+    has_pets: false, 
+    has_open_rooms: false,
+    is_smoker: false,
+    has_kids: false,
+    is_disabled: false,
+    is_sharing_bills: false,
+    is_neat: false,
+    is_religious: false,
+    move_in_date: "",
+    max_rent: "",
+    credit_score: "",
+    income: ""
 });
 
 
@@ -83,28 +83,28 @@ const addNewUser = (newUser) => {
     //handle functions for all checkboxes
 
     const handleCheckboxChange1 = () => {
-      setNewUser({ ...newUser, Is_Sharing_bills: !newUser.Is_Sharing_bills });
+      setNewUser({ ...newUser, is_sharing_bills: !newUser.is_sharing_bills });
     };
     const handleCheckboxChange2 = () => {
-      setNewUser({ ...newUser, Has_Open_Rooms: !newUser.Has_Open_Rooms });
+      setNewUser({ ...newUser, has_open_rooms: !newUser.has_open_rooms });
     };
     const handleCheckboxChange3 = () => {
-      setNewUser({ ...newUser, Is_Disabled: !newUser.Is_Disabled });
+      setNewUser({ ...newUser, is_disabled: !newUser.is_disabled });
     };
     const handleCheckboxChange4 = () => {
-      setNewUser({ ...newUser, Has_Kids: !newUser.Has_Kids });
+      setNewUser({ ...newUser, has_kids: !newUser.has_kids });
     };
     const handleCheckboxChange5 = () => {
-      setNewUser({ ...newUser, Has_Pets: !newUser.Has_Pets });
+      setNewUser({ ...newUser, has_pets: !newUser.has_pets });
     };
     const handleCheckboxChange6 = () => {
-      setNewUser({ ...newUser, Is_Neat: !newUser.Is_Neat });
+      setNewUser({ ...newUser, is_neat: !newUser.is_neat });
     };
     const handleCheckboxChange7 = () => {
-      setNewUser({ ...newUser, Is_Smoker: !newUser.Is_Smoker });
+      setNewUser({ ...newUser, is_smoker: !newUser.is_smoker });
     };
     const handleCheckboxChange8 = () => {
-      setNewUser({ ...newUser, Is_Religious: !newUser.Is_Religious });
+      setNewUser({ ...newUser, is_religious: !newUser.is_religious });
     };
     
    function handleSubmit(event){
@@ -125,13 +125,18 @@ const addNewUser = (newUser) => {
       </div>
       <form className='newForm' onSubmit={(e) => handleSubmit(e)}>
 
+           {/* ****** Grid Row 1  ***** */}
+           {/* Basic Info Heading */}
+
+         <h6 className="basicInfoHdg">Basic Information:</h6>
+
+
            {/* ****** Grid Row 2  ***** */}
            {/* Basic Info */}
-         <h6 className="basicInfoHdg">Basic Information:</h6>
           <label className='newFormLabel basicInfo1-firstName'   htmlFor="firstName">First Name: </label>
           <input 
                 className='firstName'
-                id="First_Name" 
+                id="first_name" 
                 name="firstName" 
                 type="text" 
                 onChange={handleTextChange}
@@ -147,19 +152,11 @@ const addNewUser = (newUser) => {
                 onChange={handleTextChange}
                 //value={input}
                 />
-          <label className='newFormLabel basicInfo3-age' htmlFor="age">Age: </label>
-          <input 
-                className='age'
-                id="Age" 
-                name="age" 
-                type= "number"
-                onChange={handleTextChange}
-                //value={input}
-                />
-          <label className='newFormLabel basicInfo4-birthDate'  htmlFor="birthDate">Date of Birth: </label>
+
+          <label className='newFormLabel basicInfo3-birthDate'  htmlFor="birthDate">Date of Birth: </label>
           <input 
                 className='birthDate'
-                id="Birthday" 
+                id="birthday" 
                 name="birthDate" 
                 type="date" 
                 onChange={handleTextChange}
@@ -169,17 +166,17 @@ const addNewUser = (newUser) => {
            {/* ****** Grid Row 2 ***** */}
            {/* Basic Info Continued */}
            
-          <label className='newFormLabel basicInfo5-city'  htmlFor="city">City: </label>
+          <label className='newFormLabel basicInfo4-city'  htmlFor="city">City: </label>
           <input 
                 className='city'
-                id="City" 
+                id="city" 
                 name="city" 
                 type= "text"
                 onChange={handleTextChange}
                // value={input}
                 />
 
-          <label className='newFormLabel basicInfo6-state'  htmlFor="state">State: </label>
+          <label className='newFormLabel basicInfo5-state'  htmlFor="state">State: </label>
           <input 
                 className='state'
                 id="state" 
@@ -188,10 +185,20 @@ const addNewUser = (newUser) => {
                 onChange={handleTextChange}
                 //value={input}
                 />
+
+         <label className='newFormLabel basicInfo6-zipcode' htmlFor="zip_code">Zip Code: </label>
+          <input 
+                className='zipcode'
+                id="zip_code" 
+                name="zip_code" 
+                type= "text"
+                onChange={handleTextChange}
+                //value={input}
+                />
           <label className='newFormLabel basicInfo7-email' htmlFor="email">Email: </label>
           <input 
                 className='email'
-                id="Email" 
+                id="email" 
                 name="email" 
                 type="text" 
                 onChange={handleTextChange}
@@ -213,7 +220,7 @@ const addNewUser = (newUser) => {
           <label className='newFormLabel attribute1-income' htmlFor="income">Income: </label>
           <input 
                 className='income'
-                id="Income" 
+                id="income" 
                 name="income" 
                 type="text" 
                 onChange={handleTextChange}
@@ -222,7 +229,7 @@ const addNewUser = (newUser) => {
           <label className='newFormLabel attribute2-creditScore'  htmlFor="creditScore">Credit Score: </label>
           <input 
                 className='creditScore'
-                id="Credit_Score" 
+                id="credit_score" 
                 name="creditScore" 
                 type="text" 
                 onChange={handleTextChange}
@@ -231,7 +238,7 @@ const addNewUser = (newUser) => {
           <label className='newFormLabel attribute3-maxRent'  htmlFor="maxRent">Maximum Rent: </label>
           <input 
                 className='maxRent'
-                id="Max_Rent" 
+                id="max_rent" 
                 name="maxRent" 
                 type="text" 
                 onChange={handleTextChange}
@@ -240,7 +247,7 @@ const addNewUser = (newUser) => {
          <label className='newFormLabel basicInfo9-sexOrient'  htmlFor="sexOrient">Sexual Orientation: </label>
           <input 
                 className='sexOrient'
-                id="Sexual_Orientation" 
+                id="sexual_orientation" 
                 name="sexOrient" 
                 type="text" 
                 onChange={handleTextChange}
@@ -260,7 +267,7 @@ const addNewUser = (newUser) => {
           <label className='newFormLabel attribute4-moveInDate'  htmlFor="moveInDate">Move-in<br/> Date: </label>
           <input 
                 className='moveInDate'
-                id="Move_In_Date" 
+                id="move_in_date" 
                 name="moveInDate" 
                 type="date" 
                 onChange={handleTextChange}
@@ -270,18 +277,18 @@ const addNewUser = (newUser) => {
           <label  className='newFormLabel attribute5-isSharingBills' htmlFor="isSharingBills"> Shares Utility Bills</label>
           <input 
                 className='isSharingBills'
-                id="Is_Sharing_bills" 
+                id="is_sharing_bills" 
                 name="isSharingBills" 
                 type="checkbox" 
                 onChange={ (event) => handleCheckboxChange1(event)}
                 //value={input}
-                checked={newUser.Is_Sharing_bills}
+                checked={newUser.is_sharing_bills}
                 />
 
           <label className='newFormLabel attribute6-hasOpenRooms'  htmlFor="hasOpenRooms">Has Open Rooms: </label>
           <input 
                 className='hasOpenRooms'
-                id="Has_Open_Rooms" 
+                id="has_open_rooms" 
                 name="hasOpenRooms" 
                 type="checkbox" 
                 onChange={ (event) => handleCheckboxChange2(event)}
@@ -292,7 +299,7 @@ const addNewUser = (newUser) => {
           <label className='newFormLabel attribute10-isDisabled'  htmlFor="disabled">Has Disability: </label>
           <input 
                 className='isDisabled'
-                id="Is_Disabled" 
+                id="is_disabled" 
                 name="disabled" 
                 type="checkbox" 
                 onChange={ (event) => handleCheckboxChange3(event)}
@@ -305,17 +312,17 @@ const addNewUser = (newUser) => {
          <label className='newFormLabel attribute7-hasKids'  htmlFor="hasKids">Has Kids: </label>
           <input 
                 className='hasKids'
-                id="Has_Kids" 
+                id="has_kids" 
                 name="hasKids" 
                 type="checkbox" 
                 onChange={ (event) => handleCheckboxChange4(event)}
                 //value={input}
-                checked={newUser.Has_Kids}
+                checked={newUser.has_kids}
                 />
           <label className='newFormLabel attribute8-hasPets'  htmlFor="hasPets">Has Pets: </label>
           <input 
                 className='hasPets'
-                id="Has_Pets" 
+                id="has_pets" 
                 name="hasPets" 
                 type="checkbox" 
                 onChange={ (event) => handleCheckboxChange5(event)}
@@ -325,7 +332,7 @@ const addNewUser = (newUser) => {
          <label  className='newFormLabel attribute11-isNeat' htmlFor="isNeat">Is Very neat? </label>
           <input 
                 className='isNeat'
-                id="Is_Neat" 
+                id="is_neat" 
                 name="isNeat" 
                 type="checkbox" 
                 onChange={ (event) => handleCheckboxChange6(event)}
@@ -336,7 +343,7 @@ const addNewUser = (newUser) => {
           <label className='newFormLabel attribute9-isSmoker'  htmlFor="isSmoker">Is A Smoker: </label>
           <input 
                 className='isSmoker'
-                id="is_Smoker" 
+                id="is_smoker" 
                 name="isSmoker" 
                 type="checkbox" 
                 onChange={ (event) => handleCheckboxChange7(event)}
@@ -348,7 +355,7 @@ const addNewUser = (newUser) => {
           <label className='newFormLabel attribute12-isReligious'  htmlFor="isReligious">Is Religious: </label>
           <input 
                 className='isReligious'
-                id="Is_Religious:" 
+                id="is_religious:" 
                 name="isReligious" 
                 type="checkbox" 
                 onChange={ (event) => handleCheckboxChange8(event)}

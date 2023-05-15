@@ -3,7 +3,7 @@
     grid-template-columns: 2fr .5fr .5fr .5fr;
     width: 100vw;
     height: 15vh;
-    margin-bottom: 4%;
+    margin-bottom: 0;
     background-image: linear-gradient(to bottom right, rgb(91, 40, 187), rgb(136, 87, 183));
     color: greenyellow;
     justify-content: center;
