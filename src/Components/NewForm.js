@@ -45,7 +45,7 @@ let navigate = useNavigate();
 
 const addNewUser = (newUser) => {
   axios
-  .post(`${API}/user`)
+  .post(`${API}/user`, newUser)
   .then(() => {
     navigate(`/users`);
   })
@@ -71,7 +71,7 @@ const addNewUser = (newUser) => {
 
    const handleTextChange = (event) => {
       setNewUser({ ...newUser, [event.target.id]: event.target.value });
-      console.log("newly added user", newUser)
+      // console.log("newly added user", newUser)
     };
 
     // const handleImageChange = (event) => {
@@ -82,29 +82,8 @@ const addNewUser = (newUser) => {
 
     //handle functions for all checkboxes
 
-    const handleCheckboxChange1 = () => {
-      setNewUser({ ...newUser, is_sharing_bills: !newUser.is_sharing_bills });
-    };
-    const handleCheckboxChange2 = () => {
-      setNewUser({ ...newUser, has_open_rooms: !newUser.has_open_rooms });
-    };
-    const handleCheckboxChange3 = () => {
-      setNewUser({ ...newUser, is_disabled: !newUser.is_disabled });
-    };
-    const handleCheckboxChange4 = () => {
-      setNewUser({ ...newUser, has_kids: !newUser.has_kids });
-    };
-    const handleCheckboxChange5 = () => {
-      setNewUser({ ...newUser, has_pets: !newUser.has_pets });
-    };
-    const handleCheckboxChange6 = () => {
-      setNewUser({ ...newUser, is_neat: !newUser.is_neat });
-    };
-    const handleCheckboxChange7 = () => {
-      setNewUser({ ...newUser, is_smoker: !newUser.is_smoker });
-    };
-    const handleCheckboxChange8 = () => {
-      setNewUser({ ...newUser, is_religious: !newUser.is_religious });
+    const handleCheckboxChange = (event) => {
+      setNewUser({ ...newUser, [event.target.id]: !newUser[event.target.value] });
     };
     
    function handleSubmit(event){
@@ -140,17 +119,17 @@ const addNewUser = (newUser) => {
                 name="firstName" 
                 type="text" 
                 onChange={handleTextChange}
-                //value={input}
+                value={newUser.first_name}
                 required
                 />
           <label className='newFormLabel basicInfo2-lastName' htmlFor="lastName">Last Name: </label>
           <input 
                 className='lastName'
-                id="Last_Name" 
+                id="last_name" 
                 name="lastName" 
                 type="text" 
                 onChange={handleTextChange}
-                //value={input}
+                value={newUser.last_name}
                 />
 
           <label className='newFormLabel basicInfo3-birthDate'  htmlFor="birthDate">Date of Birth: </label>
@@ -160,7 +139,7 @@ const addNewUser = (newUser) => {
                 name="birthDate" 
                 type="date" 
                 onChange={handleTextChange}
-                //value={input}
+                value={newUser.birthday}
                 />
 
            {/* ****** Grid Row 2 ***** */}
@@ -173,7 +152,7 @@ const addNewUser = (newUser) => {
                 name="city" 
                 type= "text"
                 onChange={handleTextChange}
-               // value={input}
+                value={newUser.city}
                 />
 
           <label className='newFormLabel basicInfo5-state'  htmlFor="state">State: </label>
@@ -183,7 +162,7 @@ const addNewUser = (newUser) => {
                 name="state" 
                 type="text" 
                 onChange={handleTextChange}
-                //value={input}
+                value={newUser.state}
                 />
 
          <label className='newFormLabel basicInfo6-zipcode' htmlFor="zip_code">Zip Code: </label>
@@ -191,18 +170,18 @@ const addNewUser = (newUser) => {
                 className='zipcode'
                 id="zip_code" 
                 name="zip_code" 
-                type= "text"
+                type="number"
                 onChange={handleTextChange}
-                //value={input}
+                value={newUser.zip_code}
                 />
           <label className='newFormLabel basicInfo7-email' htmlFor="email">Email: </label>
           <input 
                 className='email'
                 id="email" 
                 name="email" 
-                type="text" 
+                type="email" 
                 onChange={handleTextChange}
-                //value={input}
+                value={newUser.email}
                 />        
           <label className='newFormLabel basicInfo8-gender'  htmlFor="gender">Gender: </label>
           <input 
@@ -211,7 +190,7 @@ const addNewUser = (newUser) => {
                 name="gender" 
                 type="text" 
                 onChange={handleTextChange}
-                //value={input}
+                value={newUser.gender}
                 />
                 
           {/* ****** Grid Row 4 ***** */}
@@ -222,27 +201,27 @@ const addNewUser = (newUser) => {
                 className='income'
                 id="income" 
                 name="income" 
-                type="text" 
+                type="number" 
                 onChange={handleTextChange}
-                //value={input}
+                value={newUser.income}
                 />
           <label className='newFormLabel attribute2-creditScore'  htmlFor="creditScore">Credit Score: </label>
           <input 
                 className='creditScore'
                 id="credit_score" 
                 name="creditScore" 
-                type="text" 
+                type="number" 
                 onChange={handleTextChange}
-                //value={input}
+                value={newUser.credit_score}
                 />
           <label className='newFormLabel attribute3-maxRent'  htmlFor="maxRent">Maximum Rent: </label>
           <input 
                 className='maxRent'
                 id="max_rent" 
                 name="maxRent" 
-                type="text" 
+                type="number" 
                 onChange={handleTextChange}
-                //value={input}
+                value={newUser.max_rent}
                 />
          <label className='newFormLabel basicInfo9-sexOrient'  htmlFor="sexOrient">Sexual Orientation: </label>
           <input 
@@ -251,7 +230,7 @@ const addNewUser = (newUser) => {
                 name="sexOrient" 
                 type="text" 
                 onChange={handleTextChange}
-               // value={input}
+                value={newUser.sexual_orientation}
                 />
 
          {/* ****** Grid Row 5 ***** */}
@@ -271,7 +250,7 @@ const addNewUser = (newUser) => {
                 name="moveInDate" 
                 type="date" 
                 onChange={handleTextChange}
-                //value={input}
+                value={newUser.move_in_date}
                 />
       
           <label  className='newFormLabel attribute5-isSharingBills' htmlFor="isSharingBills"> Shares Utility Bills</label>
@@ -280,9 +259,8 @@ const addNewUser = (newUser) => {
                 id="is_sharing_bills" 
                 name="isSharingBills" 
                 type="checkbox" 
-                onChange={ (event) => handleCheckboxChange1(event)}
-                //value={input}
-                checked={newUser.is_sharing_bills}
+                onChange={ (event) => handleCheckboxChange(event)}
+                value={newUser.is_sharing_bills}
                 />
 
           <label className='newFormLabel attribute6-hasOpenRooms'  htmlFor="hasOpenRooms">Has Open Rooms: </label>
@@ -291,9 +269,8 @@ const addNewUser = (newUser) => {
                 id="has_open_rooms" 
                 name="hasOpenRooms" 
                 type="checkbox" 
-                onChange={ (event) => handleCheckboxChange2(event)}
-                //value={input}
-                checked={newUser.Has_Open_Rooms}
+                onChange={ (event) => handleCheckboxChange(event)}
+                value={newUser.has_open_rooms}
                 /><br/><br/>
 
           <label className='newFormLabel attribute10-isDisabled'  htmlFor="disabled">Has Disability: </label>
@@ -302,9 +279,8 @@ const addNewUser = (newUser) => {
                 id="is_disabled" 
                 name="disabled" 
                 type="checkbox" 
-                onChange={ (event) => handleCheckboxChange3(event)}
-                //value={input}
-                checked={newUser.Is_Disabled}
+                onChange={ (event) => handleCheckboxChange(event)}
+                value={newUser.is_disabled}
                 />
 
           {/* ****** Grid Row 7 ***** */}
@@ -315,9 +291,8 @@ const addNewUser = (newUser) => {
                 id="has_kids" 
                 name="hasKids" 
                 type="checkbox" 
-                onChange={ (event) => handleCheckboxChange4(event)}
-                //value={input}
-                checked={newUser.has_kids}
+                onChange={ (event) => handleCheckboxChange(event)}
+                value={newUser.has_kids}
                 />
           <label className='newFormLabel attribute8-hasPets'  htmlFor="hasPets">Has Pets: </label>
           <input 
@@ -325,8 +300,8 @@ const addNewUser = (newUser) => {
                 id="has_pets" 
                 name="hasPets" 
                 type="checkbox" 
-                onChange={ (event) => handleCheckboxChange5(event)}
-                checked={newUser.Has_Pets}
+                onChange={ (event) => handleCheckboxChange(event)}
+                value={newUser.has_pets}
                 />
 
          <label  className='newFormLabel attribute11-isNeat' htmlFor="isNeat">Is Very neat? </label>
@@ -335,9 +310,8 @@ const addNewUser = (newUser) => {
                 id="is_neat" 
                 name="isNeat" 
                 type="checkbox" 
-                onChange={ (event) => handleCheckboxChange6(event)}
-                //value={input}
-                checked={newUser.Is_Neat}
+                onChange={ (event) => handleCheckboxChange(event)}
+                value={newUser.is_neat}
                 />
 
           <label className='newFormLabel attribute9-isSmoker'  htmlFor="isSmoker">Is A Smoker: </label>
@@ -346,9 +320,8 @@ const addNewUser = (newUser) => {
                 id="is_smoker" 
                 name="isSmoker" 
                 type="checkbox" 
-                onChange={ (event) => handleCheckboxChange7(event)}
-                //value={input}
-                checked={newUser.Is_Smoker}
+                onChange={ (event) => handleCheckboxChange(event)}
+                value={newUser.is_smoker}
                 /><br/><br/>
 
         
@@ -358,9 +331,8 @@ const addNewUser = (newUser) => {
                 id="is_religious:" 
                 name="isReligious" 
                 type="checkbox" 
-                onChange={ (event) => handleCheckboxChange8(event)}
-                //value={input}
-                checked={newUser.Is_Religious}
+                onChange={ (event) => handleCheckboxChange(event)}
+                value={newUser.is_religious}
                 />
 
                   {/* ****** Grid Row 8 ***** */}
