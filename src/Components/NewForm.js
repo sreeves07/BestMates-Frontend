@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+//import React, { useEffect } from 'react'
 import { useState } from "react";
 import axios from "axios";
 import "../newForm.css";
@@ -108,7 +108,7 @@ const addNewUser = (newUser) => {
     
    function handleSubmit(event){
     event.preventDefault()
-    //addNewUser(newUser)
+    addNewUser(newUser)
     //addUserImage(image)
   }
 
@@ -121,7 +121,7 @@ const addNewUser = (newUser) => {
 
            {/* ****** Grid Row 1  ***** */}
            {/* Basic Info */}
-
+         <h6 className="basicInfoHdg">Basic Information:</h6>
           <label className='newFormLabel basicInfo1-firstName'   htmlFor="firstName">First Name: </label>
           <input 
                 className='firstName'
@@ -227,7 +227,7 @@ const addNewUser = (newUser) => {
                 className='maxRent'
                 id="Max_Rent" 
                 name="maxRent" 
-                type="checkbox" 
+                type="text" 
                 onChange={handleTextChange}
                 //value={input}
                 />
@@ -243,8 +243,10 @@ const addNewUser = (newUser) => {
 
          {/* ****** Grid Row 4 ***** */}
          {/* Attributes - Date field */}
-
-          <label className='newFormLabel attribute4-moveInDate'  htmlFor="moveInDate">Desired Move-in Date: </label>
+         <h6 className="atttributeHdg">Your Attributes:</h6> 
+         <h6 className="atttributeSubHdg">(This information will allow other roomates to find you as a match.)</h6>
+         
+          <label className='newFormLabel attribute4-moveInDate'  htmlFor="moveInDate">Move-in<br/> Date: </label>
           <input 
                 className='moveInDate'
                 id="Move_In_Date" 
@@ -257,7 +259,7 @@ const addNewUser = (newUser) => {
           {/* ****** Grid Row 5 ***** */}
           {/* Attributes - Checkboxes - Boolean Values */}
 
-          <label  className='newFormLabel attribute5-isSharingBills' htmlFor="isSharingBills"> Share bills?</label>
+          <label  className='newFormLabel attribute5-isSharingBills' htmlFor="isSharingBills"> Shares Utility Bills</label>
           <input 
                 className='isSharingBills'
                 id="Is_Sharing_bills" 
@@ -310,7 +312,7 @@ const addNewUser = (newUser) => {
           {/* ****** Grid Row 6 ***** */}
           {/* ****** Checkboxes continued ***** */}
 
-          <label className='newFormLabel attribute10-isDisabled'  htmlFor="disabled">Disabled: </label>
+          <label className='newFormLabel attribute10-isDisabled'  htmlFor="disabled">Has Disability: </label>
           <input 
                 className='isDisabled'
                 id="Is_Disabled" 
@@ -320,7 +322,7 @@ const addNewUser = (newUser) => {
                 //value={input}
                 checked={newUser.Is_Disabled}
                 />
-          <label  className='newFormLabel attribute11-isNeat' htmlFor="isNeat">Very neat? </label>
+          <label  className='newFormLabel attribute11-isNeat' htmlFor="isNeat">Is Very neat? </label>
           <input 
                 className='isNeat'
                 id="Is_Neat" 
