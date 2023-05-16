@@ -33,7 +33,7 @@ const ShowOneUser = () => {
 
   const { first_name, gender, birthday } = user;
 
-  const age = () => {
+  const age = (birthday) => {
     const birthYearSplit = new Date(birthday).toString().split(" ");
     const birthYearToNum = Number(birthYearSplit[3]);
     let currentYear = new Date().getFullYear();
@@ -46,7 +46,7 @@ const ShowOneUser = () => {
         <img id="showOneUserPhoto" src={image} alt="profile"></img>
         <h2>{first_name}</h2>
         <div>
-          <span>Age: {age()}</span>
+          <span>Age: {age(birthday)}</span>
         </div>
       </div>
 
