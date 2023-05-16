@@ -10,12 +10,13 @@ const ShowOneUser = () => {
   let navigate = useNavigate();
   const [user, setUser] = useState([]);
   const [image, setImage] = useState([]);
+  const [bio, setBio] = useState([]);
 
   useEffect(() => {
     axios
       .get(`${API}/user/${id}`)
       .then((response) => {
-        console.log("user api response data=", response.data);
+        console.log("user api response user data=", response.data);
         setUser(response.data[0]);
       })
       .catch((c) => console.warn("catch", c));
@@ -31,7 +32,36 @@ const ShowOneUser = () => {
       .catch((c) => console.warn("catch", c));
   }, [id]);
 
-  const { first_name, gender, birthday } = user;
+  useEffect(() => {
+    axios
+      .get(`${API}/user/${id}/bios`)
+      .then((response) => {
+        console.log("user api response data for bio=", response.data);
+        setBio(response.data[0].small_bio);
+      })
+      .catch((c) => console.warn("catch", c));
+  }, [id]);
+
+  const {
+    first_name,
+    birthday,
+    city,
+    gender,
+    has_kids,
+    has_open_rooms,
+    has_pets,
+    income,
+    is_disabled,
+    is_neat,
+    is_religious,
+    is_sharing_bills,
+    is_smoker,
+    last_name,
+    max_rent,
+    move_in_date,
+    sexual_orientation,
+    state,
+  } = user;
 
   const age = (birthday) => {
     const birthYearSplit = new Date(birthday).toString().split(" ");
@@ -40,14 +70,50 @@ const ShowOneUser = () => {
     return currentYear - birthYearToNum;
   };
 
+  const stringifyUserProperty = (userProperty) => {
+    let userPropertyToString = JSON.stringify(userProperty);
+    if (userPropertyToString === "true") {
+      return "Yes";
+    }
+    if (userPropertyToString === "false") {
+      return "No";
+    }
+    return userPropertyToString;
+  };
+
   return (
     <div>
       <div className="user">
         <img id="showOneUserPhoto" src={image} alt="profile"></img>
         <h2>{first_name}</h2>
-        <div>
+        <div className="personalInfo">
+          <span>Bio: {bio}</span>
+          <h5>Personal Info</h5>
           <span>Age: {age(birthday)}</span>
+          <span> Gender {gender}</span>
+          <span>Orientation: {stringifyUserProperty(sexual_orientation)} </span>
+          <span>Has Children: {stringifyUserProperty(has_kids)} </span>
+          <span>Religious: {stringifyUserProperty(is_religious)} </span>
+          <span>Is Neat: {stringifyUserProperty(is_neat)} </span>
+          <span>Smoker: {stringifyUserProperty(is_smoker)} </span>
+          <span>Orientation: {stringifyUserProperty(sexual_orientation)} </span>
         </div>
+        <div className="userLivingSituation">
+          <h5>Living Situation</h5>
+          <span>City: {stringifyUserProperty(city)} </span>
+          <span>State: {stringifyUserProperty(state)} </span>
+          <span>Max Rent: {stringifyUserProperty(max_rent)} </span>
+          <span>Move-In Date: {stringifyUserProperty(move_in_date)} </span>
+        </div>
+        <div className="userFinances">
+          <h5>Financial Info </h5>
+          <span>Income: {stringifyUserProperty(income)} </span>
+          <span>
+            Shares Expenses: {stringifyUserProperty(is_sharing_bills)}{" "}
+          </span>
+        </div>
+
+        <div></div>
       </div>
 
       <div className="ShowPageButtons">
