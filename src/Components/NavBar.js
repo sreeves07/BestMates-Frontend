@@ -24,6 +24,9 @@ const NavBar = () => {
       <Link to="/new">
         New Attributes
       </Link>
+      <Link to="/users/:id/edit">
+        Edit Settings
+      </Link>
     </nav>
   );
 };
