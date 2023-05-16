@@ -1,4 +1,4 @@
-import AllUsers from "../Components/AllUsers";
+import AllUsers from '../Components/AllUsers';
 
 const Index = () => {
   return (
