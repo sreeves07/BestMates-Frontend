@@ -82,38 +82,42 @@ const ShowOneUser = () => {
   };
 
   return (
-    <div>
+    <div className="ShowOneUser">
       <div className="user">
         <img id="showOneUserPhoto" src={image} alt="profile"></img>
         <h2>{first_name}</h2>
-        <div className="personalInfo">
-          <span>Bio: {bio}</span>
-          <h5>Personal Info</h5>
-          <span>Age: {age(birthday)}</span>
-          <span> Gender {gender}</span>
-          <span>Orientation: {stringifyUserProperty(sexual_orientation)} </span>
-          <span>Has Children: {stringifyUserProperty(has_kids)} </span>
-          <span>Religious: {stringifyUserProperty(is_religious)} </span>
-          <span>Is Neat: {stringifyUserProperty(is_neat)} </span>
-          <span>Smoker: {stringifyUserProperty(is_smoker)} </span>
-          <span>Orientation: {stringifyUserProperty(sexual_orientation)} </span>
+        <span id="personalInfoBio">Bio: {bio}</span>
+        <div className="userInfo">
+          <div className="basicInfo">
+            <h5>Personal Info</h5>
+            <span>Age: {age(birthday)}</span>
+            <span> Gender {gender}</span>
+            <span>
+              Orientation: {stringifyUserProperty(sexual_orientation)}{" "}
+            </span>
+            <span>Has Children: {stringifyUserProperty(has_kids)} </span>
+            <span>Religious: {stringifyUserProperty(is_religious)} </span>
+            <span>Is Neat: {stringifyUserProperty(is_neat)} </span>
+            <span>Smoker: {stringifyUserProperty(is_smoker)} </span>
+            <span>
+              Orientation: {stringifyUserProperty(sexual_orientation)}{" "}
+            </span>
+          </div>
+          <div className="userLivingSituation">
+            <h5>Living Situation</h5>
+            <span>City: {stringifyUserProperty(city)} </span>
+            <span>State: {stringifyUserProperty(state)} </span>
+            <span>Max Rent: {stringifyUserProperty(max_rent)} </span>
+            <span>Move-In Date: {stringifyUserProperty(move_in_date)} </span>
+          </div>
+          <div className="userFinances">
+            <h5>Financial Info </h5>
+            <span>Income: {stringifyUserProperty(income)} </span>
+            <span>
+              Shares Expenses: {stringifyUserProperty(is_sharing_bills)}{" "}
+            </span>
+          </div>
         </div>
-        <div className="userLivingSituation">
-          <h5>Living Situation</h5>
-          <span>City: {stringifyUserProperty(city)} </span>
-          <span>State: {stringifyUserProperty(state)} </span>
-          <span>Max Rent: {stringifyUserProperty(max_rent)} </span>
-          <span>Move-In Date: {stringifyUserProperty(move_in_date)} </span>
-        </div>
-        <div className="userFinances">
-          <h5>Financial Info </h5>
-          <span>Income: {stringifyUserProperty(income)} </span>
-          <span>
-            Shares Expenses: {stringifyUserProperty(is_sharing_bills)}{" "}
-          </span>
-        </div>
-
-        <div></div>
       </div>
 
       <div className="ShowPageButtons">
