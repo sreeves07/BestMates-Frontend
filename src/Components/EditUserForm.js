@@ -1,15 +1,12 @@
 import React from 'react'
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
-import "./EditForm.css";
+import "./EditUserForm.css";
 
 const API = process.env.REACT_APP_API_URL;
 
 function EditUserForm() {
-
-  let { id } = useParams()
-  let navigate = useNavigate();
-
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
@@ -35,6 +32,8 @@ function EditUserForm() {
     income: ""
 });
 
+let { id } = useParams()
+let navigate = useNavigate();
 
 const updateUser = (updatedUser) => {
   axios
@@ -52,6 +51,10 @@ const updateUser = (updatedUser) => {
   const handleTextChange = (event) => {
     setUser({ ...user, [event.target.id]: event.target.value });
   }
+
+  const handleCheckboxChange = (event) => {
+    setUser({ ...user, [event.target.id]: !user[event.target.value] });
+  };
 
   function handleSubmit(event){
     event.preventDefault()
