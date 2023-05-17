@@ -2,11 +2,13 @@
 
 
 .ShowOneUser{
-width: 95vw;
-height: 140vh;
+width: 90%;
+height: 100%;
 border: 1px solid rgb(128, 77, 234, .5);
         /* color in logo */
 display: grid;
+border-radius: 5%;
+margin-top: 5% ;
 }
 
 .ShowOneUser, span{
@@ -25,35 +27,81 @@ grid-template-columns: 1fr, 1fr;
 margin-left: auto;
 margin-right: auto;
 margin-top: 2%;
-width: 50%;
-background-color: blue;
+width: 55%;
+ background-color: rgba(191, 174, 227, 0.713);
+}
+
+.userInfo h5 {
+        text-align: center;
+        text-decoration: underline;
 }
 
 .basicInfo {
-display: inline-block;
- display: grid;
- grid-template-columns: 1fr, 1fr;
- width: 50%;
- background-color: red;
+display:grid;
+ width: 100%;
  text-align: justify;
 padding: 2%;
+border: 2px solid black;
+}
+
+#basicInfoAttributes span {
+display: inline-block;
+width: 30%
+}
+
+#basicInfoAttributes{
+ display: flex;
+flex-direction: row;
+}
+
+#basicInfoGroup{
+display: flex;
+flex-direction: column;
+width: 50%;
+align-items: center;
+text-align: left;
 }
 
 .userLivingSituation {
-display: grid;
-grid-template-columns: 1fr, 1fr;
-width: 50%;
-background-color: green;
-text-align: justify;
+width: 60%;
+text-align: left;
+align-items: center;
 padding: 2%;
+border: 2px solid black;
+}
+
+#livingSituationAttributes{
+display: flex;
+flex-direction: row;
+text-align: left;
+}
+
+.livingSituationGroup{
+        display: flex;
+        flex-direction: column;
 }
 
 .userFinances {
-display: grid;
-grid-template-columns: 1fr, 1fr, 1fr;
-width: 50%;
-background-color: yellow;
+display: flex;
+flex-direction: column;
+width: 40%;
 text-align: justify;
+align-items: left;
 padding: 2%;
+border: 2px solid black;
 }
 
+.userFinances span{
+        display: inline-block;
+        width: 30%
+}
+
+.livingSituationAndFinancialInfo{
+        display: flex;
+        flex-direction: row;
+}
+
+#backToUsersBtn {
+margin: 2%;
+border-radius: 10%;
+}
