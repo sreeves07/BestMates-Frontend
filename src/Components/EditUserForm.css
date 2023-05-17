@@ -1,7 +1,7 @@
 
 /* formatting for  Pages - Edit  */
 .Edit{
-    background-image: url("../Images/beautiful-colorful-room.png");
+    background-image: url("../Images/daniil-silantev-nBuiLbz_j4A-unsplash.jpg");
     background-size: cover;
     background-color: darksalmon;
     }
@@ -10,7 +10,7 @@
         margin: auto;
         width: 95vw;
         height: 70vh;
-        border: 1px solid rgb(128, 77, 234, .5);   /* color in logo */
+        border: 1px solid rgb(128, 77, 234, .7);   /* color in logo */
         display: grid;
         grid-template-columns: .7fr 1fr .7fr 1fr .7fr 1fr .7fr 1fr;
         grid-template-rows: .25fr .5fr .5fr .5fr .25fr .5fr .5fr .5fr;
@@ -47,6 +47,9 @@
         font-style: italic;
     }
     
+    .editFormLabel{
+        font-weight: bold;
+    }
     
     /* *********** [    BASIC INFO    ]  ********** */
     
@@ -62,6 +65,7 @@
     .basicInfoHdg-ef{
         font-style: italic;
         text-decoration: underline;
+        font-size: 16px;
         /* grid-column-start: 1; */
         grid-row: 1;
         padding-top: 0;     
@@ -278,6 +282,7 @@
     
     .atttributeHdg-ef{
         font-style: italic;
+        font-size: 16px;
         grid-column-start: 1;
         grid-row: 5;
         text-align: left; 
@@ -285,13 +290,14 @@
         color: rgb(128, 77, 234) /* color in logo */
     }
     .atttributeSubHdg-ef{
-        grid-column-start: 2;
-        grid-column-end: 6;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        margin-left: 9em;
         grid-row: 5;
         font-size: 16px;
         font-style: italic;
-        font-weight: lighter;
-        background-color: aliceblue;
+        font-weight:500;
+        background-color: rgba(255, 228, 196, 0.406);
         color: rgb(128, 77, 234); /* color in logo */
         
         text-align: left; 
@@ -307,6 +313,9 @@
         grid-row: 6;
         text-align: left;
         margin-left: 2em;
+        background-color: rgba(255, 228, 196, 0.80725);
+        width: 7.4em;
+        height: 1.4em;
     }
     .moveInDate-ef{
         height: 3em;
@@ -324,7 +333,8 @@
         grid-row: 6;
         text-align: left;
         margin-left: 2em;
-        width: 10em
+        width: 10em;
+        background-color: rgba(255, 228, 196, 0.80725);
     }
     .isSharingBills-ef{
         width: 1.7em;
@@ -335,6 +345,7 @@
         margin-left: -6em;
         height: 2em;
         width: 12em;
+        margin-top: -0.1em;
     }
     
     .attribute6-hasOpenRooms-ef{
@@ -344,6 +355,7 @@
         text-align: left;
         margin-left: -8em; 
         width: 9em;
+        background-color: rgba(255, 228, 196, 0.80725);
     }
     .hasOpenRooms-ef{
         width: 1.7em;
@@ -354,17 +366,19 @@
         margin-left: -3em;
         height: 2em;
         width: 12em; 
+        margin-top: -0.1em;
     }
     
     .attribute10-isDisabled-ef{
-        width: 2.7em;
-        height: 1.7em;
-        margin-left: 1em;
+        width: 7.4em;
+        height: 1.4em;
+        margin-left: -8.5em;
         grid-column-start: 8;
         grid-column-end: 9;
         grid-row: 6;
         text-align: left;
         margin-left: -8em;
+        background-color: rgba(255, 228, 196, 0.80725);
     }
     .isDisabled-ef{
         width: 2.7em;
@@ -373,6 +387,7 @@
         grid-column-end: 9;
         grid-row: 6;
         margin-left: -1.3em; 
+        margin-top: -0.1em;
     }
     
     
@@ -384,6 +399,7 @@
         grid-row: 7;
         text-align: left;
         margin-left: 2em;
+        background-color: rgba(255, 228, 196, 0.80725);
     }
     .hasKids-ef{
         width: 1.7em;
@@ -394,6 +410,7 @@
         margin-left: -7em;
         height: 2em;
         width: 12em;
+        margin-top: -0.1em;
     }
     
     
@@ -403,6 +420,7 @@
         grid-row: 7;
         text-align: left;
         margin-left: -3em;
+        background-color: rgba(255, 228, 196, 0.80725);
     }
     .hasPets-ef{
         width: 1.7em;
@@ -411,6 +429,7 @@
         grid-column-end: 4;
         grid-row: 7;
         margin-left: 3.7em;
+        margin-top: -0.1em;
     }
     
     .attribute11-isNeat-ef{
@@ -419,7 +438,8 @@
         grid-row: 7;
         text-align: left;
         margin-left: -11em;
-    }
+        background-color: rgba(255, 228, 196, 0.80725);
+        }
     .isNeat-ef{
         width: 1.7em;
         height: 1.7em;
@@ -427,6 +447,7 @@
         grid-column-end: 7;
         grid-row: 7;
         margin-left: -4em; 
+        margin-top: -0.1em;
     }
     
     .attribute9-isSmoker-ef{
@@ -435,6 +456,7 @@
         grid-row: 7;
         text-align: left;
         margin-left: -5.5em;
+        background-color: rgba(255, 228, 196, 0.80725);
     }
     .isSmoker-ef{
         width: 1.7em;
@@ -443,6 +465,7 @@
         grid-column-end: 7;
         margin-left: 2.2em;
         grid-row: 7;
+        margin-top: -0.1em;
     }
     
     
@@ -452,6 +475,7 @@
         grid-row: 7;
         text-align: left;
         margin-left: 1.8em;
+        background-color: rgba(255, 228, 196, 0.80725);
     }
     .isReligious-ef{
         width: 1.7em;
@@ -460,6 +484,7 @@
         grid-column-end: 9;
         grid-row: 7; 
         margin-left: -.8em;
+        margin-top: -0.1em;
     }
     
     

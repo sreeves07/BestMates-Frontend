@@ -297,6 +297,12 @@ background-size: cover;
 
 /* *********** FORM GRID ROW 6   ********** */
 
+/* .editFormCheckboxScreen{
+    grid-column-start: 1;
+    width:80vw;
+    height: 30vh ;
+    background-color: rgba(255, 228, 196, 0.444);
+} */
 
 .attribute4-moveInDate{
     grid-column-start: 1;

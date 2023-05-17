@@ -205,13 +205,13 @@ const updateUser = (updatedUser) => {
          {/* Attribute headings*/}
 
          <h6 className="atttributeHdg-ef">Your Attributes:</h6> 
-         <h6 className="atttributeSubHdg-ef">(This information will allow other roomates to find you as a match.)</h6>
+         <h6 className="atttributeSubHdg-ef">(Allows other roomates to find you as a match.)</h6>
          
 
          {/* ****** Grid Row 6 ***** */}
           {/* Attributes - Checkboxes - Boolean Values */}
-
-          <label className='editFormLabel attribute4-moveInDate-ef'  htmlFor="moveInDate">Move-in<br/> Date: </label>
+       
+          <label className='editFormLabel attribute4-moveInDate-ef'  htmlFor="moveInDate">Move Date: </label>
           <input 
                 className='moveInDate-ef'
                 id="move_in_date" 
@@ -302,7 +302,7 @@ const updateUser = (updatedUser) => {
                 onChange={ (event) => handleCheckboxChange(event)}
                 value={user.is_religious}
                 />
-
+         
                   {/* ****** Grid Row 8 ***** */}
           {/* ****** Submit and Cancel Buttons ***** */}
            <span className='editFormButtonsBox'>
