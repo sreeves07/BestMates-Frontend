@@ -1,0 +1,62 @@
+:root {
+    --mainColor: #8c52ff;
+    --transparentMainColor: #cbb1ff26;
+    --darkMainColor: #2e008b;
+    --secondaryColor: #66ff33;
+    --darkSecondaryColor: #228700;
+    --darkBackgroundColor: #12061e;
+    --lightBackgroundColor: beige;
+
+}
+
+.sign-in-container {
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    width: 60vw;
+    max-width: 600px;
+
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px var(--darkMainColor);
+}
+
+#login-pill, #register-pill {
+    color: var(--darkMainColor);
+    font-weight: bold;
+}
+
+#email, #password, #register-email, #register-password, #name, #username {
+    color: var(--darkMainColor);
+}
+
+#email:focus, #password:focus, #register-email:focus, #register-password:focus, #name:focus, #username:focus {
+    background-color: var(--transparentMainColor);
+}
+
+#register-flexCheckDefault {
+    width: 17px;
+    height: 17px;;
+    box-shadow: none;
+}
+
+.sign-in-btn {
+    background-color: var(--transparentMainColor);
+    color: var(--mainColor);
+    font-weight: bold;
+
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px var(--darkMainColor);
+}
+
+.sign-in-btn:hover {
+    background-color: var(--darkMainColor);
+    color: var(--secondaryColor);
+
+    border-radius: 15px;
+}
+
+.sign-in-btn-container {
+    display: grid;
+    grid-template-columns: 1fr 110px 1fr;
+}
