@@ -50,7 +50,7 @@ export default function Register({ justifyActive }) {
         });
 
         setTimeout(() => {
-          navigate("/users");
+          navigate("/new");
         }, 2000);
       } else if (registerPassword !== confirmPassword) setSucccessfulReg(false);
     } catch (error) {
