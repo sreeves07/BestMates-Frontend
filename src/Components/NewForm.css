@@ -82,7 +82,7 @@ background-size: cover;
     grid-row: 2;
     margin-left: -2em;
     height: 2em;
-    width: 12em;
+    width: 2em;
 }
 
 .basicInfo2-lastName{
@@ -98,7 +98,7 @@ background-size: cover;
     grid-row: 2;
     margin-left: -1em;
     height: 2em;
-    width: 12em;
+    width: 2em;
 }
 
  .basicInfo3-birthDate{
@@ -115,7 +115,7 @@ background-size: cover;
     grid-row: 2;
     margin-left: -.8em;
     height: 2em;
-    width: 12em;
+    width: 2em;
 } 
 
 .basicInfo8-gender{
@@ -131,7 +131,7 @@ background-size: cover;
     grid-row: 2;
     margin-left: -.8em;
     height: 2em;
-    width: 12em;
+    width: 2em;
 }
 
 /* *********** FORM GRID ROW 3   ********** */
@@ -149,7 +149,7 @@ background-size: cover;
     grid-row: 3;
     margin-left: -2em;
     height: 2em;
-    width: 12em;
+    width: 2em;
 }
 .basicInfo5-state{
     grid-column-start: 3;
@@ -164,7 +164,7 @@ background-size: cover;
     grid-row: 3;
     margin-left: -1em;
     height: 2em;
-    width: 12em;  
+    width: 2em;  
 }
 
 .basicInfo6-zipcode{
@@ -180,7 +180,7 @@ background-size: cover;
     grid-row: 3;
     margin-left: -1em;
     height: 2em;
-    width: 12em; 
+    width: 2em; 
 }
 
 .basicInfo7-email{
@@ -196,7 +196,7 @@ background-size: cover;
     grid-row: 3;
     margin-left: -.8em;
     height: 2em;
-    width: 12em; 
+    width: 2em; 
     
 }
 
