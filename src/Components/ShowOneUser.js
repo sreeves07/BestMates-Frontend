@@ -137,6 +137,9 @@ const ShowOneUser = () => {
         <Link to={`/users`}>
           <button id="backToUsersBtn">Back</button>
         </Link>
+        <Link to={`/users/:id/edit`}>
+          <button id="toEditForm">Edit</button>
+        </Link>
       </div>
     </div>
   );
