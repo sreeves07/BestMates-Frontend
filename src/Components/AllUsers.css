@@ -1,0 +1,61 @@
+/* ***************** User Profile Card ************** */
+
+#profileImage {
+    /* max width and auto should cause image to fit without distortion
+    why is this not working? */
+    height: 130px;
+    width: 130px;
+    /* max-width: 100%;
+    height: auto; */
+    margin-top: 3vh;
+  }
+  
+  .users {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    height: 80vh;
+    width: 70vw;
+    grid-gap: 7px;
+    row-gap: 7px;
+  }
+  
+  .userCard {
+    width: 170px;
+    height: 205px;
+    margin: 0 auto 0 auto;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px 5px rgba(138, 162, 185, 0.67);
+    background-color: rgba(213, 181, 243, 0.484);
+  }
+  
+  /* added to try to resize image without distortion */
+.userImageBox{
+    width: 150px;
+    height: 180px;
+    margin: 0 auto 0 auto;
+    /* border: 2px solid black; */
+}
+
+
+  .userCard-fname,
+  .userCard-info {
+    font-size: 12pt;
+    font-weight: bold;
+    line-height: 2px;
+  }
+  
+  .userCard-info {
+    font-size: 10pt;
+    text-align: left;
+    font-style: italic;
+    line-height: 2px;
+  }
+
+.filterbox{
+    width: 170px;
+    height: 205px;
+    margin: 0 auto 0 auto;
+    border: 2px solid black;
+}
+  

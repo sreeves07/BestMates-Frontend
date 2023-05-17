@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 //import avatarImage from "../Images/unisex-profile-pic.png";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import PreferenceIndex from "./PreferenceIndex";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -37,6 +38,7 @@ useEffect(() => {
             {/* <span className="userCard-gender">Gender: </span> */}
           </div>
       </Link>
+      {/* <PreferenceIndex  user={user} id={id}/> */}
     </div>
   );
 };
