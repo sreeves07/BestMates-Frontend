@@ -127,6 +127,7 @@ code {
 .userPref-filterBox{
   grid-column: 2;
   display: grid;
+  background-color: rgba(101, 173, 53, 0.118);
   width: 400px;
   height: 700px;
   margin: 0 auto 0 auto;

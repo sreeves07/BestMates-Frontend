@@ -54,12 +54,11 @@ useEffect(() => {
     <div>
         {/* <Link to= {`/users/${id}`}> </Link>*/}
             <div className="userPref-filterBox">
-                {/* <h4>`Hi ${user.first_name}</h4> */}
-                <p> Here is a list of  saved your preferences`</p>
-            <div className="userPrefList">
+               
+            {/* <div className="userPrefList"> */}
 
                 <form className="userPrefs-Form" onSubmit={(e) => handleSubmit(e)}>
-
+ <h3> ~~  Saved Preferences ~~ </h3>
                     <label className='userPref-gender'  htmlFor="userPref-gender">Gender: </label>
                     <input 
                           className='userPref-gender'
@@ -99,7 +98,7 @@ useEffect(() => {
                   </Link> */}
           </span>
                 </form>
-                </div>
+                {/* </div> */}
             </div>
         
         
