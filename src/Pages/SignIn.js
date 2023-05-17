@@ -1,4 +1,4 @@
-import SignInForm from "../Components/SignInForm";
+import SignInForm from "../Components/SignIn/SignInForm";
 import "./SignIn.css";
 
 const SignIn = () => {
