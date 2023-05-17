@@ -20,7 +20,7 @@
 
 .sign-in-container form {
     border-radius: 20px;
-    box-shadow: 3px 3px 5px var(--darkMainColor);
+    box-shadow: 3px 3px 3px var(--darkMainColor);
 }
 
 #login-pill, #register-pill {
@@ -34,6 +34,12 @@
 
 #email:focus, #password:focus, #register-email:focus, #register-password:focus, #name:focus, #username:focus {
     background-color: var(--transparentMainColor);
+}
+
+#register-flexCheckDefault {
+    width: 17px;
+    height: 17px;;
+    box-shadow: none;
 }
 
 .sign-in-btn {

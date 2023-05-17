@@ -23,14 +23,16 @@ import {
 import "./SignInForm.css";
 
 const SignInForm = () => {
-  const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [error, setError] = useState("");
   const [justifyActive, setJustifyActive] = useState("tab1");
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [successfulReg, setSucccessfulReg] = useState("");
 
   const navigate = useNavigate();
 
@@ -48,7 +50,8 @@ const SignInForm = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setUser(auth.currentUser);
-
+      setEmail("");
+      setPassword("");
       navigate("/users");
     } catch (error) {
       setError(error);
@@ -58,17 +61,21 @@ const SignInForm = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(
-        auth,
-        registerEmail,
-        registerPassword
-      );
-      handleSignIn(e);
-      setEmail("");
-      setPassword("");
-      setTimeout(() => {
-        navigate("/users");
-      }, 3000);
+      if (registerPassword === confirmPassword) {
+        await createUserWithEmailAndPassword(
+          auth,
+          registerEmail,
+          registerPassword
+        );
+        handleSignIn(e);
+        setRegisterEmail("");
+        setRegisterPassword("");
+        setConfirmPassword("");
+        setSucccessfulReg(true);
+        setTimeout(() => {
+          navigate("/users");
+        }, 3000);
+      } else if (password != confirmPassword) setSucccessfulReg(false);
     } catch (error) {
       setError(error);
     }
@@ -109,8 +116,9 @@ const SignInForm = () => {
           </MDBTabs>
 
           <MDBTabsContent>
-            <MDBTabsPane show={justifyActive === "tab1"}>
-              {/* <div className="text-center mb-3">
+            {justifyActive === "tab1" && (
+              <MDBTabsPane show={justifyActive === "tab1"}>
+                {/* <div className="text-center mb-3">
                 <p>Sign in with:</p>
 
                 <div
@@ -152,24 +160,26 @@ const SignInForm = () => {
                 <p className="text-center mt-3">or:</p>
               </div> */}
 
-              <MDBInput
-                wrapperClass="mb-4"
-                label="Email"
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <MDBInput
-                wrapperClass="mb-4"
-                label="Password"
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+                <MDBInput
+                  wrapperClass="mb-4"
+                  label="Email"
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <MDBInput
+                  wrapperClass="mb-4"
+                  label="Password"
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
 
-              {/* <div className="d-flex justify-content-between mx-4 mb-4">
+                {/* <div className="d-flex justify-content-between mx-4 mb-4">
                 <MDBCheckbox
                   name="flexCheck"
                   value=""
@@ -179,21 +189,23 @@ const SignInForm = () => {
                 <a href="!#">Forgot password?</a>
               </div> */}
 
-              <div className="sign-in-btn-container">
-                <div></div>
-                <MDBBtn className="mb-4 w-100 sign-in-btn" type="submit">
-                  Sign in
-                </MDBBtn>
-                <div></div>
-              </div>
-              {error && (
-                <div style={{ color: "red" }}>
-                  <strong>* Incorrect Credentials *</strong>
+                <div className="sign-in-btn-container">
+                  <div></div>
+                  <MDBBtn className="mb-4 w-100 sign-in-btn" type="submit">
+                    Sign in
+                  </MDBBtn>
+                  <div></div>
                 </div>
-              )}
-            </MDBTabsPane>
-            <MDBTabsPane show={justifyActive === "tab2"}>
-              {/* <div className="text-center mb-3">
+                {error && (
+                  <p style={{ color: "red" }}>
+                    <em>*Incorrect Credentials</em>
+                  </p>
+                )}
+              </MDBTabsPane>
+            )}
+            {justifyActive === "tab2" && (
+              <MDBTabsPane show={justifyActive === "tab2"}>
+                {/* <div className="text-center mb-3">
                 <p>Sign un with:</p>
 
                 <div
@@ -235,7 +247,7 @@ const SignInForm = () => {
                 <p className="text-center mt-3">or:</p>
               </div> */}
 
-              <MDBInput
+                {/* <MDBInput
                 wrapperClass="mb-4"
                 label="Name"
                 type="text"
@@ -250,38 +262,61 @@ const SignInForm = () => {
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-              />
-              <MDBInput
-                wrapperClass="mb-4"
-                label="Email"
-                type="email"
-                id="register-email"
-                value={registerEmail}
-                onChange={(e) => setRegisterEmail(e.target.value)}
-              />
-              <MDBInput
-                wrapperClass="mb-4"
-                label="Password"
-                id="register-password"
-                type="password"
-                value={registerPassword}
-                onChange={(e) => setRegisterPassword(e.target.value)}
-              />
-
-              <div className="d-flex justify-content-center mb-4">
-                <MDBCheckbox
-                  name="flexCheck"
-                  id="register-flexCheckDefault"
-                  label="I have read and agree to the terms"
+              /> */}
+                <MDBInput
+                  wrapperClass="mb-4"
+                  label="Email"
+                  type="email"
+                  id="register-email"
+                  value={registerEmail}
+                  onChange={(e) => setRegisterEmail(e.target.value)}
+                  required
                 />
-              </div>
+                <MDBInput
+                  wrapperClass="mb-4"
+                  label="Password"
+                  id="register-password"
+                  type="password"
+                  value={registerPassword}
+                  onChange={(e) => setRegisterPassword(e.target.value)}
+                  required
+                />
+                <MDBInput
+                  wrapperClass="mb-4"
+                  label="Confirm Password"
+                  id="confirm-password"
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                />
+                {successfulReg === "" ? (
+                  ""
+                ) : !successfulReg ? (
+                  <p style={{ color: "red" }}>
+                    <em>*Retype Password</em>
+                  </p>
+                ) : (
+                  <p style={{ color: "red" }}>
+                    <strong>Account Created</strong>
+                  </p>
+                )}
+                <div className="d-flex justify-content-center mb-4">
+                  <MDBCheckbox
+                    name="flexCheck"
+                    id="register-flexCheckDefault"
+                    label="I have read and agree to the terms"
+                    required
+                  />
+                </div>
 
-              <div className="sign-in-btn-container">
-                <div></div>
-                <MDBBtn className="mb-4 w-100 sign-in-btn">Sign up</MDBBtn>
-                <div></div>
-              </div>
-            </MDBTabsPane>
+                <div className="sign-in-btn-container">
+                  <div></div>
+                  <MDBBtn className="mb-4 w-100 sign-in-btn">Sign up</MDBBtn>
+                  <div></div>
+                </div>
+              </MDBTabsPane>
+            )}
           </MDBTabsContent>
         </MDBContainer>
       </form>
