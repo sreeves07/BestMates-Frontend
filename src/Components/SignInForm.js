@@ -1,7 +1,10 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../Firebase/config";
-import { signInWithEmailAndPassword, GoogleAuthProvider } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import { AuthContext } from "../Firebase/context";
 
 import {
@@ -17,9 +20,15 @@ import {
   MDBCheckbox,
 } from "mdb-react-ui-kit";
 
+import "./SignInForm.css";
+
 const SignInForm = () => {
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [registerEmail, setRegisterEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
   const [error, setError] = useState("");
   const [justifyActive, setJustifyActive] = useState("tab1");
 
@@ -31,7 +40,6 @@ const SignInForm = () => {
     if (value === justifyActive) {
       return;
     }
-
     setJustifyActive(value);
   };
 
@@ -40,14 +48,43 @@ const SignInForm = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setUser(auth.currentUser);
+
+      navigate("/users");
     } catch (error) {
       setError(error);
     }
   };
 
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      await createUserWithEmailAndPassword(
+        auth,
+        registerEmail,
+        registerPassword
+      );
+      handleSignIn(e);
+      setEmail("");
+      setPassword("");
+      setTimeout(() => {
+        navigate("/users");
+      }, 3000);
+    } catch (error) {
+      setError(error);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    if (justifyActive === "tab1") {
+      handleSignIn(e);
+    } else if (justifyActive === "tab2") {
+      handleRegister(e);
+    }
+  };
+
   return (
-    <div>
-      <form onSubmit={handleSignIn}>
+    <div className="sign-in-container">
+      <form onSubmit={(e) => handleSubmit(e)}>
         <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
           <MDBTabs
             pills
@@ -55,6 +92,7 @@ const SignInForm = () => {
             className="mb-3 d-flex flex-row justify-content-between">
             <MDBTabsItem>
               <MDBTabsLink
+                id="login-pill"
                 onClick={() => handleJustifyClick("tab1")}
                 active={justifyActive === "tab1"}>
                 Login
@@ -62,6 +100,7 @@ const SignInForm = () => {
             </MDBTabsItem>
             <MDBTabsItem>
               <MDBTabsLink
+                id="register-pill"
                 onClick={() => handleJustifyClick("tab2")}
                 active={justifyActive === "tab2"}>
                 Register
@@ -71,7 +110,7 @@ const SignInForm = () => {
 
           <MDBTabsContent>
             <MDBTabsPane show={justifyActive === "tab1"}>
-              <div className="text-center mb-3">
+              {/* <div className="text-center mb-3">
                 <p>Sign in with:</p>
 
                 <div
@@ -111,16 +150,15 @@ const SignInForm = () => {
                 </div>
 
                 <p className="text-center mt-3">or:</p>
-              </div>
+              </div> */}
 
               <MDBInput
                 wrapperClass="mb-4"
-                label="Email address"
+                label="Email"
                 type="email"
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
               />
               <MDBInput
                 wrapperClass="mb-4"
@@ -129,22 +167,25 @@ const SignInForm = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
               />
 
-              <div className="d-flex justify-content-between mx-4 mb-4">
+              {/* <div className="d-flex justify-content-between mx-4 mb-4">
                 <MDBCheckbox
                   name="flexCheck"
                   value=""
-                  id="flexCheckDefault"
+                  id="sign-in-flexCheckDefault"
                   label="Remember me"
                 />
                 <a href="!#">Forgot password?</a>
-              </div>
+              </div> */}
 
-              <MDBBtn className="mb-4 w-100" type="submit">
-                Sign in
-              </MDBBtn>
+              <div className="sign-in-btn-container">
+                <div></div>
+                <MDBBtn className="mb-4 w-100 sign-in-btn" type="submit">
+                  Sign in
+                </MDBBtn>
+                <div></div>
+              </div>
               {error && (
                 <div style={{ color: "red" }}>
                   <strong>* Incorrect Credentials *</strong>
@@ -152,7 +193,7 @@ const SignInForm = () => {
               )}
             </MDBTabsPane>
             <MDBTabsPane show={justifyActive === "tab2"}>
-              <div className="text-center mb-3">
+              {/* <div className="text-center mb-3">
                 <p>Sign un with:</p>
 
                 <div
@@ -192,42 +233,54 @@ const SignInForm = () => {
                 </div>
 
                 <p className="text-center mt-3">or:</p>
-              </div>
+              </div> */}
 
               <MDBInput
                 wrapperClass="mb-4"
                 label="Name"
-                id="form1"
                 type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
               <MDBInput
                 wrapperClass="mb-4"
                 label="Username"
-                id="form1"
                 type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
               <MDBInput
                 wrapperClass="mb-4"
                 label="Email"
-                id="form1"
                 type="email"
+                id="register-email"
+                value={registerEmail}
+                onChange={(e) => setRegisterEmail(e.target.value)}
               />
               <MDBInput
                 wrapperClass="mb-4"
                 label="Password"
-                id="form1"
+                id="register-password"
                 type="password"
+                value={registerPassword}
+                onChange={(e) => setRegisterPassword(e.target.value)}
               />
 
               <div className="d-flex justify-content-center mb-4">
                 <MDBCheckbox
                   name="flexCheck"
-                  id="flexCheckDefault"
+                  id="register-flexCheckDefault"
                   label="I have read and agree to the terms"
                 />
               </div>
 
-              <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
+              <div className="sign-in-btn-container">
+                <div></div>
+                <MDBBtn className="mb-4 w-100 sign-in-btn">Sign up</MDBBtn>
+                <div></div>
+              </div>
             </MDBTabsPane>
           </MDBTabsContent>
         </MDBContainer>
