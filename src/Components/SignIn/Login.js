@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { auth } from "../../Firebase/config";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { AuthContext } from "../../Firebase/context";
+import { useContextAuthProvider } from "../../Firebase/context";
 
 import { MDBTabsPane, MDBBtn, MDBInput } from "mdb-react-ui-kit";
 
@@ -14,7 +14,7 @@ export default function Login({ justifyActive }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { user, setUser } = useContext(AuthContext);
+  const { setUser } = useContextAuthProvider();
 
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ export default function Login({ justifyActive }) {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      setUser(auth.currentUser);
+      setUser({ ...auth.currentUser });
       setEmail("");
       setPassword("");
       navigate("/users");

@@ -40,6 +40,14 @@
     box-shadow: none;
 }
 
+#success-message {
+    background-color: var(--darkMainColor);
+    color: var(--secondaryColor);
+
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px var(--darkMainColor);
+}
+
 .sign-in-btn {
     background-color: var(--transparentMainColor);
     color: var(--mainColor);

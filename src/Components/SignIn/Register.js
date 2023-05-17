@@ -6,7 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { AuthContext } from "../../Firebase/context";
+import { useContextAuthProvider } from "../../Firebase/context";
 
 import { MDBTabsPane, MDBBtn, MDBInput, MDBCheckbox } from "mdb-react-ui-kit";
 
@@ -24,7 +24,7 @@ export default function Register({ justifyActive }) {
 
   const navigate = useNavigate();
 
-  const { user, setUser } = useContext(AuthContext);
+  const { setUser } = useContextAuthProvider();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -39,18 +39,19 @@ export default function Register({ justifyActive }) {
         setSucccessfulReg(true);
 
         await signInWithEmailAndPassword(auth, registerEmail, registerPassword);
-        setUser(auth.currentUser);
-
-        axios.post(`${API}/user`, {
-          email: user.email,
-          uid: user.uid,
-        });
-
-        navigate("/users");
-
+        setUser({ ...auth.currentUser });
         setRegisterEmail("");
         setRegisterPassword("");
         setConfirmPassword("");
+
+        await axios.post(`${API}/user`, {
+          email: auth.currentUser.email,
+          uid: auth.currentUser.uid,
+        });
+
+        setTimeout(() => {
+          navigate("/users");
+        }, 2000);
       } else if (registerPassword !== confirmPassword) setSucccessfulReg(false);
     } catch (error) {
       console.error(error);
@@ -58,7 +59,7 @@ export default function Register({ justifyActive }) {
   };
 
   return (
-    <form>
+    <form onSubmit={handleRegister}>
       <MDBTabsPane show={justifyActive === "tab2"}>
         <MDBInput
           wrapperClass="mb-4"
@@ -94,8 +95,8 @@ export default function Register({ justifyActive }) {
             <em>*Retype Password</em>
           </p>
         ) : (
-          <p style={{ color: "red" }}>
-            <strong>Account Created</strong>
+          <p id="success-message">
+            <strong>BestMates Account Created!</strong>
           </p>
         )}
         <div className="d-flex justify-content-center mb-4">
