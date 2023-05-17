@@ -124,6 +124,8 @@ code {
   line-height: 2px;
 }
 
+
+/******** User Preferences List ********/
 .userPref-filterBox{
   grid-column: 2;
   display: grid;
@@ -132,4 +134,26 @@ code {
   height: 700px;
   margin: 0 auto 0 auto;
   border: 2px solid black;
+}
+
+.userPrefs-form{
+  grid-template-rows: 1fr repeat(10);
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1px;
+}
+
+.userPref-gender-label{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row: 2;
+  text-align: left;
+  margin-left: 2em;
+}
+.userPref-gender{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row: 2;
+  margin-left: -.8em;
+  height: 2em;
+  width: 12em;
 }

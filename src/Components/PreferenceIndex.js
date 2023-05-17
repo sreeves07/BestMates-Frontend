@@ -54,12 +54,13 @@ useEffect(() => {
     <div>
         {/* <Link to= {`/users/${id}`}> </Link>*/}
             <div className="userPref-filterBox">
-               
+  
             {/* <div className="userPrefList"> */}
 
                 <form className="userPrefs-Form" onSubmit={(e) => handleSubmit(e)}>
- <h3> ~~  Saved Preferences ~~ </h3>
-                    <label className='userPref-gender'  htmlFor="userPref-gender">Gender: </label>
+                    <h3> ~~  Saved Preferences ~~ </h3>
+
+                    <label className='userPref-gender-label'  htmlFor="userPref-gender">Gender: </label>
                     <input 
                           className='userPref-gender'
                           id="gender_preference" 
@@ -70,7 +71,7 @@ useEffect(() => {
                       />
                   
               
-                  <label className='high_income_preference' htmlFor='high_income_preference'>High Income: </label>:
+                  <label className='high_income_preference-label' htmlFor='high_income_preference'>High Income: </label>:
                   <input 
                         className='high_income_preference'
                         id="high_income_preference" 
@@ -83,7 +84,7 @@ useEffect(() => {
 
           <label className='userPrefLabel attr2-good_credit_preference'  htmlFor="good_credit_preference">Good Credit Score: </label>
           <input 
-                className='good_credit_preference'
+                className='good_credit_preference-label'
                 id="good_credit_preference" 
                 name="good_credit_preference" 
                 type="number" 
