@@ -26,7 +26,9 @@ const SignInForm = () => {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [registerEmail, setRegisterEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
   const [error, setError] = useState("");
   const [justifyActive, setJustifyActive] = useState("tab1");
 
@@ -56,7 +58,11 @@ const SignInForm = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(
+        auth,
+        registerEmail,
+        registerPassword
+      );
       handleSignIn(e);
       setEmail("");
       setPassword("");
@@ -153,7 +159,6 @@ const SignInForm = () => {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
               />
               <MDBInput
                 wrapperClass="mb-4"
@@ -162,7 +167,6 @@ const SignInForm = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
               />
 
               {/* <div className="d-flex justify-content-between mx-4 mb-4">
@@ -238,7 +242,6 @@ const SignInForm = () => {
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                required
               />
               <MDBInput
                 wrapperClass="mb-4"
@@ -247,25 +250,22 @@ const SignInForm = () => {
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                required
               />
               <MDBInput
                 wrapperClass="mb-4"
                 label="Email"
                 type="email"
                 id="register-email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
+                value={registerEmail}
+                onChange={(e) => setRegisterEmail(e.target.value)}
               />
               <MDBInput
                 wrapperClass="mb-4"
                 label="Password"
                 id="register-password"
                 type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
+                value={registerPassword}
+                onChange={(e) => setRegisterPassword(e.target.value)}
               />
 
               <div className="d-flex justify-content-center mb-4">
