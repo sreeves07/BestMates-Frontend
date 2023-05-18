@@ -4,15 +4,16 @@ import { useState } from "react";
 import axios from "axios";
 import "./NewForm.css";
 import { useNavigate, Link } from "react-router-dom";
+import { useContextAuthProvider } from "../Firebase/context";
 
 const API = process.env.REACT_APP_API_URL;
 
 
 function NewForm() {
-
   //const [checked, setChecked] = useState(false)
  // const [input, setInput] = useState("")
   //const [image, setImage] = useState("")
+  const { user } = useContextAuthProvider()
   
   const [newUser, setNewUser] = useState({
     first_name: "",
@@ -45,7 +46,7 @@ let navigate = useNavigate();
 
 const addNewUser = (newUser) => {
   axios
-  .post(`${API}/user`, newUser)
+  .put(`${API}/user/${user.uid}`, newUser)
   .then(() => {
     navigate(`/users`);
   })

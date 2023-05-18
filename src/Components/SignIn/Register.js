@@ -44,7 +44,8 @@ export default function Register({ justifyActive }) {
         setRegisterPassword("");
         setConfirmPassword("");
 
-        await axios.post(`${API}/user`, {
+        // console.log(auth.currentUser.uid)
+        await axios.post(`${API}/user/register`, {
           email: auth.currentUser.email,
           uid: auth.currentUser.uid,
         });
