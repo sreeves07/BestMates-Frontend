@@ -1,10 +1,11 @@
 
 //import React, { useEffect } from 'react'
 import { useState } from "react";
+import { Navigate, useNavigate, Link } from "react-router-dom";
+import {auth} from "../Firebase/config"
+import { useAuthState } from 'react-firebase-hooks/auth';
 import axios from "axios";
 import "./NewForm.css";
-import { useNavigate, Link } from "react-router-dom";
-import { useContextAuthProvider } from "../Firebase/context";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -12,14 +13,11 @@ const API = process.env.REACT_APP_API_URL;
 function NewForm() {
   //const [checked, setChecked] = useState(false)
  // const [input, setInput] = useState("")
-  //const [image, setImage] = useState("")
-  const { user } = useContextAuthProvider()
+  const [ user, loading ] = useAuthState(auth)
   
   const [newUser, setNewUser] = useState({
     first_name: "",
     last_name: "",
-    password: "",
-    email: "", 
     city: "",
     state: "",
     zip_code: "",
@@ -93,8 +91,8 @@ const addNewUser = (newUser) => {
     //addUserImage(image)
   }
 
-  return (
-    <div className='newFormBox'>
+  
+    return !loading ? <div className='newFormBox'>
 
          {/* ****** Grid Row 2  ***** */}
          {/* Form headings */}
@@ -174,16 +172,7 @@ const addNewUser = (newUser) => {
                 type="number"
                 onChange={handleTextChange}
                 value={newUser.zip_code}
-                />
-          <label className='newFormLabel basicInfo7-email' htmlFor="email">Email: </label>
-          <input 
-                className='email'
-                id="email" 
-                name="email" 
-                type="email" 
-                onChange={handleTextChange}
-                value={newUser.email}
-                />        
+                />     
           <label className='newFormLabel basicInfo8-gender'  htmlFor="gender">Gender: </label>
           <input 
                 className='gender'
@@ -346,8 +335,8 @@ const addNewUser = (newUser) => {
                   </Link>
           </span>
         </form>
-    </div>
-  )
+    </div> : "";
+  
 }
 
 export default NewForm
