@@ -6,6 +6,16 @@ import "./ShowOneUser.css";
 const API = process.env.REACT_APP_API_URL;
 
 const ShowOneUser = () => {
+  let dateConvert = (date) => {
+    let reverseDate = " ";
+    reverseDate += date.slice(9, 11);
+    reverseDate += "/";
+    reverseDate += date.slice(6, 8);
+    reverseDate += "/";
+    reverseDate += date.slice(1, 5);
+    return reverseDate;
+  };
+
   let { id } = useParams();
   let navigate = useNavigate();
   const [user, setUser] = useState([]);
@@ -81,6 +91,10 @@ const ShowOneUser = () => {
     return userPropertyToString;
   };
 
+  let moveInDate = JSON.stringify(move_in_date);
+  // let moveInDateToString = moveInDate.toString();
+  console.log(dateConvert(`${moveInDate}`));
+
   return (
     <div className="ShowOneUser">
       <div className="user">
@@ -116,7 +130,8 @@ const ShowOneUser = () => {
                     <span>State:{stringifyUserProperty(state)} </span>
                     <span>Max Rent:{stringifyUserProperty(max_rent)} </span>
                     <span>
-                      Move-In-Date:{stringifyUserProperty(move_in_date)}{" "}
+                      Move-In-Date:
+                      {dateConvert(`${moveInDate}`)}
                     </span>
                   </div>
                 </div>
