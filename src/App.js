@@ -10,6 +10,7 @@ import FourOFour from "./Pages/FourOFour";
 import SignIn from "./Pages/SignIn";
 import New from "./Pages/New";
 import Dummy from "./Pages/Dummy";
+import Test from "./Pages/Test";
 import "./App.css";
 import { useContextAuthProvider } from "./Firebase/context";
 
@@ -45,6 +46,7 @@ function App() {
           <Route path="/users/:id" element={<Show />} />
           <Route path="/not-found" element={<FourOFour />} />
           <Route path="/dummy" element={<Dummy />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
       </main>
     </div>
