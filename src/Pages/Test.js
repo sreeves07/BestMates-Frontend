@@ -1,14 +1,18 @@
 import React from 'react'
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
-import { MDBSelect } from 'mdb-react-ui-kit';
-import Select from 'react-select'
 import "../Components/NewForm.css"
-
+import csc from 'country-state-city';
 
 
 function Test() {
 
-
+  // const countryCode = 'US';
+  // const country = csc.getCountryByCode(countryCode);
+  // const states = csc.getStatesOfCountry(country.isoCode);
+  // states.forEach((state) => {
+  //     cities_of_state = csc.getCitiesOfState(countryCode, state.isoCode)
+  //     console.log(state, ":", cities_of_state)
+  
   return (
     <div className="mx-auto mt-5" style={{ maxWidth: '900px' }}>
       <MDBRow>
