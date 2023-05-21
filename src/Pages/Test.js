@@ -1,9 +1,14 @@
 import React from 'react'
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
+import { MDBSelect } from 'mdb-react-ui-kit';
+import Select from 'react-select'
 import "../Components/NewForm.css"
 
 
-function NewForm() {
+
+function Test() {
+
+
   return (
     <div className="mx-auto mt-5" style={{ maxWidth: '900px' }}>
       <MDBRow>
@@ -375,4 +380,23 @@ function NewForm() {
   );
 
 }
-export default NewForm
+
+export default Test
+
+
+// gender_preference VARCHAR(20),
+// pets_preference BOOLEAN,
+// sexual_orientation_preference TEXT,
+// open_rooms_preference BOOLEAN,
+// neat_preference BOOLEAN,
+// kids_preference BOOLEAN,
+// low_noise_preference BOOLEAN,
+// smoker_preference BOOLEAN,
+// high_rise_preference BOOLEAN,
+// house_preference BOOLEAN,
+// private_bathroom_preference BOOLEAN,
+// private_room_preference BOOLEAN,
+// share_bills_preference BOOLEAN,
+// religious_preference BOOLEAN,
+// good_credit_preference BOOLEAN,
+// high_income_preference

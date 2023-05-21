@@ -9,6 +9,7 @@ import Index from "./Pages/Index";
 import FourOFour from "./Pages/FourOFour";
 import SignIn from "./Pages/SignIn";
 import New from "./Pages/New";
+import Test from "./Pages/Test";
 import Dummy from "./Pages/Dummy";
 import "./App.css";
 import { useContextAuthProvider } from "./Firebase/context";
@@ -40,6 +41,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/new" element={<New />} />
+          <Route path="/test" element={<Test />} />
           <Route path="/users/:id/edit" element={<EditUserForm />} />
           <Route path="/users" element={<Index />} />
           <Route path="/users/:id" element={<Show />} />
