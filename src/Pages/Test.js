@@ -2,6 +2,7 @@ import React from 'react'
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
 import "../Components/NewForm.css"
 import csc from 'country-state-city';
+import TestLocationSelect from '../Components/TestLocationSelect';
 
 
 function Test() {
@@ -13,6 +14,20 @@ function Test() {
   //     cities_of_state = csc.getCitiesOfState(countryCode, state.isoCode)
   //     console.log(state, ":", cities_of_state)
   
+  const Country = require('country-state-city').Country
+  const State = require('country-state-city').State
+  const City = require('country-state-city').City
+
+
+  const countryCode = 'US';
+  const country = Country.getCountryByCode(countryCode);
+  const states = State.getStatesOfCountry(countryCode);
+  const stateCode = 'NY';
+  const cities = City.getCitiesOfState(countryCode, stateCode)
+  //console.log(states ) //print all states of country
+ // console.log(cities) //print all cities of state
+
+
   return (
     <div className="mx-auto mt-5" style={{ maxWidth: '900px' }}>
       <MDBRow>
@@ -358,7 +373,9 @@ function Test() {
                     // id="register-flexCheckDefault"
                     label="Private Bathroom"   /> 
                 </MDBRow>
-
+<MDBRow>
+<TestLocationSelect />
+</MDBRow>
                 
                 {/* <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                   <div>
@@ -380,6 +397,7 @@ function Test() {
           </MDBCard>
         </MDBCol>
       </MDBRow>
+
     </div>
   );
 
