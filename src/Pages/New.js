@@ -1,4 +1,4 @@
-import NewForm2_MDB from "../Components/NewForm";
+import NewForm from "../Components/NewForm";
 
 const New = () => {
   return (
