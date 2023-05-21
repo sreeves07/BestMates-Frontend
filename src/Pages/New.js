@@ -4,7 +4,7 @@ const New = () => {
   return (
     <div className="New">
       <h2 className="header">
-        <NewForm />
+        <NewForm2_MDB />
       </h2>
     </div>
   );

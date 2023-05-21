@@ -119,7 +119,6 @@ select.orientation-select{
 /* ***************** User Profile Card ************** */
 
 #profileImage {
-<<<<<<< HEAD
   /* height: 130px;
   width: 130px; */
   margin-top: 1vh;
@@ -127,12 +126,6 @@ select.orientation-select{
   height: 70%;
   object-fit: cover;
   object-position: center;
-=======
-  height: 130px;
-  width: 130px;
-  margin-top: 3vh;
-  object-fit: cover;
->>>>>>> main
 }
 
 .users {
