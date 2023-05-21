@@ -1,10 +1,10 @@
-import NewForm2_MDB from "../Components/NewForm2_MDB";
+import NewForm2_MDB from "../Components/NewForm";
 
 const New = () => {
   return (
     <div className="New">
       <h2 className="header">
-        <NewForm2_MDB />
+        <NewForm />
       </h2>
     </div>
   );

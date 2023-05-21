@@ -1,0 +1,530 @@
+/* formatting for  Pages - New  */
+.New{
+background-image: url("../Images/peaceful-serene-white-room.png");
+background-size: cover;
+}
+
+.newForm{
+    margin: auto;
+    width: 95vw;
+    height: 70vh;
+    border: 1px solid rgb(128, 77, 234, .5);   /* color in logo */
+    display: grid;
+    grid-template-columns: .7fr 1fr .7fr 1fr .7fr 1fr .7fr 1fr;
+    grid-template-rows: .25fr .5fr .5fr .5fr .25fr .5fr .5fr .5fr;
+    row-gap: 6px;
+    column-gap: 10px;
+    background-color: rgb(219, 208, 228, .3);
+    background-color: rgb(128, 77, 234, .12)
+}
+
+/* *********** NEW FORM HEADINGS   ********** */
+
+.newFormHdgBox{
+    width: 100%;
+    height: 20%;
+    background-color: rgb(214 250 212 / 48%);
+    /* margin-top: -17px; */
+    /* margin: auto; */
+}
+
+.newFormHdg{
+    font-size: 23px;
+}
+
+.newFormSubHdg{
+    font-size: 18px;
+    /* color:rgb(128, 77, 234); */
+    color: chartreuse; 
+    text-shadow: rgb(128, 77, 234) 3.5px 2px 2px ;
+    letter-spacing: .25rem;
+}
+
+.newFormMsg{
+    font-size: 15px;
+    font-style: italic;
+}
+
+
+/* *********** [    BASIC INFO    ]  ********** */
+
+/* ***********  NEW FORM GRID ROW 1  ********** */
+
+.newFormLabel{
+    font-size: 16px;
+    font-style: italic;
+    width: 15vh;
+    height: 1.5em;
+    text-align: left;
+}
+.basicInfoHdg{
+    font-style: italic;
+    text-decoration: underline;
+    /* grid-column-start: 1; */
+    grid-row: 1;
+    padding-top: 0;     
+    padding-bottom: 0;
+    color: rgb(128, 77, 234) /* color in logo */
+}
+
+/* ***********  NEW FORM GRID ROW 2  ********** */
+
+.basicInfo1-firstName{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 2;
+    margin-left: 2em;
+    text-align: left;
+}
+.firstName{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 2;
+    margin-left: -2em;
+    height: 2em;
+    width: 12em;
+}
+
+.basicInfo2-lastName{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 2;
+    text-align: left;
+    margin-left: 2em;
+}
+.lastName{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 2;
+    margin-left: -1em;
+    height: 2em;
+    width: 12em;
+}
+
+ .basicInfo3-birthDate{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 2;
+    text-align: left;
+    margin-left: 2em;
+} 
+
+ .birthDate{ 
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row: 2;
+    margin-left: -.8em;
+    height: 2em;
+    width: 12em;
+} 
+
+.basicInfo8-gender{
+    grid-column-start: 7;
+    grid-column-end: 8;
+    grid-row: 2;
+    text-align: left;
+    margin-left: 2em;
+}
+.gender{
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row: 2;
+    margin-left: -.8em;
+    height: 2em;
+    width: 12em;
+}
+
+/* *********** FORM GRID ROW 3   ********** */
+
+.basicInfo4-city{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 3;
+    text-align: left;
+    margin-left: 2em;
+}
+.city{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 3;
+    margin-left: -2em;
+    height: 2em;
+    width: 12em;
+}
+.basicInfo5-state{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 3;
+    text-align: left;
+    margin-left: 2em;
+}
+.state{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 3;
+    margin-left: -1em;
+    height: 2em;
+    width: 12em;
+}
+
+.basicInfo6-zipcode{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 3;
+    text-align: left;
+    margin-left: 2em;
+}
+.zipcode{
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row: 3;
+    margin-left: -1em;
+    height: 2em;
+    width: 12em;
+}
+
+.basicInfo7-email{
+    grid-column-start: 7;
+    grid-column-end: 8;
+    grid-row: 3;
+    text-align: left;
+    margin-left: 2em;
+}
+.email{
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row: 3;
+    margin-left: -.8em;
+    height: 2em;
+    width: 12em;    
+}
+
+
+
+/* *********** FORM GRID ROW 4   ********** */
+
+.attribute1-income{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 4;
+    text-align: left;
+    margin-left: 2em;
+}
+.income{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 4;
+    margin-left: -2em;
+    height: 2em;
+    width: 12em;
+}
+
+.attribute2-creditScore{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 4;
+    text-align: left;
+    margin-left: 2em;
+}
+.creditScore{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 4;
+    margin-left: -1em;
+    height: 2em;
+    width: 12em; 
+}
+
+.attribute3-maxRent{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 4;
+    text-align: left;
+    margin-left: 2em;
+}
+.maxRent{
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row: 4;
+    margin-left: -1em;
+    height: 2em;
+    width: 12em; 
+}
+
+.basicInfo9-sexOrient{ 
+    grid-column-start: 7;
+    grid-column-end: 8;
+    grid-row: 4;
+    text-align: left;
+    margin-left: 2em;
+} 
+.sexOrient{ 
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row: 4;
+    text-align: left; 
+    margin-left: -.8em;
+    height: 2em;
+    width: 12em;
+}
+
+/* *********** [  ATTRIBUTES  ]   ********** */
+
+
+/* *********** FORM GRID ROW 5  - ATTRIBUTE HEADINGS ********** */
+
+.atttributeHdg{
+    font-style: italic;
+    grid-column-start: 1;
+    grid-row: 5;
+    text-align: left; 
+    text-decoration: underline;
+    color: rgb(128, 77, 234) /* color in logo */
+}
+.atttributeSubHdg{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row: 5;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: lighter;
+    background-color: aliceblue;
+    color: rgb(128, 77, 234); /* color in logo */
+    
+    text-align: left; 
+}
+
+
+/* *********** FORM GRID ROW 6   ********** */
+
+/* .editFormCheckboxScreen{
+    grid-column-start: 1;
+    width:80vw;
+    height: 30vh ;
+    background-color: rgba(255, 228, 196, 0.444);
+} */
+
+.attribute4-moveInDate{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 6;
+    text-align: left;
+    margin-left: 2em;
+}
+.moveInDate{
+    height: 3em;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 6;
+    margin-left: -2em;
+    height: 1.5em;
+    width: 12em;
+}
+
+.attribute5-isSharingBills{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 6;
+    text-align: left;
+    margin-left: 2em;
+    width: 10em
+}
+.isSharingBills{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 6;
+    margin-left: -6em;
+    height: 2em;
+    width: 12em;
+}
+
+.attribute6-hasOpenRooms{
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row: 6;
+    text-align: left;
+    margin-left: -8em; 
+    width: 9em;
+}
+.hasOpenRooms{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row: 6;
+    margin-left: -3em;
+    height: 2em;
+    width: 12em; 
+}
+
+.attribute10-isDisabled{
+    width: 2.7em;
+    height: 1.7em;
+    margin-left: 1em;
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row: 6;
+    text-align: left;
+    margin-left: -8em;
+}
+.isDisabled{
+    width: 2.7em;
+    height: 1.7em;
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row: 6;
+    margin-left: -1.3em; 
+}
+
+
+/* ***********  FORM GRID ROW 7   ********** */
+
+.attribute7-hasKids{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 7;
+    text-align: left;
+    margin-left: 2em;
+}
+.hasKids{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 7; 
+    margin-left: -7em;
+    height: 2em;
+    width: 12em;
+}
+
+
+.attribute8-hasPets{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 7;
+    text-align: left;
+    margin-left: -3em;
+}
+.hasPets{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 7;
+    margin-left: 3.7em;
+}
+
+.attribute11-isNeat{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 7;
+    text-align: left;
+    margin-left: -11em;
+}
+.isNeat{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row: 7;
+    margin-left: -4em; 
+}
+
+.attribute9-isSmoker{
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row: 7;
+    text-align: left;
+    margin-left: -5.5em;
+}
+.isSmoker{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    margin-left: 2.2em;
+    grid-row: 7;
+}
+
+
+.attribute12-isReligious{
+    grid-column-start: 7;
+    grid-column-end: 8;
+    grid-row: 7;
+    text-align: left;
+    margin-left: 1.8em;
+}
+.isReligious{
+    width: 1.7em;
+    height: 1.7em;
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row: 7; 
+    margin-left: -.8em;
+}
+
+
+/* *********** FORM GRID ROW 7   ********** */
+
+
+/* *********** FORM GRID ROW 8   ********** */
+
+
+.newFormButtonsBox{
+    width: 16.5em;
+    height: 2.7em; 
+    margin-left: -1.75em;
+    padding-top: 1em;
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row: 8 ;
+    border: 1px solid rgba(70, 51, 88, 0.405);
+}
+
+.submitButton-newForm{
+    width: 5em;
+    height: 2em;
+    margin-left: -8px;
+    background-color:rgb(63, 30, 95);
+    color: yellowgreen;
+    border: 2px solid rgb(111, 21, 127);
+    font-size: 16px;
+    font-weight: bold;
+    color:rgb(63, 30, 95);
+    background-color: chartreuse;
+    border-radius: 50%;
+}
+a.cancelButton-newForm{
+    margin-left: 3em;
+}
+.cancelBtn-nf{
+    width: 5em;
+    height: 2em;
+    color: chartreuse;
+    border: 2px solid rgb(130, 7, 7);
+    background-color: rgb(128, 77, 234); /* color in logo */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%;
+
+}
+
+.submitButton-newForm:hover{
+    background-color:yellow;
+    border: 3.5px solid black;
+    
+}
+.cancelBtn-nf:hover{
+    background-color:rgb(144, 190, 223);
+    color:rgb(128, 77, 234);  /* color in logo */
+    border: 3.5px solid black;
+   
+}
+
+
+
+
+
+/* ***********  MEDIA QUERIES   ********** */
