@@ -59,55 +59,23 @@ const PreferenceIndex = ({ id }) => {
 
   return (
     <div>
-      <form
-        className="userPrefs-Form userPref-filterBox"
-        onSubmit={(e) => handleSubmit(e)}>
-        <h3 className="userPrefsHdg"> ~~ Saved Preferences ~~ </h3>
-        <label className="userPref-gender-label" htmlFor="userPref-gender">
-          Gender:{" "}
-        </label>
-        <input
-          className="userPref-gender"
-          id="gender_preference"
-          name="userPref-gender"
-          type="text"
-          onChange={handleTextChange}
-          value={answer.gender_preference}
-        />
-        <label
-          className="high_income_preference-label"
-          htmlFor="high_income_preference">
-          High Income:{" "}
-        </label>
-        :
-        <input
-          className="high_income_preference"
-          id="high_income_preference"
-          name="high_income_preference"
-          type="checkbox"
-          onChange={(event) => handleCheckboxChange(event)}
-          value={answer.high_income_preference}
-        />
-        <label
-          className="good_credit_preference-label"
-          htmlFor="good_credit_preference">
-          Good Credit Score:{" "}
-        </label>
-        <input
-          className="good_credit_preference-label"
-          id="good_credit_preference"
-          name="good_credit_preference"
-          type="number"
-          onChange={handleTextChange}
-          value={answer.good_credit_preference}
-        />
-        {/* <span className='userPrefsButtonsBox'>
-                    <button className='submitButton-userPref' type="submit">Submit</button> */}
-        {/* <Link className="cancelLink-userPref" to={`/`}>
-                            <button className='cancelBtn-userPref'>Cancel</button>
-                      </Link> */}
-        {/* </span> */}
-      </form>
+      <h2>Your Preferences</h2>
+    Gender: Female <br/>
+    Pet: No<br/>
+    Sexual orientation: Heterosexual<br/>
+    Open Rooms: No<br/>
+    Neat: Yes<br/>
+    Has Kids: No <br/>
+    Low Noise: Yes <br/>
+    Smoker: Yes<br/>
+    High_Rise: Yes<br/>
+    House: Yes<br/>
+    Private_Bathroom: Yes
+    Private Room: Yes<br/>
+    Agree to Share Bills: Yes<br/>
+    Religious: No<br/>
+    Has Good Credit: Yes<br/>
+    High Income: Yes<br/>
     </div>
   );
 };
