@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import PreferenceIndex from "./PreferenceIndex";
+import "./User.css"
 
 const API = process.env.REACT_APP_API_URL;
 

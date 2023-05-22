@@ -1,16 +1,16 @@
-/* ***************** User Profile Card ************** */
+/* ******* Index Page - contains user profile cards and preferences list ******** */
+/*Includes 2 columns, left col for user grid, rtght col for user preferences list*/
 
-#profileImage {
-    /* max width and auto should cause image to fit without distortion
-    why is this not working? */
-    height: 130px;
-    width: 130px;
-    /* max-width: 100%;
-    height: auto; */
-    margin-top: 3vh;
-  }
-  
+.Index{
+  display:grid;
+  grid-template-columns: 5fr 1fr;
+}
+
+/* ***************** User Grid  ************** */
+/*Left Column*/
+
   .users {
+    grid-column: 1;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -20,42 +20,73 @@
     row-gap: 7px;
   }
   
-  .userCard {
-    width: 170px;
-    height: 205px;
-    margin: 0 auto 0 auto;
-    border: 2px solid black;
-    box-shadow: 5px 5px 5px 5px rgba(138, 162, 185, 0.67);
-    background-color: rgba(213, 181, 243, 0.484);
-  }
-  
-  /* added to try to resize image without distortion */
-.userImageBox{
-    width: 150px;
-    height: 180px;
-    margin: 0 auto 0 auto;
-    /* border: 2px solid black; */
+
+/******** User Preferences List ********/
+/* Right Column */
+
+.userPref-filterBox{
+  grid-column: 2;
+  display: grid;
+  background-color: rgba(101, 173, 53, 0.118);
+  width: 400px;
+  height: 500px;
+  margin: 0 auto 0 auto;
+  border: 2px solid black;
 }
 
 
-  .userCard-fname,
-  .userCard-info {
-    font-size: 12pt;
-    font-weight: bold;
-    line-height: 2px;
-  }
-  
-  .userCard-info {
-    font-size: 10pt;
-    text-align: left;
-    font-style: italic;
-    line-height: 2px;
-  }
+/* Preference Grid */
 
-.filterbox{
-    width: 170px;
-    height: 205px;
-    margin: 0 auto 0 auto;
-    border: 2px solid black;
+.userPrefs-form{
+  grid-template-rows: .2fr .2fr .2fr;
+  /* grid-template-columns: 1fr 1fr; */
+  row-gap: 1px;
 }
-  
+
+
+/* Preferences */
+
+.userPrefsHdg{
+  grid-row: 1;
+}
+
+.userPref-gender-label{
+  grid-row: 2;
+  text-align: left;
+}
+
+.userPref-gender{
+  grid-column-start: 2;
+  grid-row: 2; 
+  margin-left: 1em;
+  height: 2em;
+}
+
+.high_income_preference-label{
+  grid-row: 3;
+  text-align: left;
+}
+
+.high_income_preference{
+  grid-row: 3;
+  margin-left: 1em;
+  height: 2em;
+}
+
+.good_credit_preference-label{
+  grid-row: 4;
+  text-align: left;
+  margin-left: 1em;
+}
+.good_credit_preference{
+  grid-column-start: 2;
+  grid-row: 4;
+  margin-left: 2em;
+  height: 1em;
+}
+
+/* MEDIA QUERIES - to be completed*/
+/* USE FOR MEDIA QUERY - SMALLER */
+
+
+

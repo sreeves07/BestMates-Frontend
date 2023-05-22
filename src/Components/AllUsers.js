@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import User from './User';
+import "./AllUsers.css"
 
 const API = process.env.REACT_APP_API_URL;
 
