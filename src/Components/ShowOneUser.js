@@ -7,6 +7,7 @@ const API = process.env.REACT_APP_API_URL;
 
 const ShowOneUser = () => {
   let dateConvert = (date) => {
+    console.log(date);
     let reverseDate = " ";
     reverseDate += date.slice(9, 11);
     reverseDate += "/";
