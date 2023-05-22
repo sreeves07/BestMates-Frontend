@@ -10,6 +10,7 @@
     height: 70%;
     object-fit: cover;
     object-position: center;
+    border-radius: 35% 35%;
   }
   
 /* user pic and info container */
@@ -18,12 +19,41 @@
     width: 170px;
     height: 195px;
     margin: 0 auto 0 auto;
-    border: 2px solid black;
+    border: 2px solid rgb(48, 15, 108);
     box-shadow: 5px 5px 5px 5px rgba(138, 162, 185, 0.67);
+    border-radius: 35% 35%;
     ;
-    background-color: rgba(213, 181, 243, 0.484);
+    background-color: white;
   }
   
+/* 
+  .userCard {
+    width: 100px;
+    height: 100px;
+    background: white;
+    position: relative;
+  }
+  .userCard:before {
+    content: "";
+    width: 170px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 29px solid white;
+    border-left: 29px solid #eee;
+    border-right: 29px solid #eee;
+  }
+  .userCard:after {
+    content: "";
+    width: 170px;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 29px solid white;
+    border-left: 29px solid #eee;
+    border-right: 29px solid #eee;
+  } */
 
 /* ***************** User Information (at bottom of card) ************** */
 
