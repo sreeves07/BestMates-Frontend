@@ -70,7 +70,7 @@ const PreferenceIndex = ({ id }) => {
     Smoker: Yes<br/>
     High_Rise: Yes<br/>
     House: Yes<br/>
-    Private_Bathroom: Yes
+    Private_Bathroom: Yes<br/>
     Private Room: Yes<br/>
     Agree to Share Bills: Yes<br/>
     Religious: No<br/>
