@@ -19,7 +19,7 @@ header {
 
     color: var(--secondaryColor);
 
-    margin-bottom: 1.5rem;
+    margin-bottom: .5rem;  /*changed from 1.5 - LadyD*/
 
     box-shadow: 0 10px 30px 20px var(--mainColorLight);
 }
