@@ -4,7 +4,7 @@ const Home = () => {
       <div className="homeHdgBox">
         <h1 className="header">Welcome to BestMates</h1>
       </div>
-      <div className="bg-image  home-image-grid">
+      <div className="home-image-grid  bg-image  ">
         <div className="homeImage1 bg-image"></div>
         <div className="homeImage2 bg-image"></div>
         <div className="homeImage3 bg-image"></div>
