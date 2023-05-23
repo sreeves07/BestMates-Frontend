@@ -21,10 +21,9 @@ body {
 .Home {
   width: 100vw;
   height: 80vh;
-  background-image: url("./Images/light-beige-sectional-and-artwork.jpg");
+  background-image: url("./Images/BlueWhiteRoom-Roommate-Tri-Pic3-Lighter.png");
   background-size: cover;
   font-family: 'Petit Formal Script', cursive;
-
   display: grid;
   grid-template-rows: .25fr 4.75fr;
 }
@@ -33,7 +32,6 @@ body {
   width: 100vw;
   height: 80vh;
   background: rgba(255, 255, 255, 0.451);
-  z-index: -100;
 } */
 
 
@@ -45,28 +43,16 @@ body {
 
 .home-image-grid{
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 
 
-.homeImage1 {
-  grid-column-start:6 ;
-  grid-column-end: 7;
-  grid-row-start: 4;
-  grid-row-end: 4;
-  width: 25vw;
-  height: 45vh;
-  background-image: url("./Images/twoFemales-highFive.jpg");
-  background-size: cover;
-  border: 4px solid white
-}
-
-.homeImage2 {
-  grid-column-start:8 ;
-  grid-column-end: 9;
-  grid-row-start: 4;
-  grid-row-end: 5;
+/* .homeImage2 {
+  grid-column-start:4 ;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
   width: 25vw;
   height: 45vh;
   background-image: url("./Images/two-female-roomates-at-table.png");
@@ -74,7 +60,7 @@ body {
   background-size: cover;
   margin-left: 750px;
   border: 4px solid white;
-}
+} */
 
 /* .homeImage3 {
   margin-top: -60px;

@@ -33,6 +33,9 @@ function NavBar() {
           <button className="nav-btn nav-close-btn" onClick={showNavBar}>
             <FaTimes />
           </button>
+          <div className="navhomeHdgBox">
+          <h1 className="header">Welcome to BestMates</h1>
+        </div>
           <Link className="sign-nav-btn" onClick={() => setUser(null)} to="/">
             Sign Out
           </Link>
