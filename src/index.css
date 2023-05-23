@@ -21,13 +21,20 @@ body {
 .Home {
   width: 100vw;
   height: 80vh;
-  background-image: url("./Images/kenny-eliason-Wp7t4cWN-68-unsplash.jpg");
+  background-image: url("./Images/beautiful-colorful-room.png");
   background-size: cover;
   font-family: 'Petit Formal Script', cursive;
 
   display: grid;
   grid-template-rows: .25fr 4.75fr;
 }
+
+/* .homeScreen{
+  width: 100vw;
+  height: 80vh;
+  background: rgba(255, 255, 255, 0.451);
+  z-index: -100;
+} */
 
 
 .homeHdgBox {

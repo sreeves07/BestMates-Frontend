@@ -29,7 +29,7 @@ function Test() {
 
 
   return (
-    <div className="mx-auto mt-5" style={{ maxWidth: '900px' }}>
+    <div className="mx-auto mt-5 testForm .bg-img " style= {{ maxWidth: '900px' }}>
       <MDBRow>
         <MDBCol md="8" className="mb-4">
           <MDBCard className="mb-4">
