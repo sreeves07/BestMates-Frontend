@@ -27,7 +27,7 @@ useEffect(() => {
     <div>
        <Link to={`/users/${id}`}>
           <div className="userCard">
-            <img
+            <img 
               id="profileImage"
               // src={avatarImage}
               // src={`/users/id/{image}`}

@@ -10,19 +10,50 @@
     height: 70%;
     object-fit: cover;
     object-position: center;
-    border-radius: 35% 35%;
+    border-radius: 5% 5%;
   }
+  #profileImage:hover {
+    filter: brightness(107%);
+    background-color: rgba(4, 7, 20, 0.211);
+    /* width: 75%;
+    height: 75%; */
+    border: .1rem solid #c0a0ff;
+    /* --transparentMainColor: #cbb1ff26;; */
+  }
+  .userCard:hover {
+    filter: brightness(110%);
+    background-image: linear-gradient(to right,#10022d, #2e008b );
+    color: #66ff33;
+    border-color: white;
+    box-shadow: .06rem .06rem .06rem .06rem rgba(138, 162, 185, 0.136);
+    /* animation-name: growPic;
+    animation-duration: 1s; */
+  }
+  /* .growPic {
+    animation-name: growPic;
+  } */
+  
+  /* @keyframes growPic {
+    from {
+      width: 75%;
+      height: 75%;
+    }
+  
+    to {
+      width: 85%;
+      height: 85%;
+    }
+  } */
   
 /* user pic and info container */
 
   .userCard {
-    width: 170px;
-    height: 195px;
+    width: 90%;
+    height: 90%;
     margin: 0 auto 0 auto;
-    border: 2px solid rgb(48, 15, 108);
-    box-shadow: 5px 5px 5px 5px rgba(138, 162, 185, 0.67);
-    border-radius: 35% 35%;
-    ;
+    border: .1rem solid rgba(186, 183, 192, 0.288);
+    box-shadow: .06rem .06rem .06rem .06rem rgba(138, 162, 185, 0.136);
+    border-radius: 5% 5%;
     background-color: white;
   }
   
