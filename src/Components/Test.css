@@ -1,0 +1,86 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap');
+
+
+* {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 900;
+}
+.main{
+  background-image: url("../Images/beautiful-spaciuos-livingroom.png");
+  height: 100%;
+  width:100%;
+}
+
+/* Style for Standard Select - Non MDB Select Drop Down List */
+/* USE FOR MEDIA QUERY - SMALLER */
+.birthdate-MDB-input{
+  border: 1px solid rgb(182, 181, 181);
+  height: 4.78vh;
+  width: 10.95vw;
+  border-radius: 1rem;
+  color:rgb(114, 113, 113) ;
+  padding-left: .4vw;
+}
+
+select, select option{
+  background-color: white;
+}
+select.gender-select{
+  border: 1px solid rgb(182, 181, 181);
+  height: 4.78vh;
+  width: 11.5vw;
+  border-radius: 3px;
+  color:rgb(114, 113, 113) ;
+  padding-left: .4vw;
+  margin-left: -3vh;
+  background-color:white ;
+  background:white
+}
+
+select.orientation-select{
+  border: 1px solid rgb(182, 181, 181);
+  height: 4.78vh;
+  width: 13.5vw;
+  border-radius: 3px;
+  color:rgb(114, 113, 113) ;
+  padding-left: .4vw;
+}
+
+
+
+/* MEDIA QUERIES - to be completed*/
+
+/* USE FOR MEDIA QUERY - SMALLER */
+
+/* 
+.birthdate-MDB-input{
+  border: 1px solid rgb(182, 181, 181);
+  height: 4.78vh;
+  width: 13.5vw;
+  border-radius: 3px;
+  color:rgb(114, 113, 113) ;
+  padding-left: .4vw;
+}
+
+
+.gender-select{
+  border: 1px solid rgb(182, 181, 181);
+  height: 4.78vh;
+  width: 13.5vw;
+  border-radius: 3px;
+  color:rgb(114, 113, 113) ;
+  padding-left: .4vw;
+}
+
+.orientation-select{
+  border: 1px solid rgb(182, 181, 181);
+  height: 4.78vh;
+  width: 13.5vw;
+  border-radius: 3px;
+  color:rgb(114, 113, 113) ;
+  padding-left: .4vw;
+}
+ */
+

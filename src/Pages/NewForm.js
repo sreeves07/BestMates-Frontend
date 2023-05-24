@@ -1,11 +1,36 @@
 import React from 'react'
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
-import "../Components/NewForm.css"
+// import "../Components/NewForm.css"
+import "../Components/Test.css"
+import csc from 'country-state-city';
+import TestLocationSelect from '../Components/TestLocationSelect';
 
 
 function NewForm() {
+
+  // const countryCode = 'US';
+  // const country = csc.getCountryByCode(countryCode);
+  // const states = csc.getStatesOfCountry(country.isoCode);
+  // states.forEach((state) => {
+  //     cities_of_state = csc.getCitiesOfState(countryCode, state.isoCode)
+  //     console.log(state, ":", cities_of_state)
+  
+  const Country = require('country-state-city').Country
+  const State = require('country-state-city').State
+  const City = require('country-state-city').City
+
+
+  const countryCode = 'US';
+  const country = Country.getCountryByCode(countryCode);
+  const states = State.getStatesOfCountry(countryCode);
+  const stateCode = 'NY';
+  const cities = City.getCitiesOfState(countryCode, stateCode)
+  //console.log(states ) //print all states of country
+ // console.log(cities) //print all cities of state
+
+
   return (
-    <div className="mx-auto mt-5" style={{ maxWidth: '900px' }}>
+    <div className="mx-auto mt-5 testForm .bg-img " style= {{ maxWidth: '900px' }}>
       <MDBRow>
         <MDBCol md="8" className="mb-4">
           <MDBCard className="mb-4">
@@ -13,6 +38,10 @@ function NewForm() {
               <MDBTypography tag="h5" className="mb-0">New Account Form</MDBTypography>
             </MDBCardHeader>
             <MDBCardBody>
+
+
+
+              
               <form>
 
 
@@ -349,7 +378,9 @@ function NewForm() {
                     // id="register-flexCheckDefault"
                     label="Private Bathroom"   /> 
                 </MDBRow>
-
+<MDBRow>
+<TestLocationSelect />
+</MDBRow>
                 
                 {/* <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                   <div>
@@ -371,8 +402,28 @@ function NewForm() {
           </MDBCard>
         </MDBCol>
       </MDBRow>
+
     </div>
   );
 
 }
+
 export default NewForm
+
+
+// gender_preference VARCHAR(20),
+// pets_preference BOOLEAN,
+// sexual_orientation_preference TEXT,
+// open_rooms_preference BOOLEAN,
+// neat_preference BOOLEAN,
+// kids_preference BOOLEAN,
+// low_noise_preference BOOLEAN,
+// smoker_preference BOOLEAN,
+// high_rise_preference BOOLEAN,
+// house_preference BOOLEAN,
+// private_bathroom_preference BOOLEAN,
+// private_room_preference BOOLEAN,
+// share_bills_preference BOOLEAN,
+// religious_preference BOOLEAN,
+// good_credit_preference BOOLEAN,
+// high_income_preference
