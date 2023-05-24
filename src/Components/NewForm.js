@@ -5,7 +5,7 @@ import { Navigate, useNavigate, Link } from "react-router-dom";
 import { auth } from "../Firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import axios from "axios";
-// import "./NewForm.css";
+import PreferenceIndex from "./PreferenceIndex"
 import "../Components/Test.css"
 // import "../Components/NewForm.css"
 
@@ -59,8 +59,9 @@ function NewForm() {
 
   const handleTextChange = (event) => {
     setNewUser({ ...newUser, [event.target.id]: event.target.value });
-    // console.log("newly added user", newUser)
   };
+    // console.log("newly added user", newUser)
+  
 
   const handleCheckboxChange = (event) => {
     setNewUser({ ...newUser, [event.target.id]: !newUser[event.target.value] });
@@ -68,6 +69,7 @@ function NewForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    event.target.className += " was-validated"
     addNewUser(newUser);
     //addUserImage(image)
   }
@@ -93,7 +95,7 @@ function NewForm() {
  // console.log(cities) //print all cities of state
 
 
-  return (
+  return !loading ? (
     <div className="mx-auto mt-5 testForm .bg-img " style= {{ maxWidth: '900px' }}>
       <MDBRow>
         <MDBCol md="8" className="mb-4">
@@ -102,57 +104,91 @@ function NewForm() {
               <MDBTypography tag="h5" className="mb-0">New Account Form</MDBTypography>
             </MDBCardHeader>
             <MDBCardBody>
-              <form>
+              <form className="needs-validation"
+              onSubmit={handleSubmit}
+              noValidate >
                 {/*Basic Info -  Row 1 */}
                 <MDBRow className="mb-4">
-                    <MDBCol>
+                    <MDBCol md="4">
                       <MDBInput 
                        label='First name' 
                        type='text' 
-                        onChange={handleTextChange}
-                         value={newUser.first_name}
-                         id="first_name"
-                         required
-                         /> 
-
+                       onChange={handleTextChange}
+                        value={newUser.first_name}
+                        id="first_name"
+                        required
+                      /> 
+                      <div className="valid-feedback">Looks good!</div>
                     </MDBCol>
 
-                     <MDBCol>
+                     <MDBCol md="4">
                         <MDBInput 
                           label='Last name'
-                          type='text' />
+                          type='text' 
+                          onChange={handleTextChange}
+                          value={newUser.last_name}
+                        id="last_name"
+                        required
+                      />
                      </MDBCol>
                 </MDBRow>
 
                 {/*Basic Info -  Row 2 */}
                 <MDBRow className="mb-4">
-                  <MDBCol>
-                    <MDBInput label='City' type='text' />
+                  <MDBCol md="4">
+                    <MDBInput label='City' type='text'
+                      onChange={handleTextChange}
+                      value={newUser.city}
+                      id="city"
+                      required 
+                    />
                   </MDBCol>
 
-                  <MDBCol>
-                    <MDBInput label='State' type='text' />
+                  <MDBCol md="4">
+                    <MDBInput label='State' type='text' 
+                      onChange={handleTextChange}
+                      value={newUser.state}
+                      id="state"
+                      required
+                    />
                   </MDBCol>
 
-                  <MDBCol>
-                    <MDBInput label='Zip Code' type='number' />
+                  <MDBCol md="4">
+                    <MDBInput label='Zip Code' type='number' 
+                      onChange={handleTextChange}
+                      value={newUser.zip_code}
+                      id="zip_code"
+                      required
+                    />
                   </MDBCol>
                 </MDBRow>
 {/*Basic Info - Row 3 */}
                 <MDBRow className="mb-4">
-                  <MDBCol>
-                    <MDBInput className='birthdate-MDB-input' label='Date of Birth' type='date' />
+                  <MDBCol md="4">
+                    <MDBInput className='birthdate-MDB-input' label='Date of Birth' type='date' 
+                      onChange={handleTextChange}
+                      value={newUser.birthday}
+                      id="birthday"
+                      required
+                    />
                   </MDBCol>
 
-                  <MDBCol>
-                  {/* <MDBInput label='Gender' type='text' /> */}
+                  <MDBCol md="4">
+                  {/* Gender with Radio button
+                  <MDBInput label='Gender' type='text' /> */}
                   {/* <MDBRadio name='flexRadioDefault' id='flexRadioDefault1' label='Male' />
                   <MDBRadio name='flexRadioDefault' id='flexRadioDefault2' label='Female' defaultChecked /> */}
                   {/* React Select dropdown - no label */}
                   {/* <Select options={options} /> */}
 
-                  <select class="gender-select">   {/* class="browser-default custom-select" */}
-                      <option selected>Gender</option>
+                    <select
+                      class="gender-select"
+                      onChange={handleTextChange}
+                      value={newUser.gender}
+                      id="gender"
+                      required
+                   >   {/* class="browser-default custom-select" */}
+                      <option defaultValue={"gender"}>Gender</option>
                       <option value="1">Male</option>
                       <option value="2">Female</option>
                       <option value="3">Intersex</option>
@@ -163,8 +199,14 @@ function NewForm() {
 
                   </MDBCol>
 
-                   <MDBCol>    <select class="orientation-select">   {/* class="browser-default custom-select" */}
-                      <option selected>Orientation</option>
+                   <MDBCol >     
+                    <select class="orientation-select"
+                      onChange={handleTextChange}
+                      value={newUser.sexual_orientation}
+                      id="sexual_orientation"
+                      required
+                   >   {/* class="browser-default custom-select" */}
+                      <option defaultValue={"Heterosexual"}>Orientation</option>
                       <option value="1">Heterosexual</option>
                       <option value="2">Pansexual</option>
                       <option value="3">BiSexual</option>
@@ -177,27 +219,52 @@ function NewForm() {
                 </MDBRow>
  {/*Basic Info -  Row 4 */}
                 <MDBRow>
-                  <MDBCol>
-                    <MDBInput label='Email' type='text' className="mb-4" />
+                  <MDBCol md="4">
+                    <MDBInput label='Email' type='text' className="mb-4"
+                      onChange={handleTextChange}
+                      value={newUser.email}
+                      id="email"
+                      required
+                    />
                   </MDBCol>
                   
-                  <MDBCol>
-                    <MDBInput label='Move-In Date Range' type='date' />
+                  <MDBCol md="4">
+                    <MDBInput label='Move-In Date Range' type='date'
+                      onChange={handleTextChange}
+                      value={newUser.move_in_date}
+                      id="move_in_date"
+                      required
+                    />
                   </MDBCol>
           
-                  <MDBCol>
-                    <MDBInput label='Credit Level' type='text' />
+                  <MDBCol md="4">
+                    <MDBInput label='Credit Level' type='text'
+                      onChange={handleTextChange}
+                      value={newUser.credit_score}
+                      id="credit_score"
+                      required
+                    />
                   </MDBCol>
                 </MDBRow>
 
  {/*Basic Info -  Row 5 */}
                 <MDBRow className="mb-4">
-                  <MDBCol>
-                    <MDBInput label='Income Level' type='text' />
+                  <MDBCol md="4">
+                    <MDBInput label='Income Level' type='text'
+                      onChange={handleTextChange}
+                      value={newUser.income}
+                      id="income"
+                      required
+                    />
                   </MDBCol>
 
-                  <MDBCol>
-                    <MDBInput label="Maximum Rent Budget" type='number' />                 
+                  <MDBCol md="4">
+                    <MDBInput label="Maximum Rent Budget" type='number' 
+                      onChange={handleTextChange}
+                      value={newUser.max_rent}
+                      id="max_rent"
+                      required
+                    />                 
                   </MDBCol> 
                 </MDBRow>
 
@@ -207,59 +274,95 @@ function NewForm() {
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
-                      label="Agree To Share Bills" />
+                      label="Agree To Share Bills"
+                      onChange={handleTextChange}
+                      value={newUser.is_sharing_bills}
+                      id="is_sharing_bills"
+                      required />
                   </MDBCol>
 
-                  <MDBCol>
+                  <MDBCol md="4">
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
-                      label="Have Living Space"/> 
+                      label="Have Living Space"
+                      onChange={handleTextChange}
+                      value={newUser.has_open_rooms}
+                      id="has_open_rooms"
+                      required
+                      /> 
                   </MDBCol> 
-                  <MDBCol>
+                  <MDBCol md="4">
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
-                      label="Very Neat" /> 
+                      label="Very Neat"
+                      onChange={handleTextChange}
+                      value={newUser.is_neat}
+                      id="is_neat"
+                      required
+                      /> 
                  </MDBCol> 
 
-                 <MDBCol>
+                 <MDBCol md="4">
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
-                      label="Low Noise Lifestyle" /> 
-                 </MDBCol> 
+                      label="Low Noise Lifestyle"
+                      onChange={handleTextChange}
+                      value={newUser.low_noise}
+                      id="low_noise"
+                      required
+                      /> 
+                  </MDBCol> 
                 </MDBRow>
 
                 <MDBRow className="mb-4">
-                  <MDBCol>
-                  <MDBCheckbox
-                    name="flexCheck"
-                    // id="register-flexCheckDefault"
-                    label="Religious"/>
-                  </MDBCol>
-
-                  <MDBCol>
-                  <MDBCheckbox
-                    name="flexCheck"
-                    // id="register-flexCheckDefault"
-                    label="Have Kids"
-                 />
-                  </MDBCol>
-
-                  <MDBCol>
+                  <MDBCol md="4">
                     <MDBCheckbox
-                        name="flexCheck"
-                        // id="register-flexCheckDefault"
-                        label="Have Pets"
+                      name="flexCheck"
+                      // id="register-flexCheckDefault"
+                      label="Religious"
+                      onChange={handleTextChange}
+                      value={newUser.is_religious}
+                      id="is_religious"
+                      required
+                      />
+                  </MDBCol>
+
+                  <MDBCol md="4">
+                    <MDBCheckbox
+                      name="flexCheck"
+                      // id="register-flexCheckDefault"
+                      label="Have Kids"
+                      onChange={handleTextChange}
+                      value={newUser.has_kids}
+                      id="has_kids"
+                      required
+                  />
+                  </MDBCol>
+
+                  <MDBCol md="4">
+                    <MDBCheckbox
+                      name="flexCheck"
+                      // id="register-flexCheckDefault"
+                      label="Have Pets"
+                      onChange={handleTextChange}
+                      value={newUser.has_pets}
+                      id="has_pets"
+                      required
                     />
                   </MDBCol>
 
-                  <MDBCol>
+                  <MDBCol md="4">
                     <MDBCheckbox
-                        name="flexCheck"
-                        // id="register-flexCheckDefault"
-                        label="Smoker"
+                      name="flexCheck"
+                      // id="register-flexCheckDefault"
+                      label="Smoker"
+                      onChange={handleTextChange}
+                      value={newUser.is_smoker}
+                      id="is_smoker"
+                      required
                     />
                   </MDBCol>
                 </MDBRow>
@@ -267,35 +370,50 @@ function NewForm() {
 {/* Checkboxes - Row 3 */}
 
                 <MDBRow className="mb-4">
-                  <MDBCol>
-                  <MDBCheckbox
-                    name="flexCheck"
-                    // id="register-flexCheckDefault"
-                    label="Student"
-                 />
-                  </MDBCol>
-
-                  <MDBCol>
-                  <MDBCheckbox
-                    name="flexCheck"
-                    // id="register-flexCheckDefault"
-                    label="Musician"
-                 />
-                  </MDBCol>
-
-                  <MDBCol>
+                  <MDBCol md="4">
                     <MDBCheckbox
-                        name="flexCheck"
-                        // id="register-flexCheckDefault"
-                        label="Singer"
+                      name="flexCheck"
+                      // id="register-flexCheckDefault"
+                      label="Student"
+                      onChange={handleTextChange}
+                      value={newUser.is_student}
+                      id="is_student"
+                      required
+                 />
+                  </MDBCol>
+
+                  <MDBCol md="4">
+                    <MDBCheckbox
+                      name="flexCheck"
+                      // id="register-flexCheckDefault"
+                      label="Musician"
+                      onChange={handleTextChange}
+                      value={newUser.is_musician}
+                      id="is_musician"
+                      required
+                  />
+                  </MDBCol>
+
+                  <MDBCol md="4">
+                    <MDBCheckbox
+                      name="flexCheck"
+                      // id="register-flexCheckDefault"
+                      label="Singer"
+                      onChange={handleTextChange}
+                      value={newUser.is_singer}
+                      id="is_singer"
+                      required
                     />
                   </MDBCol>
 
-                  <MDBCol>
+                  <MDBCol md="4">
                     <MDBCheckbox
                         name="flexCheck"
                         // id="register-flexCheckDefault"
                         label="Host Parties"
+                        onChange={handleTextChange}
+                        value={newUser.host_parties}
+                        id="host_parties"
                         required
                     />
                   </MDBCol>
@@ -311,170 +429,19 @@ function NewForm() {
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
-        <MDBCol md="4" className="mb-4">
-          
-  {/* Preferences List (Checkboxes) - Right Column   */}
-          <MDBCard className="mb-4">
-            <MDBCardHeader className="py-3">
-              <MDBTypography tag="h5" className="mb-0">Your Preferences</MDBTypography>
-            </MDBCardHeader>
 
-            <MDBCardBody>
-              <MDBListGroup flush>
-              <MDBRow>
-                  <select class="location-select-prefs">   {/* class="browser-default custom-select" */}
-                      <option selected>Location</option>
-                      <option value="1">Same as Mine</option>
-                      <option value="2">New York</option>
-                      <option value="3">Massachussetts</option>
-                      <option value="4">Pennsylvania</option>
-                      <option value="5">Washington</option>
-                      <option value="6">Other/Decline to Share</option>
-                  </select>
-                </MDBRow> 
+        <MDBCol md="4"> 
 
-                <MDBRow>
-                  <select class="gender-select-prefs">   {/* class="browser-default custom-select" */}
-                      <option selected>Gender</option>
-                      <option value="1">Male</option>
-                      <option value="2">Female</option>
-                      <option value="3">Intersex</option>
-                      <option value="4">Non-Binary</option>
-                      <option value="5">Transgender</option>
-                      <option value="6">Other</option>
-                  </select>
-
-                </MDBRow>
-
-                <MDBRow>    
-                  <select class="orientation-select-prefs">   {/* class="browser-default custom-select" */}
-                     <option selected>Orientation</option>
-                     <option value="1">Heterosexual</option>
-                     <option value="2">Pansexual</option>
-                     <option value="3">BiSexual</option>
-                     <option value="4">Homosexual</option>
-                     <option value="5">Asexual</option>
-                     <option value="6">Other/Decline to Share</option>
-                  </select>
-                </MDBRow>
-                  <MDBRow>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label=" Has Good Credit" /> 
-                  </MDBRow>
-
-                   <MDBRow>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Has Employment" /> 
-                  </MDBRow>
-
-                  <MDBRow>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Has High Income" /> 
-                  </MDBRow> 
-
-                  <MDBRow>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Has No Kids" /> 
-                  </MDBRow> 
-
-                  <MDBRow>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Has No Pets" /> 
-                  </MDBRow> 
-
-                  <MDBRow>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Agrees to Share Bills" /> 
-                  </MDBRow> 
-              
-                <MDBRow>
-                  <MDBCheckbox
-                    name="flexCheck"
-                    // id="register-flexCheckDefault"
-                    label="Has Living Space"   /> 
-                </MDBRow>
-                
-                <MDBRow>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label=" Is Very Neat/Clean" /> 
-                  </MDBRow>
-
-                   <MDBRow>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Non-Smoker" /> 
-                  </MDBRow>
-
-                  <MDBRow>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Low Noise LifeStyle" /> 
-                  </MDBRow> 
-
-                  <MDBRow>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Is Religious" /> 
-                  </MDBRow> 
-
-                  <MDBRow>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Private Room" /> 
-                  </MDBRow> 
-              
-                <MDBRow>
-                  <MDBCheckbox
-                    name="flexCheck"
-                    // id="register-flexCheckDefault"
-                    label="Private Bathroom"   /> 
-                </MDBRow>
-<MDBRow>
-<TestLocationSelect />
-</MDBRow>
-                
-                {/* <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                  <div>
-                    <strong>Total amount</strong>
-                    <strong>
-                      <p className="mb-0">(including VAT)</p>
-                    </strong>
-                  </div>
-                  <span><strong>$53.98</strong></span>
-                </MDBListGroupItem> */}
-
-              </MDBListGroup>
-
-              {/* <MDBBtn size="lg" block> */}
-              <MDBBtn size="sm" >
-                Save Preferences
-              </MDBBtn>
-            </MDBCardBody>
-          </MDBCard>
+          {/* *************** PREFERENCES LIST (Checkboxes) - Right Column ***************  */}
+         <PreferenceIndex />
         </MDBCol>
       </MDBRow>
 
     </div>
-  );
 
+) : (
+  ""
+  );
 }
 
 export default NewForm

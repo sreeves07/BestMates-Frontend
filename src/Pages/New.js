@@ -5,8 +5,6 @@ const New = () => {
   return (
     <div className="New">
       <h2 className="header">
-        <PreviousNewForm />
-        {/* <NewForm/> */}
       </h2>
     </div>
   );
