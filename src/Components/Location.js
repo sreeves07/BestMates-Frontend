@@ -4,7 +4,7 @@ import Select from "react-select";
 import { useEffect, useState } from "react";
 
 
-function TestLocationSelect() {
+function Location() {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedState, setSelectedState] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
@@ -63,4 +63,4 @@ function TestLocationSelect() {
   )
 }
 
-export default TestLocationSelect
+export default Location
