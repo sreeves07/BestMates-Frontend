@@ -12,7 +12,7 @@ import "../Components/Test.css"
 // imports for material design bootstrap
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
 import csc from 'country-state-city';
-import TestLocationSelect from './TestLocationSelect';
+import TestLocationSelect from './Location';
 
 const API = process.env.REACT_APP_API_URL;
 

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 //import User from "./User";
 import { useContextAuthProvider } from "../Firebase/context";
-import TestLocationSelect from './TestLocationSelect';
+import Location from './Location';
 
 import "../Components/Test.css"
 // import "../Components/NewForm.css"
@@ -96,23 +96,28 @@ const PreferenceIndex = ({ id }) => {
 
             <MDBCardBody>
               <MDBListGroup flush>
-              <MDBRow className="mb-4">
+              {/* <MDBRow className="mb-4">
                   <select class="location-select-prefs"
                     onChange={handleTextChange}
                     value={answer.location}
-                    id="host_parties"
-                    required
+                    id="location"
+                    required>  */}
                   
-                  >   {/* class="browser-default custom-select" */}
-                      <option defaultValue={"New York"}>Location</option>
+                    {/* class="browser-default custom-select" */}
+                      {/* <option defaultValue={"New York"}>Location</option>
                       <option value="1">Same as Mine</option>
                       <option value="2">New York</option>
                       <option value="3">Massachussetts</option>
                       <option value="4">Pennsylvania</option>
                       <option value="5">Washington</option>
                       <option value="6">Other/Decline to Share</option>
-                  </select>
-                </MDBRow> 
+                  </select> */}
+                {/* </MDBRow>  */}
+
+                {/* rendering component for React Select Location drop down list */}
+                <MDBRow className="mb-4">
+                      <Location />
+                </MDBRow>
 
                 <MDBRow className="mb-4">
                   <select class="gender-select-prefs"
@@ -241,11 +246,6 @@ const PreferenceIndex = ({ id }) => {
                     name="flexCheck"
                     // id="register-flexCheckDefault"
                     label="Private Bathroom"   /> 
-                </MDBRow>
-
-                {/* rendering component for React Select Location drop down list */}
-                <MDBRow className="mb-4">
-                  <TestLocationSelect />
                 </MDBRow>
                 
                 {/* <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 mb-3">
