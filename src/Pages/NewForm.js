@@ -1,12 +1,76 @@
 import React from 'react'
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
-// import "../Components/NewForm.css"
+
+import { useState } from "react";
+import { Navigate, useNavigate, Link } from "react-router-dom";
+import { auth } from "../Firebase/config";
+import { useAuthState } from "react-firebase-hooks/auth";
+import axios from "axios";
+// import "./NewForm.css";
 import "../Components/Test.css"
+// import "../Components/NewForm.css"
+
+// imports for material design bootstrap
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
 import csc from 'country-state-city';
 import TestLocationSelect from '../Components/TestLocationSelect';
 
+const API = process.env.REACT_APP_API_URL;
 
 function NewForm() {
+
+//const [checked, setChecked] = useState(false)
+  // const [input, setInput] = useState("")
+
+  const [user, loading] = useAuthState(auth);
+  const [newUser, setNewUser] = useState({
+    first_name: "",
+    last_name: "",
+    city: "",
+    state: "",
+    zip_code: "",
+    birthday: "",
+    gender: "",
+    sexual_orientation: "",
+    has_pets: false,
+    has_open_rooms: false,
+    is_smoker: false,
+    has_kids: false,
+    is_disabled: false,
+    is_sharing_bills: false,
+    is_neat: false,
+    is_religious: false,
+    move_in_date: "",
+    max_rent: "",
+    credit_score: "",
+    income: "",
+  });
+
+  // AXIOS CALL 1 -  make an axios call to backend to be able to post info re new user from form
+  let navigate = useNavigate();
+
+  const addNewUser = (newUser) => {
+    axios
+      .put(`${API}/user/${user.uid}`, newUser)
+      .then(() => {
+        navigate(`/users`);
+      })
+      .catch((c) => console.warn("catch", c));
+  };
+
+  const handleTextChange = (event) => {
+    setNewUser({ ...newUser, [event.target.id]: event.target.value });
+    // console.log("newly added user", newUser)
+  };
+
+  const handleCheckboxChange = (event) => {
+    setNewUser({ ...newUser, [event.target.id]: !newUser[event.target.value] });
+  };
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    addNewUser(newUser);
+    //addUserImage(image)
+  }
 
   // const countryCode = 'US';
   // const country = csc.getCountryByCode(countryCode);
@@ -38,24 +102,29 @@ function NewForm() {
               <MDBTypography tag="h5" className="mb-0">New Account Form</MDBTypography>
             </MDBCardHeader>
             <MDBCardBody>
-
-
-
-              
               <form>
-
-
-{/*Basic Info -  Row 1 */}
+                {/*Basic Info -  Row 1 */}
                 <MDBRow className="mb-4">
                     <MDBCol>
-                      <MDBInput label='First name' type='text' /> 
+                      <MDBInput 
+                       label='First name' 
+                       type='text' 
+                        onChange={handleTextChange}
+                         value={newUser.first_name}
+                         id="first_name"
+                         required
+                         /> 
+
                     </MDBCol>
 
                      <MDBCol>
-                        <MDBInput label='Last name' type='text' />
+                        <MDBInput 
+                          label='Last name'
+                          type='text' />
                      </MDBCol>
                 </MDBRow>
-{/*Basic Info -  Row 2 */}
+
+                {/*Basic Info -  Row 2 */}
                 <MDBRow className="mb-4">
                   <MDBCol>
                     <MDBInput label='City' type='text' />
