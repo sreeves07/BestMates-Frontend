@@ -37,11 +37,8 @@ width: 55%;
 }
 
 .basicInfo {
-display:grid;
- width: 100%;
+
  text-align: justify;
-padding: 2%;
-border: 2px solid black;
 }
 
 #basicInfoAttributes span {

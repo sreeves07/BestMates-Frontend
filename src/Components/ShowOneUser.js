@@ -2,6 +2,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import "./ShowOneUser.css";
+import {
+  MDBCol,
+  MDBRow,
+  MDBTypography,
+  MDBCard,
+  MDBCardBody,
+  MDBCardHeader,
+  MDBCardImage,
+} from "mdb-react-ui-kit";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -100,51 +109,66 @@ const ShowOneUser = () => {
     <div className="ShowOneUser">
       <div className="user">
         <img id="showOneUserPhoto" src={image} alt="profile"></img>
-        <h2>{first_name}</h2>
-        <span id="personalInfoBio">Bio: {bio}</span>
-        <div className="border">
-          <div className="userInfo">
-            <div className="basicInfo">
-              <h5 id="basicInfoH5">Basic Info</h5>
-              <div id="basicInfoAttributes">
-                <div id="basicInfoGroup">
-                  <span>Age:{age(birthday)}</span>
-                  <span> Gender:{gender}</span>
-                  <span>
-                    Orientation:{stringifyUserProperty(sexual_orientation)}{" "}
-                  </span>
-                  <span>Children:{stringifyUserProperty(has_kids)} </span>
-                </div>
-                <div id="basicInfoGroup">
-                  <span>Religious:{stringifyUserProperty(is_religious)} </span>
-                  <span>Is Neat:{stringifyUserProperty(is_neat)} </span>
-                  <span>Smoker:{stringifyUserProperty(is_smoker)} </span>
-                </div>
-              </div>
-            </div>
-            <div className="livingSituationAndFinancialInfo">
-              <div className="userLivingSituation">
-                <h5>Living Situation</h5>
-                <div id="livingSituationAttributes">
-                  <div className="livingSituationGroup">
-                    <span>City:{stringifyUserProperty(city)} </span>
-                    <span>State:{stringifyUserProperty(state)} </span>
-                    <span>Max Rent:{stringifyUserProperty(max_rent)} </span>
-                    <span>
-                      Move-In-Date:
-                      {dateConvert(`${moveInDate}`)}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="userFinances">
-                <h5>Financial Info </h5>
-                <span>Income:{stringifyUserProperty(income)} </span>
+
+        <p class="h2">{first_name}</p>
+
+        <p class="h4">Bio: {bio}</p>
+
+        <MDBCol>
+          <MDBCard className="mb-3 basicInfo">
+            <MDBCardHeader>
+              <MDBTypography tag="h5" className="mb-0">
+                Basic Info
+              </MDBTypography>
+            </MDBCardHeader>
+            <MDBCardBody>
+              <MDBRow>
+                {/* PARENT COLUMN  */}
+
+                <MDBCol>
+                  {/* BEGINNING OF ROW 1 */}
+
+                  <MDBRow>
+                    <MDBCol>Age:{age(birthday)}</MDBCol>
+                    <MDBCol>
+                      Religious:{stringifyUserProperty(is_religious)}
+                    </MDBCol>
+                    <MDBCol>Gender: {gender}</MDBCol>
+                    <MDBCol>Orientation: {sexual_orientation}</MDBCol>
+                    <MDBCol>Children: {stringifyUserProperty(has_kids)}</MDBCol>
+                  </MDBRow>
+
+                  {/* ROW 2*/}
+
+                  <MDBRow></MDBRow>
+                  {/* END OF PARENT COLUMN */}
+                </MDBCol>
+              </MDBRow>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+
+        <div className="livingSituationAndFinancialInfo">
+          <div className="userLivingSituation">
+            <h5>Living Situation</h5>
+            <div id="livingSituationAttributes">
+              <div className="livingSituationGroup">
+                <span>City:{stringifyUserProperty(city)} </span>
+                <span>State:{stringifyUserProperty(state)} </span>
+                <span>Max Rent:{stringifyUserProperty(max_rent)} </span>
                 <span>
-                  Shares Expenses:{stringifyUserProperty(is_sharing_bills)}{" "}
+                  Move-In-Date:
+                  {dateConvert(`${moveInDate}`)}
                 </span>
               </div>
             </div>
+          </div>
+          <div className="userFinances">
+            <h5>Financial Info </h5>
+            <span>Income:{stringifyUserProperty(income)} </span>
+            <span>
+              Shares Expenses:{stringifyUserProperty(is_sharing_bills)}{" "}
+            </span>
           </div>
         </div>
       </div>

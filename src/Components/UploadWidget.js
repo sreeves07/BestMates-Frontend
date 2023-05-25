@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 
 const UploadWidget = () => {
   let [uploadURL, setUploadUrl] = useState("");
+  const API = process.env.REACT_APP_API_URL;
   const CLOUD_NAME = process.env.CLOUD_NAME;
   const CLOUD_PRESET = process.env.CLOUD_PRESET;
   const cloudinaryRef = useRef();
@@ -26,6 +28,14 @@ const UploadWidget = () => {
         }
       }
     );
+
+    axios
+      // .post(`${API}/user/${id}/images`)
+      .then((response) => {
+        // console.log("user api response data for images=", response.data);
+        // setImage(response.data[0].profile_image);
+      })
+      .catch((c) => console.warn("catch", c));
   }, []);
 
   return (
