@@ -8,6 +8,9 @@ import axios from "axios";
 import PreferenceIndex from "./PreferenceIndex"
 // import "../Components/Test.css"
 import "../Components/NewForm.css"
+import { Country, State, City } from "country-state-city";
+
+import UploadWidget from "./UploadWidget.js"
 
 // imports for material design bootstrap
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
@@ -180,12 +183,12 @@ function NewForm() {
                   {/* <Select options={options} /> */}
 
                     <select
-                      class="gender-select mb-2"
+                      className="gender-select mb-2"
                       onChange={handleTextChange}
                       value={newUser.gender}
                       id="gender"
                       required
-                   >   {/* class="browser-default custom-select" */}
+                   >   {/* className="browser-default custom-select" */}
                       <option defaultValue={"gender"}>Gender</option>
                       <option value="1">Male</option>
                       <option value="2">Female</option>
@@ -198,12 +201,12 @@ function NewForm() {
                   </MDBCol>
 
                    <MDBCol md="5" >     
-                    <select class="orientation-select"
+                    <select className="orientation-select"
                       onChange={handleTextChange}
                       value={newUser.sexual_orientation}
                       id="sexual_orientation"
                       required
-                   >   {/* class="browser-default custom-select" */}
+                   >   {/* className="browser-default custom-select" */}
                       <option defaultValue={"Heterosexual"}>Orientation</option>
                       <option value="1">Heterosexual</option>
                       <option value="2">Pansexual</option>
@@ -474,7 +477,17 @@ function NewForm() {
                 {/* <MDBTextArea label='Additional information' rows={4} className="mb-4" /> */}
 
                 <div className="d-flex justify-content-center">
-                  <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account?' defaultChecked />
+
+                <MDBRow>
+                    <MDBCol>
+                      <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account?' defaultChecked />
+                    </MDBCol>
+                    <MDBCol>
+                      <UploadWidget />
+                    </MDBCol>
+                </MDBRow>
+
+
                 </div>
               </form>
             </MDBCardBody>

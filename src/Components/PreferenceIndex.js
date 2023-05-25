@@ -241,7 +241,7 @@ const PreferenceIndex = ({ id }) => {
                       label="Private Room" /> 
                   </MDBRow> 
               
-                <MDBRow >
+                <MDBRow className="mb-2" >
                   <MDBCheckbox
                     name="flexCheck"
                     // id="register-flexCheckDefault"

@@ -2,7 +2,7 @@ import React from 'react'
 import { Country, State, City } from "country-state-city";
 import Select from "react-select";
 import { useEffect, useState } from "react";
-
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
 
 function Location() {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -15,7 +15,8 @@ function Location() {
   }, [selectedCountry]);
   
   return (
-    <div>TestLocationSelect
+    <div>
+      <MDBTypography tag="h6" className="mb-3 location-select" >Select a Preferred Location</MDBTypography>
 
 <Select
         options={Country.getAllCountries()}
