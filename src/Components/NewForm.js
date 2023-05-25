@@ -420,7 +420,7 @@ function NewForm() {
 
 {/* Checkboxes - Row 3 */}
 
-                <MDBRow>
+                <MDBRow className="mb-4">
                   <MDBCol>
                     <MDBCheckbox
                       name="flexCheck"
