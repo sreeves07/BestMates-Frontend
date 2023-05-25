@@ -97,10 +97,10 @@ function NewForm() {
 
 
   return !loading ? (
-    <div className="mx-auto mt-5 testForm .bg-img " style= {{ maxWidth: '900px' }}>
+    <div className="mx-auto mt-5 row gx-5 .bg-img " style= {{ maxWidth: '900px' }}>
       <MDBRow>
       <MDBCol md="1 align-items-start">
-
+          <UploadWidget />
       </MDBCol>
         <MDBCol md="6" className="mb-1">
           <MDBCard className="mb-4">
@@ -485,7 +485,7 @@ function NewForm() {
 
                 <MDBRow className="mb-2">
                 <MDBCol>
-                      <UploadWidget />
+                      {/* <UploadWidget /> */}
                     </MDBCol>
                     <MDBCol></MDBCol>
                     <MDBCol>
