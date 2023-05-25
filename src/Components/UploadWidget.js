@@ -30,11 +30,11 @@ const UploadWidget = () => {
     );
 
     axios
-      // .post(`${API}/user/${id}/images`)
+      .post(`${API}/user/images`)
       .then((response) => {
-        // console.log("user api response data for images=", response.data);
+        console.log("user api response data for images=", response.data);
         // setImage(response.data[0].profile_image);
-      })
+     })
       .catch((c) => console.warn("catch", c));
   }, []);
 
