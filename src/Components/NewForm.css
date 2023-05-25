@@ -34,7 +34,7 @@ select.gender-select{
   border-radius: 3px;
   color:rgb(114, 113, 113) ;
   padding-left: .4vw;
-  margin-left: -3vh;
+  margin-left: -.15vw;
   background-color:white ;
   background:white
 }
@@ -42,7 +42,8 @@ select.gender-select{
 select.orientation-select{
   border: 1px solid rgb(182, 181, 181);
   height: 4.78vh;
-  width: 13.5vw;
+  width: 11.5vw;
+  margin-left: 3vw;
   border-radius: 3px;
   color:rgb(114, 113, 113) ;
   padding-left: .4vw;

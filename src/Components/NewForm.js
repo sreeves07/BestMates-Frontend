@@ -6,13 +6,11 @@ import { auth } from "../Firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import axios from "axios";
 import PreferenceIndex from "./PreferenceIndex"
-import "../Components/Test.css"
-// import "../Components/NewForm.css"
+// import "../Components/Test.css"
+import "../Components/NewForm.css"
 
 // imports for material design bootstrap
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
-import csc from 'country-state-city';
-import TestLocationSelect from './Location';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -109,7 +107,7 @@ function NewForm() {
               noValidate >
                 {/*Basic Info -  Row 1 */}
                 <MDBRow className="mb-4">
-                    <MDBCol md="4">
+                    <MDBCol>
                       <MDBInput 
                        label='First name' 
                        type='text' 
@@ -121,7 +119,7 @@ function NewForm() {
                       <div className="valid-feedback">Looks good!</div>
                     </MDBCol>
 
-                     <MDBCol md="4">
+                     <MDBCol >
                         <MDBInput 
                           label='Last name'
                           type='text' 
@@ -135,7 +133,7 @@ function NewForm() {
 
                 {/*Basic Info -  Row 2 */}
                 <MDBRow className="mb-4">
-                  <MDBCol md="4">
+                  <MDBCol >
                     <MDBInput label='City' type='text'
                       onChange={handleTextChange}
                       value={newUser.city}
@@ -144,7 +142,7 @@ function NewForm() {
                     />
                   </MDBCol>
 
-                  <MDBCol md="4">
+                  <MDBCol>
                     <MDBInput label='State' type='text' 
                       onChange={handleTextChange}
                       value={newUser.state}
@@ -153,7 +151,7 @@ function NewForm() {
                     />
                   </MDBCol>
 
-                  <MDBCol md="4">
+                  <MDBCol>
                     <MDBInput label='Zip Code' type='number' 
                       onChange={handleTextChange}
                       value={newUser.zip_code}
@@ -164,7 +162,7 @@ function NewForm() {
                 </MDBRow>
 {/*Basic Info - Row 3 */}
                 <MDBRow className="mb-4">
-                  <MDBCol md="4">
+                  <MDBCol>
                     <MDBInput className='birthdate-MDB-input' label='Date of Birth' type='date' 
                       onChange={handleTextChange}
                       value={newUser.birthday}
@@ -173,7 +171,7 @@ function NewForm() {
                     />
                   </MDBCol>
 
-                  <MDBCol md="4">
+                  <MDBCol md="3">
                   {/* Gender with Radio button
                   <MDBInput label='Gender' type='text' /> */}
                   {/* <MDBRadio name='flexRadioDefault' id='flexRadioDefault1' label='Male' />
@@ -182,7 +180,7 @@ function NewForm() {
                   {/* <Select options={options} /> */}
 
                     <select
-                      class="gender-select"
+                      class="gender-select mb-2"
                       onChange={handleTextChange}
                       value={newUser.gender}
                       id="gender"
@@ -199,7 +197,7 @@ function NewForm() {
 
                   </MDBCol>
 
-                   <MDBCol >     
+                   <MDBCol md="5" >     
                     <select class="orientation-select"
                       onChange={handleTextChange}
                       value={newUser.sexual_orientation}
@@ -218,8 +216,8 @@ function NewForm() {
 
                 </MDBRow>
  {/*Basic Info -  Row 4 */}
-                <MDBRow>
-                  <MDBCol md="4">
+                <MDBRow className="mb-1">
+                  <MDBCol>
                     <MDBInput label='Email' type='text' className="mb-4"
                       onChange={handleTextChange}
                       value={newUser.email}
@@ -249,7 +247,7 @@ function NewForm() {
 
  {/*Basic Info -  Row 5 */}
                 <MDBRow className="mb-4">
-                  <MDBCol md="4">
+                  <MDBCol>
                     <MDBInput label='Income Level' type='text'
                       onChange={handleTextChange}
                       value={newUser.income}
@@ -258,8 +256,8 @@ function NewForm() {
                     />
                   </MDBCol>
 
-                  <MDBCol md="4">
-                    <MDBInput label="Maximum Rent Budget" type='number' 
+                  <MDBCol>
+                    <MDBInput label="Max Rent Budget" type='number' 
                       onChange={handleTextChange}
                       value={newUser.max_rent}
                       id="max_rent"
@@ -269,7 +267,7 @@ function NewForm() {
                 </MDBRow>
 
  {/*Basic Info -  Row 6 */}
-                <MDBRow className="mb-4">
+                <MDBRow className="mb-3">
                   <MDBCol>
                     <MDBCheckbox
                       name="flexCheck"
@@ -281,19 +279,51 @@ function NewForm() {
                       required />
                   </MDBCol>
 
-                  <MDBCol md="4">
+                  <MDBCol>
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
-                      label="Have Living Space"
+                      label="Have Open Rooms"
                       onChange={handleTextChange}
                       value={newUser.has_open_rooms}
                       id="has_open_rooms"
                       required
                       /> 
                   </MDBCol> 
-                  <MDBCol md="4">
+                  <MDBCol>
                     <MDBCheckbox
+                      name="flexCheck"
+                      // id="register-flexCheckDefault"
+                      label="Live in a High Rise"
+                      onChange={handleTextChange}
+                      value={newUser.high_rise}
+                      id="high_rise"
+                      required
+                      /> 
+                 </MDBCol> 
+
+                 <MDBCol>
+                    <MDBCheckbox
+                     name="flexCheck"
+                     // id="register-flexCheckDefault"
+                     label="Live in a House"
+                     onChange={handleTextChange}
+                     value={newUser.private_room}
+                     id="house"
+                     required
+                      /> 
+
+{/* High_Rise: Yes<br/>
+    House: Yes<br/>
+    Private_Bathroom: Yes<br/>
+    Private Room: Yes<br/> */}
+    
+                  </MDBCol> 
+                </MDBRow>
+
+                <MDBRow className="mb-3">
+                  <MDBCol>
+                  <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Very Neat"
@@ -302,10 +332,9 @@ function NewForm() {
                       id="is_neat"
                       required
                       /> 
-                 </MDBCol> 
-
-                 <MDBCol md="4">
-                    <MDBCheckbox
+                  </MDBCol>
+                  <MDBCol>
+                  <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Low Noise Lifestyle"
@@ -314,11 +343,33 @@ function NewForm() {
                       id="low_noise"
                       required
                       /> 
-                  </MDBCol> 
+                    </MDBCol>
+                    <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      // id="register-flexCheckDefault"
+                      label="Have Private Room"
+                      onChange={handleTextChange}
+                      value={newUser.private_room}
+                      id="private_room"
+                      required
+                      /> 
+                    </MDBCol>
+                    <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      // id="register-flexCheckDefault"
+                      label="Have Private Bathroom"
+                      onChange={handleTextChange}
+                      value={newUser.private_room}
+                      id="private_bathroom"
+                      required
+                      /> 
+                    </MDBCol>
                 </MDBRow>
 
-                <MDBRow className="mb-4">
-                  <MDBCol md="4">
+                <MDBRow className="mb-3">
+                  <MDBCol>
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
@@ -330,7 +381,7 @@ function NewForm() {
                       />
                   </MDBCol>
 
-                  <MDBCol md="4">
+                  <MDBCol>
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
@@ -342,7 +393,7 @@ function NewForm() {
                   />
                   </MDBCol>
 
-                  <MDBCol md="4">
+                  <MDBCol>
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
@@ -354,7 +405,7 @@ function NewForm() {
                     />
                   </MDBCol>
 
-                  <MDBCol md="4">
+                  <MDBCol>
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
@@ -369,8 +420,8 @@ function NewForm() {
 
 {/* Checkboxes - Row 3 */}
 
-                <MDBRow className="mb-4">
-                  <MDBCol md="4">
+                <MDBRow>
+                  <MDBCol>
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
@@ -382,7 +433,7 @@ function NewForm() {
                  />
                   </MDBCol>
 
-                  <MDBCol md="4">
+                  <MDBCol>
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
@@ -394,7 +445,7 @@ function NewForm() {
                   />
                   </MDBCol>
 
-                  <MDBCol md="4">
+                  <MDBCol>
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
@@ -406,7 +457,7 @@ function NewForm() {
                     />
                   </MDBCol>
 
-                  <MDBCol md="4">
+                  <MDBCol>
                     <MDBCheckbox
                         name="flexCheck"
                         // id="register-flexCheckDefault"

@@ -7,7 +7,7 @@ import { useContextAuthProvider } from "../Firebase/context";
 import Location from './Location';
 
 import "../Components/Test.css"
-// import "../Components/NewForm.css"
+//import "../Components/NewForm.css"
 
 // imports for material design bootstrap
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
@@ -89,14 +89,14 @@ const PreferenceIndex = ({ id }) => {
     Has Good Credit: Yes<br/>
     High Income: Yes<br/> */}
 
-<MDBCard className="mb-4">
+<MDBCard >
             <MDBCardHeader className="py-3">
               <MDBTypography tag="h5" className="mb-0">Your Preferences</MDBTypography>
             </MDBCardHeader>
 
             <MDBCardBody>
               <MDBListGroup flush>
-              {/* <MDBRow className="mb-4">
+              {/* <MDBRow >
                   <select class="location-select-prefs"
                     onChange={handleTextChange}
                     value={answer.location}
@@ -115,11 +115,11 @@ const PreferenceIndex = ({ id }) => {
                 {/* </MDBRow>  */}
 
                 {/* rendering component for React Select Location drop down list */}
-                <MDBRow className="mb-4">
+                <MDBRow >
                       <Location />
                 </MDBRow>
 
-                <MDBRow className="mb-4">
+                <MDBRow >
                   <select class="gender-select-prefs"
                    onChange={handleTextChange}
                    value={answer.gender}
@@ -140,7 +140,7 @@ const PreferenceIndex = ({ id }) => {
                   </select>
                 </MDBRow>
 
-                <MDBRow className="mb-4">    
+                <MDBRow >    
                   <select class="orientation-select-prefs"
                    onChange={handleTextChange}
                    value={answer.sexual_orientation}
@@ -157,14 +157,14 @@ const PreferenceIndex = ({ id }) => {
                      <option value="6">Other/Decline to Share</option>
                   </select>
                 </MDBRow>
-                  <MDBRow className="mb-4">
+                  <MDBRow >
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label=" Has Good Credit" /> 
                   </MDBRow>
 
-                   <MDBRow className="mb-4">
+                   <MDBRow >
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
@@ -178,70 +178,70 @@ const PreferenceIndex = ({ id }) => {
                       label="Has High Income" /> 
                   </MDBRow> 
 
-                  <MDBRow className="mb-4">
+                  <MDBRow >
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Has No Kids" /> 
                   </MDBRow> 
 
-                  <MDBRow className="mb-4">
+                  <MDBRow >
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Has No Pets" /> 
                   </MDBRow> 
 
-                  <MDBRow className="mb-4">
+                  <MDBRow >
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Agrees to Share Bills" /> 
                   </MDBRow> 
               
-                <MDBRow className="mb-4">
+                <MDBRow >
                   <MDBCheckbox
                     name="flexCheck"
                     // id="register-flexCheckDefault"
                     label="Has Living Space"   /> 
                 </MDBRow>
                 
-                <MDBRow className="mb-4">
+                <MDBRow >
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label=" Is Very Neat/Clean" /> 
                   </MDBRow>
 
-                   <MDBRow className="mb-4">
+                   <MDBRow >
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Non-Smoker" /> 
                   </MDBRow>
 
-                  <MDBRow className="mb-4">
+                  <MDBRow >
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Low Noise LifeStyle" /> 
                   </MDBRow> 
 
-                  <MDBRow className="mb-4">
+                  <MDBRow >
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Is Religious" /> 
                   </MDBRow> 
 
-                  <MDBRow className="mb-4">
+                  <MDBRow >
                     <MDBCheckbox
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Private Room" /> 
                   </MDBRow> 
               
-                <MDBRow className="mb-4">
+                <MDBRow >
                   <MDBCheckbox
                     name="flexCheck"
                     // id="register-flexCheckDefault"
