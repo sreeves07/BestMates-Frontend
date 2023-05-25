@@ -99,7 +99,7 @@ function NewForm() {
   return !loading ? (
     <div className="mx-auto mt-5 testForm .bg-img " style= {{ maxWidth: '900px' }}>
       <MDBRow>
-        <MDBCol md="8" className="mb-4">
+        <MDBCol md="8" className="mb-1">
           <MDBCard className="mb-4">
             <MDBCardHeader className="py-3">
               <MDBTypography tag="h5" className="mb-0">New Account Form</MDBTypography>
@@ -311,7 +311,7 @@ function NewForm() {
                      // id="register-flexCheckDefault"
                      label="Live in a House"
                      onChange={handleTextChange}
-                     value={newUser.private_room}
+                     value={newUser.house}
                      id="house"
                      required
                       /> 
@@ -364,7 +364,7 @@ function NewForm() {
                       // id="register-flexCheckDefault"
                       label="Have Private Bathroom"
                       onChange={handleTextChange}
-                      value={newUser.private_room}
+                      value={newUser.private_bathroom}
                       id="private_bathroom"
                       required
                       /> 
@@ -478,13 +478,18 @@ function NewForm() {
 
                 <div className="d-flex justify-content-center">
 
-                <MDBRow>
+                <MDBRow className="mb-2">
+                <MDBCol>
+                      <UploadWidget />
+                    </MDBCol>
+                    <MDBCol></MDBCol>
                     <MDBCol>
                       <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account?' defaultChecked />
                     </MDBCol>
-                    <MDBCol>
-                      <UploadWidget />
-                    </MDBCol>
+                    </MDBRow>
+
+                    <MDBRow> 
+                  
                 </MDBRow>
 
 

@@ -39,7 +39,7 @@ const UploadWidget = () => {
   }, []);
 
   return (
-    <button onClick={() => widgetRef.current.open()}>Upload Photos</button>
+    <button className="uploadWidget-Btn" onClick={() => widgetRef.current.open()}>Upload Profile Picture 🧖</button>
   );
 };
 

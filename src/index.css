@@ -48,41 +48,14 @@ body {
 }
 
 
-/* .homeImage2 {
-  grid-column-start:4 ;
-  grid-column-end: 5;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  width: 25vw;
-  height: 45vh;
-  background-image: url("./Images/two-female-roomates-at-table.png");
-  background-size: cover;
-  background-size: cover;
-  margin-left: 750px;
-  border: 4px solid white;
-} */
-
-/* .homeImage3 {
-  margin-top: -60px;
-  margin-left: 108px;
-  width: 150px;
-  height: 125px;
-  background-image: url(".//Images/microsoft-365-epexwY0jH1M-unsplash.jpg");
-  background-size: cover;
-  border: 4px solid rgb(179, 0, 255)
-} */
-
-/* .homeImage4 {
-  margin-top: -590px;
-  margin-left: 970px;
-  width: 150px;
-  height: 125px;
-  background-image: url("./Images/pexels-liza-summer-6383207.jpg");
-  background-size: cover;
-  border: 4px solid chartreuse
-} */
-
-
-
-
-
+.uploadWidget-Btn{
+  border: 1px solid rgb(182, 181, 181);
+  height: 4.78vh;
+  width: 9.5vw;
+  border-radius: 3px;
+  color:rgb(114, 113, 113) ;
+  padding-left: .4vw;
+  margin-left: -.15vw;
+  background-color:white ;
+  background:white
+}
