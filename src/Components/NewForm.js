@@ -13,7 +13,7 @@ import { Country, State, City } from "country-state-city";
 import UploadWidget from "./UploadWidget.js"
 
 // imports for material design bootstrap
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography, MDBCardImage } from 'mdb-react-ui-kit';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -99,8 +99,13 @@ function NewForm() {
   return !loading ? (
     <div className="mx-auto mt-5 testForm .bg-img " style= {{ maxWidth: '900px' }}>
       <MDBRow>
-        <MDBCol md="8" className="mb-1">
+      <MDBCol md="1 align-items-start">
+
+      </MDBCol>
+        <MDBCol md="6" className="mb-1">
           <MDBCard className="mb-4">
+          <MDBCardImage
+   src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"/>
             <MDBCardHeader className="py-3">
               <MDBTypography tag="h5" className="mb-0">New Account Form</MDBTypography>
             </MDBCardHeader>

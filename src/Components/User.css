@@ -49,7 +49,7 @@
 
   .userCard {
     width: 90%;
-    height: 90%;
+    height: 100%;
     margin: 0 auto 0 auto;
     border: .1rem solid rgba(186, 183, 192, 0.288);
     box-shadow: .06rem .06rem .06rem .06rem rgba(138, 162, 185, 0.136);

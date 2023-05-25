@@ -34,7 +34,7 @@ function AllUsers() {
   return (
     <div className="users">
       {users.map((user) => {
-        return <User key={user.id} user={user} />;
+        return  user.first_name? <User key={user.id} user={user} /> : null;
       })}
     </div>
   );

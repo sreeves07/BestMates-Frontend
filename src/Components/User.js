@@ -25,17 +25,19 @@ useEffect(() => {
 
   return (
     <div>
+      {/* provides link to single user card view */}
        <Link to={`/users/${id}`}>
           <div className="userCard">
-            <img 
+            <img class="rounded-circle" style={{width: "9.0rem", height: "9.0rem"}}
+  alt="Avatar"
               id="profileImage"
               // src={avatarImage}
               // src={`/users/id/{image}`}
               src={image}
-              alt="user profile"
+              // alt="user profile"
             /> <br/>
             <span className="userCard-fname">{first_name} </span> <br/>
-            <span className="userCard-info"> Age:{age}, {gender}  </span> <br/>
+            <span className="userCard-info"> Age:{age} {gender}  </span> <br/>
             {/* <span className="userCard-gender">Gender: </span> */}
           </div>
       </Link>
