@@ -1,8 +1,6 @@
 import React from "react";
-//import {Link} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-//import User from "./User";
 import { useContextAuthProvider } from "../Firebase/context";
 import Location from './Location';
 
@@ -11,7 +9,6 @@ import "../Components/Test.css"
 
 // imports for material design bootstrap
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBListGroup, MDBRow, MDBTypography } from 'mdb-react-ui-kit';
-import csc from 'country-state-city';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -53,8 +50,6 @@ const PreferenceIndex = ({ id }) => {
     visiting_nurse_preference: false,
     home_assistance_preference: false,
     
-
-
     //Activites
     musician_preference: false,
     singer_preference: false,
@@ -75,9 +70,9 @@ const PreferenceIndex = ({ id }) => {
     setAnswer({ ...answer, [event.target.id]: !user[event.target.value] });
   };
 
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  // }
 
   useEffect(() => {
     console.log(user);
@@ -91,7 +86,7 @@ const PreferenceIndex = ({ id }) => {
         setAnswer(...answer, ...response.data[0]);
       })
       .catch((c) => console.warn("catch", c));
-  }, [id, answer]);
+  }, [id, user,answer]);
 
   return (
     <div>

@@ -85,28 +85,8 @@ let navigate = useNavigate();
     addNewUser(newUser);
     //addUserImage(image)
   }
-
-  // const countryCode = 'US';
-  // const country = csc.getCountryByCode(countryCode);
-  // const states = csc.getStatesOfCountry(country.isoCode);
-  // states.forEach((state) => {
-  //     cities_of_state = csc.getCitiesOfState(countryCode, state.isoCode)
-  //     console.log(state, ":", cities_of_state)
   
-  const Country = require('country-state-city').Country
-  const State = require('country-state-city').State
-  const City = require('country-state-city').City
-
-
-  const countryCode = 'US';
-  const country = Country.getCountryByCode(countryCode);
-  const states = State.getStatesOfCountry(countryCode);
-  const stateCode = 'NY';
-  const cities = City.getCitiesOfState(countryCode, stateCode)
-  //console.log(states ) //print all states of country
- // console.log(cities) //print all cities of state
-
-
+ 
   return !loading ? (
     <div 
     className="newForm ">      
