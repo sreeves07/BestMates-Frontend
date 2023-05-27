@@ -10,34 +10,58 @@ import "../Components/Test.css"
 //import "../Components/NewForm.css"
 
 // imports for material design bootstrap
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography } from 'mdb-react-ui-kit';
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBListGroup, MDBRow, MDBTypography } from 'mdb-react-ui-kit';
 import csc from 'country-state-city';
 
 const API = process.env.REACT_APP_API_URL;
 
 const PreferenceIndex = ({ id }) => {
   const [answer, setAnswer] = useState({
-    id: "5",
-    gender_preference: "Female",
-    pets_preference: false,
-    sexual_orientation_preference: "Heterosexual",
+    // id: "5",
+    // Financial
+    good_credit_preference: true,
+    employment_preference: true,
+    high_income_preference: false,
+    share_bills_preference: true,
+
+    //Residential Availabilty, Type, Amenities
     open_rooms_preference: false,
-    neat_preference: true,
-    kids_preference: false,
-    low_noise_preference: true,
-    smoker_preference: false,
     high_rise_preference: false,
     house_preference: false,
     private_bathroom_preference: false,
     private_room_preference: false,
-    share_bills_preference: true,
+
+    // LifeStyle
+    gender_preference: "Does not matter",
+    sexual_orientation_preference: "Does not matter",
+   
+    neat_preference: true,
+    low_noise_preference: true,
     religious_preference: false,
-    good_credit_preference: true,
-    high_income_preference: false,
+
+    //Obligations
+    kids_preference: false,
+    pets_preference: false,
     is_student_preference: false,
-    is_musician_preference: false,
-    is_singer_preference: false,
+
+    //Health
+    healthy_preference: true,
+    allergies_preference: false,
+    smoker_preference: false,
+    chronic_condition_preference: false,
+    disabled_preference: false,
+    visiting_nurse_preference: false,
+    home_assistance_preference: false,
+    
+
+
+    //Activites
+    musician_preference: false,
+    singer_preference: false,
     host_parties_preference: false,
+    romantic_visits_preference: false,
+    family_friend_visits_preference: false,
+    night_life_preference: false,
     mate_id: "",
   });
 
@@ -71,192 +95,283 @@ const PreferenceIndex = ({ id }) => {
 
   return (
     <div>
-      {/* <h2>Your Preferences</h2>
-    Gender: Female <br/>
-    Pet: No<br/>
-    Sexual orientation: Heterosexual<br/>
-    Open Rooms: No<br/>
-    Neat: Yes<br/>
-    Has Kids: No <br/>
-    Low Noise: Yes <br/>
-    Smoker: Yes<br/>
-    High_Rise: Yes<br/>
-    House: Yes<br/>
-    Private_Bathroom: Yes<br/>
-    Private Room: Yes<br/>
-    Agree to Share Bills: Yes<br/>
-    Religious: No<br/>
-    Has Good Credit: Yes<br/>
-    High Income: Yes<br/> */}
-
-<MDBCard >
-            <MDBCardHeader className="py-3">
-              <MDBTypography tag="h5" className="mb-0">Your Preferences</MDBTypography>
+      <MDBCard >
+        <MDBCardHeader className="py-3">
+          <MDBTypography tag="h5" className="mb-0">Your Preferences</MDBTypography>
             </MDBCardHeader>
-
-            <MDBCardBody>
-              <MDBListGroup flush>
-              {/* <MDBRow >
-                  <select class="location-select-prefs"
-                    onChange={handleTextChange}
-                    value={answer.location}
-                    id="location"
-                    required>  */}
-                  
-                    {/* class="browser-default custom-select" */}
-                      {/* <option defaultValue={"New York"}>Location</option>
-                      <option value="1">Same as Mine</option>
-                      <option value="2">New York</option>
-                      <option value="3">Massachussetts</option>
-                      <option value="4">Pennsylvania</option>
-                      <option value="5">Washington</option>
-                      <option value="6">Other/Decline to Share</option>
-                  </select> */}
-                {/* </MDBRow>  */}
-
+              <MDBCardBody>
+                <MDBListGroup> 
+                {/* ************ ROW 1 *********** */}
                 {/* rendering component for React Select Location drop down list */}
+                <MDBRow >     <Location />    </MDBRow>
+
+                {/* ************ ROW 2 - Financial Prefs *********** */}
+
                 <MDBRow >
-                      <Location />
+                  <MDBCheckbox
+                    class="credit-pref"
+                    name="flexCheck"
+                    label="Has Good Credit" 
+                    id="good_credit_preference"
+                    onChange={handleCheckboxChange}
+                    value={answer.good_credit_preference}
+                  /> 
+                  <MDBCheckbox
+                    class="highIncome-pref"
+                    name="flexCheck"
+                    label="Has High Income" 
+                    id="high_income_preference"
+                    onChange={handleCheckboxChange}
+                    value={answer.high_income_preference}
+                  /> 
+                  <MDBCheckbox
+                    class="shareBills-pref"
+                    name="flexCheck"
+                    label="Agree to Share Bills" 
+                    id="share_bills_preference"
+                    onChange={handleCheckboxChange}
+                    value={answer.share_bills_preference}
+                  /> 
+                  <MDBCheckbox
+                      name="flexCheck"
+                      label="Has a Job / Source of Income" 
+                      id="employment_preference"
+                      onChange={handleCheckboxChange}
+                      value={answer.employment_preference}
+                  /> 
                 </MDBRow>
+
+                {/* ************ ROW 3 - Residential Prefs *********** */}
+                <MDBRow >
+                  <MDBCheckbox
+                    class="openRooms-pref"
+                    name="flexCheck"
+                    label="Has Open Room(s)" 
+                    id="open_rooms_preference"
+                    onChange={handleCheckboxChange}
+                    value={answer.open_rooms_preference}
+                  /> 
+                  <MDBCheckbox
+                    class="highRise-pref"
+                    name="flexCheck"
+                    label="High Rise building" 
+                    id="high_rise_preference"
+                    onChange={handleCheckboxChange}
+                    value={answer.high_rise_preference}
+                  /> 
+                  <MDBCheckbox
+                    class="house-pref"
+                    name="flexCheck"
+                    label="Private House" 
+                    id="house_preference"
+                    onChange={handleCheckboxChange}
+                    value={answer.house_preference}
+                  /> 
+                </MDBRow>
+
+                {/* ************ ROW 4 - Residential Prefs Cont'd *********** */}
+                <MDBRow>
+                  <MDBCheckbox
+                    class="privateBathroom-pref"
+                    name="flexCheck"
+                    label="Private Bathroom" 
+                    id="private_bathroom_preference"
+                    onChange={handleCheckboxChange}
+                    value={answer.private_bathroom_preference}
+                  /> 
+                  <MDBCheckbox
+                    class="privateRoom-pref"
+                    name="flexCheck"
+                    label="Private Room" 
+                    id="private_room_preference"
+                    onChange={handleCheckboxChange}
+                    value={answer.private_room_preference}
+                  /> 
+                </MDBRow>
+
+                {/* ************ ROW 5 - LifeStyle Prefs *********** */}
 
                 <MDBRow >
                   <select class="gender-select-prefs"
+                   // name="flexCheck"
                    onChange={handleTextChange}
-                   value={answer.gender}
-                   id="gender"
+                   value={answer.gender_preference}
+                   id="gender_preference"
                    required
-                  >   {/* class="browser-default custom-select" */}
-                      <option defaultValue={"Other"}
-                      onChange={handleTextChange}
-                      value={answer.gender}
-                      id="gender"
-                      required>Gender</option>
-                      <option value="1">Male</option>
-                      <option value="2">Female</option>
-                      <option value="3">Intersex</option>
-                      <option value="4">Non-Binary</option>
-                      <option value="5">Transgender</option>
-                      <option value="6">Other</option>
+                  > 
+                    <option defaultValue={"Does not matter"}>Gender</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Intersex</option>
+                    <option value="4">Non-Binary</option>
+                    <option value="5">Transgender</option>
+                    <option value="6">Other</option>
+                    <option value="7">Does not matter</option>
                   </select>
-                </MDBRow>
 
-                <MDBRow >    
                   <select class="orientation-select-prefs"
+                   // name="flexCheck"
                    onChange={handleTextChange}
-                   value={answer.sexual_orientation}
-                   id="host_parties"
+                   value={answer.sexual_orientation_preference}
+                   id="sexual_orientation_preference"
                    required
-                  
-                  >   {/* class="browser-default custom-select" */}
-                     <option defaultValue={"Heterosexual"}>Orientation</option>
-                     <option value="1">Heterosexual</option>
-                     <option value="2">Pansexual</option>
-                     <option value="3">BiSexual</option>
-                     <option value="4">Homosexual</option>
-                     <option value="5">Asexual</option>
-                     <option value="6">Other/Decline to Share</option>
+                  >   
+                    <option defaultValue={"Does not matter"}>Orientation</option>
+                    <option value="1">Heterosexual</option>
+                    <option value="2">Pansexual</option>
+                    <option value="3">BiSexual</option>
+                    <option value="4">Homosexual</option>
+                    <option value="5">Asexual</option>
+                    <option value="6">Other</option>
+                    <option value="7">Does not matter</option>
                   </select>
                 </MDBRow>
-                  <MDBRow >
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label=" Has Good Credit" /> 
-                  </MDBRow>
 
-                   <MDBRow >
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Has Employment" /> 
-                  </MDBRow>
+                {/* ************ ROW 6 - LifeStyle Prefs Cont'd *********** */}
+                <MDBRow >    
+                  <MDBCheckbox
+                    // name="flexCheck"
+                    id="neat_preference"
+                    label="Is Very Neat" 
+                    onChange={handleCheckboxChange}
+                    value={answer.neat_preference}
+                  /> 
 
-                  <MDBRow>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Has High Income" /> 
-                  </MDBRow> 
-
-                  <MDBRow >
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Has No Kids" /> 
-                  </MDBRow> 
-
-                  <MDBRow >
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Has No Pets" /> 
-                  </MDBRow> 
-
-                  <MDBRow >
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Agrees to Share Bills" /> 
-                  </MDBRow> 
-              
-                <MDBRow >
                   <MDBCheckbox
                     name="flexCheck"
-                    // id="register-flexCheckDefault"
-                    label="Has Living Space"   /> 
+                    id="low_noise_preference"
+                    label="Low Noise" 
+                    onChange={handleCheckboxChange}
+                    value={answer.low_noise_preference}
+                  /> 
+
+                 <MDBCheckbox
+                    name="flexCheck"
+                    id="religious_preference"
+                    label="Is Religious" 
+                    onChange={handleCheckboxChange}
+                    value={answer.religious_preference}
+                  /> 
                 </MDBRow>
-                
+
+
+                {/* ************ ROW 7 - Obligations Prefs *********** */}
+
                 <MDBRow >
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label=" Is Very Neat/Clean" /> 
-                  </MDBRow>
+  
+                </MDBRow>
 
-                   <MDBRow >
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Non-Smoker" /> 
-                  </MDBRow>
 
-                  <MDBRow >
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Low Noise LifeStyle" /> 
-                  </MDBRow> 
+                {/* ************ ROW 8 - Health Prefs *********** */}
 
-                  <MDBRow >
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Is Religious" /> 
-                  </MDBRow> 
-
-                  <MDBRow >
-                    <MDBCheckbox
-                      name="flexCheck"
-                      // id="register-flexCheckDefault"
-                      label="Private Room" /> 
-                  </MDBRow> 
-              
-                <MDBRow className="mb-2" >
+                <MDBRow >
+                <MDBCheckbox
+                    name="flexCheck"
+                    id="healthy_preference"
+                    label="Is healthy" 
+                    onChange={handleCheckboxChange}
+                    value={answer.healthy_preference}
+                  />
                   <MDBCheckbox
                     name="flexCheck"
-                    // id="register-flexCheckDefault"
-                    label="Private Bathroom"   /> 
+                    id="allergies_preference"
+                    label="Has Allergies" 
+                    onChange={handleCheckboxChange}
+                    value={answer.allergies_preference}
+                  />
+                  <MDBCheckbox
+                    name="flexCheck"
+                    id="smoker_preference"
+                    label="Is a Smoker" 
+                    onChange={handleCheckboxChange}
+                    value={answer.smoker_preference}
+                  />
                 </MDBRow>
-                
-                {/* <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                  <div>
-                    <strong>Total amount</strong>
-                    <strong>
-                      <p className="mb-0">(including VAT)</p>
-                    </strong>
-                  </div>
-                  <span><strong>$53.98</strong></span>
-                </MDBListGroupItem> */}
+
+                {/* ************ ROW 9 - Health Prefs Cont'd *********** */}
+
+                <MDBRow >
+                <MDBCheckbox
+                    name="flexCheck"
+                    id="chronic_condition_preference"
+                    label="Has Chronic Condition" 
+                    onChange={handleCheckboxChange}
+                    value={answer.chronic_condition_preference}
+                  />
+                  <MDBCheckbox
+                    name="flexCheck"
+                    id="disabled_preference"
+                    label="Has Disability" 
+                    onChange={handleCheckboxChange}
+                    value={answer.disabled_preference}
+                  />
+                  <MDBCheckbox
+                    name="flexCheck"
+                    id="visiting_nurse_preference"
+                    label="Receives Visiting Nurse Service" 
+                    onChange={handleCheckboxChange}
+                    value={answer.visiting_nurse_preference}
+                  /> 
+                  <MDBCheckbox
+                    name="flexCheck"
+                    id="home_health_aide_preference"
+                    label="Receives Home Health Aid" 
+                    onChange={handleCheckboxChange}
+                    value={answer.home_assistance_preference}
+                  />                                     
+                </MDBRow>
+
+                {/* ************ ROW 10 - Activities Prefs *********** */}
+
+                <MDBRow >
+                <MDBCheckbox
+                    name="flexCheck"
+                    id="musician_preference"
+                    label="Is Active Musician" 
+                    onChange={handleCheckboxChange}
+                    value={answer.musician_preference}
+                  />  
+                  <MDBCheckbox
+                    name="flexCheck"
+                    id="singer_preference"
+                    label="Is Active Singer" 
+                    onChange={handleCheckboxChange}
+                    value={answer.singer_preference}
+                  />  
+                  <MDBCheckbox
+                    name="flexCheck"
+                    id="host_parties_preference"
+                    label="Hosts Parties" 
+                    onChange={handleCheckboxChange}
+                    value={answer.host_parties_preference}
+                  />  
+                </MDBRow>
+
+                {/* ************ ROW 11 - Activities Prefs Cont'd *********** */}         
+         
+                <MDBRow >
+                <MDBCheckbox
+                    name="flexCheck"
+                    id="romantic_visits_preference"
+                    label="Expects Romantic Visits" 
+                    onChange={handleCheckboxChange}
+                    value={answer.romantic_visits_preference}
+                  />  
+                  <MDBCheckbox
+                    name="flexCheck"
+                    id="family_friend_visits_preference"
+                    label="Expects Family/Friend Visits" 
+                    onChange={handleCheckboxChange}
+                    value={answer.family_friend_visits_preference}
+                  />  
+                  <MDBCheckbox
+                    name="flexCheck"
+                    id="night_life_preference"
+                    label="Active Night Life" 
+                    onChange={handleCheckboxChange}
+                    value={answer.night_life_preference}
+                  />  
+                </MDBRow>
 
               </MDBListGroup>
 
@@ -265,12 +380,7 @@ const PreferenceIndex = ({ id }) => {
                 Save Preferences
               </MDBBtn>
             </MDBCardBody>
-          </MDBCard>
-
-
-
-
-
+        </MDBCard>
     </div>
   );
 };

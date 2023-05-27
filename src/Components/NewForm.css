@@ -7,11 +7,30 @@
   font-family: 'Barlow', sans-serif;
   font-weight: 900;
 }
-.main{
+/* .main{
   background-image: url("../Images/beautiful-spaciuos-livingroom.png");
   height: 100%;
   width:100%;
+} */
+
+.nf-wrapper-row{
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content:flex-end;
 }
+
+/* .nf-column-1{
+  grid-column: 1;
+}
+
+.nf-column-2{
+  grid-column: 2;
+}
+
+.nf-column-3{
+  grid-column: 3;
+} */
 
 /* Style for Standard Select - Non MDB Select Drop Down List */
 /* USE FOR MEDIA QUERY - SMALLER */

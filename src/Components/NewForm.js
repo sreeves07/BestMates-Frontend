@@ -1,27 +1,35 @@
 import React from 'react'
-
+  // Manage State of Values
 import { useState } from "react";
-import { Navigate, useNavigate, Link } from "react-router-dom";
+  // Enable Navigation to a Different View
+import { useNavigate } from "react-router-dom";
+  // Enable Connection to Firebase User Authorization (Login)
 import { auth } from "../Firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import axios from "axios";
+  // List of User Preferences
 import PreferenceIndex from "./PreferenceIndex"
-// import "../Components/Test.css"
-import "../Components/NewForm.css"
-import { Country, State, City } from "country-state-city";
-
+  // User Picture Upload Widget from Cloudinary
 import UploadWidget from "./UploadWidget.js"
+import "../Components/NewForm.css"
+  // imports for material design bootstrap
+import { 
+  MDBCard, 
+  MDBCardBody, 
+  MDBCardHeader, 
+  MDBCheckbox, 
+  MDBCol, 
+  MDBInput, 
+  MDBRow,
+  MDBTypography
+ } from 'mdb-react-ui-kit';
 
-// imports for material design bootstrap
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardHeader, MDBCheckbox, MDBCol, MDBInput, MDBListGroup, MDBListGroupItem, MDBRow,MDBRadio, MDBTextArea, MDBTypography, MDBCardImage } from 'mdb-react-ui-kit';
-
+  // Set API Variable to Port for this React App to display in Browser
 const API = process.env.REACT_APP_API_URL;
 
+
 function NewForm() {
-
-//const [checked, setChecked] = useState(false)
-  // const [input, setInput] = useState("")
-
+    //Set state for auth and newUser
   const [user, loading] = useAuthState(auth);
   const [newUser, setNewUser] = useState({
     first_name: "",
@@ -46,8 +54,10 @@ function NewForm() {
     income: "",
   });
 
-  // AXIOS CALL 1 -  make an axios call to backend to be able to post info re new user from form
-  let navigate = useNavigate();
+let navigate = useNavigate();
+   
+
+    // AXIOS CALL -  make an axios call to backend to be able to post info re new user from form
 
   const addNewUser = (newUser) => {
     axios
@@ -58,12 +68,13 @@ function NewForm() {
       .catch((c) => console.warn("catch", c));
   };
 
+      // Capture changes made by user and send to backend
+      // set updated state of newUser to what the user enters
   const handleTextChange = (event) => {
     setNewUser({ ...newUser, [event.target.id]: event.target.value });
   };
     // console.log("newly added user", newUser)
   
-
   const handleCheckboxChange = (event) => {
     setNewUser({ ...newUser, [event.target.id]: !newUser[event.target.value] });
   };
@@ -97,15 +108,26 @@ function NewForm() {
 
 
   return !loading ? (
-    <div className="mx-auto mt-5 row gx-5 .bg-img " style= {{ maxWidth: '900px' }}>
-      <MDBRow>
-      <MDBCol md="1 align-items-start">
-          <UploadWidget />
-      </MDBCol>
-        <MDBCol md="6" className="mb-1">
+    <div 
+    className="newForm ">      
+      <MDBRow className="nf-wrapper-row"   >
+
+        
+        {/* <MDBCol className='nf-column-1'>
+          
+            
+               <UploadWidget />
+          
+        </MDBCol> */}
+
+
+
+
+
+        <MDBCol md="4" className=" nf-column-2  mb-1"   >
           <MDBCard className="mb-4">
-          <MDBCardImage
-   src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"/>
+            {/* <MDBCardImage */}
+            {/* src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"/> */}
             <MDBCardHeader className="py-3">
               <MDBTypography tag="h5" className="mb-0">New Account Form</MDBTypography>
             </MDBCardHeader>
@@ -281,7 +303,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Agree To Share Bills"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.is_sharing_bills}
                       id="is_sharing_bills"
                       required />
@@ -292,7 +314,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Have Open Rooms"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.has_open_rooms}
                       id="has_open_rooms"
                       required
@@ -303,7 +325,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Live in a High Rise"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.high_rise}
                       id="high_rise"
                       required
@@ -315,7 +337,7 @@ function NewForm() {
                      name="flexCheck"
                      // id="register-flexCheckDefault"
                      label="Live in a House"
-                     onChange={handleTextChange}
+                     onChange={handleCheckboxChange}
                      value={newUser.house}
                      id="house"
                      required
@@ -333,12 +355,10 @@ function NewForm() {
                   <MDBCol>
                   <MDBCheckbox
                       name="flexCheck"
-                      // id="register-flexCheckDefault"
                       label="Very Neat"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.is_neat}
                       id="is_neat"
-                      required
                       /> 
                   </MDBCol>
                   <MDBCol>
@@ -346,7 +366,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Low Noise Lifestyle"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.low_noise}
                       id="low_noise"
                       required
@@ -357,7 +377,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Have Private Room"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.private_room}
                       id="private_room"
                       required
@@ -368,7 +388,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Have Private Bathroom"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.private_bathroom}
                       id="private_bathroom"
                       required
@@ -382,7 +402,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Religious"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.is_religious}
                       id="is_religious"
                       required
@@ -394,7 +414,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Have Kids"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.has_kids}
                       id="has_kids"
                       required
@@ -406,7 +426,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Have Pets"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.has_pets}
                       id="has_pets"
                       required
@@ -418,7 +438,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Smoker"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.is_smoker}
                       id="is_smoker"
                       required
@@ -434,7 +454,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Student"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.is_student}
                       id="is_student"
                       required
@@ -446,7 +466,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Musician"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.is_musician}
                       id="is_musician"
                       required
@@ -458,7 +478,7 @@ function NewForm() {
                       name="flexCheck"
                       // id="register-flexCheckDefault"
                       label="Singer"
-                      onChange={handleTextChange}
+                      onChange={handleCheckboxChange}
                       value={newUser.is_singer}
                       id="is_singer"
                       required
@@ -470,7 +490,7 @@ function NewForm() {
                         name="flexCheck"
                         // id="register-flexCheckDefault"
                         label="Host Parties"
-                        onChange={handleTextChange}
+                        onChange={handleCheckboxChange}
                         value={newUser.host_parties}
                         id="host_parties"
                         required
@@ -504,8 +524,7 @@ function NewForm() {
           </MDBCard>
         </MDBCol>
 
-        <MDBCol md="4"> 
-
+        <MDBCol className='nf-column-3'> 
           {/* *************** PREFERENCES LIST (Checkboxes) - Right Column ***************  */}
          <PreferenceIndex />
         </MDBCol>
@@ -521,19 +540,3 @@ function NewForm() {
 export default NewForm
 
 
-// gender_preference VARCHAR(20),
-// pets_preference BOOLEAN,
-// sexual_orientation_preference TEXT,
-// open_rooms_preference BOOLEAN,
-// neat_preference BOOLEAN,
-// kids_preference BOOLEAN,
-// low_noise_preference BOOLEAN,
-// smoker_preference BOOLEAN,
-// high_rise_preference BOOLEAN,
-// house_preference BOOLEAN,
-// private_bathroom_preference BOOLEAN,
-// private_room_preference BOOLEAN,
-// share_bills_preference BOOLEAN,
-// religious_preference BOOLEAN,
-// good_credit_preference BOOLEAN,
-// high_income_preference
