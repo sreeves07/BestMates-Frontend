@@ -90,33 +90,37 @@ const PreferenceIndex = ({ id }) => {
   return (
     <div className="preferenceIndex">
       <div className="userBioBox">
-
-
         <MDBCard>
-        <MDBCardHeader className="py-3">
-          <MDBTypography tag="h5" className="mb-0">Your Bio and Profile Picture</MDBTypography>
-            </MDBCardHeader>
-              <MDBCardBody>
-                <MDBRow >   
-                  <MDBCol>  
-                      <MDBTextArea 
-                        className="userBio mb-4"  
-                        label='Your Bio Statement:'
-                        defaultValue="< Please enter a brief description of yourself here >" 
-                        rows={2} 
-                      /> 
-                  </MDBCol>
+          <MDBCardHeader className="py-3">
+            <MDBTypography tag="h5" className="mb-0">Your Bio and Profile Picture</MDBTypography>
+              </MDBCardHeader>
+                <MDBCardBody>
+
+                    {/* ************ ROW 1 *********** */}
+                    {/* User Bio Text Box */}
+                  <MDBRow >   
+                    <MDBCol>  
+                        <MDBTextArea 
+                          className="userBio mb-4"  
+                          label='Your Bio Statement:'
+                          defaultValue="< Please enter a brief description of yourself here >" 
+                          rows={2} 
+                        /> 
+                    </MDBCol>
                     <MDBCol>
                       <UploadWidget/>
                     </MDBCol>
-                </MDBRow>
-                <MDBRow>
-                  <MDBCol>
-                    <Location />
-                  </MDBCol> 
-                </MDBRow>
-          </MDBCardBody>
-        </MDBCard>
+                  </MDBRow>
+
+                   {/* ************ ROW 2 *********** */}
+                  {/* rendering component for React Select Location drop down list */}
+                  <MDBRow>
+                    <MDBCol>
+                      <Location />
+                    </MDBCol> 
+                  </MDBRow>
+            </MDBCardBody>
+          </MDBCard>
       </div>
 
       <form
@@ -124,17 +128,18 @@ const PreferenceIndex = ({ id }) => {
         onSubmit={handleSubmit}
         noValidate>
       <MDBCard >
-        <MDBCardHeader className="py-3">
+        <MDBCardHeader className="py-0">
           <MDBTypography tag="h5" className="mb-0">Your Preferences</MDBTypography>
             </MDBCardHeader>
               <MDBCardBody>
                 <MDBListGroup> 
-                {/* ************ ROW 1 *********** */}
-                {/* rendering component for React Select Location drop down list */}
 
 
-                {/* ************ ROW 2 - Financial Prefs *********** */}
-                <MDBRow >
+                {/* ************ PREFERENCES *********** */}
+
+                {/* ************ ROW 3 - Prefs *********** */}
+
+                <MDBRow  className="mb-4" >
                   <MDBCol>
                     <MDBCheckbox
                       class="credit-pref"
@@ -167,7 +172,9 @@ const PreferenceIndex = ({ id }) => {
                   </MDBCol>
                 </MDBRow>  
 
-                <MDBRow >
+                {/* ************ ROW 4 - Prefs *********** */}
+
+                <MDBRow  className="mb-4" >
                   <MDBCol>
                     <MDBCheckbox
                       class="shareBills-pref"
@@ -197,9 +204,12 @@ const PreferenceIndex = ({ id }) => {
                       onChange={handleCheckboxChange}
                       value={answer.high_rise_preference}
                     /> 
+
+                      {/* ************ ROW 5 - Prefs *********** */}
+
                   </MDBCol>
                 </MDBRow>
-                <MDBRow>
+                <MDBRow  className="mb-4">
                   <MDBCol>
                     <MDBCheckbox
                       class="house-pref"
@@ -232,8 +242,9 @@ const PreferenceIndex = ({ id }) => {
                   </MDBCol>
                 </MDBRow>
 
-                {/* ************ ROW 4 - Residential Prefs Cont'd *********** */}
-              <MDBRow > 
+                {/* ************ ROW 6 - Prefs *********** */}
+
+              <MDBRow  className="mb-4" > 
                 <MDBCol>
                  <MDBCheckbox
                     // name="flexCheck"
@@ -262,6 +273,9 @@ const PreferenceIndex = ({ id }) => {
                   />
                 </MDBCol>
               </MDBRow>
+
+                {/* ************ ROW 7 - Prefs *********** */}
+
             <MDBRow >
               <MDBCol> 
                 <MDBCheckbox
@@ -292,6 +306,8 @@ const PreferenceIndex = ({ id }) => {
               </MDBCol> 
             </MDBRow>
 
+                {/* ************ ROW 8 - Prefs *********** */}
+
               <MDBRow >
                 <MDBCol> 
                   <MDBCheckbox
@@ -313,7 +329,7 @@ const PreferenceIndex = ({ id }) => {
                 </MDBCol> 
               </MDBRow>
 
-                {/* ************ ROW 11 - Activities Prefs Cont'd *********** */}         
+                {/* ************ ROW 11 - Prefs *********** */}         
                 <MDBRow>  
                 <MDBCol>
                   <select class="gender-select-prefs"
@@ -350,13 +366,10 @@ const PreferenceIndex = ({ id }) => {
                     <option value="6">Other</option>
                     <option value="7">Does not matter</option>
                   </select>
-                </MDBCol>
-                <MDBCol></MDBCol>
-              </MDBRow>
- 
-              
+                    </MDBCol>
+                  </MDBRow>
 
-              </MDBListGroup>
+                </MDBListGroup>
 
               {/* <MDBBtn size="lg" block> */}
               <MDBBtn size="sm" >
