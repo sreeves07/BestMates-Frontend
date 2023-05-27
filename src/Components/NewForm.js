@@ -10,7 +10,7 @@ import axios from "axios";
   // List of User Preferences
 import PreferenceIndex from "./PreferenceIndex"
   // User Picture Upload Widget from Cloudinary
-import UploadWidget from "./UploadWidget.js"
+// import UploadWidget from "./UploadWidget.js"
 import "../Components/NewForm.css"
   // imports for material design bootstrap
 import { 
@@ -484,20 +484,21 @@ let navigate = useNavigate();
                   </MDBCol>
                 </MDBRow>
 
-              
+              <MDBRow>
+                {/* <MDBCol>
+                  <div>         
+                    <UploadWidget />
+                  </div>
+                </MDBCol> */}
 
-
-
-
-
-
-
-
-
+                <MDBCol>
                     {/*Create Account Button */}
                   <div className="d-flex justify-content-center">
                     <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account?' defaultChecked />
-                  </div>
+                    </div>
+                  </MDBCol>
+                </MDBRow>              
+
                 </form>
               </MDBCardBody>
             </MDBCard>
