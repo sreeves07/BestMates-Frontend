@@ -13,11 +13,28 @@
   width:100%;
 } */
 
-.nf-wrapper-row{
-  width: 90%;
+.newFormContainer{
+  /* width: 100%; */
   height: 100%;
   display: flex;
-  justify-content:flex-end;
+  /* flex-direction: column; */
+ justify-content: space-evenly;
+}
+/* New Form Card */
+.card{
+  display: flex;
+  width: 40rem;
+  height: 100%;
+}
+.newForm{
+  width: 37.5rem;
+  margin-right: 30px;
+  height: 60rem; 
+}
+.preferenceIndex{
+  /* width: 37.5rem; */
+  height: 100%;
+  flex-grow: 1;
 }
 
 /* .nf-column-1{
@@ -36,8 +53,8 @@
 /* USE FOR MEDIA QUERY - SMALLER */
 .birthdate-MDB-input{
   border: 1px solid rgb(182, 181, 181);
-  height: 4.78vh;
-  width: 10.95vw;
+  height: 2.5rem;
+  width: 9rem;
   border-radius: 1rem;
   color:rgb(114, 113, 113) ;
   padding-left: .4vw;
@@ -46,10 +63,10 @@
 select, select option{
   background-color: white;
 }
-select.gender-select{
+select.gender-attribute{
   border: 1px solid rgb(182, 181, 181);
-  height: 4.78vh;
-  width: 11.5vw;
+  height: 2.5rem;
+  width: 4.5rem;
   border-radius: 3px;
   color:rgb(114, 113, 113) ;
   padding-left: .4vw;
@@ -58,7 +75,8 @@ select.gender-select{
   background:white
 }
 
-select.orientation-select{
+
+select.orientation-attribute{
   border: 1px solid rgb(182, 181, 181);
   height: 4.78vh;
   width: 11.5vw;

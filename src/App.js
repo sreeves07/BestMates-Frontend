@@ -8,8 +8,8 @@ import Show from "./Pages/Show";
 import Index from "./Pages/Index";
 import FourOFour from "./Pages/FourOFour";
 import SignIn from "./Pages/SignIn";
-// import New from "./Pages/New";
-import NewForm from "./Components/NewForm";
+import New from "./Pages/New";
+// import NewForm from "./Components/NewForm";
 import Dummy from "./Pages/Dummy";
 import "./App.css";
 import { useContextAuthProvider } from "./Firebase/context";
@@ -40,7 +40,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/new" element={<NewForm />} />
+          <Route path="/new" element={<New />} />
           {/* <Route path="/test" element={<New />} /> */}
           <Route path="/users/:id/edit" element={<EditUserForm />} />
           <Route path="/users" element={<Index />} />

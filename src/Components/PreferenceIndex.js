@@ -14,49 +14,37 @@ const API = process.env.REACT_APP_API_URL;
 
 const PreferenceIndex = ({ id }) => {
   const [answer, setAnswer] = useState({
-    // id: "5",
-    // Financial
-    good_credit_preference: true,
-    employment_preference: true,
-    high_income_preference: false,
-    share_bills_preference: true,
-
-    //Residential Availabilty, Type, Amenities
+    id: "",
+    gender_preference: "Does not matter",
+    pets_preference: false,
+    sexual_orientation_preference: "Does not matter",
     open_rooms_preference: false,
+    neat_preference: true,
+    kids_preference: false,
+    low_noise_preference: true,
+    smoker_preference: false,
     high_rise_preference: false,
     house_preference: false,
     private_bathroom_preference: false,
     private_room_preference: false,
-
-    // LifeStyle
-    gender_preference: "Does not matter",
-    sexual_orientation_preference: "Does not matter",
-   
-    neat_preference: true,
-    low_noise_preference: true,
+    share_bills_preference: true,
     religious_preference: false,
-
-    //Obligations
-    kids_preference: false,
-    pets_preference: false,
-    is_student_preference: false,
-
-    //Health
-    healthy_preference: true,
-    allergies_preference: false,
-    smoker_preference: false,
-    chronic_condition_preference: false,
-    disabled_preference: false,
-    visiting_nurse_preference: false,
-    home_assistance_preference: false,
-    
-    //Activites
-    musician_preference: false,
-    singer_preference: false,
-    host_parties_preference: false,
-    romantic_visits_preference: false,
-    family_friend_visits_preference: false,
-    night_life_preference: false,
+    good_credit_preference: true,
+    high_income_preference: false,
+    employment_preference: true,     //need to be added to backend
+    is_student_preference: false,    //need to be added to backend
+    healthy_preference: true,        //need to be added to backend
+    allergies_preference: false,     //need to be added to backend
+    disabled_preference: false,           //need to be added to backend
+    chronic_condition_preference: false,  //need to be added to backend
+    visiting_nurse_preference: false,     //need to be added to backend
+    home_assistance_preference: false,    //need to be added to backend
+    musician_preference: false,     //need to be added to backend
+    singer_preference: false,       //need to be added to backend
+    host_parties_preference: false,       //need to be added to backend
+    romantic_visits_preference: false,    //need to be added to backend
+    family_friend_visits_preference: false,     //need to be added to backend
+    night_life_preference: false,         //need to be added to backend
     mate_id: "",
   });
 
@@ -70,9 +58,9 @@ const PreferenceIndex = ({ id }) => {
     setAnswer({ ...answer, [event.target.id]: !user[event.target.value] });
   };
 
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  // }
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
 
   useEffect(() => {
     console.log(user);
@@ -89,7 +77,10 @@ const PreferenceIndex = ({ id }) => {
   }, [id, user,answer]);
 
   return (
-    <div>
+    <div className="preferenceIndex">
+      <form
+        onSubmit={handleSubmit}
+        noValidate>
       <MDBCard >
         <MDBCardHeader className="py-3">
           <MDBTypography tag="h5" className="mb-0">Your Preferences</MDBTypography>
@@ -128,8 +119,9 @@ const PreferenceIndex = ({ id }) => {
                     value={answer.share_bills_preference}
                   /> 
                   <MDBCheckbox
+                      class="hasJob-pref"
                       name="flexCheck"
-                      label="Has a Job / Source of Income" 
+                      label="Has a Job" 
                       id="employment_preference"
                       onChange={handleCheckboxChange}
                       value={answer.employment_preference}
@@ -376,8 +368,55 @@ const PreferenceIndex = ({ id }) => {
               </MDBBtn>
             </MDBCardBody>
         </MDBCard>
+        </form>
     </div>
   );
 };
 
 export default PreferenceIndex;
+
+//    ATTRIBUTES ORGANIZED BY CATEGORY
+//    // Financial
+//    good_credit_preference: true,
+//    employment_preference: true,
+//    high_income_preference: false,
+//    share_bills_preference: true,
+
+//    //Residential Availabilty, Type, Amenities
+//    open_rooms_preference: false,
+//    high_rise_preference: false,
+//    house_preference: false,
+//    private_bathroom_preference: false,
+//    private_room_preference: false,
+
+//    // LifeStyle
+//    gender_preference: "Does not matter",
+//    sexual_orientation_preference: "Does not matter",
+  
+//    neat_preference: true,
+//    low_noise_preference: true,
+//    religious_preference: false,
+
+//    //Obligations
+//    kids_preference: false,
+//    pets_preference: false,
+//    is_student_preference: false,
+
+//    //Health
+//    healthy_preference: true,
+//    allergies_preference: false,
+//    smoker_preference: false,
+//    chronic_condition_preference: false,
+//    disabled_preference: false,
+//    visiting_nurse_preference: false,
+//    home_assistance_preference: false,
+   
+//    //Activites
+//    musician_preference: false,
+//    singer_preference: false,
+//    host_parties_preference: false,
+//    romantic_visits_preference: false,
+//    family_friend_visits_preference: false,
+//    night_life_preference: false,
+//    mate_id: "",
+//  });

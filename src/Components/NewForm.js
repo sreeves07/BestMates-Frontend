@@ -19,8 +19,12 @@ import {
   MDBCardHeader, 
   MDBCheckbox, 
   MDBCol, 
+  MDBBtn,
   MDBInput, 
+  MDBListGroup,
+  MDBListGroupItem,
   MDBRow,
+  MDBTextArea,
   MDBTypography
  } from 'mdb-react-ui-kit';
 
@@ -52,6 +56,20 @@ function NewForm() {
     max_rent: "",
     credit_score: "",
     income: "",
+   // is_employed: true,      //need to be added to backend
+    is_student: false,      //need to be added to backend
+   // is_healthy: true,       //need to be added to backend
+   // has_allergies: false,   //need to be added to backend
+    is_disabled: false,     //need to be added to backend
+   // has_chronic_condition: false,    //need to be added to backend
+   // has_visiting_nurse: false,       //need to be added to backend
+   // has_home_assistance: false,      //need to be added to backend
+    is_musician: false,     //need to be added to backend
+    is_singer: false,       //need to be added to backend
+    host_parties: false,    //need to be added to backend
+   // has_romantic_visits: false,       //need to be added to backend
+   // has_family_friend_visits: false,  //need to be added to backend
+   // has_night_life: false,            //need to be added to backend
   });
 
 let navigate = useNavigate();
@@ -88,61 +106,48 @@ let navigate = useNavigate();
   
  
   return !loading ? (
-    <div 
-    className="newForm ">      
-      <MDBRow className="nf-wrapper-row"   >
+    <div className="newFormBox ">      
+      <form className="newform needs-validation"
+            onSubmit={handleSubmit}
+            noValidate >
+        <MDBRow>
+          <MDBCol md="8" className="mb-4">
+            <MDBCard className="mb-4 newForm-card">
+              <MDBCardHeader className="py-3">
+                <MDBTypography tag="h5" className="mb-0">New Account Form
+                </MDBTypography>
+              </MDBCardHeader>
 
-        
-        {/* <MDBCol className='nf-column-1'>
-          
-            
-               <UploadWidget />
-          
-        </MDBCol> */}
+              <MDBCardBody>
+                <form className="needs-validation"
+                      onSubmit={handleSubmit}
+                      noValidate>
 
-
-
-
-
-        <MDBCol md="4" className=" nf-column-2  mb-1"   >
-          <MDBCard className="mb-4">
-            {/* <MDBCardImage */}
-            {/* src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"/> */}
-            <MDBCardHeader className="py-3">
-              <MDBTypography tag="h5" className="mb-0">New Account Form</MDBTypography>
-            </MDBCardHeader>
-            <MDBCardBody>
-              <form className="needs-validation"
-              onSubmit={handleSubmit}
-              noValidate >
-                {/*Basic Info -  Row 1 */}
-                <MDBRow className="mb-4">
+                   {/* ********** Basic Info - Row 1 ********** */}      
+                  <MDBRow className="mb-4">
                     <MDBCol>
                       <MDBInput 
-                       label='First name' 
-                       type='text' 
-                       onChange={handleTextChange}
+                        label='First name'    type='text' 
+                        onChange={handleTextChange}
                         value={newUser.first_name}
-                        id="first_name"
-                        required
+                        id="first_name"       required
                       /> 
                       <div className="valid-feedback">Looks good!</div>
                     </MDBCol>
-
-                     <MDBCol >
-                        <MDBInput 
-                          label='Last name'
-                          type='text' 
-                          onChange={handleTextChange}
-                          value={newUser.last_name}
-                        id="last_name"
-                        required
+                    <MDBCol >
+                      <MDBInput 
+                        label='Last name'   type='text' 
+                        onChange={handleTextChange}
+                        value={newUser.last_name}
+                        id="last_name"      required
                       />
-                     </MDBCol>
-                </MDBRow>
+                    </MDBCol>
+                  </MDBRow>
 
-                {/*Basic Info -  Row 2 */}
-                <MDBRow className="mb-4">
+
+                    {/* ********** Basic Info -  Row 2 ********** */}
+
+                  <MDBRow className="mb-4">
                   <MDBCol >
                     <MDBInput label='City' type='text'
                       onChange={handleTextChange}
@@ -170,10 +175,12 @@ let navigate = useNavigate();
                     />
                   </MDBCol>
                 </MDBRow>
-{/*Basic Info - Row 3 */}
+
+                  {/* ********** Basic Info - Row 3 ********** */}
+
                 <MDBRow className="mb-4">
                   <MDBCol>
-                    <MDBInput className='birthdate-MDB-input' label='Date of Birth' type='date' 
+                    <MDBInput className='birthDate-attribute birthdate-MDB-input' label='Date of Birth' type='date' 
                       onChange={handleTextChange}
                       value={newUser.birthday}
                       id="birthday"
@@ -182,15 +189,8 @@ let navigate = useNavigate();
                   </MDBCol>
 
                   <MDBCol md="3">
-                  {/* Gender with Radio button
-                  <MDBInput label='Gender' type='text' /> */}
-                  {/* <MDBRadio name='flexRadioDefault' id='flexRadioDefault1' label='Male' />
-                  <MDBRadio name='flexRadioDefault' id='flexRadioDefault2' label='Female' defaultChecked /> */}
-                  {/* React Select dropdown - no label */}
-                  {/* <Select options={options} /> */}
-
                     <select
-                      className="gender-select mb-2"
+                      className="gender-attribute mb-2"
                       onChange={handleTextChange}
                       value={newUser.gender}
                       id="gender"
@@ -204,16 +204,15 @@ let navigate = useNavigate();
                       <option value="5">Transgender</option>
                       <option value="6">Other/Decline to Share</option>
                     </select>
-
                   </MDBCol>
 
                    <MDBCol md="5" >     
-                    <select className="orientation-select"
+                    <select className="orientation-attribute"
                       onChange={handleTextChange}
                       value={newUser.sexual_orientation}
                       id="sexual_orientation"
                       required
-                   >   {/* className="browser-default custom-select" */}
+                    >   {/* className="browser-default custom-select" */}
                       <option defaultValue={"Heterosexual"}>Orientation</option>
                       <option value="1">Heterosexual</option>
                       <option value="2">Pansexual</option>
@@ -222,10 +221,10 @@ let navigate = useNavigate();
                       <option value="5">Asexual</option>
                       <option value="6">Other/Decline to Share</option>
                     </select>
-               </MDBCol>
-
+                  </MDBCol>
                 </MDBRow>
- {/*Basic Info -  Row 4 */}
+
+                {/*Basic Info -  Row 4 */}
                 <MDBRow className="mb-1">
                   <MDBCol>
                     <MDBInput label='Email' type='text' className="mb-4"
@@ -244,6 +243,8 @@ let navigate = useNavigate();
                       required
                     />
                   </MDBCol>
+
+                  
           
                   <MDBCol md="4">
                     <MDBInput label='Credit Level' type='text'
@@ -254,9 +255,18 @@ let navigate = useNavigate();
                     />
                   </MDBCol>
                 </MDBRow>
-
- {/*Basic Info -  Row 5 */}
+                  {/* ********** Basic Info - Row 5 (Financial Attributes) ********** */}
                 <MDBRow className="mb-4">
+                  {/* <MDBCol>
+                  <MDBCheckbox
+                      name="flexCheck"
+                      label='Employed' type='text'
+                      onChange={handleCheckboxChange}
+                      value={newUser.is_employed}
+                      id="has_job"
+                      required
+                    />
+                  </MDBCol> */}
                   <MDBCol>
                     <MDBInput label='Income Level' type='text'
                       onChange={handleTextChange}
@@ -265,7 +275,6 @@ let navigate = useNavigate();
                       required
                     />
                   </MDBCol>
-
                   <MDBCol>
                     <MDBInput label="Max Rent Budget" type='number' 
                       onChange={handleTextChange}
@@ -276,7 +285,8 @@ let navigate = useNavigate();
                   </MDBCol> 
                 </MDBRow>
 
- {/*Basic Info -  Row 6 */}
+                  {/* ********** Attributes (Financial) - Row 6 - (Checkboxes- Row A)********** */}
+    
                 <MDBRow className="mb-3">
                   <MDBCol>
                     <MDBCheckbox
@@ -322,11 +332,6 @@ let navigate = useNavigate();
                      id="house"
                      required
                       /> 
-
-{/* High_Rise: Yes<br/>
-    House: Yes<br/>
-    Private_Bathroom: Yes<br/>
-    Private Room: Yes<br/> */}
     
                   </MDBCol> 
                 </MDBRow>
@@ -426,9 +431,10 @@ let navigate = useNavigate();
                   </MDBCol>
                 </MDBRow>
 
-{/* Checkboxes - Row 3 */}
 
-                <MDBRow className="mb-4">
+  {/* Checkboxes - Row 3 */}
+
+  <MDBRow className="mb-4">
                   <MDBCol>
                     <MDBCheckbox
                       name="flexCheck"
@@ -478,38 +484,63 @@ let navigate = useNavigate();
                   </MDBCol>
                 </MDBRow>
 
-               
-                {/* <MDBTextArea label='Additional information' rows={4} className="mb-4" /> */}
-
-                <div className="d-flex justify-content-center">
-
-                <MDBRow className="mb-2">
-                <MDBCol>
-                      {/* <UploadWidget /> */}
-                    </MDBCol>
-                    <MDBCol></MDBCol>
-                    <MDBCol>
-                      <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account?' defaultChecked />
-                    </MDBCol>
-                    </MDBRow>
-
-                    <MDBRow> 
-                  
-                </MDBRow>
+              
 
 
-                </div>
-              </form>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
 
-        <MDBCol className='nf-column-3'> 
-          {/* *************** PREFERENCES LIST (Checkboxes) - Right Column ***************  */}
-         <PreferenceIndex />
-        </MDBCol>
-      </MDBRow>
 
+
+
+
+
+
+                    {/*Create Account Button */}
+                  <div className="d-flex justify-content-center">
+                    <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account?' defaultChecked />
+                  </div>
+                </form>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+
+
+
+          {/* *********** Column 2  Sample Code *********** */}
+{/* 
+          <MDBCol md="4" className="mb-4">
+            <MDBCard className="mb-4">
+              <MDBCardHeader className="py-3">
+                <MDBTypography tag="h5" className="mb-0">Summary</MDBTypography>
+              </MDBCardHeader>
+              <MDBCardBody>
+                <MDBListGroup flush>
+                  <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                    Products
+                    <span>$53.98</span>
+                  </MDBListGroupItem>
+                  <MDBListGroupItem className="d-flex justify-content-between align-items-center px-0">
+                    Shipping
+                    <span>Gratis</span>
+                  </MDBListGroupItem>
+                  <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                    <div>
+                      <strong>Total amount</strong>
+                      <strong>
+                        <p className="mb-0">(including VAT)</p>
+                      </strong>
+                    </div>
+                    <span><strong>$53.98</strong></span>
+                  </MDBListGroupItem>
+                </MDBListGroup>
+
+                <MDBBtn size="lg" block>
+                  Make purchase
+                </MDBBtn>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol> */}
+        </MDBRow>
+      </form>
     </div>
 
 ) : (
@@ -520,3 +551,19 @@ let navigate = useNavigate();
 export default NewForm
 
 
+// Additional Preferences
+
+// is_employed: true,      //need to be added to backend
+// is_student: false,      //need to be added to backend
+// is_healthy: true,       //need to be added to backend
+// has_allergies: false,   //need to be added to backend
+// is_disabled: false,     //need to be added to backend
+// has_chronic_condition: false,    //need to be added to backend
+// has_visiting_nurse: false,       //need to be added to backend
+// has_home_assistance: false,      //need to be added to backend
+// is_musician: false,     //need to be added to backend
+// is_singer: false,       //need to be added to backend
+// host_parties: false,    //need to be added to backend
+// has_romantic_visits: false,       //need to be added to backend
+// has_family_friend_visits: false,  //need to be added to backend
+// has_night_life: false,            //need to be added to backend
