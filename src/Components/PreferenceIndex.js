@@ -4,6 +4,7 @@ import axios from "axios";
 import { useContextAuthProvider } from "../Firebase/context";
 import Location from './Location';
 import UploadWidget from "../Components/UploadWidget";
+import UserBio from "./UserBioPic";
 import "../Components/NewForm.css"
 
 // imports for material design bootstrap
@@ -90,29 +91,12 @@ const PreferenceIndex = ({ id }) => {
   return (
     <div className="preferenceIndex">
       <div className="userBioBox">
+      {/* ************ ROW 1 *********** */}
         <MDBCard>
           <MDBCardHeader className="py-3">
-            <MDBTypography tag="h5" className="mb-0">Your Bio and Profile Picture</MDBTypography>
+            <MDBTypography tag="h5" className="mb-0">Select location to search for a roommate</MDBTypography>
               </MDBCardHeader>
                 <MDBCardBody>
-
-                    {/* ************ ROW 1 *********** */}
-                    {/* User Bio Text Box */}
-                  <MDBRow >   
-                    <MDBCol>  
-                        <MDBTextArea 
-                          className="userBio mb-4"  
-                          label='Your Bio Statement:'
-                          defaultValue="< Please enter a brief description of yourself here >" 
-                          rows={2} 
-                        /> 
-                    </MDBCol>
-                    <MDBCol>
-                      <UploadWidget/>
-                    </MDBCol>
-                  </MDBRow>
-
-                   {/* ************ ROW 2 *********** */}
                   {/* rendering component for React Select Location drop down list */}
                   <MDBRow>
                     <MDBCol>
