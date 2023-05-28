@@ -24,6 +24,7 @@ import {
 const API = process.env.REACT_APP_API_URL;
 
 const PreferenceIndex = ({ id }) => {
+
   const [answer, setAnswer] = useState({
     id: "",
     gender_preference: "Does not matter",
