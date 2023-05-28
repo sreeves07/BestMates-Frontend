@@ -1,8 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useContextAuthProvider } from "../Firebase/context";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import UploadWidget from "./UploadWidget";
 import "../Components/NewForm.css"
+
+// imports for material design bootstrap
 import { 
     MDBCard, 
     MDBCardBody, 
@@ -14,30 +18,36 @@ import {
     MDBTextArea,
     MDBTypography
    } from 'mdb-react-ui-kit';
-import UploadWidget from "./UploadWidget";
+
 
 const API = process.env.REACT_APP_API_URL;
 
 
-function UserBio() {
+const UserBio = ({ id }) => {
 
-    const [userBio, setUserBio] = useState({
-    smallBio: "",
-    })
-    let navigate = useNavigate();
+  // const [user, loading] = useAuthState(auth);
+  const [userBio, setUserBio] = useState({
+  id: "",  
+  smallBio: "",
+  mate_id: "",
+  })
+  
+  const { user } = useContextAuthProvider();
 
-    const addUserBio = (bio) => {
-        axios
-          .put(`${API}/bio/`, userBio)
-          .then(() => {
-            navigate(`/users`);
-          })
-          .catch((c) => console.warn("catch", c));
-      };
+  let navigate = useNavigate();
 
-      const handleTextChange = (event) => {
-        setUserBio({ ...userBio, [event.target.id]: event.target.value });
-        addUserBio(userBio)
+  const handleTextChange = (event) => {
+    setUserBio({ ...userBio, [event.target.id]: event.target.value });
+    addUserBio(userBio)
+  };    
+  const addUserBio = (userBio) => {
+      console.log(userBio);
+      axios
+        .put(`${API}/user/${user.uid}/bio/`, userBio)
+        .then(() => {
+          navigate(`/users`);
+        })
+        .catch((c) => console.warn("catch", c))
       };
 
 

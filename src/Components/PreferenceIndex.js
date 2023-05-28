@@ -5,7 +5,6 @@ import { useContextAuthProvider } from "../Firebase/context";
 import Location from './Location';
 import UploadWidget from "../Components/UploadWidget";
 import "../Components/NewForm.css"
-//import "../Components/NewForm.css"
 
 // imports for material design bootstrap
 import { 
