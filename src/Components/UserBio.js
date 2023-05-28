@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import axios from "axios";
 import "../Components/NewForm.css"
 import { 
@@ -15,6 +14,7 @@ import {
     MDBTextArea,
     MDBTypography
    } from 'mdb-react-ui-kit';
+import UploadWidget from "./UploadWidget";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -28,7 +28,7 @@ function UserBio() {
 
     const addUserBio = (bio) => {
         axios
-          .put(`${API}/bio/${user.uid}`, userBio)
+          .put(`${API}/bio/`, userBio)
           .then(() => {
             navigate(`/users`);
           })
@@ -63,9 +63,17 @@ function UserBio() {
                     <MDBBtn 
                             className='userBio-submitBtn' 
                             type="submit" 
-                            onClick={handleSubmit}
+                            onClick={handleTextChange}
                             >Save</MDBBtn>
                     </div>
+            </MDBCard>
+            <MDBCard className="mb-4 userBio-card">
+              <MDBCardHeader className="py-2">
+                <MDBTypography tag="h5" className="mb-0">Your Profile Image</MDBTypography>
+              </MDBCardHeader>
+                <MDBCardBody className="uploadWidget-card">
+                 <UploadWidget/>
+                </MDBCardBody>
             </MDBCard>
     </div>
   )
