@@ -118,7 +118,7 @@ let navigate = useNavigate();
              
                    {/* ********** Basic Info - Row 1 ********** */}  
 
-                  <MDBRow className="mb-4">
+                  <MDBRow className="mb-3">
                     <MDBCol>
                       <MDBInput 
                         label='First name'    type='text' 
@@ -141,7 +141,7 @@ let navigate = useNavigate();
 
                     {/* ********** Basic Info -  Row 2 ********** */}
 
-                  <MDBRow className="mb-4">
+                  <MDBRow className="mb-3">
                   <MDBCol >
                     <MDBInput label='City' type='text'
                       onChange={handleTextChange}
@@ -172,7 +172,7 @@ let navigate = useNavigate();
 
                   {/* ********** Basic Info - Row 3 ********** */}
 
-                <MDBRow className="mb-4">
+                <MDBRow className="mb-3">
                   <MDBCol > {/* md="3" */}
                     <MDBInput className='birthDate-attribute birthdate-MDB-input' label='Date of Birth' type='date' 
                       onChange={handleTextChange}
@@ -250,7 +250,7 @@ let navigate = useNavigate();
 
                   {/* ********** Basic Info - Row 5 (Financial Attributes) ********** */}
 
-                <MDBRow className="mb-5">
+                <MDBRow className="mb-3">
                   {/* <MDBCol>
                   <MDBCheckbox
                       name="flexCheck"
@@ -419,7 +419,7 @@ let navigate = useNavigate();
 
                 {/* ********** Attributes (Activities) - Row 9 - (Checkboxes- Row D) ********** */}
 
-                <MDBRow className="mb-5">
+                <MDBRow className="mb-3">
                   <MDBCol>
                     <MDBCheckbox
                       name="flexCheck"
@@ -466,7 +466,7 @@ let navigate = useNavigate();
 
                 {/* ********** (Create Account Button) - Row 10 - (Checkboxes- Row E) ********** */}
 
-                <MDBRow className="mb-1">
+                <MDBRow className="mb-5">
                   <MDBCol>
                     <div className="d-flex justify-content-center">
                       {/* <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account' defaultChecked /> */}

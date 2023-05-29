@@ -93,14 +93,14 @@ const UserBioPic = ({ id }) => {
           id="smallBio"
           />
         </MDBCardBody>
-  <div>
+  <MDBRow className="mb-1 d-flex justify-content-center">
     <MDBBtn 
-      className='userBio-submitBtn btn-secondary' 
+      className='userBio-submitBtn btn-secondary ' 
       type="submit" 
       onClick={handleTextChange}
       value = {userBio.smallBio}
       >Save Bio</MDBBtn>
-  </div>
+  </MDBRow>
 </MDBCard>
  
     </div>
