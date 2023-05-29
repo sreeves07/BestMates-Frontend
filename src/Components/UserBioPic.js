@@ -95,7 +95,7 @@ const UserBioPic = ({ id }) => {
         </MDBCardBody>
   <div>
     <MDBBtn 
-      className='userBio-submitBtn' 
+      className='userBio-submitBtn btn-secondary' 
       type="submit" 
       onClick={handleTextChange}
       value = {userBio.smallBio}
