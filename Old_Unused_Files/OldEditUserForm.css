@@ -1,0 +1,553 @@
+
+/* formatting for  Pages - Edit  */
+.Edit{
+    background-image: url("../Images/daniil-silantev-nBuiLbz_j4A-unsplash.jpg");
+    background-size: cover;
+    background-color: darksalmon;
+    }
+    
+    .editForm{
+        margin: auto;
+        width: 95vw;
+        height: 70vh;
+        border: 1px solid rgb(128, 77, 234, .7);   /* color in logo */
+        display: grid;
+        grid-template-columns: .7fr 1fr .7fr 1fr .7fr 1fr .7fr 1fr;
+        grid-template-rows: .25fr .5fr .5fr .5fr .25fr .5fr .5fr .5fr;
+        row-gap: 6px;
+        column-gap: 10px;
+        background-color: rgb(219, 208, 228, .3);
+        background-color: rgb(128, 77, 234, .12)
+    }
+    
+    /* *********** EDIT USER FORM HEADINGS   ********** */
+    
+    .editFormHdgBox{
+        width: 100%;
+        height: 20%;
+        background-color: rgb(214 250 212 / 48%);
+        /* margin-top: -17px; */
+        /* margin: auto; */
+    }
+    
+    .editFormHdg{
+        font-size: 23px;
+    }
+    
+    .editFormSubHdg{
+        font-size: 18px;
+        /* color:rgb(128, 77, 234); */
+        color: chartreuse; 
+        text-shadow: rgb(128, 77, 234) 3.5px 2px 2px ;
+        letter-spacing: .25rem;
+    }
+    
+    .editFormMsg{
+        font-size: 15px;
+        font-style: italic;
+    }
+    
+    .editFormLabel{
+        font-weight: bold;
+    }
+    
+    /* *********** [    BASIC INFO    ]  ********** */
+    
+    /* ***********  NEW FORM GRID ROW 1  ********** */
+    
+    .editFormLabel{
+        font-size: 16px;
+        font-style: italic;
+        width: 15vh;
+        height: 1.5em;
+        text-align: left;
+    }
+    .basicInfoHdg-ef{
+        font-style: italic;
+        text-decoration: underline;
+        font-size: 16px;
+        /* grid-column-start: 1; */
+        grid-row: 1;
+        padding-top: 0;     
+        padding-bottom: 0;
+        color: rgb(128, 77, 234) /* color in logo */
+    }
+    
+    /* ***********  EDIT USER FORM GRID ROW 2  ********** */
+    
+    .basicInfo1-firstName-ef{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row: 2;
+        margin-left: 2em;
+        text-align: left;
+    }
+    .firstName-ef{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row: 2;
+        margin-left: -2em;
+        height: 2em;
+        width: 12em;
+    }
+    
+    .basicInfo2-lastName-ef{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row: 2;
+        text-align: left;
+        margin-left: 2em;
+    }
+    .lastName-ef{
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row: 2;
+        margin-left: -1em;
+        height: 2em;
+        width: 12em;
+    }
+    
+     .basicInfo3-birthDate-ef{
+        grid-column-start: 5;
+        grid-column-end: 6;
+        grid-row: 2;
+        text-align: left;
+        margin-left: 2em;
+    } 
+    
+     .birthDate-ef{ 
+        grid-column-start: 6;
+        grid-column-end: 7;
+        grid-row: 2;
+        margin-left: -.8em;
+        height: 2em;
+        width: 12em;
+    } 
+    
+    .basicInfo8-gender-ef{
+        grid-column-start: 7;
+        grid-column-end: 8;
+        grid-row: 2;
+        text-align: left;
+        margin-left: 2em;
+    }
+    .gender-ef{
+        grid-column-start: 8;
+        grid-column-end: 9;
+        grid-row: 2;
+        margin-left: -.8em;
+        height: 2em;
+        width: 12em;
+    }
+    
+    /* *********** FORM GRID ROW 3   ********** */
+    
+    .basicInfo4-city-ef{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row: 3;
+        text-align: left;
+        margin-left: 2em;
+    }
+    .city-ef{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row: 3;
+        margin-left: -2em;
+        height: 2em;
+        width: 12em;
+    }
+    .basicInfo5-state-ef{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row: 3;
+        text-align: left;
+        margin-left: 2em;
+    }
+    .state-ef{
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row: 3;
+        margin-left: -1em;
+        height: 2em;
+        width: 12em;  
+    }
+    
+    .basicInfo6-zipcode-ef{
+        grid-column-start: 5;
+        grid-column-end: 6;
+        grid-row: 3;
+        text-align: left;
+        margin-left: 2em;
+    }
+    .zipcode-ef{
+        grid-column-start: 6;
+        grid-column-end: 7;
+        grid-row: 3;
+        margin-left: -1em;
+        height: 2em;
+        width: 12em; 
+    }
+    
+    .basicInfo7-email-ef{
+        grid-column-start: 7;
+        grid-column-end: 8;
+        grid-row: 3;
+        text-align: left;
+        margin-left: 2em;
+    }
+    .email-ef{
+        grid-column-start: 8;
+        grid-column-end: 9;
+        grid-row: 3;
+        margin-left: -.8em;
+        height: 2em;
+        width: 12em; 
+        
+    }
+    
+    
+    
+    /* *********** FORM GRID ROW 4   ********** */
+    
+    .attribute1-income-ef{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row: 4;
+        text-align: left;
+        margin-left: 2em;
+    }
+    .income-ef{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row: 4;
+        margin-left: -2em;
+        height: 2em;
+        width: 12em;
+    }
+    
+    .attribute2-creditScore-ef{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row: 4;
+        text-align: left;
+        margin-left: 2em;
+    }
+    .creditScore-ef{
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row: 4;
+        margin-left: -1em;
+        height: 2em;
+        width: 12em; 
+    }
+    
+    .attribute3-maxRent-ef{
+        grid-column-start: 5;
+        grid-column-end: 6;
+        grid-row: 4;
+        text-align: left;
+        margin-left: 2em;
+    }
+    .maxRent-ef{
+        grid-column-start: 6;
+        grid-column-end: 7;
+        grid-row: 4;
+        margin-left: -1em;
+        height: 2em;
+        width: 12em; 
+    }
+    
+    .basicInfo9-sexOrient-ef{ 
+        grid-column-start: 7;
+        grid-column-end: 8;
+        grid-row: 4;
+        text-align: left;
+        margin-left: 2em;
+    } 
+    .sexOrient-ef{ 
+        grid-column-start: 8;
+        grid-column-end: 9;
+        grid-row: 4;
+        text-align: left; 
+        margin-left: -.8em;
+        height: 2em;
+        width: 12em;
+    }
+    
+    /* *********** [  ATTRIBUTES  ]   ********** */
+    
+    
+    /* *********** FORM GRID ROW 5  - ATTRIBUTE HEADINGS ********** */
+    
+    .atttributeHdg-ef{
+        font-style: italic;
+        font-size: 16px;
+        grid-column-start: 1;
+        grid-row: 5;
+        text-align: left; 
+        text-decoration: underline;
+        color: rgb(128, 77, 234) /* color in logo */
+    }
+    .atttributeSubHdg-ef{
+        grid-column-start: 1;
+        grid-column-end: 4;
+        margin-left: 9em;
+        grid-row: 5;
+        font-size: 16px;
+        font-style: italic;
+        font-weight:500;
+        background-color: rgba(255, 228, 196, 0.406);
+        color: rgb(128, 77, 234); /* color in logo */
+        
+        text-align: left; 
+    }
+    
+    
+    /* *********** FORM GRID ROW 6   ********** */
+    
+    
+    .attribute4-moveInDate-ef{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row: 6;
+        text-align: left;
+        margin-left: 2em;
+        background-color: rgba(255, 228, 196, 0.80725);
+        width: 7.4em;
+        height: 1.4em;
+    }
+    .moveInDate-ef{
+        height: 3em;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row: 6;
+        margin-left: -2em;
+        height: 2em;
+        width: 12em;
+    }
+    
+    .attribute5-isSharingBills-ef{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row: 6;
+        text-align: left;
+        margin-left: 2em;
+        width: 10em;
+        background-color: rgba(255, 228, 196, 0.80725);
+    }
+    .isSharingBills-ef{
+        width: 1.7em;
+        height: 1.7em;
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row: 6;
+        margin-left: -6em;
+        height: 2em;
+        width: 12em;
+        margin-top: -0.1em;
+    }
+    
+    .attribute6-hasOpenRooms-ef{
+        grid-column-start: 6;
+        grid-column-end: 7;
+        grid-row: 6;
+        text-align: left;
+        margin-left: -8em; 
+        width: 9em;
+        background-color: rgba(255, 228, 196, 0.80725);
+    }
+    .hasOpenRooms-ef{
+        width: 1.7em;
+        height: 1.7em;
+        grid-column-start: 6;
+        grid-column-end: 7;
+        grid-row: 6;
+        margin-left: -3em;
+        height: 2em;
+        width: 12em; 
+        margin-top: -0.1em;
+    }
+    
+    .attribute10-isDisabled-ef{
+        width: 7.4em;
+        height: 1.4em;
+        margin-left: -8.5em;
+        grid-column-start: 8;
+        grid-column-end: 9;
+        grid-row: 6;
+        text-align: left;
+        margin-left: -8em;
+        background-color: rgba(255, 228, 196, 0.80725);
+    }
+    .isDisabled-ef{
+        width: 2.7em;
+        height: 1.7em;
+        grid-column-start: 8;
+        grid-column-end: 9;
+        grid-row: 6;
+        margin-left: -1.3em; 
+        margin-top: -0.1em;
+    }
+    
+    
+    /* ***********  FORM GRID ROW 7   ********** */
+    
+    .attribute7-hasKids-ef{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row: 7;
+        text-align: left;
+        margin-left: 2em;
+        background-color: rgba(255, 228, 196, 0.80725);
+    }
+    .hasKids-ef{
+        width: 1.7em;
+        height: 1.7em;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row: 7; 
+        margin-left: -7em;
+        height: 2em;
+        width: 12em;
+        margin-top: -0.1em;
+    }
+    
+    
+    .attribute8-hasPets-ef{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row: 7;
+        text-align: left;
+        margin-left: -3em;
+        background-color: rgba(255, 228, 196, 0.80725);
+    }
+    .hasPets-ef{
+        width: 1.7em;
+        height: 1.7em;
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row: 7;
+        margin-left: 3.7em;
+        margin-top: -0.1em;
+    }
+    
+    .attribute11-isNeat-ef{
+        grid-column-start: 5;
+        grid-column-end: 6;
+        grid-row: 7;
+        text-align: left;
+        margin-left: -11em;
+        background-color: rgba(255, 228, 196, 0.80725);
+        }
+    .isNeat-ef{
+        width: 1.7em;
+        height: 1.7em;
+        grid-column-start: 5;
+        grid-column-end: 7;
+        grid-row: 7;
+        margin-left: -4em; 
+        margin-top: -0.1em;
+    }
+    
+    .attribute9-isSmoker-ef{
+        grid-column-start: 6;
+        grid-column-end: 7;
+        grid-row: 7;
+        text-align: left;
+        margin-left: -5.5em;
+        background-color: rgba(255, 228, 196, 0.80725);
+    }
+    .isSmoker-ef{
+        width: 1.7em;
+        height: 1.7em;
+        grid-column-start: 6;
+        grid-column-end: 7;
+        margin-left: 2.2em;
+        grid-row: 7;
+        margin-top: -0.1em;
+    }
+    
+    
+    .attribute12-isReligious-ef{
+        grid-column-start: 7;
+        grid-column-end: 8;
+        grid-row: 7;
+        text-align: left;
+        margin-left: 1.8em;
+        background-color: rgba(255, 228, 196, 0.80725);
+    }
+    .isReligious-ef{
+        width: 1.7em;
+        height: 1.7em;
+        grid-column-start: 8;
+        grid-column-end: 9;
+        grid-row: 7; 
+        margin-left: -.8em;
+        margin-top: -0.1em;
+    }
+    
+    
+    /* *********** FORM GRID ROW 7   ********** */
+    
+    
+    /* *********** FORM GRID ROW 8   ********** */
+    
+    
+    .editFormButtonsBox{
+        width: 16.5em;
+        height: 2.7em; 
+        margin-left: -1.75em;
+        padding-top: 1em;
+        grid-column-start: 4;
+        grid-column-end: 7;
+        grid-row: 8 ;
+        border: 1px solid rgba(70, 51, 88, 0.405);
+    }
+    
+    .submitButton-editForm{
+        width: 5em;
+        height: 2em;
+        margin-left: -8px;
+        background-color:rgb(63, 30, 95);
+        color: yellowgreen;
+        border: 2px solid rgb(111, 21, 127);
+        font-size: 16px;
+        font-weight: bold;
+        color:rgb(63, 30, 95);
+        background-color: chartreuse;
+        border-radius: 50%;
+    }
+    a.cancelButton-editForm{
+        margin-left: 3em;
+    }
+    .cancelBtn-editForm{
+        width: 5em;
+        height: 2em;
+        color: chartreuse;
+        border: 2px solid rgb(130, 7, 7);
+        background-color: rgb(128, 77, 234); /* color in logo */
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 50%;
+    
+    }
+    
+    .submitButton-editForm:hover{
+        background-color:yellow;
+        border: 3.5px solid black;
+        
+    }
+    .cancelBtn-editForm:hover{
+        background-color:rgb(144, 190, 223);
+        color:rgb(128, 77, 234);  /* color in logo */
+        border: 3.5px solid black;
+       
+    }
+    
+    
+    
+    
+    
+    /* ***********  MEDIA QUERIES   ********** */
+    
