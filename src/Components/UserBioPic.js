@@ -69,7 +69,7 @@ const UserBioPic = ({ id }) => {
   </MDBCard>
   <MDBCard className="mb-4 userFavs-card">
     <MDBCardHeader className="py-2">
-      <MDBTypography tag="h5" className="mb-0">A Link to Your Favorite Roommates</MDBTypography>
+      <MDBTypography tag="h5" className="mb-0">Link to Your Favorite Roommates</MDBTypography>
     </MDBCardHeader>
       {/* <MDBCardImage
       src="unisex-profile-pic"/>  */}

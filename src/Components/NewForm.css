@@ -119,6 +119,9 @@ select.orientation-attribute{
   width: 11.5rem;
 }
 
+.userFavs-card{
+  width: auto;
+}
 .userBio-submitBtn{
   height: 2rem;
   width: 11rem;
