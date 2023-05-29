@@ -75,7 +75,6 @@ const UserBioPic = ({ id }) => {
       src="unisex-profile-pic"/>  */}
     <MDBCardBody className="userFavs-card">
       <div className="userFavs-component"></div>
-      <div>Your Favorites</div>
     </MDBCardBody>
   </MDBCard>
   <MDBCard className="mb-4 userBio-card">
