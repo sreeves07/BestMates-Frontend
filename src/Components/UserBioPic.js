@@ -69,7 +69,7 @@ const UserBioPic = ({ id }) => {
   </MDBCard>
   <MDBCard className="mb-4 userFavs-card">
     <MDBCardHeader className="py-2">
-      <MDBTypography tag="h5" className="mb-0">Link to Your Favorite Roommates</MDBTypography>
+      <MDBTypography tag="h5" className="mb-0">Link or Dropdown List of Your Favorite Roommates</MDBTypography>
     </MDBCardHeader>
       {/* <MDBCardImage
       src="unisex-profile-pic"/>  */}
@@ -92,7 +92,7 @@ const UserBioPic = ({ id }) => {
           value={userBio.smallBio}
           id="smallBio"
           />
-        </MDBCardBody>
+       
   <MDBRow className="mb-1 d-flex justify-content-center">
     <MDBBtn 
       className='userBio-submitBtn btn-secondary ' 
@@ -101,6 +101,9 @@ const UserBioPic = ({ id }) => {
       value = {userBio.smallBio}
       >Save Bio</MDBBtn>
   </MDBRow>
+
+ </MDBCardBody>
+
 </MDBCard>
  
     </div>
