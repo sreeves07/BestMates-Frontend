@@ -101,9 +101,7 @@ const UserBioPic = ({ id }) => {
       value = {userBio.smallBio}
       >Save Bio</MDBBtn>
   </MDBRow>
-
  </MDBCardBody>
-
 </MDBCard>
  
     </div>

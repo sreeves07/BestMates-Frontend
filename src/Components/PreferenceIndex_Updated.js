@@ -360,7 +360,7 @@ const PreferenceIndex = ({ id }) => {
 
               {/* <MDBBtn size="lg" block> */}
               <MDBBtn size="sm" >
-                Save Preferences
+                Save Updated Preferences
               </MDBBtn>
             </MDBCardBody>
         </MDBCard>
