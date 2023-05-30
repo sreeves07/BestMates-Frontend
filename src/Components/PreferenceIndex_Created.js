@@ -1,11 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContextAuthProvider } from "../Firebase/context";
 import Location from './Location';
-import UploadWidget from "./UploadWidget";
-import UserBio from "./UserBioPic";
 import "../Components/NewForm.css"
 
 // imports for material design bootstrap
@@ -23,7 +21,7 @@ import {
 
 const API = process.env.REACT_APP_API_URL;
 
-const PreferenceIndex = ({ id }) => {
+const PreferenceIndex_Created = ({ id }) => {
 
   const [answer, setAnswer] = useState({
     id: "",
@@ -63,6 +61,19 @@ const PreferenceIndex = ({ id }) => {
   let navigate = useNavigate();
   const { user } = useContextAuthProvider();
 
+  // After New User preferences are submitted, the newlyc reated prefs are passed to the backend via PreferenceIndex_Created, then the view is navigated to PreferenceIndex_Updated to display the roommates that match the  preferences selected.
+
+  const addPrefs = (answer) => {
+    axios
+      .post(`${API}/user/:uid/answers/`, answer)
+      .then((response) => {
+        console.log(response.data)
+        setAnswer(response.data)
+        navigate(`/users`);
+      })
+      .catch((c) => console.warn("catch", c));
+  };
+  
   const handleTextChange = (event) => {
     setAnswer({ ...answer, [event.target.id]: event.target.value });
   };
@@ -70,18 +81,6 @@ const PreferenceIndex = ({ id }) => {
   const handleCheckboxChange = (event) => {
     setAnswer({ ...answer, [event.target.id]: !user[event.target.value] });
   };
-
-  // After New User preferences are submitted, the newlyc reated prefs are passed to the backend via PreferenceIndex_Created, then the view is navigated to PreferenceIndex_Updated to display the roommates that match the  preferences selected.
-
-  const addPrefs = (answer) => {
-    axios
-      .post(`${API}/${user.uid}/`, answer)
-      .then(() => {
-        navigate(`/users`);
-      })
-      .catch((c) => console.warn("catch", c));
-  };
-
   function handleSubmit(event) {
     event.preventDefault();
     event.target.className += " was-validated"
@@ -391,7 +390,7 @@ const PreferenceIndex = ({ id }) => {
   );
 };
 
-export default PreferenceIndex;
+export default PreferenceIndex_Created;
 
 //    ATTRIBUTES ORGANIZED BY CATEGORY
 //    // Financial

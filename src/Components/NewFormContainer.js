@@ -19,10 +19,8 @@ import {
 function NewFormContainer() {
 
 
-//   <div class="row">
-//   <div class="col-auto me-auto">.col-auto .me-auto</div>
-//   <div class="col-auto">.col-auto</div>
-// </div>
+// Displays 2 components -  1- The UserBio component - (contains Upload Widget and UserBio card) - Left Side
+//and 2 - The NewForm component - Right Side
   
   return (
     <div className='newFormContainer'>
@@ -31,10 +29,20 @@ function NewFormContainer() {
         <MDBTypography tag="h5" className="mb-0"> Account Information
         </MDBTypography>
       </MDBCardHeader>
+
+
      <div className='newForm-componentsBox row'>
+
+
+      {/* ********** UserBio Component ********** */}
+
       <div className='userBioPic-component col-auto me-auto'> <UserBioPic/> </div> 
+
+
+      {/* ********** New Form Component ********** */}
   
-      <div className="newForm-component col-auto "> <NewForm/> </div> 
+      <div className="newForm-component col-auto "> <NewForm/> 
+      </div> 
     </div>
       
     </div>
