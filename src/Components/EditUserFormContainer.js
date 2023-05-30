@@ -13,15 +13,15 @@ function EditUserFormContainer() {
 //and 2 - The EditUserForm component - Right Side
   
   return (
-    <div className='newFormContainer'>
+    <div className='editUserFormContainer'>
 
-      <MDBCardHeader className=" newForm-hdg py-2">
+      <MDBCardHeader className=" editUserForm-hdg py-2">
         <MDBTypography tag="h5" className="mb-0"> Account Information
         </MDBTypography>
       </MDBCardHeader>
 
 
-     <div className='newForm-componentsBox row'>
+     <div className='editUserForm-componentsBox row'>
 
 
       {/* ********** UserBio Component ********** */}
@@ -31,7 +31,7 @@ function EditUserFormContainer() {
 
       {/* ********** EdiUserForm Component ********** */}
   
-      <div className="newForm-component col-auto "> <EditUserForm/> 
+      <div className="editUserForm-component col-auto "> <EditUserForm/> 
       </div> 
     </div>
       

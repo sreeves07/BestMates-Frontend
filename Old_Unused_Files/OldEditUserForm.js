@@ -6,7 +6,7 @@ import "./EditUserForm.css";
 
 const API = process.env.REACT_APP_API_URL;
 
-function EditUserForm() {
+function OLDEditUserForm() {
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
@@ -397,4 +397,4 @@ function EditUserForm() {
   );
 }
 
-export default EditUserForm;
+export default OLDEditUserForm;
