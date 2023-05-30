@@ -1,8 +1,8 @@
 import React from 'react'
-import PreferenceIndex from '../Components/PreferenceIndex'
+import PreferenceIndex_Create from '../Components/PreferenceIndex_Created'
 function Preferences() {
   return (
-    <div><PreferenceIndex/></div>
+    <div><PreferenceIndex_Create/></div>
   )
 }
 

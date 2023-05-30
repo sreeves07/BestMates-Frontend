@@ -122,7 +122,7 @@ select.orientation-attribute{
   color: #4f4f4f;
 }
 
-.newForm-submitBtn{
+.newForm-submitBtn, .newPrefForm-submitBtn{
   width: 11.5rem;
 }
 
