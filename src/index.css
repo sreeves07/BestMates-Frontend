@@ -18,10 +18,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.Home {
+.home-image-grid {
   width: 100vw;
-  height: 80vh;
-  background-image: url("./Images/BlueWhiteRoom-Roommate-Tri-Pic3-Lighter.png");
+  height: 83vh;
+  background-image: url("./Images/roommates-composite-with-veneers.png");
   background-size: cover;
   font-family: 'Petit Formal Script', cursive;
   display: grid;

@@ -1,10 +1,10 @@
 const Home = () => {
   return (
     <div className="Home bg-image"  >
-      <div className="homeScreen">
+      {/* <div className="homeScreen"> </div> */}
         <div className="homeHdgBox">
           <h1 className="header">Welcome to BestMates</h1>
-        </div>
+       </div>
         
         <div className="home-image-grid  bg-image  ">
           <div className="homeImage1 bg-image"></div>
@@ -12,7 +12,7 @@ const Home = () => {
           <div className="homeImage3 bg-image"></div>
           <div className="homeImage4 bg-image"></div>
         </div>
-      </div>
+      
     </div>
   );
 };
