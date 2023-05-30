@@ -1,10 +1,9 @@
-import EditUserForm from "../Components/EditUserForm.js";
+import EditUserFormContainer from "../Components/EditUserFormContainer.js";
 
 const Edit = () => {
   return (
     <div className="Edit">
-      <h2 className="header">Edit your profile!</h2>
-      <EditUserForm />
+      <EditUserFormContainer />
     </div>
   );
 };

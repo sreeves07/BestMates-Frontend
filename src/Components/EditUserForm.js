@@ -465,7 +465,7 @@ let navigate = useNavigate();
                         className='editUserForm-submitBtn' 
                         type="submit" 
                         onClick={handleSubmit}
-                        form="form">Submit</MDBBtn>
+                        form="form">Submit Changes</MDBBtn>
                       </div>
                     </MDBCol>
                 </MDBRow> 
@@ -486,20 +486,3 @@ let navigate = useNavigate();
 
 export default EditUserForm
 
-
-// Additional Preferences
-
-// is_employed: true,      //need to be added to backend
-// is_student: false,      //need to be added to backend
-// is_healthy: true,       //need to be added to backend
-// has_allergies: false,   //need to be added to backend
-// is_disabled: false,     //need to be added to backend
-// has_chronic_condition: false,    //need to be added to backend
-// has_visiting_nurse: false,       //need to be added to backend
-// has_home_assistance: false,      //need to be added to backend
-// is_musician: false,     //need to be added to backend
-// is_singer: false,       //need to be added to backend
-// host_parties: false,    //need to be added to backend
-// has_romantic_visits: false,       //need to be added to backend
-// has_family_friend_visits: false,  //need to be added to backend
-// has_night_life: false,            //need to be added to backend
