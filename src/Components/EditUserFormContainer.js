@@ -1,16 +1,16 @@
 import React from 'react'
-import NewForm from './NewForm'
+import EditUserForm from './EditUserForm'
 import UserBioPic from './UserBioPic'
 import "../Components/NewForm.css"
 
 // imports for material design bootstrap
 import { MDBCardHeader, MDBTypography } from 'mdb-react-ui-kit';
 
-function NewFormContainer() {
+function EditUserFormContainer() {
 
 
 // Displays 2 components -  1- The UserBio component - (contains Upload Widget and UserBio card) - Left Side
-//and 2 - The NewForm component - Right Side
+//and 2 - The EditUserForm component - Right Side
   
   return (
     <div className='newFormContainer'>
@@ -29,9 +29,9 @@ function NewFormContainer() {
       <div className='userBioPic-component col-auto me-auto'> <UserBioPic/> </div> 
 
 
-      {/* ********** New Form Component ********** */}
+      {/* ********** EdiUserForm Component ********** */}
   
-      <div className="newForm-component col-auto "> <NewForm/> 
+      <div className="newForm-component col-auto "> <EditUserForm/> 
       </div> 
     </div>
       
@@ -39,4 +39,4 @@ function NewFormContainer() {
   )
 }
 
-export default NewFormContainer
+export default EditUserFormContainer
