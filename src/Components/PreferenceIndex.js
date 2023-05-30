@@ -260,9 +260,10 @@ const PreferenceIndex = ({ id }) => {
 
                 {/* ************ ROW 7 - Prefs *********** */}
 
-            <MDBRow >
+            <MDBRow className="className= mb-3" >
               <MDBCol> 
                 <MDBCheckbox
+                  
                   name="flexCheck"
                   id="smoker_preference"
                   label="Is a Smoker" 
@@ -295,6 +296,7 @@ const PreferenceIndex = ({ id }) => {
               <MDBRow className="mb-3">
                 <MDBCol> 
                   <MDBCheckbox
+                  
                     name="flexCheck"
                     id="singer_preference"
                     label="Is Active Singer" 
@@ -304,6 +306,7 @@ const PreferenceIndex = ({ id }) => {
                 </MDBCol>  
                 <MDBCol> 
                   <MDBCheckbox
+                   className="form-check"
                     name="flexCheck"
                     id="host_parties_preference"
                     label="Hosts Parties" 
