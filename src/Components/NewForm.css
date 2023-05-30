@@ -65,7 +65,7 @@ div.card.mb-4.userBio-card{
 }
 .prefIndexForm{
   display: flex;
-  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 /* .nf-column-1{

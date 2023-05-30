@@ -16,7 +16,7 @@ function Location() {
   
   return (
     <div>
-      <MDBTypography tag="h6" className="mb-3 location-select" >Select a Location</MDBTypography>
+      <MDBTypography tag="h6" className="mb-3 location-select" >Select location or enter a zip code to search for a roommate</MDBTypography>
         <MDBRow>
           <MDBCol>
             <Select

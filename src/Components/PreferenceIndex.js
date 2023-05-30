@@ -94,7 +94,7 @@ const PreferenceIndex = ({ id }) => {
       {/* ************ ROW 1 *********** */}
         <MDBCard>
           <MDBCardHeader className="py-3">
-            <MDBTypography tag="h5" className="mb-0">Select location or enter a zip code to search for a roommate</MDBTypography>
+            <MDBTypography tag="h5" className="mb-0">Your Preferences</MDBTypography>
               </MDBCardHeader>
                 <MDBCardBody>
                   {/* rendering component for React Select Location drop down list */}
@@ -113,7 +113,7 @@ const PreferenceIndex = ({ id }) => {
         noValidate>
       <MDBCard >
         <MDBCardHeader className="py-0">
-          <MDBTypography tag="h5" className="mb-0">Your Preferences</MDBTypography>
+          <MDBTypography tag="h6" className="mb-0">Add or Remove Desired Preferences</MDBTypography>
             </MDBCardHeader>
               <MDBCardBody>
                 <MDBListGroup> 
@@ -294,9 +294,8 @@ const PreferenceIndex = ({ id }) => {
                 {/* ************ ROW 8 - Prefs *********** */}
 
               <MDBRow className="mb-3">
-                <MDBCol> 
+                <MDBCol className="ms-0"> 
                   <MDBCheckbox
-                  
                     name="flexCheck"
                     id="singer_preference"
                     label="Is Active Singer" 
@@ -304,16 +303,19 @@ const PreferenceIndex = ({ id }) => {
                     value={answer.singer_preference}
                   /> 
                 </MDBCol>  
-                <MDBCol> 
+                <MDBCol className="ms-0"> 
                   <MDBCheckbox
-                   className="form-check"
                     name="flexCheck"
                     id="host_parties_preference"
                     label="Hosts Parties" 
                     onChange={handleCheckboxChange}
                     value={answer.host_parties_preference}
-                  />  
+                  /> 
                 </MDBCol> 
+                <MDBCol className="ms-0"> 
+ 
+                </MDBCol> 
+       
               </MDBRow>
 
                 {/* ************ ROW 11 - Prefs *********** */}         
