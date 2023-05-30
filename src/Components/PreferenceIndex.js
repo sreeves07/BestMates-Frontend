@@ -113,7 +113,7 @@ const PreferenceIndex = ({ id }) => {
         noValidate>
       <MDBCard >
         <MDBCardHeader className="py-0">
-          <MDBTypography tag="h6" className="mb-0">Add or Remove Desired Preferences</MDBTypography>
+          <MDBTypography tag="h6" className="mb-0">Add or Remove Desired Preferences to Display Best Roommate Matches</MDBTypography>
             </MDBCardHeader>
               <MDBCardBody>
                 <MDBListGroup> 
