@@ -4,8 +4,6 @@ import Select from 'react-select';
 import axios from "axios";
 import { useContextAuthProvider } from "../Firebase/context";
 import Location from './Location';
-import UploadWidget from "./UploadWidget";
-import UserBio from "./UserBioPic";
 import "../Components/NewForm.css"
 
 // imports for material design bootstrap
@@ -90,7 +88,8 @@ const PreferenceIndex = ({ id }) => {
 
   return (
     <div className="preferenceIndex">
-      <div className="userBioBox">
+      <div className="locationBox">
+
       {/* ************ ROW 1 *********** */}
         <MDBCard>
           <MDBCardHeader className="py-3">

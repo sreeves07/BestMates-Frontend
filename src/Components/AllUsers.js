@@ -22,7 +22,7 @@ function AllUsers() {
 
   useEffect(() => {
     axios
-      .get(`${API}/user/:id/answers`)
+       .get(`${API}/user/:uid/answers`) // changed from :id
       .then((response) => {
         console.log(response.data);
         // console.log("user api response data=", response.data);
