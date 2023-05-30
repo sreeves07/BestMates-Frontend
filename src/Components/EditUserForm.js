@@ -109,7 +109,7 @@ let navigate = useNavigate();
           <MDBCol md="8" className="mb-4">
             <MDBCard className="mb-4 newForm-card">
               <MDBCardHeader className="py-2">
-                <MDBTypography tag="h5" className="mb-0">New Account Form</MDBTypography>
+                <MDBTypography tag="h5" className="mb-0">Account Settings</MDBTypography>
               </MDBCardHeader>
                 <MDBCardBody>
              
@@ -121,7 +121,7 @@ let navigate = useNavigate();
                         label='First name'    type='text' 
                         onChange={handleTextChange}
                         value={updatedUser.first_name}
-                        id="first_name"       required
+                        id="first_name"       
                       /> 
                       <div className="valid-feedback">Looks good!</div>
                     </MDBCol>
@@ -130,7 +130,7 @@ let navigate = useNavigate();
                         label='Last name'   type='text' 
                         onChange={handleTextChange}
                         value={updatedUser.last_name}
-                        id="last_name"      required
+                        id="last_name"      
                       />
                     </MDBCol>
                   </MDBRow>
@@ -144,7 +144,7 @@ let navigate = useNavigate();
                       onChange={handleTextChange}
                       value={updatedUser.city}
                       id="city"
-                      required 
+                       
                     />
                   </MDBCol>
 
@@ -153,7 +153,7 @@ let navigate = useNavigate();
                       onChange={handleTextChange}
                       value={updatedUser.state}
                       id="state"
-                      required
+                      
                     />
                   </MDBCol>
 
@@ -162,7 +162,7 @@ let navigate = useNavigate();
                       onChange={handleTextChange}
                       value={updatedUser.zip_code}
                       id="zip_code"
-                      required
+                      
                     />
                   </MDBCol>
                 </MDBRow>
@@ -175,7 +175,7 @@ let navigate = useNavigate();
                       onChange={handleTextChange}
                       value={updatedUser.birthday}
                       id="birthday"
-                      required
+                      
                     />
                   </MDBCol>
 
@@ -185,7 +185,7 @@ let navigate = useNavigate();
                       onChange={handleTextChange}
                       value={updatedUser.gender}
                       id="gender"
-                      required
+                      
                    > 
                       <option defaultValue={"gender"}>Gender</option>
                       <option value="1">Male</option>
@@ -202,7 +202,7 @@ let navigate = useNavigate();
                       onChange={handleTextChange}
                       value={updatedUser.sexual_orientation}
                       id="sexual_orientation"
-                      required
+                      
                     >  
                       <option defaultValue={"Heterosexual"}>Orientation</option>
                       <option value="1">Heterosexual</option>
@@ -223,7 +223,7 @@ let navigate = useNavigate();
                       onChange={handleTextChange}
                       value={updatedUser.email}
                       id="email"
-                      required
+                      
                     />
                   </MDBCol>
                   
@@ -232,7 +232,7 @@ let navigate = useNavigate();
                       onChange={handleTextChange}
                       value={updatedUser.move_in_date}
                       id="move_in_date"
-                      required
+                      
                     />
                   </MDBCol>          
                   <MDBCol md="4">
@@ -240,7 +240,7 @@ let navigate = useNavigate();
                       onChange={handleTextChange}
                       value={updatedUser.credit_score}
                       id="credit_score"
-                      required
+                      
                     />
                   </MDBCol>
                 </MDBRow>
@@ -255,7 +255,7 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.is_employed}
                       id="has_job"
-                      required
+                      
                     />
                   </MDBCol> */}
                   <MDBCol>
@@ -263,15 +263,14 @@ let navigate = useNavigate();
                       onChange={handleTextChange}
                       value={updatedUser.income}
                       id="income"
-                      required
+                      
                     />
                   </MDBCol>
                   <MDBCol>
                     <MDBInput label="Max Rent Budget" type='number' 
                       onChange={handleTextChange}
                       value={updatedUser.max_rent}
-                      id="max_rent"
-                      required
+                      id="max_rent" 
                     />                 
                   </MDBCol> 
                 </MDBRow>
@@ -286,7 +285,7 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.is_sharing_bills}
                       id="is_sharing_bills"
-                      required />
+                       />
                   </MDBCol>
 
                   <MDBCol>
@@ -296,7 +295,6 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.has_open_rooms}
                       id="has_open_rooms"
-                      required
                       /> 
                   </MDBCol> 
                   <MDBCol>
@@ -306,7 +304,6 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.high_rise}
                       id="high_rise"
-                      required
                       /> 
                  </MDBCol> 
 
@@ -317,7 +314,6 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.house}
                       id="house"
-                      required
                         /> 
                   </MDBCol> 
                 </MDBRow>
@@ -341,7 +337,6 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.low_noise}
                       id="low_noise"
-                      required
                       /> 
                   </MDBCol>
                   <MDBCol>
@@ -351,7 +346,6 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.private_room}
                       id="private_room"
-                      required
                       /> 
                     </MDBCol>
                     <MDBCol>
@@ -361,7 +355,7 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.private_bathroom}
                       id="private_bathroom"
-                      required
+                      
                       /> 
                     </MDBCol>
                 </MDBRow>
@@ -376,7 +370,7 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.is_religious}
                       id="is_religious"
-                      required
+                      
                       />
                   </MDBCol>
 
@@ -387,7 +381,7 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.has_kids}
                       id="has_kids"
-                      required
+                      
                   />
                   </MDBCol>
 
@@ -398,7 +392,7 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.has_pets}
                       id="has_pets"
-                      required
+                      
                     />
                   </MDBCol>
 
@@ -409,7 +403,7 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.is_smoker}
                       id="is_smoker"
-                      required
+                      
                     />
                   </MDBCol>
                 </MDBRow>
@@ -424,7 +418,7 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.is_student}
                       id="is_student"
-                      required
+                      
                  />
                   </MDBCol>
 
@@ -435,7 +429,7 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.is_musician}
                       id="is_musician"
-                      required
+                      
                   />
                   </MDBCol>
 
@@ -446,7 +440,7 @@ let navigate = useNavigate();
                       onChange={handleCheckboxChange}
                       value={updatedUser.is_singer}
                       id="is_singer"
-                      required
+                      
                     />
                   </MDBCol>
                   <MDBCol>
@@ -456,7 +450,7 @@ let navigate = useNavigate();
                         onChange={handleCheckboxChange}
                         value={updatedUser.host_parties}
                         id="host_parties"
-                        required
+                        
                     />
                   </MDBCol>
                 </MDBRow>
