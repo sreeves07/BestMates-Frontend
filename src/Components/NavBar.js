@@ -30,6 +30,7 @@ function NavBar() {
           <Link to="/users">All Roommates</Link>
           <Link to="/favorites">BestMates</Link>
           <Link to="/chat">Chat</Link>
+          <Link to="/users/:uid/edit">Account Settings</Link>
           <button className="nav-btn nav-close-btn" onClick={showNavBar}>
             <FaTimes />
           </button>
