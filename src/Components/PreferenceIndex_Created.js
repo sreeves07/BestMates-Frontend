@@ -73,7 +73,7 @@ const PreferenceIndex_Created = ({ id }) => {
       })
       .catch((c) => console.warn("catch", c));
   };
-  
+
   const handleTextChange = (event) => {
     setAnswer({ ...answer, [event.target.id]: event.target.value });
   };

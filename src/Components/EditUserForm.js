@@ -460,7 +460,6 @@ let navigate = useNavigate();
                 <MDBRow className="mb-5">
                   <MDBCol>
                     <div className="d-flex justify-content-center">
-                      {/* <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account' defaultChecked /> */}
                       <MDBBtn 
                         className='editUserForm-submitBtn' 
                         type="submit" 
