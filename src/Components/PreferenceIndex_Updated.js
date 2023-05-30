@@ -315,9 +315,9 @@ const PreferenceIndex = ({ id }) => {
               </MDBRow>
 
                 {/* ************ ROW 11 - Prefs *********** */}         
-                <MDBRow>  
+                <MDBRow className="mb-5">  
                 <MDBCol className="col-4">
-                  <select classname="col-12 select gender-select-prefs"
+                  <select classname="col-12 select gender-select-prefs form-control"
                    // name="flexCheck"
                    onChange={handleTextChange}
                    value={answer.gender_preference}
@@ -336,7 +336,7 @@ const PreferenceIndex = ({ id }) => {
                   </select>
                 </MDBCol>
                 <MDBCol className="col-4">
-                  <select classname="basic-single col-12 orientation-select-prefs select"
+                  <select classname="basic-single col-12 orientation-select-prefs select form-control"
                    // name="flexCheck"
                    classNamePrefix="select"
                    onChange={handleTextChange}
