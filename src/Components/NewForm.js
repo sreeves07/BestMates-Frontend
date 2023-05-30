@@ -19,10 +19,7 @@ import {
   MDBCol, 
   MDBBtn,
   MDBInput, 
-  MDBListGroup,
-  MDBListGroupItem,
   MDBRow,
-  MDBTextArea,
   MDBTypography
  } from 'mdb-react-ui-kit';
 

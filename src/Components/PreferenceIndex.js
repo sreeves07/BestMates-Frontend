@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useContextAuthProvider } from "../Firebase/context";
 import Location from './Location';
 import UploadWidget from "../Components/UploadWidget";
@@ -17,7 +18,6 @@ import {
   MDBCol, 
   MDBListGroup,
   MDBRow,
-  MDBTextArea, 
   MDBTypography 
 } from 'mdb-react-ui-kit';
 
@@ -60,6 +60,7 @@ const PreferenceIndex = ({ id }) => {
     mate_id: "",
   });
 
+  let navigate = useNavigate();
   const { user } = useContextAuthProvider();
 
   const handleTextChange = (event) => {
@@ -70,27 +71,41 @@ const PreferenceIndex = ({ id }) => {
     setAnswer({ ...answer, [event.target.id]: !user[event.target.value] });
   };
 
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
-
-  useEffect(() => {
-    console.log(user);
+  const addPrefs = (answer) => {
     axios
-      .get(`${API}/user/${id}/answers`)
-      .then((response) => {
-        console.log(
-          "user response data for answers (preferences)=",
-          response.data
-        );
-        setAnswer(...answer, ...response.data[0]);
+      .post(`${API}/${user.uid}/`, answer)
+      .then(() => {
+        navigate(`/users`);
       })
       .catch((c) => console.warn("catch", c));
-  }, [id, user,answer]);
+  };
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    event.target.className += " was-validated"
+    addPrefs(answer);
+  }
+
+  // useEffect(() => {
+  //   console.log(user);
+  //   axios
+  //     .get(`${API}/user/${id}/answers`)
+  //     .then((response) => {
+  //       console.log(
+  //         "user response data for answers (preferences)=",
+  //         response.data
+  //       );
+  //       setAnswer(...answer, ...response.data[0]);
+  //     })
+  //     .catch((c) => console.warn("catch", c));
+  // }, [id, user,answer]);
+
+
+
 
   return (
     <div className="preferenceIndex">
-      <div className="userBioBox">
+      <div className="locationBox">
       {/* ************ ROW 1 *********** */}
         <MDBCard>
           <MDBCardHeader className="py-3">
@@ -361,9 +376,12 @@ const PreferenceIndex = ({ id }) => {
                 </MDBListGroup>
 
               {/* <MDBBtn size="lg" block> */}
-              <MDBBtn size="sm" >
-                Save Preferences
-              </MDBBtn>
+                 <MDBBtn 
+                    className='newForm-submitBtn' 
+                    type="submit" 
+                    onClick={handleSubmit}
+                    form="form">Submit
+                  </MDBBtn>
             </MDBCardBody>
         </MDBCard>
         </form>
