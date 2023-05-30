@@ -1,17 +1,38 @@
-import React from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import React from 'react'
+  // Manage State of Values
 import { useState } from "react";
+  // Enable Navigation to a Different View
+import { useNavigate } from "react-router-dom";
+  // Enable Connection to Firebase User Authorization (Login)
+import { auth } from "../Firebase/config";
+import { useAuthState } from "react-firebase-hooks/auth";
 import axios from "axios";
-import "./EditUserForm.css";
+  // User Picture Upload Widget from Cloudinary
+  // import UploadWidget from "./UploadWidget.js"
+import "../Components/NewForm.css"
+  // imports for material design bootstrap
+import { 
+  MDBCard, 
+  MDBCardBody, 
+  MDBCardHeader, 
+  MDBCheckbox, 
+  MDBCol, 
+  MDBBtn,
+  MDBInput, 
+  MDBRow,
+  MDBTypography
+ } from 'mdb-react-ui-kit';
 
+  // Set API Variable to Port for this React App to display in Browser
 const API = process.env.REACT_APP_API_URL;
 
+
 function EditUserForm() {
-  const [user, setUser] = useState({
+  //Set state for auth and updatedUser
+  const [user, loading] = useAuthState(auth);
+  const [updatedUser, setUpdatedUser] = useState({
     first_name: "",
     last_name: "",
-    password: "",
-    email: "",
     city: "",
     state: "",
     zip_code: "",
@@ -30,371 +51,461 @@ function EditUserForm() {
     max_rent: "",
     credit_score: "",
     income: "",
+   // is_employed: true,                //need to be added to backend
+    is_student: false,                  //need to be added to backend
+   // is_healthy: true,                 //need to be added to backend
+   // has_allergies: false,             //need to be added to backend
+    is_disabled: false,                 //need to be added to backend
+   // has_chronic_condition: false,     //need to be added to backend (in Answers table)
+   // has_visiting_nurse: false,        //need to be added to backend
+   // has_home_assistance: false,       //need to be added to backend
+    is_musician: false,                 //need to be added to backend
+    is_singer: false,                   //need to be added to backend
+    host_parties: false,                //need to be added to backend
+   // has_romantic_visits: false,       //need to be added to backend
+   // has_family_friend_visits: false,  //need to be added to backend
+   // has_night_life: false,            //need to be added to backend
   });
 
-  let { id } = useParams();
-  let navigate = useNavigate();
+let navigate = useNavigate();
+   
+
+    // AXIOS CALL -  make an axios call to backend to be able to post info re new user from form
 
   const updateUser = (updatedUser) => {
     axios
-      .put(`${API}/user/${id}`, updatedUser)
-      .then(
-        () => {
-          navigate(`/user/${id}`);
-        },
-        (error) => console.error(error)
-      )
+      .put(`${API}/user/${user.uid}`, updatedUser)
+      .then(() => {
+        navigate(`/preferences`);
+      })
       .catch((c) => console.warn("catch", c));
   };
 
-  // ****  Handle toggle for checkboxes in new user attributes form *******
-
+  // Capture changes made by user and send to backend
+  // set updated state of updatedUser to what the user enters
   const handleTextChange = (event) => {
-    setUser({ ...user, [event.target.id]: event.target.value });
+    setUpdatedUser({ ...updatedUser, [event.target.id]: event.target.value });
   };
-
+  // console.log("newly added user", updatedUser)
+  
   const handleCheckboxChange = (event) => {
-    setUser({ ...user, [event.target.id]: !user[event.target.value] });
+    setUpdatedUser({ ...updatedUser, [event.target.id]: !updatedUser[event.target.value] });
   };
 
   function handleSubmit(event) {
     event.preventDefault();
-    updateUser(user, id);
+    event.target.className += " was-validated"
+    updateUser(updatedUser);
+    //addUserImage(image)
   }
+  
+ 
+  return !loading ? (
+    <div className="newFormBox ">      
+      <form className="newform needs-validation"
+            onSubmit={handleSubmit}
+            noValidate >
+        <MDBRow>
+          <MDBCol md="8" className="mb-4">
+            <MDBCard className="mb-4 newForm-card">
+              <MDBCardHeader className="py-2">
+                <MDBTypography tag="h5" className="mb-0">New Account Form</MDBTypography>
+              </MDBCardHeader>
+                <MDBCardBody>
+             
+                   {/* ********** Basic Info - Row 1 ********** */}  
 
-  return (
-    <div className="editFormBox">
-      {/* Form headings */}
-      <div className="editFormHdgBox">
-        <span className="editFormHdg">Edit Profile Form</span> <br />
-        <span className="editFormSubHdg">
-          Edit and save changes to update your basic information
-        </span>
-        <br />
-      </div>
+                  <MDBRow className="mb-3">
+                    <MDBCol>
+                      <MDBInput 
+                        label='First name'    type='text' 
+                        onChange={handleTextChange}
+                        value={updatedUser.first_name}
+                        id="first_name"       required
+                      /> 
+                      <div className="valid-feedback">Looks good!</div>
+                    </MDBCol>
+                    <MDBCol >
+                      <MDBInput 
+                        label='Last name'   type='text' 
+                        onChange={handleTextChange}
+                        value={updatedUser.last_name}
+                        id="last_name"      required
+                      />
+                    </MDBCol>
+                  </MDBRow>
 
-      <form className="editForm" onSubmit={(e) => handleSubmit(e)}>
-        {/* ****** Grid Row 1  ***** */}
-        {/* Basic Info Heading */}
 
-        <h6 className="basicInfoHdg-ef">Basic Information:</h6>
+                    {/* ********** Basic Info -  Row 2 ********** */}
 
-        {/* ****** Grid Row 2  ***** */}
-        {/* Basic Info */}
-        <label
-          className="editFormLabel basicInfo1-firstName-ef"
-          htmlFor="firstName">
-          First Name:{" "}
-        </label>
-        <input
-          className="firstName-ef"
-          id="first_name"
-          name="firstName"
-          type="text"
-          onChange={handleTextChange}
-          value={user.first_name}
-          required
-        />
-        <label
-          className="editFormLabel basicInfo2-lastName-ef"
-          htmlFor="lastName">
-          Last Name:{" "}
-        </label>
-        <input
-          className="lastName-ef"
-          id="last_name"
-          name="lastName"
-          type="text"
-          onChange={handleTextChange}
-          value={user.last_name}
-        />
+                  <MDBRow className="mb-3">
+                  <MDBCol >
+                    <MDBInput label='City' type='text'
+                      onChange={handleTextChange}
+                      value={updatedUser.city}
+                      id="city"
+                      required 
+                    />
+                  </MDBCol>
 
-        <label
-          className="editFormLabel basicInfo3-birthDate-ef"
-          htmlFor="birthDate">
-          Date of Birth:{" "}
-        </label>
-        <input
-          className="birthDate-ef"
-          id="birthday"
-          name="birthDate"
-          type="date"
-          onChange={handleTextChange}
-          value={user.birthday}
-        />
+                  <MDBCol>
+                    <MDBInput label='State' type='text' 
+                      onChange={handleTextChange}
+                      value={updatedUser.state}
+                      id="state"
+                      required
+                    />
+                  </MDBCol>
 
-        {/* ****** Grid Row 2 ***** */}
-        {/* Basic Info Continued */}
+                  <MDBCol>
+                    <MDBInput label='Zip Code' type='number' 
+                      onChange={handleTextChange}
+                      value={updatedUser.zip_code}
+                      id="zip_code"
+                      required
+                    />
+                  </MDBCol>
+                </MDBRow>
 
-        <label className="editFormLabel basicInfo4-city-ef" htmlFor="city">
-          City:{" "}
-        </label>
-        <input
-          className="city-ef"
-          id="city"
-          name="city"
-          type="text"
-          onChange={handleTextChange}
-          value={user.city}
-        />
+                  {/* ********** Basic Info - Row 3 ********** */}
 
-        <label className="editFormLabel basicInfo5-state-ef" htmlFor="state">
-          State:{" "}
-        </label>
-        <input
-          className="state-ef"
-          id="state"
-          name="state"
-          type="text"
-          onChange={handleTextChange}
-          value={user.state}
-        />
+                <MDBRow className="mb-3">
+                  <MDBCol > {/* md="3" */}
+                    <MDBInput className='birthDate-attribute birthdate-MDB-input' label='Date of Birth' type='date' 
+                      onChange={handleTextChange}
+                      value={updatedUser.birthday}
+                      id="birthday"
+                      required
+                    />
+                  </MDBCol>
 
-        <label
-          className="editFormLabel basicInfo6-zipcode-ef"
-          htmlFor="zip_code">
-          Zip Code:{" "}
-        </label>
-        <input
-          className="zipcode-ef"
-          id="zip_code"
-          name="zip_code"
-          type="number"
-          onChange={handleTextChange}
-          value={user.zip_code}
-        />
-        <label className="editFormLabel basicInfo7-email-ef" htmlFor="email">
-          Email:{" "}
-        </label>
-        <input
-          className="email-ef"
-          id="email"
-          name="email"
-          type="email"
-          onChange={handleTextChange}
-          value={user.email}
-        />
-        <label className="editFormLabel basicInfo8-gender-ef" htmlFor="gender">
-          Gender:{" "}
-        </label>
-        <input
-          className="gender-ef"
-          id="gender"
-          name="gender"
-          type="text"
-          onChange={handleTextChange}
-          value={user.gender}
-        />
+                  <MDBCol>
+                    <select
+                      className="gender-attribute form-control"
+                      onChange={handleTextChange}
+                      value={updatedUser.gender}
+                      id="gender"
+                      required
+                   > 
+                      <option defaultValue={"gender"}>Gender</option>
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                      <option value="3">Intersex</option>
+                      <option value="4">Non-Binary</option>
+                      <option value="5">Transgender</option>
+                      <option value="6">Other/Decline to Share</option>
+                    </select>
+                  </MDBCol>
 
-        {/* ****** Grid Row 4 ***** */}
-        {/* Attributes - text fields and dates */}
+                   <MDBCol >     
+                    <select className="orientation-attribute form-control"
+                      onChange={handleTextChange}
+                      value={updatedUser.sexual_orientation}
+                      id="sexual_orientation"
+                      required
+                    >  
+                      <option defaultValue={"Heterosexual"}>Orientation</option>
+                      <option value="1">Heterosexual</option>
+                      <option value="2">Pansexual</option>
+                      <option value="3">BiSexual</option>
+                      <option value="4">Homosexual</option>
+                      <option value="5">Asexual</option>
+                      <option value="6">Other/Decline to Share</option>
+                    </select>
+                  </MDBCol>
+                </MDBRow>
 
-        <label className="editFormLabel attribute1-income-ef" htmlFor="income">
-          Income:{" "}
-        </label>
-        <input
-          className="income-ef"
-          id="income"
-          name="income"
-          type="number"
-          onChange={handleTextChange}
-          value={user.income}
-        />
-        <label
-          className="editFormLabel attribute2-creditScore-ef"
-          htmlFor="creditScore">
-          Credit Score:{" "}
-        </label>
-        <input
-          className="creditScore-ef"
-          id="credit_score"
-          name="creditScore"
-          type="number"
-          onChange={handleTextChange}
-          value={user.credit_score}
-        />
-        <label
-          className="editFormLabel attribute3-maxRent-ef"
-          htmlFor="maxRent">
-          Maximum Rent:{" "}
-        </label>
-        <input
-          className="maxRent-ef"
-          id="max_rent"
-          name="maxRent"
-          type="number"
-          onChange={handleTextChange}
-          value={user.max_rent}
-        />
-        <label
-          className="editFormLabel basicInfo9-sexOrient-ef"
-          htmlFor="sexOrient">
-          Sexual Orientation:{" "}
-        </label>
-        <input
-          className="sexOrient-ef"
-          id="sexual_orientation"
-          name="sexOrient"
-          type="text"
-          onChange={handleTextChange}
-          value={user.sexual_orientation}
-        />
+                  {/*B  ********** Basic Info -  Row 4  **********  */}
 
-        {/* ****** Grid Row 5 ***** */}
-        {/* Attribute headings*/}
+                <MDBRow className="mb-1">
+                  <MDBCol>
+                    <MDBInput label='Email' type='text' className="mb-4"
+                      onChange={handleTextChange}
+                      value={updatedUser.email}
+                      id="email"
+                      required
+                    />
+                  </MDBCol>
+                  
+                  <MDBCol md="4">
+                    <MDBInput label='Move-In Date Range' type='date'
+                      onChange={handleTextChange}
+                      value={updatedUser.move_in_date}
+                      id="move_in_date"
+                      required
+                    />
+                  </MDBCol>          
+                  <MDBCol md="4">
+                    <MDBInput label='Credit Level' type='text'
+                      onChange={handleTextChange}
+                      value={updatedUser.credit_score}
+                      id="credit_score"
+                      required
+                    />
+                  </MDBCol>
+                </MDBRow>
 
-        <h6 className="atttributeHdg-ef">Your Attributes:</h6>
-        <h6 className="atttributeSubHdg-ef">
-          (Allows other roomates to find you as a match.)
-        </h6>
+                  {/* ********** Basic Info - Row 5 (Financial Attributes) ********** */}
 
-        {/* ****** Grid Row 6 ***** */}
-        {/* Attributes - Checkboxes - Boolean Values */}
+                <MDBRow className="mb-3">
+                  {/* <MDBCol>
+                  <MDBCheckbox
+                      name="flexCheck"
+                      label='Employed' type='text'
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.is_employed}
+                      id="has_job"
+                      required
+                    />
+                  </MDBCol> */}
+                  <MDBCol>
+                    <MDBInput label='Income Level' type='text'
+                      onChange={handleTextChange}
+                      value={updatedUser.income}
+                      id="income"
+                      required
+                    />
+                  </MDBCol>
+                  <MDBCol>
+                    <MDBInput label="Max Rent Budget" type='number' 
+                      onChange={handleTextChange}
+                      value={updatedUser.max_rent}
+                      id="max_rent"
+                      required
+                    />                 
+                  </MDBCol> 
+                </MDBRow>
 
-        <label
-          className="editFormLabel attribute4-moveInDate-ef"
-          htmlFor="moveInDate">
-          Move Date:{" "}
-        </label>
-        <input
-          className="moveInDate-ef"
-          id="move_in_date"
-          name="moveInDate"
-          type="date"
-          onChange={handleTextChange}
-          value={user.move_in_date}
-        />
+                  {/* ********** Attributes (Financial) - Row 6 - (Checkboxes- Row A)********** */}
+    
+                <MDBRow className="mb-3">
+                  <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Agree To Share Bills"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.is_sharing_bills}
+                      id="is_sharing_bills"
+                      required />
+                  </MDBCol>
 
-        <label
-          className="editFormLabel attribute5-isSharingBills-ef"
-          htmlFor="isSharingBills">
-          {" "}
-          Shares Utility Bills
-        </label>
-        <input
-          className="isSharingBills-ef"
-          id="is_sharing_bills"
-          name="isSharingBills"
-          type="checkbox"
-          onChange={(event) => handleCheckboxChange(event)}
-          value={user.is_sharing_bills}
-        />
+                  <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Have Open Rooms"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.has_open_rooms}
+                      id="has_open_rooms"
+                      required
+                      /> 
+                  </MDBCol> 
+                  <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Live in a High Rise"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.high_rise}
+                      id="high_rise"
+                      required
+                      /> 
+                 </MDBCol> 
 
-        <label
-          className="editFormLabel attribute6-hasOpenRooms-ef"
-          htmlFor="hasOpenRooms">
-          Has Open Rooms:{" "}
-        </label>
-        <input
-          className="hasOpenRooms-ef"
-          id="has_open_rooms"
-          name="hasOpenRooms"
-          type="checkbox"
-          onChange={(event) => handleCheckboxChange(event)}
-          value={user.has_open_rooms}
-        />
-        <br />
-        <br />
+                 <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Live in a House"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.house}
+                      id="house"
+                      required
+                        /> 
+                  </MDBCol> 
+                </MDBRow>
 
-        <label
-          className="editFormLabel attribute10-isDisabled-ef"
-          htmlFor="disabled">
-          Has Disability:{" "}
-        </label>
-        <input
-          className="isDisabled-ef"
-          id="is_disabled"
-          name="disabled"
-          type="checkbox"
-          onChange={(event) => handleCheckboxChange(event)}
-          value={user.is_disabled}
-        />
+                {/* ********** Attributes (LifeStyle, Amenities) - Row 7 - (Checkboxes- Row B) ********** */}
 
-        {/* ****** Grid Row 7 ***** */}
+                <MDBRow className="mb-3">
+                  <MDBCol>
+                  <MDBCheckbox
+                      name="flexCheck"
+                      label="Very Neat"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.is_neat}
+                      id="is_neat"
+                      /> 
+                  </MDBCol>
+                  <MDBCol>
+                  <MDBCheckbox
+                      name="flexCheck"
+                      label="Low Noise Lifestyle"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.low_noise}
+                      id="low_noise"
+                      required
+                      /> 
+                  </MDBCol>
+                  <MDBCol>
+                  <MDBCheckbox
+                      name="flexCheck"
+                      label="Have Private Room"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.private_room}
+                      id="private_room"
+                      required
+                      /> 
+                    </MDBCol>
+                    <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Have Private Bathroom"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.private_bathroom}
+                      id="private_bathroom"
+                      required
+                      /> 
+                    </MDBCol>
+                </MDBRow>
 
-        <label
-          className="editFormLabel attribute7-hasKids-ef"
-          htmlFor="hasKids">
-          Has Kids:{" "}
-        </label>
-        <input
-          className="hasKids-ef"
-          id="has_kids"
-          name="hasKids"
-          type="checkbox"
-          onChange={(event) => handleCheckboxChange(event)}
-          value={user.has_kids}
-        />
-        <label
-          className="editFormLabel attribute8-hasPets-ef"
-          htmlFor="hasPets">
-          Has Pets:{" "}
-        </label>
-        <input
-          className="hasPets-ef"
-          id="has_pets"
-          name="hasPets"
-          type="checkbox"
-          onChange={(event) => handleCheckboxChange(event)}
-          value={user.has_pets}
-        />
+                  {/* ********** Attributes (LifeStyle, Obligations) - Row 8 - (Checkboxes- Row C) ********** */}
 
-        <label className="editFormLabel attribute11-isNeat-ef" htmlFor="isNeat">
-          Is Very neat?{" "}
-        </label>
-        <input
-          className="isNeat-ef"
-          id="is_neat"
-          name="isNeat"
-          type="checkbox"
-          onChange={(event) => handleCheckboxChange(event)}
-          value={user.is_neat}
-        />
+                <MDBRow className="mb-3">
+                  <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Religious"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.is_religious}
+                      id="is_religious"
+                      required
+                      />
+                  </MDBCol>
 
-        <label
-          className="editFormLabel attribute9-isSmoker-ef"
-          htmlFor="isSmoker">
-          Is A Smoker:{" "}
-        </label>
-        <input
-          className="isSmoker-ef"
-          id="is_smoker"
-          name="isSmoker"
-          type="checkbox"
-          onChange={(event) => handleCheckboxChange(event)}
-          value={user.is_smoker}
-        />
-        <br />
-        <br />
+                  <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Have Kids"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.has_kids}
+                      id="has_kids"
+                      required
+                  />
+                  </MDBCol>
 
-        <label
-          className="editFormLabel attribute12-isReligious-ef"
-          htmlFor="isReligious">
-          Is Religious:{" "}
-        </label>
-        <input
-          className="isReligious-ef"
-          id="is_religious:"
-          name="isReligious"
-          type="checkbox"
-          onChange={(event) => handleCheckboxChange(event)}
-          value={user.is_religious}
-        />
+                  <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Have Pets"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.has_pets}
+                      id="has_pets"
+                      required
+                    />
+                  </MDBCol>
 
-        {/* ****** Grid Row 8 ***** */}
-        {/* ****** Submit and Cancel Buttons ***** */}
-        <span className="editFormButtonsBox">
-          <button className="submitButton-editForm" type="submit">
-            Submit
-          </button>
+                  <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Smoker"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.is_smoker}
+                      id="is_smoker"
+                      required
+                    />
+                  </MDBCol>
+                </MDBRow>
 
-          <Link className="cancelLink-editForm" to={`/`}>
-            <button className="cancelBtn-editForm">Cancel</button>
-          </Link>
-        </span>
+                {/* ********** Attributes (Activities) - Row 9 - (Checkboxes- Row D) ********** */}
+
+                <MDBRow className="mb-3">
+                  <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Student"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.is_student}
+                      id="is_student"
+                      required
+                 />
+                  </MDBCol>
+
+                  <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Musician"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.is_musician}
+                      id="is_musician"
+                      required
+                  />
+                  </MDBCol>
+
+                  <MDBCol>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Singer"
+                      onChange={handleCheckboxChange}
+                      value={updatedUser.is_singer}
+                      id="is_singer"
+                      required
+                    />
+                  </MDBCol>
+                  <MDBCol>
+                    <MDBCheckbox
+                        name="flexCheck"
+                        label="Host Parties"
+                        onChange={handleCheckboxChange}
+                        value={updatedUser.host_parties}
+                        id="host_parties"
+                        required
+                    />
+                  </MDBCol>
+                </MDBRow>
+
+                {/* ********** (Create Account Button) - Row 10 - (Checkboxes- Row E) ********** */}
+
+                <MDBRow className="mb-5">
+                  <MDBCol>
+                    <div className="d-flex justify-content-center">
+                      {/* <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account' defaultChecked /> */}
+                      <MDBBtn 
+                        className='newForm-submitBtn' 
+                        type="submit" 
+                        onClick={handleSubmit}
+                        form="form">Submit</MDBBtn>
+                      </div>
+                    </MDBCol>
+                </MDBRow> 
+
+                {/* ********** End of Input Fields  ********** */}
+             
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
       </form>
     </div>
+
+) : (
+  ""
   );
 }
 
-export default EditUserForm;
+export default EditUserForm
+
+
+// Additional Preferences
+
+// is_employed: true,      //need to be added to backend
+// is_student: false,      //need to be added to backend
+// is_healthy: true,       //need to be added to backend
+// has_allergies: false,   //need to be added to backend
+// is_disabled: false,     //need to be added to backend
+// has_chronic_condition: false,    //need to be added to backend
+// has_visiting_nurse: false,       //need to be added to backend
+// has_home_assistance: false,      //need to be added to backend
+// is_musician: false,     //need to be added to backend
+// is_singer: false,       //need to be added to backend
+// host_parties: false,    //need to be added to backend
+// has_romantic_visits: false,       //need to be added to backend
+// has_family_friend_visits: false,  //need to be added to backend
+// has_night_life: false,            //need to be added to backend
