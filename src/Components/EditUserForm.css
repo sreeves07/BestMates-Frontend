@@ -13,7 +13,6 @@
   height: 100%;
   display: grid;
   grid-template-rows: .05fr 1fr 1fr;
-  /* flex-direction: column; */
 }
 div.editUserForm-componentsBox.row{
   padding-left: 6rem;
@@ -39,19 +38,18 @@ div.card.mb-4.userBio-card{
   grid-row: 3; 
 }
 
-/* New Form Card */
+/* Edit User Form Card */
 .card{
   display: flex;
   width: 40rem;
   height: 100%;
 }
-.newForm{
+.editUserForm{
   width: 37.5rem;
   margin-right: 30px;
   height: 60rem; 
 }
 .preferenceIndex{
-  /* width: 37.5rem; */
   height: 100%;
   flex-grow: 1;
   display: flex;
@@ -63,24 +61,13 @@ div.card.mb-4.userBio-card{
   align-items: flex-start;
 }
 
-/* .nf-column-1{
-  grid-column: 1;
-}
 
-.nf-column-2{
-  grid-column: 2;
-}
-
-.nf-column-3{
-  grid-column: 3;
-} */
 
 /* Style for Standard Select - Non MDB Select Drop Down List */
 /* USE FOR MEDIA QUERY - SMALLER */
 .birthdate-MDB-input{
   border: 1px solid rgb(182, 181, 181);
   height: 2.5rem;
-  /* width: 9rem; */
   width: 100%;
   border-radius: 1rem;
   color:rgb(114, 113, 113) ;
@@ -93,7 +80,6 @@ select, select option{
 select.gender-attribute{
   border: 1px solid rgb(182, 181, 181);
   height: 2.5rem;
-  /* width: 4.5rem; */
   width: 100%;
   border-radius: 3px;
   color:rgb(114, 113, 113) ;
@@ -105,10 +91,6 @@ select.gender-attribute{
 }
 select.orientation-attribute{
   border: 1px solid rgb(182, 181, 181);
-  /* height: 4.78vh; */
-  /* width: 11.5vw; */
-  /* width: 100%; */
-  /* margin-left: 3vw; */
   border-radius: 3px;
   color:rgb(114, 113, 113) ;
   padding-left: .4vw;
@@ -117,7 +99,7 @@ select.orientation-attribute{
   color: #4f4f4f;
 }
 
-.newForm-submitBtn, .newPrefForm-submitBtn{
+.editUserForm-submitBtn, .newPrefForm-submitBtn{
   width: 11.5rem;
 }
 
@@ -137,12 +119,10 @@ select.orientation-attribute{
   background-size: cover;
   justify-content: center;
   margin-left: 13rem;
-  /* margin-bottom:1rem; */
 }
 .uploadWidget-Btn{
   width: 12rem;
   height: 4rem;
-  /* margin-top: 2.15rem; */
 }
 
 
@@ -150,33 +130,4 @@ select.orientation-attribute{
 
 /* USE FOR MEDIA QUERY - SMALLER */
 
-/* 
-.birthdate-MDB-input{
-  border: 1px solid rgb(182, 181, 181);
-  height: 4.78vh;
-  width: 13.5vw;
-  border-radius: 3px;
-  color:rgb(114, 113, 113) ;
-  padding-left: .4vw;
-}
-
-
-.gender-select{
-  border: 1px solid rgb(182, 181, 181);
-  height: 4.78vh;
-  width: 13.5vw;
-  border-radius: 3px;
-  color:rgb(114, 113, 113) ;
-  padding-left: .4vw;
-}
-
-.orientation-select{
-  border: 1px solid rgb(182, 181, 181);
-  height: 4.78vh;
-  width: 13.5vw;
-  border-radius: 3px;
-  color:rgb(114, 113, 113) ;
-  padding-left: .4vw;
-}
- */
 

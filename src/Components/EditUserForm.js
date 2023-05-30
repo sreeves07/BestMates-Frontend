@@ -9,7 +9,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import axios from "axios";
   // User Picture Upload Widget from Cloudinary
   // import UploadWidget from "./UploadWidget.js"
-import "../Components/NewForm.css"
+import "../Components/EditUserForm.css"
   // imports for material design bootstrap
 import { 
   MDBCard, 
@@ -107,7 +107,7 @@ let navigate = useNavigate();
             noValidate >
         <MDBRow>
           <MDBCol md="8" className="mb-4">
-            <MDBCard className="mb-4 newForm-card">
+            <MDBCard className="mb-4 editUserForm-card">
               <MDBCardHeader className="py-2">
                 <MDBTypography tag="h5" className="mb-0">Account Settings</MDBTypography>
               </MDBCardHeader>
@@ -462,7 +462,7 @@ let navigate = useNavigate();
                     <div className="d-flex justify-content-center">
                       {/* <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account' defaultChecked /> */}
                       <MDBBtn 
-                        className='newForm-submitBtn' 
+                        className='editUserForm-submitBtn' 
                         type="submit" 
                         onClick={handleSubmit}
                         form="form">Submit</MDBBtn>
