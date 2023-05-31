@@ -4,8 +4,7 @@ import { useState } from "react";
   // Enable Navigation to a Different View
 import { useNavigate } from "react-router-dom";
   // Enable Connection to Firebase User Authorization (Login)
-import { auth } from "../Firebase/config";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useContextAuthProvider} from "../Firebase/context"
 import axios from "axios";
   // User Picture Upload Widget from Cloudinary
   // import UploadWidget from "./UploadWidget.js"
@@ -29,8 +28,8 @@ const API = process.env.REACT_APP_API_URL;
 
 function NewForm() {
   //Set state for auth and newUser
-  const [user, loading] = useAuthState(auth);
-  console.log("user =", user)
+  const {user} = useContextAuthProvider();
+
   const [newUser, setNewUser] = useState({
     first_name: "",
     last_name: "",
@@ -40,6 +39,7 @@ function NewForm() {
     birthday: "",
     gender: "",
     sexual_orientation: "",
+    email: `${user.email}`,
     has_pets: false,
     has_open_rooms: false,
     is_smoker: false,
@@ -101,7 +101,7 @@ let navigate = useNavigate();
   }
   
  
-  return !loading ? (
+  return (
     <div className="newFormBox ">      
       <form className="newform needs-validation"
             onSubmit={handleSubmit}
@@ -222,7 +222,7 @@ let navigate = useNavigate();
                   <MDBCol>
                     <MDBInput label='Email' type='text' className="mb-4"
                       onChange={handleTextChange}
-                      value={newUser.email}
+                      value={newUser?.email}
                       id="email"
                       required
                     />
@@ -260,7 +260,7 @@ let navigate = useNavigate();
                     />
                   </MDBCol> */}
                   <MDBCol>
-                    <MDBInput label='Income Level' type='text'
+                    <MDBInput label='Income Level' type='number'
                       onChange={handleTextChange}
                       value={newUser.income}
                       id="income"
@@ -456,9 +456,7 @@ let navigate = useNavigate();
                       {/* <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account' defaultChecked /> */}
                       <MDBBtn 
                         className='newForm-submitBtn' 
-                        type="submit" 
-                        onClick={handleSubmit}
-                        form="form">Submit</MDBBtn>
+                        type="submit">Submit</MDBBtn>
                       </div>
                     </MDBCol>
                 </MDBRow> 
@@ -472,9 +470,7 @@ let navigate = useNavigate();
       </form>
     </div>
 
-) : (
-  ""
-  );
+) 
 }
 
 export default NewForm
