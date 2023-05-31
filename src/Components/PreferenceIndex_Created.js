@@ -142,7 +142,7 @@ const PreferenceIndex_Created = ({ id }) => {
                 <MDBRow  className="mb-3" >
                   <MDBCol>
                     <MDBCheckbox
-                      classname="credit-pref"
+                      className="credit-pref"
                       name="flexCheck"
                       label="Has Good Credit" 
                       id="good_credit_preference"
@@ -152,7 +152,7 @@ const PreferenceIndex_Created = ({ id }) => {
                   </MDBCol>
                   <MDBCol>
                     <MDBCheckbox
-                      classname="hasJob-pref"
+                      className="hasJob-pref"
                       name="flexCheck"
                       label="Has a Job" 
                       id="employment_preference"
@@ -162,7 +162,7 @@ const PreferenceIndex_Created = ({ id }) => {
                   </MDBCol>
                   <MDBCol>
                     <MDBCheckbox
-                      classname="highIncome-pref"
+                      className="highIncome-pref"
                       name="flexCheck"
                       label="Has High Income" 
                       id="high_income_preference"
@@ -177,7 +177,7 @@ const PreferenceIndex_Created = ({ id }) => {
                 <MDBRow  className="mb-3" >
                   <MDBCol>
                     <MDBCheckbox
-                      classname="shareBills-pref"
+                      className="shareBills-pref"
                       name="flexCheck"
                       label="Agree to Share Bills" 
                       id="share_bills_preference"
@@ -187,7 +187,7 @@ const PreferenceIndex_Created = ({ id }) => {
                   </MDBCol>
                   <MDBCol>
                     <MDBCheckbox
-                      classname="openRooms-pref"
+                      className="openRooms-pref"
                       name="flexCheck"
                       label="Has Open Room(s)" 
                       id="open_rooms_preference"
@@ -197,7 +197,7 @@ const PreferenceIndex_Created = ({ id }) => {
                   </MDBCol>
                   <MDBCol>
                     <MDBCheckbox
-                      classname="highRise-pref"
+                      className="highRise-pref"
                       name="flexCheck"
                       label="High Rise building" 
                       id="high_rise_preference"
@@ -212,7 +212,7 @@ const PreferenceIndex_Created = ({ id }) => {
                 <MDBRow  className="mb-3">
                   <MDBCol>
                     <MDBCheckbox
-                      classname="house-pref"
+                      className="house-pref"
                       name="flexCheck"
                       label="Private House" 
                       id="house_preference"
@@ -222,7 +222,7 @@ const PreferenceIndex_Created = ({ id }) => {
                   </MDBCol>
                   <MDBCol>
                     <MDBCheckbox
-                      classname="privateRoom-pref"
+                      className="privateRoom-pref"
                       name="flexCheck"
                       label="Private Room" 
                       id="private_room_preference"
@@ -232,7 +232,7 @@ const PreferenceIndex_Created = ({ id }) => {
                   </MDBCol>
                   <MDBCol>
                     <MDBCheckbox
-                      classname="privateBathroom-pref"
+                      className="privateBathroom-pref"
                       name="flexCheck"
                       label="Private Bathroom" 
                       id="private_bathroom_preference"
