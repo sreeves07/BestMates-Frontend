@@ -45,7 +45,7 @@ function App() {
           <Route path="/preferences" element={<Preferences />} />
           <Route path="/users/:uid/edit" element={<EditUserForm />} />
           <Route path="/users" element={<Index />} />
-          <Route path="/users/:uid" element={<Show />} />
+          <Route path="/users/:id" element={<Show />} />
           <Route path="/not-found" element={<FourOFour />} />
           <Route path="/dummy" element={<Dummy />} />
         </Routes>

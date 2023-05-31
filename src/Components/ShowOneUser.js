@@ -1,6 +1,8 @@
 import axios from "axios";
+// import { auth } from "../Firebase/config";
+// import { useAuthState } from "react-firebase-hooks/auth";
 import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./ShowOneUser.css";
 import {
   MDBCol,
@@ -28,37 +30,16 @@ const ShowOneUser = () => {
   };
 
   let { id } = useParams();
-  let navigate = useNavigate();
-  const [user, setUser] = useState([]);
-  const [image, setImage] = useState([]);
-  const [bio, setBio] = useState([]);
+
+  // const [user, loading] = useAuthState(auth);
+  const [oneUser, setOneUser] = useState([]);
 
   useEffect(() => {
     axios
       .get(`${API}/user/${id}`)
       .then((response) => {
         console.log("user api response user data=", response.data);
-        setUser(response.data[0]);
-      })
-      .catch((c) => console.warn("catch", c));
-  }, [id]);
-
-  useEffect(() => {
-    axios
-      .get(`${API}/user/${id}/images`)
-      .then((response) => {
-        console.log("user api response data for images=", response.data);
-        setImage(response.data[0].profile_image);
-      })
-      .catch((c) => console.warn("catch", c));
-  }, [id]);
-
-  useEffect(() => {
-    axios
-      .get(`${API}/user/${id}/bios`)
-      .then((response) => {
-        console.log("user api response data for bio=", response.data);
-        setBio(response.data[0].small_bio);
+        setOneUser(response.data[0]);
       })
       .catch((c) => console.warn("catch", c));
   }, [id]);
@@ -82,7 +63,9 @@ const ShowOneUser = () => {
     move_in_date,
     sexual_orientation,
     state,
-  } = user;
+    small_bio,
+    profile_image,
+  } = oneUser;
 
   const age = (birthday) => {
     const birthYearSplit = new Date(birthday).toString().split(" ");
@@ -116,10 +99,10 @@ const ShowOneUser = () => {
       <MDBRow className="userCard-ParentRow">
         {/********* IMAGE BEGIN **********/}
         <MDBCol className="userImage">
-          <img id="showOneUserPhoto" src={image} alt="profile"></img>
-          <p class="h2">{first_name}</p>
+          <img id="showOneUserPhoto" src={profile_image} alt="profile"></img>
+          <p className="h2">{first_name}</p>
 
-          <p class="h4">Bio: {bio}</p>
+          <p className="h6">Bio: {small_bio}</p>
         </MDBCol>
         {/********* IMAGE END **********/}
 
@@ -158,9 +141,9 @@ const ShowOneUser = () => {
 
                 <MDBCol>
                   <MDBRow>
-                    <MDBCol>City:{stringifyUserProperty(city)}</MDBCol>
-                    <MDBCol>State:{stringifyUserProperty(state)}</MDBCol>
-                    <MDBCol>Max Rent:{stringifyUserProperty(max_rent)}</MDBCol>
+                    <MDBCol>City:{city}</MDBCol>
+                    <MDBCol>State:{state}</MDBCol>
+                    <MDBCol>Max Rent:{max_rent}</MDBCol>
                     <MDBCol>
                       {" "}
                       Move-In-Date:
@@ -177,7 +160,7 @@ const ShowOneUser = () => {
 
                 <MDBCol>
                   <MDBRow>
-                    <MDBCol>Income:{stringifyUserProperty(income)}</MDBCol>
+                    <MDBCol>Income: $ {stringifyUserProperty(income)}</MDBCol>
                     <MDBCol>
                       {" "}
                       Shares Expenses:
