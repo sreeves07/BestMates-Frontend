@@ -1,9 +1,12 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { useContextAuthProvider } from "../Firebase/context";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 
-import { FaBars, FaTimes, FaTelegramPlane, FaSignInAlt } from "react-icons/fa";
+import { useContextAuthProvider } from "../Firebase/context";
+import { auth } from "../Firebase/config";
+
+import { FaBars, FaTimes } from "react-icons/fa";
 //REF: https://react-icons.github.io/react-icons/icons?name=fa
 
 import "./NavBar.css";
@@ -12,49 +15,73 @@ import logo from "../Images/dark-logo.png";
 
 function NavBar() {
   const navRef = useRef();
+
+  const [loggedUser] = useAuthState(auth);
+  const [signOut] = useSignOut(auth);
+
   const { user, setUser } = useContextAuthProvider();
-  console.log(user);
 
   const showNavBar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
 
+  useEffect(() => {
+    (async () => {
+      const signedIn = await loggedUser;
+      if (signedIn) {
+        setUser(signedIn);
+        window.localStorage.setItem(
+          "logged_user_access_token",
+          signedIn?.accessToken
+        );
+        return;
+      }
+    })();
+  });
+
   return (
     <header>
-      <Link to="/">
-        <img className="logo" src={logo} alt="logo" />
-      </Link>
-
-      {user?.uid ? (
-        <nav ref={navRef}>
-          <Link to="/users">All Roommates</Link>
-          <Link to="/favorites">BestMates</Link>
-          <Link to="/chat">Chat</Link>
-          <Link to="/users/:uid/edit">Account Settings</Link>
-          <button className="nav-btn nav-close-btn" onClick={showNavBar}>
-            <FaTimes />
+      {user ? (
+        <>
+          <Link to="/">
+            <img className="logo" src={logo} alt="logo" />
+          </Link>
+          <nav ref={navRef}>
+            <Link to="/users">All Roommates</Link>
+            <Link to={`favorites/${user.uid}`}>Favorites</Link>
+            <Link to="/chat">Chat</Link>
+            <Link to={`users/${user.uid}/edit`}>Account Settings</Link>
+            <button className="nav-btn nav-close-btn" onClick={showNavBar}>
+              <FaTimes />
+            </button>
+          </nav>
+          <button className="nav-btn" onClick={showNavBar}>
+            <FaBars />
           </button>
-          {/* <div className="navhomeHdgBox">
-          <h1 className="header">Welcome to BestMates</h1>
-        </div> */}
-          <Link className="sign-nav-btn" onClick={() => setUser(null)} to="/">
+          <Link
+            className="sign-nav-btn"
+            onClick={async () => {
+              const success = await signOut();
+              if (success) {
+                setUser(null);
+                window.localStorage.setItem("logged_user_access_token", null);
+                alert("You have been signed out. Come back soon!");
+              }
+            }}
+            to="/">
             Sign Out
           </Link>
-        </nav>
+        </>
       ) : (
-        <nav ref={navRef}>
-          <button className="nav-btn nav-close-btn" onClick={showNavBar}>
-            <FaTimes />
-          </button>
+        <>
+          <Link to="/">
+            <img className="logo" src={logo} alt="logo" />
+          </Link>
           <Link className="sign-nav-btn" to="/signin">
             Sign In
           </Link>
-        </nav>
+        </>
       )}
-
-      <button className="nav-btn" onClick={showNavBar}>
-        <FaBars />
-      </button>
     </header>
   );
 }

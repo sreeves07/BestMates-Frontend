@@ -13,7 +13,7 @@
 header {
     display: flex;
     justify-content: space-between;
-    height:85px;
+    height: 90px;
     padding: 0 2rem;
     background-image: linear-gradient(to right, var(--darkBackgroundColor), var(--darkMainColor));
 
@@ -29,14 +29,14 @@ header {
     width: 7.28rem;
     position: relative; 
     /* padding-top: 0.5rem; */
-    top: -1rem;
+    top: -.8rem;
     height: 7.1rem;
 }
 
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 70vw;
 }
 
@@ -74,6 +74,9 @@ header .nav-btn {
 
     border-radius: 10px;
     border: 4px solid var(--mainColor);
+
+    height: 35px;
+    margin-top: 27px;
 }
 
 .sign-nav-btn:hover {
@@ -102,16 +105,17 @@ header .nav-btn {
 
     header nav {
         position: fixed;
+        z-index: 1;
         top: 0;
         left: 0;
-        height: 200px;
+        height: 300px;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
-        background-color: var(--darkBackgroundColor);
+        background-image: linear-gradient(to right, var(--darkBackgroundColor), var(--darkMainColor));
         transition: 0.5s;
         transform: translateY(-100vh);
     }
