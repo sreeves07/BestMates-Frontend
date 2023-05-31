@@ -26,7 +26,7 @@ useEffect(() => {
       {/* provides link to single user card view */}
        <Link to={`/users/${id}`}>
           <div className="userCard">
-            <img class="rounded-circle" style={{width: "9.0rem", height: "9.0rem"}}
+            <img className="rounded-circle" style={{width: "9.0rem", height: "9.0rem"}}
               alt="Avatar"
               id="profileImage"
               src={image}

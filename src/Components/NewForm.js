@@ -30,6 +30,7 @@ const API = process.env.REACT_APP_API_URL;
 function NewForm() {
   //Set state for auth and newUser
   const [user, loading] = useAuthState(auth);
+  console.log("user =", user)
   const [newUser, setNewUser] = useState({
     first_name: "",
     last_name: "",

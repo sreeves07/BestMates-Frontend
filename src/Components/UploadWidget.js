@@ -30,7 +30,7 @@ const UploadWidget = () => {
     );
 
     axios
-      .post(`${API}/user/images`)
+      .post(`${API}/user`)
       .then((response) => {
         console.log("user api response data for images=", response.data);
         // setImage(response.data[0].profile_image);

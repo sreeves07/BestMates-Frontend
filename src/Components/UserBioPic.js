@@ -67,6 +67,7 @@ const UserBioPic = ({ id }) => {
       <UploadWidget/>
     </MDBCardBody>
   </MDBCard>
+
   <MDBCard className="mb-4 userFavs-card">
     <MDBCardHeader className="py-2">
       <MDBTypography tag="h5" className="mb-0">Link or Dropdown List of Your Favorite Roommates</MDBTypography>
@@ -77,6 +78,7 @@ const UserBioPic = ({ id }) => {
       <div className="userFavs-component"></div>
     </MDBCardBody>
   </MDBCard>
+  
   <MDBCard className="mb-4 userBio-card">
     <MDBCardHeader className="py-2">
       <MDBTypography tag="h5" className="mb-0">Your Bio Statement</MDBTypography>
@@ -85,7 +87,7 @@ const UserBioPic = ({ id }) => {
         <MDBTextArea 
           className="userBio mb-4"  
           label='Your Bio Statement:'
-          defaultValue="< Please enter a brief description of yourself here >" 
+          plaaceholder="< Please enter a brief description of yourself here >" 
           rows={3} 
           type='text' 
           onChange={handleTextChange}
