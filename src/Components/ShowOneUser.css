@@ -1,18 +1,33 @@
 
+.ShowOneUser {
+        display: flex;
+        justify-content: space-evenly;
+}
 
 
-.ShowOneUser{
+
+/* .ShowOneUser{
 width: 90%;
 height: 100%;
 border: 1px solid rgb(128, 77, 234, .5);
         /* color in logo */
-display: grid;
+/* display: grid;
 border-radius: 5%;
-margin-top: 5% ;
-}
+margin-top: 5% ; */
+/* } */
 
-.ShowOneUser, span{
+/* .ShowOneUser, span{
 display: inline-block;
+} */
+
+.userParentCard {
+        width: 90%;
+        height: 100%;
+        margin: 0 auto 0 auto;
+        /* border: .1rem solid rgba(186, 183, 192, 0.288); */
+        /* box-shadow: .06rem .06rem .06rem .06rem rgba(138, 162, 185, 0.136); */
+        /* border-radius: 5% 5%; */
+        background-color: white;
 }
 
 #showOneUserPhoto {
@@ -31,52 +46,48 @@ width: 55%;
  background-color: rgba(191, 174, 227, 0.582);
 }
 
-.userInfo h5 {
+/* .userInfo h5 {
         text-align: center;
         text-decoration: underline;
-}
+} */
 
-.basicInfo {
+/* .basicInfo {
 
  text-align: justify;
-}
+} */
 
-#basicInfoAttributes span {
-display: inline-block;
-width: 30%
-}
 
-#basicInfoAttributes{
+/* #basicInfoAttributes{
  display: flex;
 flex-direction: row;
-}
+} */
 
-#basicInfoGroup{
+/* #basicInfoGroup{
 display: flex;
 flex-direction: column;
 width: 50%;
 align-items: center;
 text-align: left;
-}
+} */
 
-.userLivingSituation {
+/* .userLivingSituation {
 width: 60%;
 text-align: left;
 align-items: center;
 padding: 2%;
 border: 2px solid black;
-}
+} */
 
-#livingSituationAttributes{
+/* #livingSituationAttributes{
 display: flex;
 flex-direction: row;
 text-align: left;
-}
+} */
 
-.livingSituationGroup{
+/* .livingSituationGroup{
         display: flex;
         flex-direction: column;
-}
+} */
 
 .userFinances {
 display: flex;
@@ -88,7 +99,7 @@ padding: 2%;
 border: 2px solid black;
 }
 
-.userFinances span{
+/* .userFinances span{
         display: inline-block;
         width: 30%
 }
@@ -96,7 +107,7 @@ border: 2px solid black;
 .livingSituationAndFinancialInfo{
         display: flex;
         flex-direction: row;
-}
+} */
 
 #backToUsersBtn {
 margin: 2%;
