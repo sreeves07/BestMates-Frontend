@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 import { auth } from "../../Firebase/config";
 import {
@@ -20,6 +20,7 @@ export default function Register({ justifyActive }) {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmTerms, setConfirmTerms] = useState(false)
   const [successfulReg, setSucccessfulReg] = useState("");
 
   const navigate = useNavigate();
@@ -69,6 +70,7 @@ export default function Register({ justifyActive }) {
           id="register-email"
           value={registerEmail}
           onChange={(e) => setRegisterEmail(e.target.value)}
+          pattern="[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
           required
         />
         <MDBInput
@@ -104,7 +106,12 @@ export default function Register({ justifyActive }) {
           <MDBCheckbox
             name="flexCheck"
             id="register-flexCheckDefault"
-            label="I have read and agree to the terms"
+            label={`I have read and agree to the terms`}
+            value={confirmTerms}
+            onChange={() => {
+              setConfirmTerms(!confirmTerms)
+              if (!confirmTerms) window.open("terms", "_blank")
+            }}
             required
           />
         </div>
