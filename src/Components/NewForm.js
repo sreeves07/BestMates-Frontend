@@ -106,7 +106,7 @@ let navigate = useNavigate();
     <div className="newFormBox ">      
       <form className="newform needs-validation"
             onSubmit={handleSubmit}
-            noValidate >
+            >
         <MDBRow>
           <MDBCol md="8" className="mb-4">
             <MDBCard className="mb-4 newForm-card">
