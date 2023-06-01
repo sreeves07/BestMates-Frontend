@@ -1,12 +1,3 @@
-<<<<<<< Updated upstream
-import React from 'react'
-  // Manage State of Values
-import { useState } from "react";
-  // Enable Navigation to a Different View
-import { useNavigate } from "react-router-dom";
-  // Enable Connection to Firebase User Authorization (Login)
-import { useContextAuthProvider} from "../Firebase/context"
-=======
 import React from "react";
 // Manage State of Values
 import { useState, useEffect } from "react";
@@ -15,7 +6,6 @@ import { useNavigate, useParams } from "react-router-dom";
 // Enable Connection to Firebase User Authorization (Login)
 import { auth } from "../Firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
->>>>>>> Stashed changes
 import axios from "axios";
 // User Picture Upload Widget from Cloudinary
 // import UploadWidget from "./UploadWidget.js"
@@ -38,16 +28,11 @@ const API = process.env.REACT_APP_API_URL;
 
 function NewForm({ id }) {
   //Set state for auth and newUser
-<<<<<<< Updated upstream
-  const {user} = useContextAuthProvider();
-
-=======
   const [user, loading] = useAuthState(auth);
 
   console.log("user =", user);
 
   const [mateId, setMateId] = useState();
->>>>>>> Stashed changes
   const [newUser, setNewUser] = useState({
     first_name: "",
     last_name: "",
@@ -57,7 +42,6 @@ function NewForm({ id }) {
     birthday: "",
     gender: "",
     sexual_orientation: "",
-    email: `${user.email}`,
     has_pets: false,
     has_open_rooms: false,
     is_smoker: false,
@@ -101,14 +85,8 @@ function NewForm({ id }) {
 
   const addNewUser = (newUser) => {
     axios
-<<<<<<< Updated upstream
-      .put(`${API}/user/${user.uid}`, newUser)
-      .then((res) => {
-        console.log(res.data)
-=======
       .put(`${API}/user/${id}`, newUser)
       .then(() => {
->>>>>>> Stashed changes
         navigate(`/preferences`);
       })
       .catch((c) => console.warn("catch", c));
@@ -131,15 +109,6 @@ function NewForm({ id }) {
     addNewUser(newUser);
     //addUserImage(image)
   }
-<<<<<<< Updated upstream
-  
- 
-  return (
-    <div className="newFormBox ">      
-      <form className="newform needs-validation"
-            onSubmit={handleSubmit}
-            noValidate >
-=======
 
   return !loading ? (
     <div className="newFormBox ">
@@ -147,7 +116,6 @@ function NewForm({ id }) {
         className="newform needs-validation"
         onSubmit={handleSubmit}
         noValidate>
->>>>>>> Stashed changes
         <MDBRow>
           <MDBCol md="8" className="mb-4">
             <MDBCard className="mb-4 newForm-card">
@@ -281,7 +249,7 @@ function NewForm({ id }) {
                       type="text"
                       className="mb-4"
                       onChange={handleTextChange}
-                      value={newUser?.email}
+                      value={newUser.email}
                       id="email"
                       required
                     />
@@ -298,13 +266,9 @@ function NewForm({ id }) {
                     />
                   </MDBCol>
                   <MDBCol md="4">
-<<<<<<< Updated upstream
-                    <MDBInput label='Credit Level' type='number'
-=======
                     <MDBInput
                       label="Credit Level"
                       type="text"
->>>>>>> Stashed changes
                       onChange={handleTextChange}
                       value={newUser.credit_score}
                       id="credit_score"
@@ -327,13 +291,9 @@ function NewForm({ id }) {
                     />
                   </MDBCol> */}
                   <MDBCol>
-<<<<<<< Updated upstream
-                    <MDBInput label='Income Level' type='number'
-=======
                     <MDBInput
                       label="Income Level"
                       type="text"
->>>>>>> Stashed changes
                       onChange={handleTextChange}
                       value={newUser.income}
                       id="income"
@@ -529,14 +489,6 @@ function NewForm({ id }) {
                   <MDBCol>
                     <div className="d-flex justify-content-center">
                       {/* <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account' defaultChecked /> */}
-<<<<<<< Updated upstream
-                      <MDBBtn 
-                        className='newForm-submitBtn' 
-                        type="submit">Submit</MDBBtn>
-                      </div>
-                    </MDBCol>
-                </MDBRow> 
-=======
                       <MDBBtn
                         className="newForm-submitBtn"
                         type="submit"
@@ -547,7 +499,6 @@ function NewForm({ id }) {
                     </div>
                   </MDBCol>
                 </MDBRow>
->>>>>>> Stashed changes
 
                 {/* ********** End of Input Fields  ********** */}
               </MDBCardBody>
@@ -556,14 +507,9 @@ function NewForm({ id }) {
         </MDBRow>
       </form>
     </div>
-<<<<<<< Updated upstream
-
-) 
-=======
   ) : (
     ""
   );
->>>>>>> Stashed changes
 }
 
 export default NewForm;
