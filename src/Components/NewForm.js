@@ -76,7 +76,8 @@ let navigate = useNavigate();
   const addNewUser = (newUser) => {
     axios
       .put(`${API}/user/${user.uid}`, newUser)
-      .then(() => {
+      .then((res) => {
+        console.log(res.data)
         navigate(`/preferences`);
       })
       .catch((c) => console.warn("catch", c));
@@ -237,7 +238,7 @@ let navigate = useNavigate();
                     />
                   </MDBCol>          
                   <MDBCol md="4">
-                    <MDBInput label='Credit Level' type='text'
+                    <MDBInput label='Credit Level' type='number'
                       onChange={handleTextChange}
                       value={newUser.credit_score}
                       id="credit_score"
