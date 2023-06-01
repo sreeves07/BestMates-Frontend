@@ -5,8 +5,8 @@ const SignIn = () => {
   return (
     <div className="sign-in-page">
       <br></br>
-      <h1 className="header">Sign 
-      up for New Account</h1>
+      <h2 className="header">Sign 
+      In</h2>
       <SignInForm />
     </div>
   );

@@ -1,12 +1,20 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --mainColor: #8c52ff;
+  --transparentMainColor: #cbb1ff26;
+  --darkMainColor: #2e008b;
+  --secondaryColor: #66ff33;
+  --darkSecondaryColor: #228700;
+  --darkBackgroundColor: #12061e;
+  --lightBackgroundColor: beige;
+
 }
-* {
+
+*,
+h1,
+h2 {
   font-family: 'Barlow', sans-serif;
   font-weight: 900;
 }
@@ -25,37 +33,41 @@ body {
   background-size: cover;
   font-family: 'Petit Formal Script', cursive;
   display: grid;
-  grid-template-rows: .25fr 4.75fr;
-}
-
-/* .homeScreen{
-  width: 100vw;
-  height: 80vh;
-  background: rgba(255, 255, 255, 0.451);
-} */
-
-
-.homeHdgBox {
-  grid-row: 1;
-  background-color: rgba(127, 255, 212, 0.444);
-  color: blueviolet;
-}
-
-.home-image-grid{
-  display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
 }
 
+.homeHdgBox {
+  display: flex;
+  flex-direction: row;
 
-.uploadWidget-Btn{
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeHdgBox h1 {
+  color: var(--mainColor);
+}
+
+.homeHdgBox a {
+  color: white;
+  text-shadow: 0px 0px 5px var(--darkMainColor);
+}
+
+.homeHdgBox a:hover {
+  color: var(--secondaryColor);
+  text-shadow: 3px 3px 3px var(--darkMainColor);
+}
+
+.uploadWidget-Btn {
   border: 1px solid rgb(182, 181, 181);
   height: 4.78vh;
   width: 9.5vw;
   border-radius: 3px;
-  color:rgb(114, 113, 113) ;
+  color: rgb(114, 113, 113);
   padding-left: .4vw;
   margin-left: -.15vw;
-  background-color:white ;
-  background:white
+  background-color: white;
+  background: white;
 }

@@ -3,7 +3,7 @@ const Home = () => {
     <div className="Home bg-image"  >
       {/* <div className="homeScreen"> </div> */}
         <div className="homeHdgBox">
-          <h1 className="header">Welcome to BestMates</h1>
+          <h1 className="header">More than a RoomMate, Your <a href="https://www.urbandictionary.com/define.php?term=best%20mate" target="blank">BestMate</a></h1>
        </div>
         
         <div className="home-image-grid  bg-image  ">

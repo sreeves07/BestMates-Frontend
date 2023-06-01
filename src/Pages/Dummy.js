@@ -3,7 +3,7 @@ import UploadWidget from "../Components/UploadWidget";
 const Dummy = () => {
   return (
     <div>
-      <h1>Dummy</h1>
+      <h2>Dummy</h2>
       <UploadWidget />
     </div>
   );
