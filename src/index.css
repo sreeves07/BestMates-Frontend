@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap'); */
+ 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 
 :root {
-  --mainColor: #8c52ff;
+  --mainColor: #52ff9a43;
   --transparentMainColor: #cbb1ff26;
   --darkMainColor: #2e008b;
   --secondaryColor: #66ff33;
@@ -37,28 +43,43 @@ body {
   grid-template-rows: repeat(5, 1fr);
 }
 
+.bestMate-wordLink{
+  font-style: italic;
+}
+
+
 .homeHdgBox {
   display: flex;
   flex-direction: row;
-
-  height: 80px;
+  height: 35px;
   justify-content: center;
   align-items: center;
+  background-color: rgba(127, 255, 212, 0.444);
+  color: blueviolet;
 }
 
-.homeHdgBox h1 {
-  color: var(--mainColor);
+.homeHdgBox h2 {
+  /* color: var(--mainColor); */
+  /* color:#450ee8 */
+  color: navy;
+  
 }
 
 .homeHdgBox a {
-  color: white;
-  text-shadow: 0px 0px 5px var(--darkMainColor);
+  /* color: white; */
+  /* text-shadow: 0px 0px 5px var(--darkMainColor); */
+  background-color: rgba(127, 255, 212, 0.444);
+  color: blueviolet;
 }
 
 .homeHdgBox a:hover {
-  color: var(--secondaryColor);
-  text-shadow: 3px 3px 3px var(--darkMainColor);
+  /* color: var(--secondaryColor); */
+  /* text-shadow: 3px 3px 3px var(--darkMainColor); */
+  color:#5ec088
 }
+
+
+
 
 .uploadWidget-Btn {
   border: 1px solid rgb(182, 181, 181);
