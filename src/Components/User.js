@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
+// import { useState, useEffect } from "react";
+// import axios from "axios";
 import "./User.css";
 
-const API = process.env.REACT_APP_API_URL;
+// const API = process.env.REACT_APP_API_URL;
 
-const User = ({ user }) => {
-  const { first_name, birthday, gender, id, profile_image } = user;
+const User = ({ currentUser }) => {
+  const { first_name, birthday, gender, id, profile_image } = currentUser;
 
   const age = (birthday) => {
     const birthYearSplit = new Date(birthday).toString().split(" ");
