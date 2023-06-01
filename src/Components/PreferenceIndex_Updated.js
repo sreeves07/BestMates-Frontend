@@ -21,26 +21,27 @@ import {
 
 const API = process.env.REACT_APP_API_URL;
 
-const PreferenceIndex = ({ id }) => {
+const PreferenceIndex = () => {
+  const { user } = useContextAuthProvider();
+
   const [answer, setAnswer] = useState({
-    id: "",
-    gender_preference: "Does not matter",
+    gender_preference: "does-not-matter",
     pets_preference: false,
-    sexual_orientation_preference: "Does not matter",
+    sexual_orientation_preference: "does-not-matter",
     open_rooms_preference: false,
-    neat_preference: true,
+    neat_preference: false,
     kids_preference: false,
-    low_noise_preference: true,
+    low_noise_preference: false,
     smoker_preference: false,
     high_rise_preference: false,
     house_preference: false,
     private_bathroom_preference: false,
     private_room_preference: false,
-    share_bills_preference: true,
+    share_bills_preference: false,
     religious_preference: false,
-    good_credit_preference: true,
+    good_credit_preference: false,
     high_income_preference: false,
-    employment_preference: true, //need to be added to backend
+    employment_preference: false, //need to be added to backend
     is_student_preference: false, //need to be added to backend
     //healthy_preference: true,        //need to be added to backend
     //allergies_preference: false,     //need to be added to backend
@@ -54,36 +55,34 @@ const PreferenceIndex = ({ id }) => {
     //romantic_visits_preference: false,    //need to be added to backend
     //family_friend_visits_preference: false,     //need to be added to backend
     //night_life_preference: false,         //need to be added to backend
-    mate_id: "",
   });
-
-  const { user } = useContextAuthProvider();
 
   const handleTextChange = (event) => {
     setAnswer({ ...answer, [event.target.id]: event.target.value });
   };
 
   const handleCheckboxChange = (event) => {
-    setAnswer({ ...answer, [event.target.id]: !user[event.target.value] });
+    setAnswer({ ...answer, [event.target.id]: !answer[event.target.id] });
   };
 
-  function handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const res = await axios.put(`${API}/user/${user.uid}/answers`, answer)
+    console.log(res)
+  }
+
+  const checkedAlg = (val) => {
+    return val === true ? "checked" : "";
   }
 
   useEffect(() => {
-    console.log(user);
     axios
-      .get(`${API}/user/${id}/answers`)
+      .get(`${API}/user/${user.uid}/answers`)
       .then((response) => {
-        console.log(
-          "user response data for answers (preferences)=",
-          response.data
-        );
-        setAnswer(...answer, ...response.data[0]);
+        setAnswer({...answer, ...response.data[0]});
       })
       .catch((c) => console.warn("catch", c));
-  }, [id, user, answer]);
+  }, [user]);
 
   return (
     <div className="preferenceIndex">
@@ -128,6 +127,7 @@ const PreferenceIndex = ({ id }) => {
                     id="good_credit_preference"
                     onChange={handleCheckboxChange}
                     value={answer.good_credit_preference}
+                    checked={checkedAlg(answer.good_credit_preference)}
                   />
                 </MDBCol>
                 <MDBCol className="col-4">
@@ -138,6 +138,7 @@ const PreferenceIndex = ({ id }) => {
                     id="employment_preference"
                     onChange={handleCheckboxChange}
                     value={answer.employment_preference}
+                    checked={checkedAlg(answer.employment_preference)}
                   />
                 </MDBCol>
                 <MDBCol className="col-4">
@@ -148,6 +149,7 @@ const PreferenceIndex = ({ id }) => {
                     id="high_income_preference"
                     onChange={handleCheckboxChange}
                     value={answer.high_income_preference}
+                    checked={checkedAlg(answer.high_income_preference)}
                   />
                 </MDBCol>
               </MDBRow>
@@ -163,6 +165,7 @@ const PreferenceIndex = ({ id }) => {
                     id="share_bills_preference"
                     onChange={handleCheckboxChange}
                     value={answer.share_bills_preference}
+                    checked={checkedAlg(answer.share_bills_preference)}
                   />
                 </MDBCol>
                 <MDBCol className="col-4">
@@ -173,6 +176,7 @@ const PreferenceIndex = ({ id }) => {
                     id="open_rooms_preference"
                     onChange={handleCheckboxChange}
                     value={answer.open_rooms_preference}
+                    checked={checkedAlg(answer.open_rooms_preference)}
                   />
                 </MDBCol>
                 <MDBCol className="col-4">
@@ -183,6 +187,7 @@ const PreferenceIndex = ({ id }) => {
                     id="high_rise_preference"
                     onChange={handleCheckboxChange}
                     value={answer.high_rise_preference}
+                    checked={checkedAlg(answer.high_rise_preference)}
                   />
 
                   {/* ************ ROW 5 - Prefs *********** */}
@@ -197,6 +202,7 @@ const PreferenceIndex = ({ id }) => {
                     id="house_preference"
                     onChange={handleCheckboxChange}
                     value={answer.house_preference}
+                    checked={checkedAlg(answer.house_preference)}
                   />
                 </MDBCol>
                 <MDBCol className="col-4">
@@ -207,6 +213,7 @@ const PreferenceIndex = ({ id }) => {
                     id="private_room_preference"
                     onChange={handleCheckboxChange}
                     value={answer.private_room_preference}
+                    checked={checkedAlg(answer.private_room_preference)}
                   />
                 </MDBCol>
                 <MDBCol className="col-4">
@@ -217,6 +224,7 @@ const PreferenceIndex = ({ id }) => {
                     id="private_bathroom_preference"
                     onChange={handleCheckboxChange}
                     value={answer.private_bathroom_preference}
+                    checked={checkedAlg(answer.private_bathroom_preference)}
                   />
                 </MDBCol>
               </MDBRow>
@@ -232,6 +240,7 @@ const PreferenceIndex = ({ id }) => {
                     label="Is Very Neat"
                     onChange={handleCheckboxChange}
                     value={answer.neat_preference}
+                    checked={checkedAlg(answer.neat_preference)}
                   />
                 </MDBCol>
                 <MDBCol className="col-4">
@@ -241,6 +250,7 @@ const PreferenceIndex = ({ id }) => {
                     label="Low Noise"
                     onChange={handleCheckboxChange}
                     value={answer.low_noise_preference}
+                    checked={checkedAlg(answer.low_noise_preference)}
                   />
                 </MDBCol>
                 <MDBCol className="col-4">
@@ -250,6 +260,7 @@ const PreferenceIndex = ({ id }) => {
                     label="Is Religious"
                     onChange={handleCheckboxChange}
                     value={answer.religious_preference}
+                    checked={checkedAlg(answer.religious_preference)}
                   />
                 </MDBCol>
               </MDBRow>
@@ -264,6 +275,7 @@ const PreferenceIndex = ({ id }) => {
                     label="Is a Smoker"
                     onChange={handleCheckboxChange}
                     value={answer.smoker_preference}
+                    checked={checkedAlg(answer.smoker_preference)}
                   />
                 </MDBCol>
                 <MDBCol className="col-4">
@@ -273,6 +285,7 @@ const PreferenceIndex = ({ id }) => {
                     label="Has Disability"
                     onChange={handleCheckboxChange}
                     value={answer.disabled_preference}
+                    checked={checkedAlg(answer.disabled_preference)}
                   />
                 </MDBCol>
                 <MDBCol className="col-4">
@@ -282,6 +295,7 @@ const PreferenceIndex = ({ id }) => {
                     label="Is Active Musician"
                     onChange={handleCheckboxChange}
                     value={answer.musician_preference}
+                    checked={checkedAlg(answer.musician_preference)}
                   />
                 </MDBCol>
               </MDBRow>
@@ -296,6 +310,7 @@ const PreferenceIndex = ({ id }) => {
                     label="Is Active Singer"
                     onChange={handleCheckboxChange}
                     value={answer.singer_preference}
+                    checked={checkedAlg(answer.singer_preference)}
                   />
                 </MDBCol>
                 <MDBCol className="col-4">
@@ -306,6 +321,7 @@ const PreferenceIndex = ({ id }) => {
                     label="Hosts Parties"
                     onChange={handleCheckboxChange}
                     value={answer.host_parties_preference}
+                    checked={checkedAlg(answer.host_parties_preference)}
                   />
                 </MDBCol>
               </MDBRow>
@@ -313,6 +329,10 @@ const PreferenceIndex = ({ id }) => {
               {/* ************ ROW 11 - Prefs *********** */}
               <MDBRow className="mb-5">
                 <MDBCol className="col-4">
+                  <label
+                      htmlFor="gender_preference">
+                      Gender:
+                  </label>
                   <select
                     className="col-12 select gender-select-prefs form-control"
                     // name="flexCheck"
@@ -320,23 +340,18 @@ const PreferenceIndex = ({ id }) => {
                     value={answer.gender_preference}
                     id="gender_preference"
                     required>
-                    <label
-                      className="visually-hidden"
-                      htmlFor="inlineFormSelectPref">
-                      Preference
-                    </label>
-                    <option defaultValue={"Does not matter"}>Gender</option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">Intersex</option>
-                    <option value="4">Non-Binary</option>
-                    <option value="5">Transgender</option>
-                    <option value="6">Other</option>
-                    <option value="7">Does not matter</option>
+                    <option defaultValue={"does-not-matter"}>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="intersex">Intersex</option>
+                    <option value="non-binary">Non-Binary</option>
+                    <option value="transgender">Transgender</option>
+                    <option value="other">Other</option>
+                    <option value="does-not-matter">Does not matter</option>
                   </select>
                 </MDBCol>
                 <MDBCol className="col-4">
-                  <select
+                  <label htmlFor="sexual_orientation_preference">Orientation:</label><select
                     className="basic-single col-12 orientation-select-prefs select form-control select"
                     // name="flexCheck"
 
@@ -344,23 +359,23 @@ const PreferenceIndex = ({ id }) => {
                     value={answer.sexual_orientation_preference}
                     id="sexual_orientation_preference"
                     required>
-                    <option defaultValue={"Does not matter"}>
+                    <option defaultValue={"does-not-matter"}>
                       Orientation
                     </option>
-                    <option value="1">Heterosexual</option>
-                    <option value="2">Pansexual</option>
-                    <option value="3">BiSexual</option>
-                    <option value="4">Homosexual</option>
-                    <option value="5">Asexual</option>
-                    <option value="6">Other</option>
-                    <option value="7">Does not matter</option>
+                    <option value="heterosexual">Heterosexual</option>
+                    <option value="pansexual">Pansexual</option>
+                    <option value="bisexual">Bisexual</option>
+                    <option value="homosexual">Homosexual</option>
+                    <option value="asexual">Asexual</option>
+                    <option value="other">Other</option>
+                    <option value="does-not-matter">Does not matter</option>
                   </select>
                 </MDBCol>
               </MDBRow>
             </MDBListGroup>
 
             {/* <MDBBtn size="lg" block> */}
-            <MDBBtn size="sm">Save Updated Preferences</MDBBtn>
+            <MDBBtn type="submit" size="sm">Save Updated Preferences</MDBBtn>
           </MDBCardBody>
         </MDBCard>
       </form>

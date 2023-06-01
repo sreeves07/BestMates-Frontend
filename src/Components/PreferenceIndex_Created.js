@@ -21,27 +21,28 @@ import {
 
 const API = process.env.REACT_APP_API_URL;
 
-const PreferenceIndex_Created = ({ id }) => {
+const PreferenceIndex_Created = () => {
+  const { user } = useContextAuthProvider();
 
   const [answer, setAnswer] = useState({
-    id: "",
-    gender_preference: "Does not matter",
+    mate_uid: user.uid,
+    gender_preference: "",
     pets_preference: false,
-    sexual_orientation_preference: "Does not matter",
+    sexual_orientation_preference: "",
     open_rooms_preference: false,
-    neat_preference: true,
+    neat_preference: false,
     kids_preference: false,
-    low_noise_preference: true,
+    low_noise_preference: false,
     smoker_preference: false,
     high_rise_preference: false,
     house_preference: false,
     private_bathroom_preference: false,
     private_room_preference: false,
-    share_bills_preference: true,
+    share_bills_preference: false,
     religious_preference: false,
-    good_credit_preference: true,
+    good_credit_preference: false,
     high_income_preference: false,
-    employment_preference: true,     //need to be added to backend
+    employment_preference: false,     //need to be added to backend
     is_student_preference: false,    //need to be added to backend
     //healthy_preference: true,        //need to be added to backend
     //allergies_preference: false,     //need to be added to backend
@@ -55,19 +56,16 @@ const PreferenceIndex_Created = ({ id }) => {
     //romantic_visits_preference: false,    //need to be added to backend
     //family_friend_visits_preference: false,     //need to be added to backend
     //night_life_preference: false,         //need to be added to backend
-    mate_id: "",
   });
 
   let navigate = useNavigate();
-  const { user } = useContextAuthProvider();
 
   // After New User preferences are submitted, the newlyc reated prefs are passed to the backend via PreferenceIndex_Created, then the view is navigated to PreferenceIndex_Updated to display the roommates that match the  preferences selected.
 
   const addPrefs = (answer) => {
     axios
-      .post(`${API}/user/:uid/answers/`, answer)
+      .post(`${API}/user/:uid/answers`, answer)
       .then((response) => {
-        console.log(response.data)
         setAnswer(response.data)
         navigate(`/users`);
       })
@@ -79,9 +77,10 @@ const PreferenceIndex_Created = ({ id }) => {
   };
 
   const handleCheckboxChange = (event) => {
-    setAnswer({ ...answer, [event.target.id]: !user[event.target.value] });
+    setAnswer({ ...answer, [event.target.id]: !answer[event.target.id] });
   };
-  function handleSubmit(event) {
+
+  const handleSubmit = (event) => {
     event.preventDefault();
     event.target.className += " was-validated"
     addPrefs(answer);
@@ -344,14 +343,14 @@ const PreferenceIndex_Created = ({ id }) => {
                     id="gender_preference"
                    required
                   > 
-                    <option defaultValue={"Does not matter"}>Gender</option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">Intersex</option>
-                    <option value="4">Non-Binary</option>
-                    <option value="5">Transgender</option>
-                    <option value="6">Other</option>
-                    <option value="7">Does not matter</option>
+                    <option defaultValue={"does-not-matter"}>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="intersex">Intersex</option>
+                    <option value="non-binary">Non-Binary</option>
+                    <option value="transgender">Transgender</option>
+                    <option value="other">Other</option>
+                    <option value="does-not-matter">Does not matter</option>
                   </select>
                 </MDBCol>
                 <MDBCol>
@@ -362,14 +361,14 @@ const PreferenceIndex_Created = ({ id }) => {
                    id="sexual_orientation_preference"
                    required
                   >   
-                    <option defaultValue={"Does not matter"}>Orientation</option>
-                    <option value="1">Heterosexual</option>
-                    <option value="2">Pansexual</option>
-                    <option value="3">BiSexual</option>
-                    <option value="4">Homosexual</option>
-                    <option value="5">Asexual</option>
-                    <option value="6">Other</option>
-                    <option value="7">Does not matter</option>
+                    <option defaultValue={"does-not-matter"}>Orientation</option>
+                    <option value="heterosexual">Heterosexual</option>
+                    <option value="pansexual">Pansexual</option>
+                    <option value="bisexual">Bisexual</option>
+                    <option value="homosexual">Homosexual</option>
+                    <option value="asexual">Asexual</option>
+                    <option value="other">Other</option>
+                    <option value="does-not-matter">Does not matter</option>
                   </select>
                     </MDBCol>
                   </MDBRow>
@@ -380,8 +379,7 @@ const PreferenceIndex_Created = ({ id }) => {
                  <MDBBtn 
                     className='newPrefForm-submitBtn' 
                     type="submit" 
-                    onClick={handleSubmit}
-                    form="form">Submit
+                    >Submit
                   </MDBBtn>
             </MDBCardBody>
         </MDBCard>
