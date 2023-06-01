@@ -9,7 +9,7 @@ import Home from "./Pages/Home";
 
 import Index from "./Pages/Index";
 import Show from "./Pages/Show";
-
+import Terms from "./Pages/Terms";
 import New from "./Pages/New";
 import EditUserForm from "./Pages/Edit";
 import Preferences from "./Pages/Preferences";
@@ -37,12 +37,15 @@ function App() {
               <Route path="/users/:uid/edit" element={<EditUserForm />} />
               <Route path="/users" element={<Index />} />
               <Route path="/users/:uid" element={<Show />} />
-              <Route path="/dummy" element={<Dummy />} />ç
+              <Route path="/dummy" element={<Dummy />} />
+              <Route path="/terms" element={<Terms />} />
               <Route path="*" element={<p>Error</p>} />
+
             </>
           ) : (
             <>
               <Route path="/" element={<Home />} />
+              <Route path="/terms" element={<Terms />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="*" element={<p>Error</p>} />
             </>
