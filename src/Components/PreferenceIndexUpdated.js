@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Select from "react-select";
 import axios from "axios";
 import { useContextAuthProvider } from "../Firebase/context";
 import Location from "./Location";
@@ -21,7 +20,7 @@ import {
 
 const API = process.env.REACT_APP_API_URL;
 
-const PreferenceIndex = () => {
+const PreferenceIndexUpdated = () => {
   const { user } = useContextAuthProvider();
 
   const [answer, setAnswer] = useState({
@@ -82,7 +81,7 @@ const PreferenceIndex = () => {
         setAnswer({...answer, ...response.data[0]});
       })
       .catch((c) => console.warn("catch", c));
-  }, [user]);
+  }, [user, answer]);
 
   return (
     <div className="preferenceIndex">
@@ -383,7 +382,7 @@ const PreferenceIndex = () => {
   );
 };
 
-export default PreferenceIndex;
+export default PreferenceIndexUpdated;
 
 //    ATTRIBUTES ORGANIZED BY CATEGORY
 //    // Financial

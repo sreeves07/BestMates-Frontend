@@ -1,8 +1,8 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useContextAuthProvider } from "../Firebase/context";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import UploadWidget from "./UploadWidget";
 import "../Components/NewForm.css"
 import "../Images/unisex-profile-pic.png"
@@ -12,10 +12,7 @@ import {
     MDBCard, 
     MDBCardBody, 
     MDBCardHeader,
-    MDBCardImage, 
-    MDBCol, 
-    MDBBtn,
-    MDBInput, 
+    MDBBtn, 
     MDBRow,
     MDBTextArea,
     MDBTypography

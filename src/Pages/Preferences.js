@@ -1,9 +1,9 @@
 import React from 'react'
-import PreferenceIndex_Created from '../Components/PreferenceIndex_Created'
+import PreferenceIndexCreated from '../Components/PreferenceIndexCreated'
 function Preferences() {
   return (
 
-    <div><h2>Mate Preferences</h2><PreferenceIndex_Created/></div>
+    <div><h2>Mate Preferences</h2><PreferenceIndexCreated/></div>
   )
 }
 

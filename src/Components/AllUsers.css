@@ -14,8 +14,8 @@
     display: grid;
     grid-template-columns: .7fr .7fr .7fr .7fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    height: 80vh;
-    width: 50vw;
+    height: 80%;
+    width: 80%;
     grid-gap: 7px;
     row-gap: 7px;
   }

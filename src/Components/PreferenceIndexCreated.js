@@ -21,7 +21,7 @@ import {
 
 const API = process.env.REACT_APP_API_URL;
 
-const PreferenceIndex_Created = () => {
+const PreferenceIndexCreated = () => {
   const { user } = useContextAuthProvider();
 
   const [answer, setAnswer] = useState({
@@ -388,7 +388,7 @@ const PreferenceIndex_Created = () => {
   );
 };
 
-export default PreferenceIndex_Created;
+export default PreferenceIndexCreated;
 
 //    ATTRIBUTES ORGANIZED BY CATEGORY
 //    // Financial
