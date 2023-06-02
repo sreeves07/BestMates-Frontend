@@ -57,6 +57,7 @@ nav a:hover,
 nav .nav-spacer{
     color:#2e008b;
     background: #2e008b;
+    width: 2.8rem;
 }
 header .nav-btn {
     padding: 5px;

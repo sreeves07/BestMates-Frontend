@@ -16,7 +16,7 @@ function NewFormContainer() {
     <div className='newFormContainer'>
 
       <MDBCardHeader className=" newForm-hdg py-2">
-        <MDBTypography tag="h5" className="mb-0"> Account Information
+        <MDBTypography tag="h5" className="newform-header mb-0"> Account Information
         </MDBTypography>
       </MDBCardHeader>
 

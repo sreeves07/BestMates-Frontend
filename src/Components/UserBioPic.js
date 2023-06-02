@@ -95,7 +95,7 @@ const UserBioPic = ({ id }) => {
           id="smallBio"
           />
        
-  <MDBRow className="mb-1 d-flex justify-content-center">
+  <MDBRow className=" bioBottomRow ">
     <MDBBtn 
       className='userBio-submitBtn btn-secondary ' 
       type="submit" 

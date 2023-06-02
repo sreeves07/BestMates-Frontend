@@ -17,9 +17,16 @@
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: .05fr 1fr 1fr;
+  grid-template-rows: .05fr .5fr;
   /* flex-direction: column; */
 }
+
+.newform-header{
+  font-weight:900;
+}
+/* div.card-body.newform-cardbody{
+  height: 30rem;
+} */
 div.newForm-componentsBox.row{
   padding-left: 6rem;
 }
@@ -34,6 +41,15 @@ div.newForm-componentsBox.row{
   justify-content: center;
   margin-right: 4rem;
 }
+
+.newForm-cardbody{
+  margin-bottom: -2.2rem !important;
+}
+
+.bioBottomRow{
+  height: 3rem;
+  justify-content: center;
+}
 div.card.mb-4.userBio-card{
   width: 35rem; 
 }
@@ -47,13 +63,13 @@ div.card.mb-4.userBio-card{
 /* New Form Card */
 .card{
   display: flex;
-  width: 40rem;
-  height: 100%;
+  width: 30rem;
+  height: 50%;
 }
 .newForm{
   width: 37.5rem;
   margin-right: 30px;
-  height: 60rem; 
+  height: 40rem; 
 }
 .preferenceIndex{
   /* width: 37.5rem; */

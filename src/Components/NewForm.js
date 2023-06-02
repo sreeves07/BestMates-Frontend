@@ -109,11 +109,11 @@ let navigate = useNavigate();
             >
         <MDBRow>
           <MDBCol md="8" className="mb-4">
-            <MDBCard className="mb-4 newForm-card">
+            <MDBCard className="newForm-card">
               <MDBCardHeader className="py-2">
-                <MDBTypography tag="h5" className="mb-0">New Account Form</MDBTypography>
+                <MDBTypography tag="h5" className="mb-0 " >New Account Form</MDBTypography>
               </MDBCardHeader>
-                <MDBCardBody>
+                <MDBCardBody className='newForm-cardbody'>
              
                    {/* ********** Basic Info - Row 1 ********** */}  
 
@@ -250,16 +250,6 @@ let navigate = useNavigate();
                   {/* ********** Basic Info - Row 5 (Financial Attributes) ********** */}
 
                 <MDBRow className="mb-3">
-                  {/* <MDBCol>
-                  <MDBCheckbox
-                      name="flexCheck"
-                      label='Employed' type='text'
-                      onChange={handleCheckboxChange}
-                      value={newUser.is_employed}
-                      id="has_job"
-                      required
-                    />
-                  </MDBCol> */}
                   <MDBCol>
                     <MDBInput label='Income Level' type='number'
                       onChange={handleTextChange}
@@ -454,12 +444,12 @@ let navigate = useNavigate();
                 <MDBRow className="mb-5">
                   <MDBCol>
                     <div className="d-flex justify-content-center">
-                      {/* <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Create an account' defaultChecked /> */}
                       <MDBBtn 
                         className='newForm-submitBtn' 
-                        type="submit">Submit</MDBBtn>
-                      </div>
-                    </MDBCol>
+                        type="submit">Submit
+                      </MDBBtn>
+                    </div>
+                  </MDBCol>
                 </MDBRow> 
 
                 {/* ********** End of Input Fields  ********** */}
@@ -470,7 +460,6 @@ let navigate = useNavigate();
         </MDBRow>
       </form>
     </div>
-
 ) 
 }
 
