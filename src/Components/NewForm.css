@@ -28,11 +28,11 @@
   height: 30rem;
 } */
 div.newForm-componentsBox.row{
-  padding-left: 6rem;
+  padding-left: 7.5rem;
 }
 .newForm-componentsBox{
   display: flex;
-   justify-content: space-evenly;
+   /* justify-content: space-evenly; */
 }
 .newForm-hdg{
   grid-row: 1;
@@ -71,6 +71,7 @@ div.card.mb-4.userBio-card{
   margin-right: 30px;
   height: 40rem; 
 }
+
 .preferenceIndex{
   /* width: 37.5rem; */
   height: 100%;
@@ -84,6 +85,9 @@ div.card.mb-4.userBio-card{
   align-items: flex-start;
 }
 
+label.form-check-label{
+  color: #787878;
+}
 /* .nf-column-1{
   grid-column: 1;
 }
