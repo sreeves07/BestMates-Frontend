@@ -6,7 +6,6 @@ code {
     monospace;
 }
 
-
 :root {
   --mainColor: #52ff9a43;
   --transparentMainColor: #cbb1ff26;
@@ -20,10 +19,10 @@ code {
 
 *,
 h1,
-h2 {
+/* h2 {
   font-family: 'Barlow', sans-serif;
-  font-weight: 900;
-}
+  font-weight: 100;
+} */
 
 body {
   box-sizing: border-box;
@@ -44,9 +43,12 @@ body {
 }
 
 .bestMate-wordLink{
-  font-style: italic;
+  /* font-style: italic; */
+  font-weight:normal;
+  font: 1em ;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
-
 
 .homeHdgBox {
   display: flex;
@@ -54,32 +56,30 @@ body {
   height: 35px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(127, 255, 212, 0.444);
+  background-color: rgba(202, 232, 222, 0.287);
   color: blueviolet;
+  letter-spacing: .25em;
 }
 
 .homeHdgBox h2 {
   /* color: var(--mainColor); */
   /* color:#450ee8 */
   color: navy;
-  
 }
 
 .homeHdgBox a {
   /* color: white; */
   /* text-shadow: 0px 0px 5px var(--darkMainColor); */
-  background-color: rgba(127, 255, 212, 0.444);
+  /* background-color: rgba(127, 255, 212, 0.444); */
   color: blueviolet;
+  font-weight: 500;
 }
 
 .homeHdgBox a:hover {
   /* color: var(--secondaryColor); */
   /* text-shadow: 3px 3px 3px var(--darkMainColor); */
-  color:#5ec088
+ color:#5ec088
 }
-
-
-
 
 .uploadWidget-Btn {
   border: 1px solid rgb(182, 181, 181);

@@ -3,7 +3,8 @@ const Home = () => {
     <div className="Home bg-image"  >
       {/* <div className="homeScreen"> </div> */}
         <div className="homeHdgBox">
-          <h3 className="header">Instead of just a RoomMate... Find Your <a className="bestMate-wordLink"  href="https://www.urbandictionary.com/define.php?term=best%20mate" target="blank">BestMate</a></h3>
+          <h3 className="header">Not 
+          Just a RoomMate... Find Your <a className="bestMate-wordLink"  href="https://www.urbandictionary.com/define.php?term=best%20mate" target="blank">BestMate</a></h3>
        </div>
         
         <div className="home-image-grid  bg-image  ">

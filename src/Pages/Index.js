@@ -43,7 +43,6 @@ const Index = () => {
 
   return (
     <div className="Index">
-      <h2>All Mates</h2>
       <AllUsers currentUsers={currentUsers} />
       <PreferenceIndex_Updated />
       <Pagination
