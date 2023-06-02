@@ -3,8 +3,7 @@ import NewFormContainer from "../Components/NewFormContainer";
 const New = () => {
   return (
     <div className="New">
-      <h2 className="header"> New Mate Form
-      </h2>
+      {/* header removed - takes space, pushes content too far down - header already exists - no additional header needed */}
       <NewFormContainer/>
     </div>
   );
