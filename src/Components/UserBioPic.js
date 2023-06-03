@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useContextAuthProvider } from "../Firebase/context";
-import { useNavigate } from "react-router-dom";
 import UploadWidget from "./UploadWidget";
 import "../Components/NewForm.css"
 import "../Images/unisex-profile-pic.png"
@@ -25,30 +24,26 @@ const API = process.env.REACT_APP_API_URL;
 const UserBioPic = ({ id }) => {
 
   // const [user, loading] = useAuthState(auth);
-  const [userBio, setUserBio] = useState({
-  id: "",  
-  smallBio: "",
-  mate_id: "",
-  })
-  
   const { user } = useContextAuthProvider();
-
-  let navigate = useNavigate();
+  const [userBio, setUserBio] = useState({
+  small_bio: "",
+  mate_id: user.uid,
+  })
 
   const handleTextChange = (event) => {
     setUserBio({ ...userBio, [event.target.id]: event.target.value });
     addUserBio(userBio)
   };    
-  const addUserBio = (userBio) => {
-      console.log(userBio);
+
+  const addUserBio = () => {
+
       axios
-        .put(`${API}/user/${user.uid}/bio/`, userBio)
-        .then(() => {
-          navigate(`/users`);
+        .patch(`${API}/user/${user.uid}`, {
+          small_bio: userBio["small_bio"]
         })
+        .then((res) => console.log(res.data))
         .catch((c) => console.warn("catch", c))
       };
-
 
   return (
     <div className='user-bio-pic-container'>
@@ -70,22 +65,21 @@ const UserBioPic = ({ id }) => {
       <MDBTypography tag="h5" className="mb-0"><strong>Bio Statement</strong></MDBTypography>
     </MDBCardHeader>
       <MDBCardBody>
-        <MDBTextArea 
-          className="userBio mb-4"  
+        <MDBTextArea
+          id="small_bio" 
+          className="userBio mb-4 background-light-purple"  
           label='Who are you...'
           rows={3} 
           type='text' 
           onChange={handleTextChange}
-          value={userBio.smallBio}
-          id="smallBio"
+          value={userBio.small_bio}
           />
        
   <MDBRow className=" bioBottomRow ">
     <MDBBtn 
-      className='userBio-submitBtn btn-secondary ' 
-      type="submit" 
-      onClick={handleTextChange}
-      value = {userBio.smallBio}
+      style={{width: "50%"}}
+      className='btn-secondary sign-in-btn'
+      onClick={addUserBio}
       >Save Bio</MDBBtn>
   </MDBRow>
  </MDBCardBody>
