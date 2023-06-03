@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap');
 
@@ -7,34 +6,90 @@
   font-family: 'Barlow', sans-serif;
   font-weight: 900;
 }
+
 /* .main{
   background-image: url("../Images/beautiful-spaciuos-livingroom.png");
   height: 100%;
   width:100%;
 } */
 
-.newFormContainer{
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-rows: .05fr .5fr;
-  /* flex-direction: column; */
+.check:hover {
+  box-shadow: 3.5px 3.5px 0px var(--darkBackgroundColor);
+  border-radius: 0px 0px 10px;
 }
 
-.newform-header{
-  font-weight:900;
+.check:active {
+  box-shadow: 6px 6px 5px var(--darkBackgroundColor) inset;
+
 }
+
+.background-light-purple:focus {
+  background-color: var(--transparentMainColor);
+}
+
+.newFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+select {
+  text-align: center;
+}
+
+h3 {
+  width: 105%;
+  margin-left: 20px;
+}
+
+strong {
+  font-size: 110%;
+}
+
+.user-bio-pic-container {
+  width: 40rem;
+  height: 14.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  margin: 50px;
+
+}
+
+@media only screen and (max-width: 890px) {
+  .user-bio-pic-container {
+    display: flex;
+    flex-direction: column;
+
+    width: auto;
+    height: auto;
+
+    scale: 80%;
+    width: 36rem;
+
+    margin: 0;
+  }
+}
+
+.newform-header {
+  font-weight: 900;
+}
+
 /* div.card-body.newform-cardbody{
   height: 30rem;
 } */
-div.newForm-componentsBox.row{
+div.newForm-componentsBox.row {
   padding-left: 7.5rem;
 }
-.newForm-componentsBox{
+
+.newForm-componentsBox {
   display: flex;
-   /* justify-content: space-evenly; */
+  /* justify-content: space-evenly; */
 }
-.newForm-hdg{
+
+.newForm-hdg {
   grid-row: 1;
   grid-column-start: 1;
   grid-column-end: 5;
@@ -42,37 +97,38 @@ div.newForm-componentsBox.row{
   margin-right: 4rem;
 }
 
-.newForm-cardbody{
+.newForm-cardbody {
   margin-bottom: -2.2rem !important;
+  padding: 50px;
 }
 
-.bioBottomRow{
-  height: 3rem;
+.bioBottomRow {
+  height: 35px;
   justify-content: center;
 }
-div.card.mb-4.userBio-card{
-  width: 35rem; 
-}
-.userBio-component{
+
+.userBio-component {
   grid-row: 3;
 }
-.newForm-component{
-  grid-row: 3; 
+
+.newForm-component {
+  grid-row: 3;
 }
 
 /* New Form Card */
-.card{
+.card {
   display: flex;
   width: 30rem;
   height: 50%;
 }
-.newForm{
+
+.newForm {
   width: 37.5rem;
   margin-right: 30px;
-  height: 40rem; 
+  height: 40rem;
 }
 
-.preferenceIndex{
+.preferenceIndex {
   /* width: 37.5rem; */
   height: 100%;
   flex-grow: 1;
@@ -80,14 +136,16 @@ div.card.mb-4.userBio-card{
   flex-direction: column;
   align-items: center;
 }
-.prefIndexForm{
+
+.prefIndexForm {
   display: flex;
   align-items: flex-start;
 }
 
-label.form-check-label{
+label.form-check-label {
   color: #787878;
 }
+
 /* .nf-column-1{
   grid-column: 1;
 }
@@ -102,71 +160,75 @@ label.form-check-label{
 
 /* Style for Standard Select - Non MDB Select Drop Down List */
 /* USE FOR MEDIA QUERY - SMALLER */
-.birthdate-MDB-input{
+.birthdate-MDB-input {
   border: 1px solid rgb(182, 181, 181);
   height: 2.5rem;
   /* width: 9rem; */
   width: 100%;
   border-radius: 1rem;
-  color:rgb(114, 113, 113) ;
+  color: rgb(114, 113, 113);
   padding-left: .4vw;
 }
 
-select, select option{
+select,
+select option {
   background-color: white;
 }
-select.gender-attribute{
+
+select.gender-attribute {
   border: 1px solid rgb(182, 181, 181);
   height: 2.5rem;
   /* width: 4.5rem; */
   width: 100%;
   border-radius: 3px;
-  color:rgb(114, 113, 113) ;
+  color: rgb(114, 113, 113);
   padding-left: .4vw;
   margin-left: .38vw;
-  background-color:white ;
-  background:white;
+  background-color: white;
+  background: white;
   color: #4f4f4f;
 }
-select.orientation-attribute{
+
+select.orientation-attribute {
   border: 1px solid rgb(182, 181, 181);
   /* height: 4.78vh; */
   /* width: 11.5vw; */
   /* width: 100%; */
   /* margin-left: 3vw; */
   border-radius: 3px;
-  color:rgb(114, 113, 113) ;
+  color: rgb(114, 113, 113);
   padding-left: .4vw;
   height: 2.5rem;
   width: 11.5rem;
   color: #4f4f4f;
 }
 
-.newForm-submitBtn, .newPrefForm-submitBtn{
+.newForm-submitBtn,
+.newPrefForm-submitBtn {
   width: 11.5rem;
 }
 
-.userFavs-card{
-  width: auto;
-}
-.userBio-submitBtn{
+.userBio-submitBtn {
   height: 2rem;
   width: 11rem;
   margin-bottom: 6rem;
   justify-content: center;
 }
-.temp-profile-image{
-  width:6rem;
+
+#temp-profile-image {
+  width: 6rem;
   height: 6rem;
   background-image: url("../Images/unisex-profile-pic.png");
   background-size: cover;
-  justify-content: center;
-  margin-left: 13rem;
+  margin: auto;
+
   /* margin-bottom:1rem; */
 }
-.uploadWidget-Btn{
-  width: 12rem;
-  height: 4rem;
+
+#uploadWidget-Btn {
+  width: 3rem;
+  height: 2rem;
+  margin-top: 20px;
   /* margin-top: 2.15rem; */
 }
 
@@ -204,4 +266,3 @@ select.orientation-attribute{
   padding-left: .4vw;
 }
  */
-

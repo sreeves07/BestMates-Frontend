@@ -51,40 +51,28 @@ const UserBioPic = ({ id }) => {
 
 
   return (
-    <div>
+    <div className='user-bio-pic-container'>
             
   <MDBCard className="mb-4 userBio-card">
     <MDBCardHeader className="py-2">
-      <MDBTypography tag="h5" className="mb-0">Your Profile Image</MDBTypography>
+      <MDBTypography tag="h5" className="mb-0"><strong>Profile Image</strong></MDBTypography>
     </MDBCardHeader>
       {/* <MDBCardImage
     src="unisex-profile-pic"/>  */}
     <MDBCardBody className="uploadWidget-card">
-      <div className="temp-profile-image"></div>
+      <div id="temp-profile-image"></div>
       <UploadWidget/>
-    </MDBCardBody>
-  </MDBCard>
-
-  <MDBCard className="mb-4 userFavs-card">
-    <MDBCardHeader className="py-2">
-      <MDBTypography tag="h5" className="mb-0">Link or Dropdown List of Your Favorite Roommates</MDBTypography>
-    </MDBCardHeader>
-      {/* <MDBCardImage
-      src="unisex-profile-pic"/>  */}
-    <MDBCardBody className="userFavs-card">
-      <div className="userFavs-component"></div>
     </MDBCardBody>
   </MDBCard>
   
   <MDBCard className="mb-4 userBio-card">
     <MDBCardHeader className="py-2">
-      <MDBTypography tag="h5" className="mb-0">Your Bio Statement</MDBTypography>
+      <MDBTypography tag="h5" className="mb-0"><strong>Bio Statement</strong></MDBTypography>
     </MDBCardHeader>
       <MDBCardBody>
         <MDBTextArea 
           className="userBio mb-4"  
-          label='Your Bio Statement:'
-          plaaceholder="< Please enter a brief description of yourself here >" 
+          label='Who are you...'
           rows={3} 
           type='text' 
           onChange={handleTextChange}
