@@ -291,7 +291,7 @@ let navigate = useNavigate();
     
                 <MDBRow className="mb-3">
                 
-                <MDBTypography tag="h5" className="mb-0 " ><br></br><strong>Your Attributes</strong><hr></hr></MDBTypography>
+                <MDBTypography tag="h5" className="mb-0 " ><br></br><br></br><strong>Your Attributes</strong><hr></hr></MDBTypography>
                   <MDBCol className='check'>
                     <MDBCheckbox
                       name="flexCheck"
@@ -460,7 +460,8 @@ let navigate = useNavigate();
                     /> */}
                   </MDBCol>
                 </MDBRow>
-
+                <br></br>
+                <br></br>
                 {/* ********** (Create Account Button) - Row 10 - (Checkboxes- Row E) ********** */}
 
                 <MDBRow className="mb-5">
