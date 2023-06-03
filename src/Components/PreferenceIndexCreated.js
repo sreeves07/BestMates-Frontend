@@ -3,8 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContextAuthProvider } from "../Firebase/context";
-import Location from './Location';
-import "../Components/NewForm.css"
+// import Location from './Location';
+import "./NewForm.css"
+import "./PreferencesIndex.css"
 
 // imports for material design bootstrap
 import { 
@@ -105,14 +106,14 @@ const PreferenceIndexCreated = () => {
 
   return (
     <div className="preferenceIndex">
-      <div className="locationBox">
-      {/* ************ ROW 1 *********** */}
+      {/*<div className="locationBox">
+      // ************ ROW 1 ***********
         <MDBCard>
           <MDBCardHeader className="py-3">
             <MDBTypography tag="h5" className="mb-0">Your Preferences</MDBTypography>
               </MDBCardHeader>
                 <MDBCardBody>
-                  {/* rendering component for React Select Location drop down list */}
+                  // rendering component for React Select Location drop down list
                   <MDBRow>
                     <MDBCol>
                       <Location />
@@ -120,7 +121,7 @@ const PreferenceIndexCreated = () => {
                   </MDBRow>
             </MDBCardBody>
           </MDBCard>
-      </div>
+      </div>*/}
 
       <form
         className="prefIndexForm"
@@ -128,7 +129,8 @@ const PreferenceIndexCreated = () => {
         noValidate>
       <MDBCard >
         <MDBCardHeader className="py-0">
-          <MDBTypography tag="h6" className="mb-0">Add or Remove Desired Preferences to Display Best Roommate Matches</MDBTypography>
+          <br></br><MDBTypography tag="h6" className="mb-0"><em>Add or Remove Your Desired Preferences to Display Best Roommate Matches</em></MDBTypography><br></br>
+          Your BestMate is...
             </MDBCardHeader>
               <MDBCardBody>
                 <MDBListGroup> 
@@ -139,31 +141,31 @@ const PreferenceIndexCreated = () => {
                 {/* ************ ROW 3 - Prefs *********** */}
 
                 <MDBRow  className="mb-3" >
-                  <MDBCol>
+                  <MDBCol className='check2'>
                     <MDBCheckbox
                       className="credit-pref"
                       name="flexCheck"
-                      label="Has Good Credit" 
+                      label="Good Credit" 
                       id="good_credit_preference"
                       onChange={handleCheckboxChange}
                       value={answer.good_credit_preference}
                     />
                   </MDBCol>
-                  <MDBCol>
+                  <MDBCol className='check2'>
                     <MDBCheckbox
                       className="hasJob-pref"
                       name="flexCheck"
-                      label="Has a Job" 
+                      label="Employed" 
                       id="employment_preference"
                       onChange={handleCheckboxChange}
                       value={answer.employment_preference}
                       /> 
                   </MDBCol>
-                  <MDBCol>
+                  <MDBCol className='check2'>
                     <MDBCheckbox
                       className="highIncome-pref"
                       name="flexCheck"
-                      label="Has High Income" 
+                      label="High Income" 
                       id="high_income_preference"
                       onChange={handleCheckboxChange}
                       value={answer.high_income_preference}
@@ -174,27 +176,27 @@ const PreferenceIndexCreated = () => {
                 {/* ************ ROW 4 - Prefs *********** */}
 
                 <MDBRow  className="mb-3" >
-                  <MDBCol>
+                  <MDBCol className='check2'>
                     <MDBCheckbox
                       className="shareBills-pref"
                       name="flexCheck"
-                      label="Agree to Share Bills" 
+                      label="Shares Bills" 
                       id="share_bills_preference"
                       onChange={handleCheckboxChange}
                       value={answer.share_bills_preference}
                       /> 
                   </MDBCol>
-                  <MDBCol>
+                  <MDBCol className='check2'>
                     <MDBCheckbox
                       className="openRooms-pref"
                       name="flexCheck"
-                      label="Has Open Room(s)" 
+                      label="Has Open Room" 
                       id="open_rooms_preference"
                       onChange={handleCheckboxChange}
                       value={answer.open_rooms_preference}
                     /> 
                   </MDBCol>
-                  <MDBCol>
+                  <MDBCol className='check2'>
                     <MDBCheckbox
                       className="highRise-pref"
                       name="flexCheck"
@@ -209,7 +211,7 @@ const PreferenceIndexCreated = () => {
                   </MDBCol>
                 </MDBRow>
                 <MDBRow  className="mb-3">
-                  <MDBCol>
+                  <MDBCol className='check2'>
                     <MDBCheckbox
                       className="house-pref"
                       name="flexCheck"
@@ -219,7 +221,7 @@ const PreferenceIndexCreated = () => {
                       value={answer.house_preference}
                     /> 
                   </MDBCol>
-                  <MDBCol>
+                  <MDBCol className='check2'>
                     <MDBCheckbox
                       className="privateRoom-pref"
                       name="flexCheck"
@@ -229,7 +231,7 @@ const PreferenceIndexCreated = () => {
                       value={answer.private_room_preference}
                     /> 
                   </MDBCol>
-                  <MDBCol>
+                  <MDBCol className='check2'>
                     <MDBCheckbox
                       className="privateBathroom-pref"
                       name="flexCheck"
@@ -244,29 +246,29 @@ const PreferenceIndexCreated = () => {
                 {/* ************ ROW 6 - Prefs *********** */}
 
               <MDBRow  className="mb-3" > 
-                <MDBCol>
+                <MDBCol className='check2'>
                  <MDBCheckbox
                     name="flexCheck"
                     id="neat_preference"
-                    label="Is Very Neat" 
+                    label="Very Neat" 
                     onChange={handleCheckboxChange}
                     value={answer.neat_preference}
                   /> 
                 </MDBCol>
-                <MDBCol> 
+                <MDBCol className='check2'> 
                   <MDBCheckbox
                     name="flexCheck"
                     id="low_noise_preference"
-                    label="Low Noise" 
+                    label="Quiet" 
                     onChange={handleCheckboxChange}
                     value={answer.low_noise_preference}
                   /> 
                 </MDBCol>
-                <MDBCol> 
+                <MDBCol className='check2'> 
                  <MDBCheckbox
                     name="flexCheck"
                     id="religious_preference"
-                    label="Is Religious" 
+                    label="Religious" 
                     onChange={handleCheckboxChange}
                     value={answer.religious_preference}
                   />
@@ -276,30 +278,30 @@ const PreferenceIndexCreated = () => {
                 {/* ************ ROW 7 - Prefs *********** */}
 
             <MDBRow className="className= mb-3" >
-              <MDBCol> 
+              <MDBCol className='check2'> 
                 <MDBCheckbox
                   
                   name="flexCheck"
                   id="smoker_preference"
-                  label="Is a Smoker" 
+                  label="Smoker" 
                   onChange={handleCheckboxChange}
                   value={answer.smoker_preference}
                 />
               </MDBCol>
-              <MDBCol> 
+              <MDBCol className='check2'> 
                 <MDBCheckbox
                   name="flexCheck"
                   id="disabled_preference"
-                  label="Has Disability" 
+                  label="Disabled" 
                   onChange={handleCheckboxChange}
                   value={answer.disabled_preference}
                 />
               </MDBCol> 
-              <MDBCol>
+              <MDBCol className='check2'>
                 <MDBCheckbox
                   name="flexCheck"
                   id="musician_preference"
-                  label="Is Active Musician" 
+                  label="Musician" 
                   onChange={handleCheckboxChange}
                   value={answer.musician_preference}
                 /> 
@@ -309,7 +311,7 @@ const PreferenceIndexCreated = () => {
                 {/* ************ ROW 8 - Prefs *********** */}
 
               <MDBRow className="mb-3">
-                <MDBCol className="ms-0"> 
+                {/* <MDBCol className="ms-0"> 
                   <MDBCheckbox
                     name="flexCheck"
                     id="singer_preference"
@@ -317,26 +319,30 @@ const PreferenceIndexCreated = () => {
                     onChange={handleCheckboxChange}
                     value={answer.singer_preference}
                   /> 
-                </MDBCol>  
-                <MDBCol className="ms-0"> 
+                </MDBCol>   */}
+                <MDBCol className="ms-0 check2"> 
                   <MDBCheckbox
                     name="flexCheck"
                     id="host_parties_preference"
-                    label="Hosts Parties" 
+                    label="Party Host" 
                     onChange={handleCheckboxChange}
                     value={answer.host_parties_preference}
                   /> 
                 </MDBCol> 
                 <MDBCol className="ms-0"> 
  
-                </MDBCol> 
+                </MDBCol>
+                <MDBCol className="ms-0"> 
+ 
+ </MDBCol>
        
               </MDBRow>
+              <br></br>
 
                 {/* ************ ROW 11 - Prefs *********** */}         
                 <MDBRow className="mb-3">  
                 <MDBCol>
-                  <select className="gender-select-prefs form-control"
+                  <select className="gender-select-prefs form-control background-light-purple"
                     name="flexCheck"
                     onChange={handleTextChange}
                     value={answer.gender_preference}
@@ -350,11 +356,11 @@ const PreferenceIndexCreated = () => {
                     <option value="non-binary">Non-Binary</option>
                     <option value="transgender">Transgender</option>
                     <option value="other">Other</option>
-                    <option value="does-not-matter">Does not matter</option>
+                    <option value="prefer-not-to-say">Prefer not to say...</option>
                   </select>
                 </MDBCol>
                 <MDBCol>
-                  <select className="orientation-select-prefs form-control"
+                  <select className="orientation-select-prefs form-control background-light-purple"
                    name="flexCheck"
                    onChange={handleTextChange}
                    value={answer.sexual_orientation_preference}
@@ -364,11 +370,11 @@ const PreferenceIndexCreated = () => {
                     <option defaultValue={"does-not-matter"}>Orientation</option>
                     <option value="heterosexual">Heterosexual</option>
                     <option value="pansexual">Pansexual</option>
-                    <option value="bisexual">Bisexual</option>
+                    <option value="bisexual">BiSexual</option>
                     <option value="homosexual">Homosexual</option>
                     <option value="asexual">Asexual</option>
                     <option value="other">Other</option>
-                    <option value="does-not-matter">Does not matter</option>
+                    <option value="prefer-not-to-say">Prefer not to say...</option>
                   </select>
                     </MDBCol>
                   </MDBRow>
@@ -376,11 +382,15 @@ const PreferenceIndexCreated = () => {
                 </MDBListGroup>
 
               {/* <MDBBtn size="lg" block> */}
+              <br></br>
+              <br></br>
                  <MDBBtn 
-                    className='newPrefForm-submitBtn' 
+                    className='newPrefForm-submitBtn sign-in-btn' 
                     type="submit" 
                     >Submit
                   </MDBBtn>
+                  <br></br>
+                  <br></br>
             </MDBCardBody>
         </MDBCard>
         </form>

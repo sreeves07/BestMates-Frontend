@@ -1,0 +1,7 @@
+.check2:hover {
+    text-shadow: 5px 5px 10px var(--secondaryColor);
+}
+
+.check2:active {
+    text-shadow: 5px 5px 10px var(--mainColor);
+}
