@@ -21,23 +21,58 @@
     box-shadow: 3px 3px 3px var(--darkMainColor);
 }
 
-#login-pill, #register-pill {
+#login-pill,
+#register-pill {
     color: var(--darkMainColor);
     font-weight: bold;
 }
 
-#email, #password, #register-email, #register-password, #name, #username {
+#email,
+#password,
+#register-email,
+#register-password,
+#name,
+#username {
     color: var(--darkMainColor);
 }
 
-#email:focus, #password:focus, #register-email:focus, #register-password:focus, #name:focus, #username:focus {
+#email:focus,
+#password:focus,
+#register-email:focus,
+#register-password:focus,
+#name:focus,
+#username:focus {
     background-color: var(--transparentMainColor);
 }
 
+#terms-container {
+    width: 100%;
+    margin: 0;
+    padding-top: 40px;
+
+    font-size: 12px;
+}
+
+
 #register-flexCheckDefault {
     width: 17px;
-    height: 17px;;
+    height: 17px;
+    ;
     box-shadow: none;
+}
+
+@media only screen and (max-width: 890px) {
+    #terms-container {
+        font-size: 7px;
+        padding-top: 0px;
+    }
+
+    #register-flexCheckDefault {
+        width: 10px;
+        height: 10px;
+        ;
+        box-shadow: none;
+    }
 }
 
 #success-message {

@@ -102,7 +102,7 @@ export default function Register({ justifyActive }) {
             <strong>BestMates Account Created!</strong>
           </p>
         )}
-        <div className="d-flex justify-content-center mb-4">
+        <div className="d-flex justify-content-center mb-4" id="terms-container">
           <MDBCheckbox
             name="flexCheck"
             id="register-flexCheckDefault"
