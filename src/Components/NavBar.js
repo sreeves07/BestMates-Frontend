@@ -47,7 +47,7 @@ function NavBar() {
             <img className="logo" src={logo} alt="logo" />
     </Link>
           <nav ref={navRef}>
-             <button className=" nav-btn nav-spacer">spacer</button>
+             {/* <button className=" nav-btn nav-spacer">spacer</button> */}
             {/* <button>placeholder2</button> */}
             <Link to="/users">All Roommates</Link>
             <Link to={`favorites/${user.uid}`}>Favorites</Link>
