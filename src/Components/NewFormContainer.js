@@ -16,24 +16,24 @@ function NewFormContainer() {
     <div className='newFormContainer'>
 
       <MDBCardHeader className=" newForm-hdg py-2">
-        <MDBTypography tag="h5" className="newform-header mb-0"> Account Information
+        <MDBTypography tag="h3" className="newform-header mb-0">New Mate Profile Form
         </MDBTypography>
       </MDBCardHeader>
 
 
-     <div className='newForm-componentsBox row'>
+  
 
 
       {/* ********** UserBio Component ********** */}
 
-      <div className='userBioPic-component col-auto me-auto'> <UserBioPic/> </div> 
+  <UserBioPic/> 
 
 
       {/* ********** New Form Component ********** */}
   
-      <div className="newForm-component col-auto "> <NewForm/> 
-      </div> 
-    </div>
+      <NewForm/> 
+      
+   
       
     </div>
   )

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { AiOutlineCloudUpload } from "react-icons/ai"
 
 const UploadWidget = () => {
   let [uploadURL, setUploadUrl] = useState("");
@@ -39,7 +40,7 @@ const UploadWidget = () => {
   }, []);
 
   return (
-    <button className="uploadWidget-Btn" onClick={() => widgetRef.current.open()}>Upload Profile Picture</button>
+    <button id="uploadWidget-Btn" onClick={() => widgetRef.current.open()}><AiOutlineCloudUpload size="3s0"/></button>
   );
 };
 

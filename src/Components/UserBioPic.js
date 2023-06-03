@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useContextAuthProvider } from "../Firebase/context";
-import { useNavigate } from "react-router-dom";
 import UploadWidget from "./UploadWidget";
 import "../Components/NewForm.css"
 import "../Images/unisex-profile-pic.png"
@@ -25,79 +24,61 @@ const API = process.env.REACT_APP_API_URL;
 const UserBioPic = ({ id }) => {
 
   // const [user, loading] = useAuthState(auth);
-  const [userBio, setUserBio] = useState({
-  id: "",  
-  smallBio: "",
-  mate_id: "",
-  })
-  
   const { user } = useContextAuthProvider();
-
-  let navigate = useNavigate();
+  const [userBio, setUserBio] = useState({
+  small_bio: "",
+  mate_id: user.uid,
+  })
 
   const handleTextChange = (event) => {
     setUserBio({ ...userBio, [event.target.id]: event.target.value });
-    addUserBio(userBio)
   };    
-  const addUserBio = (userBio) => {
-      console.log(userBio);
+
+  const addUserBio = () => {
+
       axios
-        .put(`${API}/user/${user.uid}/bio/`, userBio)
-        .then(() => {
-          navigate(`/users`);
+        .patch(`${API}/user/${user.uid}`, {
+          small_bio: userBio["small_bio"]
         })
+        .then((res) => console.log(res.data))
         .catch((c) => console.warn("catch", c))
       };
 
-
   return (
-    <div>
+    <div className='user-bio-pic-container'>
             
   <MDBCard className="mb-4 userBio-card">
     <MDBCardHeader className="py-2">
-      <MDBTypography tag="h5" className="mb-0">Your Profile Image</MDBTypography>
+      <MDBTypography tag="h5" className="mb-0"><strong>Profile Image</strong></MDBTypography>
     </MDBCardHeader>
       {/* <MDBCardImage
     src="unisex-profile-pic"/>  */}
     <MDBCardBody className="uploadWidget-card">
-      <div className="temp-profile-image"></div>
+      <div id="temp-profile-image"></div>
       <UploadWidget/>
-    </MDBCardBody>
-  </MDBCard>
-
-  <MDBCard className="mb-4 userFavs-card">
-    <MDBCardHeader className="py-2">
-      <MDBTypography tag="h5" className="mb-0">Link or Dropdown List of Your Favorite Roommates</MDBTypography>
-    </MDBCardHeader>
-      {/* <MDBCardImage
-      src="unisex-profile-pic"/>  */}
-    <MDBCardBody className="userFavs-card">
-      <div className="userFavs-component"></div>
     </MDBCardBody>
   </MDBCard>
   
   <MDBCard className="mb-4 userBio-card">
     <MDBCardHeader className="py-2">
-      <MDBTypography tag="h5" className="mb-0">Your Bio Statement</MDBTypography>
+      <MDBTypography tag="h5" className="mb-0"><strong>Bio Statement</strong></MDBTypography>
     </MDBCardHeader>
       <MDBCardBody>
-        <MDBTextArea 
-          className="userBio mb-4"  
-          label='Your Bio Statement:'
-          plaaceholder="< Please enter a brief description of yourself here >" 
+        <MDBTextArea
+          id="small_bio" 
+          className="userBio mb-4 background-light-purple"  
+          label='Who are you...'
           rows={3} 
           type='text' 
           onChange={handleTextChange}
-          value={userBio.smallBio}
-          id="smallBio"
+          value={userBio.small_bio}
           />
        
   <MDBRow className=" bioBottomRow ">
     <MDBBtn 
-      className='userBio-submitBtn btn-secondary ' 
-      type="submit" 
-      onClick={handleTextChange}
-      value = {userBio.smallBio}
+      style={{width: "50%"}}
+      className='btn-secondary sign-in-btn'
+      onClick={addUserBio}
       >Save Bio</MDBBtn>
   </MDBRow>
  </MDBCardBody>

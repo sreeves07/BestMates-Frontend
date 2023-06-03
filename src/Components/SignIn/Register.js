@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { auth } from "../../Firebase/config";
 import {
@@ -102,7 +102,7 @@ export default function Register({ justifyActive }) {
             <strong>BestMates Account Created!</strong>
           </p>
         )}
-        <div className="d-flex justify-content-center mb-4">
+        <div className="d-flex justify-content-center mb-4" id="terms-container">
           <MDBCheckbox
             name="flexCheck"
             id="register-flexCheckDefault"
