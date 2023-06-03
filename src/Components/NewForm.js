@@ -451,13 +451,13 @@ let navigate = useNavigate();
                     />
                   </MDBCol>
                   <MDBCol>
-                    {/* <MDBCheckbox
+                    <MDBCheckbox
                       name="flexCheck"
-                      label="Singer"
+                      label="Disabled"
                       onChange={handleCheckboxChange}
-                      value={newUser.is_singer}
-                      id="is_singer"
-                    /> */}
+                      value={newUser.is_disabled}
+                      id="is_disabled"
+                    />
                   </MDBCol>
                 </MDBRow>
                 <br></br>
@@ -468,7 +468,7 @@ let navigate = useNavigate();
                   <MDBCol>
                     <div className="d-flex justify-content-center">
                       <MDBBtn 
-                        className='newForm-submitBtn' 
+                        className='newForm-submitBtn sign-in-btn' 
                         type="submit">Submit
                       </MDBBtn>
                     </div>
