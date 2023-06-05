@@ -130,7 +130,6 @@ const PreferenceIndexCreated = () => {
       <MDBCard >
         <MDBCardHeader className="py-0">
           <br></br><MDBTypography tag="h6" className="mb-0"><em>Add or Remove Your Desired Preferences to Display Best Roommate Matches</em></MDBTypography><br></br>
-          Your BestMate is...
             </MDBCardHeader>
               <MDBCardBody>
                 <MDBListGroup> 
@@ -141,7 +140,7 @@ const PreferenceIndexCreated = () => {
                 {/* ************ ROW 3 - Prefs *********** */}
 
                 <MDBRow  className="mb-3" >
-                  <MDBCol className='check2'>
+                  <MDBCol className='check'>
                     <MDBCheckbox
                       className="credit-pref"
                       name="flexCheck"
@@ -151,7 +150,7 @@ const PreferenceIndexCreated = () => {
                       value={answer.good_credit_preference}
                     />
                   </MDBCol>
-                  <MDBCol className='check2'>
+                  <MDBCol className='check'>
                     <MDBCheckbox
                       className="hasJob-pref"
                       name="flexCheck"
@@ -161,7 +160,7 @@ const PreferenceIndexCreated = () => {
                       value={answer.employment_preference}
                       /> 
                   </MDBCol>
-                  <MDBCol className='check2'>
+                  <MDBCol className='check'>
                     <MDBCheckbox
                       className="highIncome-pref"
                       name="flexCheck"
@@ -176,7 +175,7 @@ const PreferenceIndexCreated = () => {
                 {/* ************ ROW 4 - Prefs *********** */}
 
                 <MDBRow  className="mb-3" >
-                  <MDBCol className='check2'>
+                  <MDBCol className='check'>
                     <MDBCheckbox
                       className="shareBills-pref"
                       name="flexCheck"
@@ -186,7 +185,7 @@ const PreferenceIndexCreated = () => {
                       value={answer.share_bills_preference}
                       /> 
                   </MDBCol>
-                  <MDBCol className='check2'>
+                  <MDBCol className='check'>
                     <MDBCheckbox
                       className="openRooms-pref"
                       name="flexCheck"
@@ -196,7 +195,7 @@ const PreferenceIndexCreated = () => {
                       value={answer.open_rooms_preference}
                     /> 
                   </MDBCol>
-                  <MDBCol className='check2'>
+                  <MDBCol className='check'>
                     <MDBCheckbox
                       className="highRise-pref"
                       name="flexCheck"
@@ -211,7 +210,7 @@ const PreferenceIndexCreated = () => {
                   </MDBCol>
                 </MDBRow>
                 <MDBRow  className="mb-3">
-                  <MDBCol className='check2'>
+                  <MDBCol className='check'>
                     <MDBCheckbox
                       className="house-pref"
                       name="flexCheck"
@@ -221,7 +220,7 @@ const PreferenceIndexCreated = () => {
                       value={answer.house_preference}
                     /> 
                   </MDBCol>
-                  <MDBCol className='check2'>
+                  <MDBCol className='check'>
                     <MDBCheckbox
                       className="privateRoom-pref"
                       name="flexCheck"
@@ -231,7 +230,7 @@ const PreferenceIndexCreated = () => {
                       value={answer.private_room_preference}
                     /> 
                   </MDBCol>
-                  <MDBCol className='check2'>
+                  <MDBCol className='check'>
                     <MDBCheckbox
                       className="privateBathroom-pref"
                       name="flexCheck"
@@ -246,7 +245,7 @@ const PreferenceIndexCreated = () => {
                 {/* ************ ROW 6 - Prefs *********** */}
 
               <MDBRow  className="mb-3" > 
-                <MDBCol className='check2'>
+                <MDBCol className='check'>
                  <MDBCheckbox
                     name="flexCheck"
                     id="neat_preference"
@@ -255,7 +254,7 @@ const PreferenceIndexCreated = () => {
                     value={answer.neat_preference}
                   /> 
                 </MDBCol>
-                <MDBCol className='check2'> 
+                <MDBCol className='check'> 
                   <MDBCheckbox
                     name="flexCheck"
                     id="low_noise_preference"
@@ -264,7 +263,7 @@ const PreferenceIndexCreated = () => {
                     value={answer.low_noise_preference}
                   /> 
                 </MDBCol>
-                <MDBCol className='check2'> 
+                <MDBCol className='check'> 
                  <MDBCheckbox
                     name="flexCheck"
                     id="religious_preference"
@@ -278,7 +277,7 @@ const PreferenceIndexCreated = () => {
                 {/* ************ ROW 7 - Prefs *********** */}
 
             <MDBRow className="className= mb-3" >
-              <MDBCol className='check2'> 
+              <MDBCol className='check'> 
                 <MDBCheckbox
                   
                   name="flexCheck"
@@ -288,7 +287,7 @@ const PreferenceIndexCreated = () => {
                   value={answer.smoker_preference}
                 />
               </MDBCol>
-              <MDBCol className='check2'> 
+              <MDBCol className='check'> 
                 <MDBCheckbox
                   name="flexCheck"
                   id="disabled_preference"
@@ -297,7 +296,7 @@ const PreferenceIndexCreated = () => {
                   value={answer.disabled_preference}
                 />
               </MDBCol> 
-              <MDBCol className='check2'>
+              <MDBCol className='check'>
                 <MDBCheckbox
                   name="flexCheck"
                   id="musician_preference"
@@ -320,7 +319,7 @@ const PreferenceIndexCreated = () => {
                     value={answer.singer_preference}
                   /> 
                 </MDBCol>   */}
-                <MDBCol className="ms-0 check2"> 
+                <MDBCol className="ms-0 check"> 
                   <MDBCheckbox
                     name="flexCheck"
                     id="host_parties_preference"

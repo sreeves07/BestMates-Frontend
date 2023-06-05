@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
 /* @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap'); */
- 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -42,12 +42,12 @@ body {
   grid-template-rows: repeat(5, 1fr);
 }
 
-.bestMate-wordLink{
+.bestMate-wordLink {
   /* font-style: italic; */
-  font-weight:normal;
-  font: 1em ;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
+  font-weight: normal;
+  font: 1em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .homeHdgBox {
@@ -78,17 +78,13 @@ body {
 .homeHdgBox a:hover {
   /* color: var(--secondaryColor); */
   /* text-shadow: 3px 3px 3px var(--darkMainColor); */
- color:#5ec088
+  color: #5ec088
 }
 
 .uploadWidget-Btn {
-  border: 1px solid rgb(182, 181, 181);
   height: 4.78vh;
   width: 9.5vw;
   border-radius: 3px;
-  color: rgb(114, 113, 113);
   padding-left: .4vw;
   margin-left: -.15vw;
-  background-color: white;
-  background: white;
 }

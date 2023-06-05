@@ -228,9 +228,9 @@ let navigate = useNavigate();
 
                   {/*B  ********** Basic Info -  Row 4  **********  */}
 
-                <MDBRow className="mb-4">
+                <MDBRow className="mb-3">
                   <MDBCol>
-                    <MDBInput label='Email' type='text' className="mb-4 background-light-purple"
+                    <MDBInput label='Email' type='text' className="background-light-purple"
                       onChange={handleTextChange}
                       value={newUser?.email}
                       id="email"
@@ -291,7 +291,7 @@ let navigate = useNavigate();
     
                 <MDBRow className="mb-3">
                 
-                <MDBTypography tag="h5" className="mb-0 " ><br></br><br></br><strong>Your Attributes</strong><hr></hr></MDBTypography>
+                <MDBTypography tag="h5" className="mb-0 " ><strong>Your Attributes</strong><hr></hr></MDBTypography>
                   <MDBCol className='check'>
                     <MDBCheckbox
                       name="flexCheck"
@@ -460,18 +460,17 @@ let navigate = useNavigate();
                     />
                   </MDBCol>
                 </MDBRow>
-                <br></br>
-                <br></br>
+               
                 {/* ********** (Create Account Button) - Row 10 - (Checkboxes- Row E) ********** */}
 
-                <MDBRow className="mb-5">
+                <MDBRow className="mb-4">
                   <MDBCol>
-                    <div className="d-flex justify-content-center">
+                    
                       <MDBBtn 
                         className='newForm-submitBtn sign-in-btn' 
                         type="submit">Submit
                       </MDBBtn>
-                    </div>
+                  
                   </MDBCol>
                 </MDBRow> 
 

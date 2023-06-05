@@ -32,6 +32,7 @@ const UserBioPic = ({ id }) => {
 
   const handleTextChange = (event) => {
     setUserBio({ ...userBio, [event.target.id]: event.target.value });
+    addUserBio(userBio)
   };    
 
   const addUserBio = () => {

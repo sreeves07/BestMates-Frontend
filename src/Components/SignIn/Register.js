@@ -110,7 +110,7 @@ export default function Register({ justifyActive }) {
             value={confirmTerms}
             onChange={() => {
               setConfirmTerms(!confirmTerms)
-              if (!confirmTerms) window.open("terms", "_blank")
+              if (!confirmTerms) window.open("terms", "_blank" )
             }}
             required
           />

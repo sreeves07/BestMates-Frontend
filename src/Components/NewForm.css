@@ -13,13 +13,13 @@
   width:100%;
 } */
 
-.check:hover {
-  box-shadow: 3.5px 3.5px 0px var(--darkBackgroundColor);
-  border-radius: 0px 0px 10px;
+.check {
+  height: 55px;
 }
 
-.check:active {
-  box-shadow: 6px 6px 5px var(--darkBackgroundColor) inset;
+.check:hover {
+  box-shadow: 0px 0px 2px rgb(200, 200, 200);
+  background-color: var(--transparentMainColor);
 
 }
 
@@ -29,18 +29,13 @@
 
 .newFormContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: top;
 }
 
 select {
   text-align: center;
-}
-
-h3 {
-  width: 105%;
-  margin-left: 20px;
 }
 
 strong {
@@ -51,11 +46,10 @@ strong {
   width: 40rem;
   height: 14.5rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 
-  margin: 50px;
-
+  margin-top: 140px;
 }
 
 @media only screen and (max-width: 890px) {

@@ -1,30 +1,30 @@
 /* ******* Index Page - contains user profile cards and preferences list ******** */
 /*Includes 2 columns, left col for user grid, rtght col for user preferences list*/
 
-.Index{
-  display:grid;
-  grid-template-columns: 4fr 2fr;
+.Index {
+  display: flex;
+  flex-direction: row;
 }
 
 /* ***************** User Grid  ************** */
 /*Left Column*/
 
-  .users {
-    grid-column: 1;
-    display: grid;
-    grid-template-columns: .7fr .7fr .7fr .7fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    height: 80%;
-    width: 80%;
-    grid-gap: 7px;
-    row-gap: 7px;
-  }
-  
+.users {
+  grid-column: 1;
+  display: grid;
+  grid-template-columns: .7fr .7fr .7fr .7fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  height: 80%;
+  width: 80%;
+  grid-gap: 7px;
+  row-gap: 7px;
+}
+
 
 /******** User Preferences List ********/
 /* Right Column */
 
-.userPref-filterBox{
+.userPref-filterBox {
   grid-column: 2;
   display: grid;
   background-color: rgba(101, 173, 53, 0.118);
@@ -37,7 +37,7 @@
 
 /* Preference Grid */
 
-.userPrefs-form{
+.userPrefs-form {
   grid-template-rows: .2fr .2fr .2fr;
   /* grid-template-columns: 1fr 1fr; */
   row-gap: 1px;
@@ -46,39 +46,40 @@
 
 /* Preferences */
 
-.userPrefsHdg{
+.userPrefsHdg {
   grid-row: 1;
 }
 
-.userPref-gender-label{
+.userPref-gender-label {
   grid-row: 2;
   text-align: left;
 }
 
-.userPref-gender{
+.userPref-gender {
   grid-column-start: 2;
-  grid-row: 2; 
+  grid-row: 2;
   margin-left: 1em;
   height: 2em;
 }
 
-.high_income_preference-label{
+.high_income_preference-label {
   grid-row: 3;
   text-align: left;
 }
 
-.high_income_preference{
+.high_income_preference {
   grid-row: 3;
   margin-left: 1em;
   height: 2em;
 }
 
-.good_credit_preference-label{
+.good_credit_preference-label {
   grid-row: 4;
   text-align: left;
   margin-left: 1em;
 }
-.good_credit_preference{
+
+.good_credit_preference {
   grid-column-start: 2;
   grid-row: 4;
   margin-left: 2em;
@@ -87,6 +88,3 @@
 
 /* MEDIA QUERIES - to be completed*/
 /* USE FOR MEDIA QUERY - SMALLER */
-
-
-
