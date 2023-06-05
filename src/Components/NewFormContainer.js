@@ -26,12 +26,7 @@ function NewFormContainer() {
 
       <NewForm />
     </div>
-<<<<<<< Updated upstream
-    </>
-  )
-=======
   );
->>>>>>> Stashed changes
 }
 
 export default NewFormContainer;
