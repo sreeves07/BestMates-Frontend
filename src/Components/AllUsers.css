@@ -3,7 +3,16 @@
 
 .Index {
   display: flex;
+  flex-direction: column;
+
+  padding: 15px;
+}
+
+.usersAndPreferencesContainer {
+  display: flex;
   flex-direction: row;
+
+
 }
 
 /* ***************** User Grid  ************** */
@@ -16,10 +25,34 @@
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   height: 80%;
   width: 80%;
-  grid-gap: 7px;
-  row-gap: 7px;
+  grid-gap: 15px;
+  row-gap: 30px;
 }
 
+@media only screen and (max-width: 1825px) {
+  .users {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: .7fr .7fr .7fr;
+    height: 80%;
+    width: 80%;
+    grid-gap: 15px;
+    row-gap: 30px;
+  }
+}
+
+@media only screen and (max-width: 1550px) {
+  .users {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: .7fr .7fr;
+    height: 80%;
+    width: 80%;
+    grid-gap: 15px;
+    row-gap: 30px;
+    min-width: 600px;
+  }
+}
 
 /******** User Preferences List ********/
 /* Right Column */

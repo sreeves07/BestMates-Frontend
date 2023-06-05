@@ -3,37 +3,42 @@
 /* User Picture */
 
 #profileImage {
-    /* height: 130px;
+  /* height: 130px;
     width: 130px; */
-    margin-top: 1vh;
-    width: 70%;
-    height: 70%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 5% 5%;
-  }
-  #profileImage:hover {
-    filter: brightness(107%);
-    background-color: rgba(4, 7, 20, 0.211);
-    /* width: 75%;
+  margin-top: 1vh;
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5% 5%;
+}
+
+#profileImage:hover {
+  filter: brightness(107%);
+  background-color: rgba(4, 7, 20, 0.211);
+  /* width: 75%;
     height: 75%; */
-    border: .1rem solid #c0a0ff;
-    /* --transparentMainColor: #cbb1ff26;; */
-  }
-  .userCard:hover {
-    filter: brightness(110%);
-    background-image: linear-gradient(to right,#10022d, #2e008b );
-    color: #66ff33;
-    border-color: white;
-    box-shadow: .06rem .06rem .06rem .06rem rgba(138, 162, 185, 0.136);
-    /* animation-name: growPic;
+  border: .2rem solid var(--mainColor);
+  /* --transparentMainColor: #cbb1ff26;; */
+  transition: all 0.1s ease 0s;
+}
+
+.userCard:hover {
+  filter: brightness(110%);
+  background-color: #cbb1ff15;
+  color: #3b236a;
+  border-color: white;
+  box-shadow: .06rem .06rem .06rem .06rem rgba(111, 131, 150, 0.498);
+  /* animation-name: growPic;
     animation-duration: 1s; */
-  }
-  /* .growPic {
+  transition: all 1s ease 0s;
+}
+
+/* .growPic {
     animation-name: growPic;
   } */
-  
-  /* @keyframes growPic {
+
+/* @keyframes growPic {
     from {
       width: 75%;
       height: 75%;
@@ -44,19 +49,21 @@
       height: 85%;
     }
   } */
-  
+
 /* user pic and info container */
 
-  .userCard {
-    width: 90%;
-    height: 100%;
-    margin: 0 auto 0 auto;
-    border: .1rem solid rgba(186, 183, 192, 0.288);
-    box-shadow: .06rem .06rem .06rem .06rem rgba(138, 162, 185, 0.136);
-    border-radius: 5% 5%;
-    background-color: white;
-  }
-  
+.userCard {
+  width: 280px;
+  height: 320px;
+  margin: 0 auto 0 auto;
+  padding-top: 30px;
+
+  border: .1rem solid rgba(186, 183, 192, 0.288);
+  box-shadow: 20px 20px 20px rgba(138, 162, 185, 0.136);
+  border-radius: 5% 5%;
+  background-color: white;
+}
+
 /* 
   .userCard {
     width: 100px;
@@ -88,24 +95,22 @@
 
 /* ***************** User Information (at bottom of card) ************** */
 
-  .userCard-fname,
-  .userCard-info {
-    font-size: 12pt;
-    font-weight: bold;
-    line-height: 2px;
-  }
-  
-  .userCard-info {
-    font-size: 10pt;
-    text-align: left;
-    font-style: italic;
-    line-height: 2px;
-  }
-  
-  
-  
-  /* MEDIA QUERIES - to be completed*/
-  
-  /* USE FOR MEDIA QUERY - SMALLER */
-  
-  
+.userCard-fname,
+.userCard-info {
+  font-size: 12pt;
+  font-weight: bold;
+  line-height: 2px;
+}
+
+.userCard-info {
+  font-size: 10pt;
+  text-align: left;
+  font-style: italic;
+  line-height: 2px;
+}
+
+
+
+/* MEDIA QUERIES - to be completed*/
+
+/* USE FOR MEDIA QUERY - SMALLER */
