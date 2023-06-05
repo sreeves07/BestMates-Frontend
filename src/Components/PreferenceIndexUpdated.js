@@ -66,22 +66,22 @@ const PreferenceIndexUpdated = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await axios.put(`${API}/user/${user.uid}/answers`, answer)
-    console.log(res)
-  }
+    const res = await axios.put(`${API}/user/${user.uid}/answers`, answer);
+    console.log(res);
+  };
 
   const checkedAlg = (val) => {
     return val === true ? "checked" : "";
-  }
+  };
 
   useEffect(() => {
     axios
       .get(`${API}/user/${user.uid}/answers`)
       .then((response) => {
-        setAnswer({...answer, ...response.data[0]});
+        setAnswer({ ...response.data[0] });
       })
       .catch((c) => console.warn("catch", c));
-  }, [user, answer]);
+  }, [user]);
 
   return (
     <div className="preferenceIndex">
@@ -328,10 +328,7 @@ const PreferenceIndexUpdated = () => {
               {/* ************ ROW 11 - Prefs *********** */}
               <MDBRow className="mb-5">
                 <MDBCol className="col-4">
-                  <label
-                      htmlFor="gender_preference">
-                      Gender:
-                  </label>
+                  <label htmlFor="gender_preference">Gender:</label>
                   <select
                     className="col-12 select gender-select-prefs form-control"
                     // name="flexCheck"
@@ -350,7 +347,10 @@ const PreferenceIndexUpdated = () => {
                   </select>
                 </MDBCol>
                 <MDBCol className="col-4">
-                  <label htmlFor="sexual_orientation_preference">Orientation:</label><select
+                  <label htmlFor="sexual_orientation_preference">
+                    Orientation:
+                  </label>
+                  <select
                     className="basic-single col-12 orientation-select-prefs select form-control select"
                     // name="flexCheck"
 
@@ -374,7 +374,9 @@ const PreferenceIndexUpdated = () => {
             </MDBListGroup>
 
             {/* <MDBBtn size="lg" block> */}
-            <MDBBtn type="submit" size="sm">Save Updated Preferences</MDBBtn>
+            <MDBBtn type="submit" size="sm">
+              Save Updated Preferences
+            </MDBBtn>
           </MDBCardBody>
         </MDBCard>
       </form>

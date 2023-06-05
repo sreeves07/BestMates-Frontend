@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { AiOutlineCloudUpload } from "react-icons/ai"
+import { AiOutlineCloudUpload } from "react-icons/ai";
+import { useContextAuthProvider } from "../Firebase/context";
+
+const API = process.env.REACT_APP_API_URL;
 
 const UploadWidget = () => {
+  const { user } = useContextAuthProvider();
+  const { uid } = user;
+
   let [uploadURL, setUploadUrl] = useState("");
-  const API = process.env.REACT_APP_API_URL;
-  const CLOUD_NAME = process.env.CLOUD_NAME;
-  const CLOUD_PRESET = process.env.CLOUD_PRESET;
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   useEffect(() => {
@@ -18,9 +21,9 @@ const UploadWidget = () => {
       },
       function (error, result) {
         if (result) {
-          console.log("Result:", result);
+          // console.log("Result:", result);
           if (result.event === "success") {
-            console.log(result.info.url);
+            // console.log(result.info.url);
             setUploadUrl(result.info.url);
           }
         }
@@ -31,16 +34,22 @@ const UploadWidget = () => {
     );
 
     axios
-      .post(`${API}/user`)
+      .patch(`${API}/user/${uid}`, {
+        profile_image: `${uploadURL}`,
+      })
       .then((response) => {
         console.log("user api response data for images=", response.data);
         // setImage(response.data[0].profile_image);
-     })
+      })
       .catch((c) => console.warn("catch", c));
   }, []);
 
   return (
-    <button id="uploadWidget-Btn" onClick={() => widgetRef.current.open()}><AiOutlineCloudUpload size="3s0"/></button>
+    <button
+      className="uploadWidget-Btn"
+      onClick={() => widgetRef.current.open()}>
+      Upload Profile Picture
+    </button>
   );
 };
 
