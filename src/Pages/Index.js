@@ -43,8 +43,10 @@ const Index = () => {
 
   return (
     <div className="Index">
-      <AllUsers currentUsers={currentUsers} />
-      <PreferenceIndexUpdated />
+      <div className="usersAndPreferencesContainer">
+        <AllUsers currentUsers={currentUsers} />
+        <PreferenceIndexUpdated />
+      </div>
       <Pagination
         usersPerPage={usersPerPage}
         totalUsers={users.length}

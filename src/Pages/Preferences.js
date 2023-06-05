@@ -5,7 +5,7 @@ function Preferences() {
   return (
 
     <div><MDBCardHeader style={{marginLeft: "-8%"}}>
-    <MDBTypography tag="h3" className="newform-header mb-0">Preferences
+    <MDBTypography id="preferences-heading" tag="h3" className="newform-header mb-0">Preferences
     </MDBTypography>
   </MDBCardHeader><PreferenceIndexCreated/></div>
   )
