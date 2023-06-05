@@ -34,12 +34,15 @@ const UploadWidget = () => {
     );
   }, []);
 
-  const imgUploadHandleSubmit = () => {
+  const imgUploadHandleSubmit = (() => {
     if (uploadURL === "") {
       window.alert("Please upload an image.");
     }
 
     console.log(uploadURL);
+  }, []);
+
+
 
     axios
       .patch(`${API}/user/${uid}/image`, {
