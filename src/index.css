@@ -34,8 +34,8 @@ body {
 .home-image-grid {
   width: 100vw;
   height: 83vh;
-  /* background-image: url("./Images/roommates-composite-with-veneers.png");
-  background-size: cover; */
+  background-image: url("./Images/roommates-composite-with-veneers.png");
+  background-size: cover;
   font-family: 'Petit Formal Script', cursive;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
