@@ -28,43 +28,58 @@ const ShowOneUser = () => {
     reverseDate += date.slice(1, 5);
     return reverseDate;
   };
-
-  let { id } = useParams();
-
+  let { uid } = useParams();
   // const [user, loading] = useAuthState(auth);
   const [oneUser, setOneUser] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${API}/user/${id}`)
+      .get(`${API}/user/${uid}`)
       .then((response) => {
         console.log("user api response user data=", response.data);
         setOneUser(response.data[0]);
       })
       .catch((c) => console.warn("catch", c));
-  }, [id]);
+  }, [uid]);
+
+  console.log("########", uid);
 
   const {
-    first_name,
-    birthday,
-    city,
-    gender,
-    has_kids,
-    has_open_rooms,
-    has_pets,
-    income,
-    is_disabled,
-    is_neat,
-    is_religious,
-    is_sharing_bills,
-    is_smoker,
-    last_name,
-    max_rent,
-    move_in_date,
-    sexual_orientation,
-    state,
     small_bio,
     profile_image,
+    first_name,
+    last_name,
+    city,
+    state,
+    zip_code,
+    birthday,
+    gender,
+    sexual_orientation,
+    has_pets,
+    has_open_rooms,
+    is_smoker,
+    has_kids,
+    is_disabled,
+    is_sharing_bills,
+    is_neat,
+    is_religious,
+    move_in_date,
+    max_rent,
+    credit_score,
+    income,
+    // is_employed: true,                //need to be added to backend
+    is_student, //need to be added to backend
+    // is_healthy: true,                 //need to be added to backend
+    // has_allergies: false,             //need to be added to backend
+    // has_chronic_condition: false,     //need to be added to backend (in Answers table)
+    // has_visiting_nurse: false,        //need to be added to backend
+    // has_home_assistance: false,       //need to be added to backend
+    is_musician, //need to be added to backend
+    is_singer, //need to be added to backend
+    host_parties, //need to be added to backend
+    // has_romantic_visits: false,       //need to be added to backend
+    // has_family_friend_visits: false,  //need to be added to backend
+    // has_night_life: false,            //need to be added to backend
   } = oneUser;
 
   const age = (birthday) => {
