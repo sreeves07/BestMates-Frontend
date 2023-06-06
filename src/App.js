@@ -1,21 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-
 import { useContextAuthProvider } from "./Firebase/context";
-
 import NavBar from "./Components/NavBar";
-
 import SignIn from "./Pages/SignIn";
 import Home from "./Pages/Home";
-
 import Index from "./Pages/Index";
 import Show from "./Pages/Show";
 import Terms from "./Pages/Terms";
 import New from "./Pages/New";
 import EditUserForm from "./Pages/Edit";
 import Preferences from "./Pages/Preferences";
-
 import FourOFour from "./Pages/FourOFour";
-
 import Dummy from "./Pages/Dummy";
 
 import "./App.css";

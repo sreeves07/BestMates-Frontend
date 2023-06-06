@@ -50,7 +50,7 @@ const UploadWidget = () => {
         // setImage(response.data[0].profile_image);
       })
       .catch((c) => console.warn("catch", c));
-  }, []);
+  };
 
   return (
     <button
