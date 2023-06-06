@@ -45,8 +45,8 @@ function AllUsers({ currentUsers }) {
   return (
     <div className="users">
       {currentUsers.map((currentUser) => {
-        return currentUser.id ? (
-          <User key={currentUser.id} currentUser={currentUser} />
+        return currentUser.uid ? (
+          <User key={currentUser.uid} currentUser={currentUser} />
         ) : null;
       })}
     </div>

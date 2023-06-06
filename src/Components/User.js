@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useContextAuthProvider } from '../Firebase/context';
 // import { useState, useEffect } from "react";
 // import axios from "axios";
 import "./User.css";
@@ -9,8 +8,7 @@ import defaultProfilePic from "../Images/LOGO_favicon.png"
 // const API = process.env.REACT_APP_API_URL;
 
 const User = ({ currentUser }) => {
-  const { user } = useContextAuthProvider()
-  const { first_name, birthday, gender, profile_image } = currentUser;
+  const { first_name, birthday, gender, profile_image, uid } = currentUser;
 
   const age = (birthday) => {
     const birthYearSplit = new Date(birthday).toString().split(" ");
@@ -22,7 +20,7 @@ const User = ({ currentUser }) => {
   return (
     <div>
       {/* provides link to single user card view */}
-      <Link to={`/users/${user.uid}`}>
+      <Link to={`/users/${uid}`}>
         <div className="userCard">
           <img
             className="rounded-circle"
