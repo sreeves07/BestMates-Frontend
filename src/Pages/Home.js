@@ -1,9 +1,9 @@
-import AliceCarousel from 'react-alice-carousel';
-import "react-alice-carousel/lib/alice-carousel.css";
-import image1 from "../Images/capstone-composite1-small.png";
-import image2 from "../Images/Capstone-CompositeGrp1-small4x186.png";
-import image3 from "../Images/Capstone-compositeGrp2-small.png"
-import image4 from "../Images/Capstone-compositeGrp3-small.png"
+// import AliceCarousel from 'react-alice-carousel';
+// import "react-alice-carousel/lib/alice-carousel.css";
+// import image1 from "../Images/capstone-composite1-small.png";
+// import image2 from "../Images/Capstone-CompositeGrp1-small4x186.png";
+// import image3 from "../Images/Capstone-compositeGrp2-small.png"
+// import image4 from "../Images/Capstone-compositeGrp3-small.png"
 
 
 
@@ -22,20 +22,20 @@ const Home = () => {
           <div className="homeImage2 bg-image"></div>
           <div className="homeImage3 bg-image"></div>
           <div className="homeImage4 bg-image"></div> */}
-          <AliceCarousel 
-          infinite="true" 
-          fadeOutAnimation="true"
-          autoPlay 
-          duration={400}
-          autoPlayInterval={4000}
-          transitionDuration={20000}
-          mouseTracking={false}
+          {/* <AliceCarousel 
+            infinite="true" 
+            fadeOutAnimation="true"
+            autoPlay 
+            duration={400}
+            autoPlayInterval={4000}
+            transitionDuration={20000}
+            mouseTracking={false}
           >
                 <img src={image1} className="home-carouselImage"/>
                 <img src={image2} className="home-carouselImage"/>
                 <img src={image3} className="home-carouselImage"/>
                 <img src={image4} className="home-carouselImage"/>
-          </AliceCarousel>
+          </AliceCarousel> */}
         </div>
       
     </div>
