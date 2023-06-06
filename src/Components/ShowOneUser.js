@@ -97,7 +97,26 @@ const ShowOneUser = () => {
     if (userPropertyToString === "false") {
       return "No";
     }
-    return userPropertyToString;
+    return "N/A";
+  };
+
+  const calculateCreditScore = (creditScore) => {
+    if (creditScore < 580) {
+      return "Poor";
+    }
+    if (creditScore > 579 && creditScore < 670) {
+      return "Fair";
+    }
+    if (creditScore > 669 && creditScore < 740) {
+      return "Good";
+    }
+    if (creditScore > 739 && creditScore < 800) {
+      return "Very Good";
+    }
+    if (creditScore > 779) {
+      return "Excellent";
+    }
+    return "N/A";
   };
 
   let moveInDate = JSON.stringify(move_in_date);
@@ -112,107 +131,156 @@ const ShowOneUser = () => {
       {/* <MDBCard className="userParentCard"> */}
       {/************** CARD PARENT ROW BEGIN **************/}
       <MDBRow className="userCard-ParentRow">
-        {/********* IMAGE BEGIN **********/}
-        <MDBCol className="userImage">
-          <img id="showOneUserPhoto" src={profile_image} alt="profile"></img>
-          <p className="h2">{first_name}</p>
+        <MDBCol className="userInfo md=5">
+          {/********* IMAGE BEGIN **********/}
+          <MDBCard className="userImage">
+            <MDBCol>
+              <img
+                id="showOneUserPhoto"
+                src={profile_image}
+                alt="profile"
+                className="rounded-circle"
+                style={{ width: "9.0rem", height: "9.0rem" }}></img>
+              <p className="h1">{first_name}</p>
+              <p className="h6">Bio: {small_bio}</p>
+            </MDBCol>
+          </MDBCard>
+          {/********* IMAGE END **********/}
 
-          <p className="h6">Bio: {small_bio}</p>
-        </MDBCol>
-        {/********* IMAGE END **********/}
-
-        {/*************** INFO BEGIN *************/}
-
-        <MDBCard className="mb-3 basicInfo">
-          <MDBCardHeader>
-            <MDBTypography tag="h5" className="mb-0">
-              Basic Info
-            </MDBTypography>
-          </MDBCardHeader>
-          <MDBCardBody>
-            <MDBRow>
-              <MDBCol>
-                {/* ROW 1 -- BASIC INFO */}
-
-                <MDBCol className="userInfo"></MDBCol>
-
+          {/* CARD 1 -- BASIC INFO */}
+          <MDBRow>
+            <MDBCard className="mb-3 basicInfo">
+              <MDBCardHeader>
+                <MDBTypography tag="h5" className="mb-0">
+                  Basic Info
+                </MDBTypography>
+              </MDBCardHeader>
+              <MDBCardBody>
                 <MDBRow>
                   <MDBCol>Age:{age(birthday)}</MDBCol>
                   <MDBCol>
                     Religious:{stringifyUserProperty(is_religious)}
                   </MDBCol>
                   <MDBCol>Gender: {gender}</MDBCol>
+                  <MDBCol>
+                    Disabled: {stringifyUserProperty(is_disabled)}
+                  </MDBCol>
                   <MDBCol>Orientation: {sexual_orientation}</MDBCol>
                   <MDBCol>Children: {stringifyUserProperty(has_kids)}</MDBCol>
+                  <MDBCol>Pets: {stringifyUserProperty(has_pets)}</MDBCol>
                 </MDBRow>
+                <MDBRow>
+                  <MDBCol>Smoker: {stringifyUserProperty(is_smoker)}</MDBCol>
+                  <MDBCol>Neat: {stringifyUserProperty(is_neat)}</MDBCol>
+                  <MDBCol>Student: {stringifyUserProperty(is_student)}</MDBCol>
+                </MDBRow>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBRow>
 
-                {/* ROW 2 -- LIVING SITUATION*/}
-
+          {/* CARD 2 -- LIVING SITUATION */}
+          <MDBRow>
+            <MDBCard className="mb-3 livingSituation">
+              <MDBCardBody>
                 <MDBCardHeader>
                   <MDBTypography tag="h5" className="mb-0">
                     Living Situation
                   </MDBTypography>
                 </MDBCardHeader>
+                <MDBRow>
+                  <MDBCol>City:{city}</MDBCol>
+                  <MDBCol>State:{state}</MDBCol>
+                  <MDBCol>Zip:{zip_code}</MDBCol>
+                  <MDBCol>Max Rent:{max_rent}</MDBCol>
+                  <MDBCol>
+                    Open Rooms: {stringifyUserProperty(has_open_rooms)}
+                  </MDBCol>
+                  <MDBCol>
+                    {" "}
+                    Move-In-Date:
+                    {dateConvert(`${moveInDate}`)}
+                  </MDBCol>
+                </MDBRow>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBRow>
 
-                <MDBCol>
-                  <MDBRow>
-                    <MDBCol>City:{city}</MDBCol>
-                    <MDBCol>State:{state}</MDBCol>
-                    <MDBCol>Max Rent:{max_rent}</MDBCol>
-                    <MDBCol>
-                      {" "}
-                      Move-In-Date:
-                      {dateConvert(`${moveInDate}`)}
-                    </MDBCol>
-                  </MDBRow>
-                </MDBCol>
+          {/* CARD 2 -- FINANCIAL INFO */}
 
+          <MDBRow>
+            <MDBCard className="mb-3 financialInfo">
+              <MDBCardBody>
                 <MDBCardHeader>
                   <MDBTypography tag="h5" className="mb-0">
                     Financial Info
                   </MDBTypography>
                 </MDBCardHeader>
 
-                <MDBCol>
-                  <MDBRow>
-                    <MDBCol>Income: $ {stringifyUserProperty(income)}</MDBCol>
-                    <MDBCol>
-                      {" "}
-                      Shares Expenses:
-                      {stringifyUserProperty(is_sharing_bills)}
-                    </MDBCol>
-                  </MDBRow>
-                </MDBCol>
+                <MDBRow>
+                  <MDBCol>Income: $ {income}</MDBCol>
+                  <MDBCol>
+                    {" "}
+                    Shares Expenses:
+                    {stringifyUserProperty(is_sharing_bills)}
+                  </MDBCol>
+                  <MDBCol>
+                    {" "}
+                    Credit Score: {calculateCreditScore(credit_score)}
+                  </MDBCol>
+                </MDBRow>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBRow>
 
-                {/* ************ INFO END *********** */}
-              </MDBCol>
-            </MDBRow>
-          </MDBCardBody>
-        </MDBCard>
+          {/* CARD 3 -- ACTIVITIES */}
+          <MDBRow>
+            <MDBCard className="mb-3 activities">
+              <MDBCardBody>
+                <MDBCardHeader>
+                  <MDBTypography tag="h5" className="mb-0">
+                    Activities
+                  </MDBTypography>
+                </MDBCardHeader>
 
-        {/************** CARD PARENT ROW END **************/}
-        {/* </MDBRow> */}
-        {/************** PARENT CARD END **************/}
-        {/* </MDBCard> */}
-        {/************* PARENT ROW END ***********/}
+                <MDBRow>
+                  <MDBCol>
+                    Musician: {stringifyUserProperty(is_musician)}
+                  </MDBCol>
+                  <MDBCol>
+                    {" "}
+                    Singer:
+                    {stringifyUserProperty(is_singer)}
+                  </MDBCol>
+                  <MDBCol>
+                    {" "}
+                    Hosts Parties:
+                    {stringifyUserProperty(host_parties)}
+                  </MDBCol>
+                </MDBRow>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBRow>
 
-        {/************** BUTTONS ************/}
+          {/************** COLUMN 2 **************/}
 
-        <MDBRow className="ShowPageButtons">
-          <MDBCol></MDBCol>
-          <MDBCol className="md=1">
-            <Link to={`/users`}>
-              <MDBBtn id="backToUsersBtn">Back</MDBBtn>
-            </Link>
-          </MDBCol>
-          <MDBCol className="md=1">
-            {" "}
-            <Link to={`/users/:id/edit`}>
-              <MDBBtn id="toEditForm">Edit</MDBBtn>
-            </Link>
-          </MDBCol>
-          <MDBCol></MDBCol>
-        </MDBRow>
+          {/************** BUTTONS ************/}
+
+          <MDBRow className="ShowPageButtons">
+            <MDBCol></MDBCol>
+            <MDBCol className="md=1">
+              <Link to={`/users`}>
+                <MDBBtn id="backToUsersBtn">Back</MDBBtn>
+              </Link>
+            </MDBCol>
+            <MDBCol className="md=1">
+              {" "}
+              <Link to={`/users/:id/edit`}>
+                <MDBBtn id="toEditForm">Edit</MDBBtn>
+              </Link>
+            </MDBCol>
+            <MDBCol></MDBCol>
+          </MDBRow>
+        </MDBCol>
       </MDBRow>
     </div>
   );
