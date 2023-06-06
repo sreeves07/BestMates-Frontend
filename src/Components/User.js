@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import axios from "axios";
 import "./User.css";
 
-import defaultProfilePic from "../Images/LOGO_favicon.png"
+import defaultProfilePic from "../Images/LOGO_favicon.png";
 
 // const API = process.env.REACT_APP_API_URL;
 
@@ -35,7 +35,7 @@ const User = ({ currentUser }) => {
           <span className="userCard-fname">{first_name} </span> <br />
           <span className="userCard-info">
             {" "}
-            {gender} -  Age: {age(birthday)} 
+            {gender} - Age: {age(birthday)}
           </span>{" "}
           <br />
         </div>

@@ -34,6 +34,7 @@ display: inline-block;
 margin-top: 5%;
 height: 35%;
 width: 25%;
+border-radius: 50%;
 }
 
 .userInfo {
@@ -42,7 +43,7 @@ grid-template-columns: 1fr, 1fr;
 margin-left: auto;
 margin-right: auto;
 margin-top: 2%;
-width: 55%;
+width: 100vw;
  background-color: rgba(191, 174, 227, 0.582);
 }
 

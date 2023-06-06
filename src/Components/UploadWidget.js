@@ -53,11 +53,14 @@ const UploadWidget = () => {
   };
 
   return (
-    <button
-      className="uploadWidget-Btn"
-      onClick={() => widgetRef.current.open()}>
-      Upload Profile Picture
-    </button>
+    <div>
+      <button
+        className="uploadWidget-Btn"
+        onClick={() => widgetRef.current.open()}>
+        Upload Profile Picture
+      </button>
+      <button onClick={imgUploadHandleSubmit}></button>
+    </div>
   );
 };
 export default UploadWidget;
