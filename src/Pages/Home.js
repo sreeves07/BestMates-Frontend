@@ -4,7 +4,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import image1 from "../Images/roommates-composite-with-veneers.png"
 import image2 from "../Images/Capstone-compositeGrp2-small.png"
 import image3 from "../Images/Capstone-compositeGrp3-veryLarge.png"
-import image4 from "../Images/Capstone-compositeGrp4-lotsOfBoxes.png"
+// import image4 from "../Images/Capstone-compositeGrp4-lotsOfBoxes.png"
 
 const Home = () => {
   return (
@@ -34,7 +34,7 @@ const Home = () => {
                 <img src={image1} className="image1"/>
                 <img src={image2} className="image2"/>
                 <img src={image3} className="image3"/>
-                <img src={image4} className="image4"/>
+                {/* <img src={image4} className="image4"/> */}
 
           </AliceCarousel> 
         </div>
