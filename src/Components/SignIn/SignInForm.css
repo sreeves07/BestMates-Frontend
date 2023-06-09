@@ -48,6 +48,7 @@
 #terms-container {
     width: 100%;
     margin: 0;
+    margin-left: 2rem;
     padding-top: 40px;
     font-size: 12px;
     display: flex;
@@ -58,7 +59,7 @@
 #register-flexCheckDefault1, register-flexCheckDefault2  {
     width: 17px;
     height: 17px;
-    font-size: .5rem;
+    font-size: .12px;
     box-shadow: none;
 }
 

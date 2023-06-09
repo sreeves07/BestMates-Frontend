@@ -83,7 +83,7 @@ export default function Register({ justifyActive }) {
           required
         />
         <MDBInput
-          wrapperClass="mb-4"
+          wrapperClass="mb-0"
           label="Confirm Password"
           id="confirm-password"
           type="password"
@@ -102,8 +102,8 @@ export default function Register({ justifyActive }) {
             <strong>BestMates Account Created!</strong>
           </h4>
         )}
-        <div className="d-flex justify-content-center mb-4" id="terms-container">
-          <MDBRow className="mb-1 col-10" >
+        <div className="d-flex justify-content-center mb-0" id="terms-container">
+          <MDBRow className="mb-0 col-10" >
             <Link to={`/terms`} target="blank">
              <p className='termsLink'>View Terms of Usage of BestMates</p>
             </Link>
@@ -123,10 +123,7 @@ export default function Register({ justifyActive }) {
             required
           />
         </div> */}
-
-
-
-          <MDBRow className="col-10"><br/>
+          <MDBRow className="mb-3 col-10"><br/>
               <MDBCheckbox
                 name="flexCheck"
                 id="register-flexCheckDefault2"
@@ -140,6 +137,7 @@ export default function Register({ justifyActive }) {
           <div></div>
           <MDBBtn className="mb-4 w-100 sign-in-btn">Sign up</MDBBtn>
           <div></div>
+      
         </div>
       </MDBTabsPane>
     </form>
