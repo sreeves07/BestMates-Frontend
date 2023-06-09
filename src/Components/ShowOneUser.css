@@ -56,8 +56,14 @@ width: 70vw;
 text-align: left;
 }
 .basicInfoRow1, .basicInfoRow2 {
-margin-left: 2.5rem;
+margin-left: 2rem;
 }
+
+#livingSituationHeader {
+margin-left: 2rem;
+}
+
+
 
 .livingSituationRow1{
 margin-left: 5rem;
@@ -66,9 +72,34 @@ margin-left: 5rem;
 margin-left: 5rem;
 }
 
+#financialSituationHeader {
+margin-left: 1rem;
+}
 
+.financialSituationRow1{
+margin-left: 1.5rem;
+}
 
+#financialSituation-Income{
+margin-left: -1.5rem;        
+}
 
+#financialSituation-sharesExpenses{
+margin-left: 1.4rem;
+}
+
+#activitiesHeader{
+margin-left: -1rem;
+}
+
+#activities-singer{
+margin-left: 1rem;
+}
+
+#activities-hostsParties{
+margin-left: 2rem;
+margin-right: -1rem ;
+}
 
 
 /* .userInfo h5 {

@@ -178,7 +178,10 @@ const ShowOneUser = () => {
           {/* ROW 2 -- LIVING SITUATION */}
           <MDBRow className="mb-3 livingSituation">
             <MDBCardHeader>
-              <MDBTypography tag="h5" className="mb-0 header">
+              <MDBTypography
+                tag="h5"
+                className="mb-0 header"
+                id="livingSituationHeader">
                 Living Situation
               </MDBTypography>
             </MDBCardHeader>
@@ -206,14 +209,18 @@ const ShowOneUser = () => {
 
           <MDBRow className="mb-3 financialInfo">
             <MDBCardHeader>
-              <MDBTypography tag="h5" className="mb-0 header">
+              <MDBTypography
+                tag="h5"
+                className="mb-0 header"
+                id="financialSituationHeader">
                 Financial Info
               </MDBTypography>
             </MDBCardHeader>
 
-            <MDBRow>
-              <MDBCol>Income: $ {income}</MDBCol>
-              <MDBCol>
+            {/* FINANCIAL SITUATION -- ROW 1  */}
+            <MDBRow className="financialSituationRow1">
+              <MDBCol id="financialSituation-Income">Income: $ {income}</MDBCol>
+              <MDBCol id="financialSituation-sharesExpenses">
                 {" "}
                 Shares Expenses:
                 {stringifyUserProperty(is_sharing_bills)}
@@ -228,19 +235,22 @@ const ShowOneUser = () => {
           {/* ROW 4 -- ACTIVITIES */}
           <MDBRow className="mb-3 activities header">
             <MDBCardHeader>
-              <MDBTypography tag="h5" className="mb-0">
+              <MDBTypography
+                tag="h5"
+                className="mb-0 header"
+                id="activitiesHeader">
                 Activities
               </MDBTypography>
             </MDBCardHeader>
-
-            <MDBRow>
+            {/* ACTIVITIES SITUATION -- ROW 1  */}
+            <MDBRow className="activitiesRow1">
               <MDBCol>Musician: {stringifyUserProperty(is_musician)}</MDBCol>
-              <MDBCol>
+              <MDBCol id="activities-singer">
                 {" "}
                 Singer:
                 {stringifyUserProperty(is_singer)}
               </MDBCol>
-              <MDBCol>
+              <MDBCol id="activities-hostsParties">
                 {" "}
                 Hosts Parties:
                 {stringifyUserProperty(host_parties)}
