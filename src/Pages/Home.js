@@ -2,7 +2,7 @@ import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 // import image1 from "../Images/capstone-composite1-small.png";
 import image1 from "../Images/roommates-composite-with-veneers.png"
-import image2 from "../Images/Capstone-compositeGrp2-small.png"
+import image2 from "../Images/Capstone-compositeGrp2-newer2.png"
 import image3 from "../Images/Capstone-compositeGrp3-veryLarge.png"
 // import image4 from "../Images/Capstone-compositeGrp4-lotsOfBoxes.png"
 
@@ -24,12 +24,13 @@ const Home = () => {
            <AliceCarousel 
                 infinite="true" 
                 autoPlay 
-                duration={400}
-                autoPlayInterval={4000}
-                transitionDuration={50000}
+                duration={1000}
+                autoPlayInterval={5000}
+                transitionDuration={70000}
                 mouseTrackingEnabled={true}
                 disableAutoPlayOnAction={true}
-                fadeOutAnimation={true}
+                fadeOutAnimation="true"
+                animationType='fadeout'
            >
                 <img src={image1} className="image1"/>
                 <img src={image2} className="image2"/>

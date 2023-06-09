@@ -41,6 +41,10 @@ div.home {
   /* grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr); */
 }
+
+.home-image-box{
+  background-color: rgb(241, 251, 251);
+}
 .image1{
   width:100vw;
   height: 78vh; 
@@ -52,8 +56,8 @@ div.home {
 }
 
 .image2{
-  width:100vw;
-  height:90vh; 
+  width:85vw;
+  height:80vh; 
   object-fit:cover;
   /* position: absolute; */
   margin-top: 0;
@@ -61,8 +65,8 @@ div.home {
 }
 
 .image3{
-  width:78vw;
-  height:auto; 
+  width:85vw;
+  height:78vh; 
   object-fit:cover;
   /* position: absolute; */
   margin-top: 0;
@@ -86,7 +90,8 @@ div.home {
   height: 35px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(202, 232, 222, 0.287);
+  background-color: rgb(241, 251, 251);
+  /* background-color: rgba(202, 232, 222, 0.287); */
   color: blueviolet;
   letter-spacing: .25em;
 }
