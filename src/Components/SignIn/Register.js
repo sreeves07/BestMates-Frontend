@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, Link } from "react-router-dom";
 import { auth } from "../../Firebase/config";
 import {
   createUserWithEmailAndPassword,
@@ -8,11 +7,12 @@ import {
 } from "firebase/auth";
 import { useContextAuthProvider } from "../../Firebase/context";
 
-import { MDBTabsPane, MDBBtn, MDBInput, MDBCheckbox } from "mdb-react-ui-kit";
+import { MDBTabsPane, MDBBtn, MDBInput, MDBCheckbox, MDBRow, MDBCol } from "mdb-react-ui-kit";
 
 import axios from "axios";
 
 import "./SignInForm.css";
+
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -98,15 +98,23 @@ export default function Register({ justifyActive }) {
             <em>*Retype Password</em>
           </p>
         ) : (
-          <p id="success-message">
+          <h4 id="success-message">
             <strong>BestMates Account Created!</strong>
-          </p>
+          </h4>
         )}
         <div className="d-flex justify-content-center mb-4" id="terms-container">
-          <MDBCheckbox
+          <MDBRow className="mb-1 col-10" >
+            <Link to={`/terms`} target="blank">
+             <p className='termsLink'>View Terms of Usage of BestMates</p>
+            </Link>
+          </MDBRow>
+
+          {/* <div className="d-flex justify-content-center mb-4" id="terms-container">
+          <MDBCheckbox 
+            className="mb-1 col-10"
             name="flexCheck"
             id="register-flexCheckDefault"
-            label={`I have read and agree to the terms`}
+            label={`View Terms of Usage of BestMates`}
             value={confirmTerms}
             onChange={() => {
               setConfirmTerms(!confirmTerms)
@@ -114,6 +122,19 @@ export default function Register({ justifyActive }) {
             }}
             required
           />
+        </div> */}
+
+
+
+          <MDBRow className="col-10"><br/>
+              <MDBCheckbox
+                name="flexCheck"
+                id="register-flexCheckDefault2"
+                label={`I have read and agree to the terms`}
+                // value="unchecked"
+                value="unchecked"
+              />
+          </MDBRow>
         </div>
         <div className="sign-in-btn-container">
           <div></div>

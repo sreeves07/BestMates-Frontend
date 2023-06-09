@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { useContextAuthProvider } from "./Firebase/context";
 import NavBar from "./Components/NavBar";
 import SignIn from "./Pages/SignIn";
+import Register from "./Pages/Register";
 import Home from "./Pages/Home";
 import Index from "./Pages/Index";
 import Show from "./Pages/Show";
@@ -26,6 +27,7 @@ function App() {
             <>
               <Route path="/" element={<Home />} />
               <Route path="/signin" element={<SignIn />} />
+              <Route path="/register" element={<Register />} />
               <Route path="/new" element={<New />} />
               <Route path="/preferences" element={<Preferences />} />
               <Route path="/users/:uid/edit" element={<EditUserForm />} />

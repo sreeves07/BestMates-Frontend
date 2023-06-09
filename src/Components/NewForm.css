@@ -93,7 +93,7 @@ div.newForm-componentsBox.row {
 
 .newForm-cardbody {
   margin-bottom: -2.2rem !important;
-  padding: 50px;
+  padding: 2rem;
 }
 
 .bioBottomRow {
@@ -200,6 +200,7 @@ select.orientation-attribute {
 .newForm-submitBtn,
 .newPrefForm-submitBtn {
   width: 11.5rem;
+  margin-top: -2rem;
 }
 
 .userBio-submitBtn {

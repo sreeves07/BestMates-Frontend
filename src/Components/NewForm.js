@@ -110,7 +110,7 @@ let navigate = useNavigate();
           <MDBCol md="8" className="mb-4">
             <MDBCard className="newForm-card">
               <MDBCardHeader className="py-2">
-                <MDBTypography tag="h5" className="mb-0 " ><strong>Profile Information</strong></MDBTypography>
+                <MDBTypography tag="h6" className="mb-0 " ><strong>Profile Information</strong></MDBTypography>
               </MDBCardHeader>
                 <MDBCardBody className='newForm-cardbody'>
              
@@ -252,7 +252,7 @@ let navigate = useNavigate();
 
                   {/* ********** Basic Info - Row 5 (Financial Attributes) ********** */}
 
-                <MDBRow className="mb-3">
+                <MDBRow className="mb-5">
                 <MDBCol>
                     <MDBInput label='Credit Score' 
                     className='background-light-purple'
@@ -291,7 +291,7 @@ let navigate = useNavigate();
     
                 <MDBRow className="mb-3">
                 
-                <MDBTypography tag="h5" className="mb-0 " ><strong>Your Attributes</strong><hr></hr></MDBTypography>
+                {/* <MDBTypography tag="h6" className="mb-0 " ><strong>Your Attributes</strong><hr></hr></MDBTypography> */}
                   <MDBCol className='check'>
                     <MDBCheckbox
                       name="flexCheck"
