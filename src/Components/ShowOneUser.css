@@ -52,26 +52,36 @@ width: 70vw;
  /* background-color: rgba(191, 174, 227, 0.582); */
 }
 
+/* BASIC INFO */
 .basicInfo, .livingSituation.livingSituation{
 text-align: left;
 }
 .basicInfoRow1, .basicInfoRow2 {
-margin-left: 1.8rem;
+margin-left: 1.5rem;
 }
 
+
+/* LIVING SITUATION */
 #livingSituationHeader {
 margin-left: 2rem;
 }
 
-
-
 .livingSituationRow1{
-margin-left: 5rem;
-}
-.livingSituationRow2 {
-margin-left: 5rem;
+margin-left: 4.5rem;
+
 }
 
+
+.livingSituationRow2 {
+margin-left: 4.5rem;
+
+}
+
+#livingSituation-City, #livingSituation-MaxRent {
+        margin-right: .6rem;
+}
+
+/* FINANCIAL INFO */
 #financialSituationHeader {
 margin-left: 1rem;
 }
@@ -81,13 +91,15 @@ margin-left: 1.5rem;
 }
 
 #financialSituation-Income{
-margin-left: -1.5rem;        
+margin-left: -2rem;
+        
 }
 
 #financialSituation-sharesExpenses{
 margin-left: 1.4rem;
 }
 
+/* ACTIVITIES */
 #activitiesHeader{
 margin-left: -1rem;
 }

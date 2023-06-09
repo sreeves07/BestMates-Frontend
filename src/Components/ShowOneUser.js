@@ -157,21 +157,35 @@ const ShowOneUser = () => {
             </MDBCardHeader>
             {/* BASIC INFO -- ROW 1 */}
             <MDBRow className="basicInfoRow1">
-              <MDBCol>Age: {age(birthday)}</MDBCol>
-              <MDBCol>Gender: {gender}</MDBCol>
-              <MDBCol>Orientation: {sexual_orientation}</MDBCol>
-              <MDBCol>Disabled: {stringifyUserProperty(is_disabled)}</MDBCol>
+              <MDBCol id="basicInfo-Age">Age: {age(birthday)}</MDBCol>
+              <MDBCol id="basicInfo-Gender">Gender: {gender}</MDBCol>
+              <MDBCol id="basicInfo-Orientation">
+                Orientation: {sexual_orientation}
+              </MDBCol>
+              <MDBCol id="basicInfo-Disabled">
+                Disabled: {stringifyUserProperty(is_disabled)}
+              </MDBCol>
 
               <MDBCol>Student: {stringifyUserProperty(is_student)}</MDBCol>
             </MDBRow>
             {/* BASIC INFO ROW 2 */}
             <MDBRow className="basicInfoRow2">
-              <MDBCol>Smoker: {stringifyUserProperty(is_smoker)}</MDBCol>
-              <MDBCol>Neat: {stringifyUserProperty(is_neat)}</MDBCol>
-              <MDBCol>Religious: {stringifyUserProperty(is_religious)}</MDBCol>
+              <MDBCol id="basicInfo-Smoker">
+                Smoker: {stringifyUserProperty(is_smoker)}
+              </MDBCol>
+              <MDBCol id="basicInfo-Neat">
+                Neat: {stringifyUserProperty(is_neat)}
+              </MDBCol>
+              <MDBCol id="basicInfo-Religious">
+                Religious: {stringifyUserProperty(is_religious)}
+              </MDBCol>
 
-              <MDBCol>Children: {stringifyUserProperty(has_kids)}</MDBCol>
-              <MDBCol>Pets: {stringifyUserProperty(has_pets)}</MDBCol>
+              <MDBCol id="basicInfo-Children">
+                Children: {stringifyUserProperty(has_kids)}
+              </MDBCol>
+              <MDBCol id="basicInfo-Pets">
+                Pets: {stringifyUserProperty(has_pets)}
+              </MDBCol>
             </MDBRow>
           </MDBRow>
 
@@ -187,17 +201,17 @@ const ShowOneUser = () => {
             </MDBCardHeader>
             {/* LIVING SITUATION -- ROW 1  */}
             <MDBRow className="livingSituationRow1">
-              <MDBCol>City: {city}</MDBCol>
-              <MDBCol>State: {state}</MDBCol>
-              <MDBCol>Zip: {zip_code}</MDBCol>
+              <MDBCol id="livingSituation-City">City: {city}</MDBCol>
+              <MDBCol id="livingSituation-State">State: {state}</MDBCol>
+              <MDBCol id="livingSituation-Zip">Zip: {zip_code}</MDBCol>
             </MDBRow>
             {/* LIVING SITUATION -- ROW 2  */}
             <MDBRow className="livingSituationRow2">
-              <MDBCol>Max Rent: {max_rent}</MDBCol>
-              <MDBCol>
+              <MDBCol id="livingSituation-MaxRent">Max Rent: {max_rent}</MDBCol>
+              <MDBCol id="livingSituation-HasOpenRooms">
                 Open Rooms: {stringifyUserProperty(has_open_rooms)}
               </MDBCol>
-              <MDBCol>
+              <MDBCol id="livingSituation-MoveInDate">
                 {" "}
                 Move-In:
                 {dateConvert(`${moveInDate}`)}
