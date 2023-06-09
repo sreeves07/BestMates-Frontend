@@ -35,6 +35,11 @@ margin-top: 5%;
 height: 35%;
 width: 25%;
 border-radius: 50%;
+border: solid rgb(43, 0, 128);
+}
+
+.header {
+        text-align: center;
 }
 
 .userInfo {
@@ -43,9 +48,71 @@ grid-template-columns: 1fr, 1fr;
 margin-left: auto;
 margin-right: auto;
 margin-top: 2%;
-width: 100vw;
- background-color: rgba(191, 174, 227, 0.582);
+width: 70vw;
+ /* background-color: rgba(191, 174, 227, 0.582); */
 }
+
+/* BASIC INFO */
+.basicInfo, .livingSituation.livingSituation{
+text-align: left;
+}
+.basicInfoRow1, .basicInfoRow2 {
+margin-left: 1.5rem;
+}
+
+
+/* LIVING SITUATION */
+#livingSituationHeader {
+margin-left: 2rem;
+}
+
+.livingSituationRow1{
+margin-left: 4.5rem;
+
+}
+
+
+.livingSituationRow2 {
+margin-left: 4.5rem;
+
+}
+
+#livingSituation-City, #livingSituation-MaxRent {
+        margin-right: .6rem;
+}
+
+/* FINANCIAL INFO */
+#financialSituationHeader {
+margin-left: 1rem;
+}
+
+.financialSituationRow1{
+margin-left: 1.5rem;
+}
+
+#financialSituation-Income{
+margin-left: -2rem;
+        
+}
+
+#financialSituation-sharesExpenses{
+margin-left: 1.4rem;
+}
+
+/* ACTIVITIES */
+#activitiesHeader{
+margin-left: -1rem;
+}
+
+#activities-singer{
+margin-left: 1rem;
+}
+
+#activities-hostsParties{
+margin-left: 2rem;
+margin-right: -1rem ;
+}
+
 
 /* .userInfo h5 {
         text-align: center;
