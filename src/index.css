@@ -127,3 +127,61 @@ div.home {
 #preferences-heading {
   margin-left: 6%;
 }
+
+.terms-box{
+display: flex;
+justify-content: space-around; 
+align-items: center;
+width: 100%;
+
+}
+div.card.terms-card.col-10{
+font-size: .9rem;
+color:rgba(137, 134, 134, 0.779) !important;
+width: 60rem !important;
+padding-left: 2rem;
+padding-right: 2rem;
+padding-top: 1rem;;
+text-align: justify;
+
+}
+
+/* .terms-headerCard{
+  width: 40%;
+} */
+
+h4.mb-3.termsHdg{
+  text-align: center;
+}
+.terms-cardBody {
+  margin-left: .5rem;
+  text-align: justify;
+  /* overflow:hidden; */
+  white-space:normal;
+  width: 100%;
+  color:rgba(137, 134, 134, 0.779) !important;
+}
+
+.terms-intro{
+  text-justify: distribute;
+}
+.terms-backBtn {
+  background-color: white;
+  color: var(--mainColor);
+  font-weight: bold;
+  width: 90px;
+  margin:0 auto;
+  border-radius: 10px;
+  border: 2px solid var(--mainColor);
+  height: 35px;
+  margin-top: 1rem;
+  /* margin-left: 26.7rem; */
+}
+
+.terms-backBtn:hover {
+  background-color: var(--darkMainColor);
+  color: var(--secondaryColor);
+
+  border: 2px solid var(--secondaryColor);
+  box-shadow: 2px 2px white;
+}
