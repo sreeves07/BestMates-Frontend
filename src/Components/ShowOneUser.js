@@ -50,8 +50,8 @@ const ShowOneUser = () => {
     axios
       .get(`${API}/user/${uid}/images`) // changed from :id
       .then((response) => {
-        console.log(response.data);
-        console.log("userPROFILE-IMAGE=", response.data);
+        // console.log(response.data);
+        // console.log("userPROFILE-IMAGE=", response.data);
         setProfileImage(response.data[0].profile_image);
       })
       .catch((c) => console.warn("catch", c));
@@ -60,7 +60,7 @@ const ShowOneUser = () => {
       .get(`${API}/user/${uid}/bios`) // changed from :id
       .then((response) => {
         console.log(response.data);
-        console.log("userPROFILE-IMAGE=", response.data);
+        // console.log("userPROFILE-IMAGE=", response.data);
         setBio(response.data[0].small_bio);
       })
       .catch((c) => console.warn("catch", c));
