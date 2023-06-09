@@ -43,7 +43,7 @@ const ShowOneUser = () => {
       .get(`${API}/user/${uid}`)
       .then((response) => {
         // console.log("user api response user data=", response.data);
-        // setOneUser(response.data[0]);
+        setOneUser(response.data[0]);
       })
       .catch((c) => console.warn("catch", c));
 
