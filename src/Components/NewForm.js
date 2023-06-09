@@ -1,34 +1,34 @@
-import React from 'react'
-  // Manage State of Values
+import React from "react";
+// Manage State of Values
 import { useState } from "react";
-  // Enable Navigation to a Different View
+// Enable Navigation to a Different View
 import { useNavigate } from "react-router-dom";
-  // Enable Connection to Firebase User Authorization (Login)
-import { useContextAuthProvider} from "../Firebase/context"
+// Enable Connection to Firebase User Authorization (Login)
+import { useContextAuthProvider } from "../Firebase/context";
 import axios from "axios";
-  // User Picture Upload Widget from Cloudinary
-  // import UploadWidget from "./UploadWidget.js"
-import "../Components/NewForm.css"
-  // imports for material design bootstrap
-import { 
-  MDBCard, 
-  MDBCardBody, 
-  MDBCardHeader, 
-  MDBCheckbox, 
-  MDBCol, 
+// User Picture Upload Widget from Cloudinary
+// import UploadWidget from "./UploadWidget.js"
+import "../Components/NewForm.css";
+// imports for material design bootstrap
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardHeader,
+  MDBCheckbox,
+  MDBCol,
   MDBBtn,
-  MDBInput, 
+  MDBInput,
   MDBRow,
-  MDBTypography
- } from 'mdb-react-ui-kit';
+  MDBTypography,
+} from "mdb-react-ui-kit";
 
-  // Set API Variable to Port for this React App to display in Browser
+// Set API Variable to Port for this React App to display in Browser
 const API = process.env.REACT_APP_API_URL;
-
 
 function NewForm() {
   //Set state for auth and newUser
-  const {user} = useContextAuthProvider();
+  const { user } = useContextAuthProvider();
+  const { uid } = user;
 
   const [newUser, setNewUser] = useState({
     first_name: "",
@@ -52,31 +52,30 @@ function NewForm() {
     max_rent: "",
     credit_score: "",
     income: "",
-   // is_employed: true,                //need to be added to backend
-    is_student: false,                  //need to be added to backend
-   // is_healthy: true,                 //need to be added to backend
-   // has_allergies: false,             //need to be added to backend
-   // has_chronic_condition: false,     //need to be added to backend (in Answers table)
-   // has_visiting_nurse: false,        //need to be added to backend
-   // has_home_assistance: false,       //need to be added to backend
-    is_musician: false,                 //need to be added to backend
-    is_singer: false,                   //need to be added to backend
-    host_parties: false,                //need to be added to backend
-   // has_romantic_visits: false,       //need to be added to backend
-   // has_family_friend_visits: false,  //need to be added to backend
-   // has_night_life: false,            //need to be added to backend
+    // is_employed: true,                //need to be added to backend
+    // is_student: false, //need to be added to backend
+    // is_healthy: true,                 //need to be added to backend
+    // has_allergies: false,             //need to be added to backend
+    // has_chronic_condition: false,     //need to be added to backend (in Answers table)
+    // has_visiting_nurse: false,        //need to be added to backend
+    // has_home_assistance: false,       //need to be added to backend
+    // is_musician: false, //need to be added to backend
+    // is_singer: false, //need to be added to backend
+    // host_parties: false, //need to be added to backend
+    // has_romantic_visits: false,       //need to be added to backend
+    // has_family_friend_visits: false,  //need to be added to backend
+    // has_night_life: false,            //need to be added to backend
   });
 
-let navigate = useNavigate();
-   
+  let navigate = useNavigate();
 
-    // AXIOS CALL -  make an axios call to backend to be able to post info re new user from form
+  // AXIOS CALL -  make an axios call to backend to be able to post info re new user from form
 
   const addNewUser = (newUser) => {
     axios
-      .put(`${API}/user/${user.uid}`, newUser)
+      .put(`${API}/user/${uid}`, newUser)
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data);
         navigate(`/preferences`);
       })
       .catch((c) => console.warn("catch", c));
@@ -88,73 +87,78 @@ let navigate = useNavigate();
     setNewUser({ ...newUser, [event.target.id]: event.target.value });
   };
   // console.log("newly added user", newUser)
-  
+
   const handleCheckboxChange = (event) => {
     setNewUser({ ...newUser, [event.target.id]: !newUser[event.target.value] });
   };
 
   function handleSubmit(event) {
     event.preventDefault();
-    event.target.className += " was-validated"
+    event.target.className += " was-validated";
     addNewUser(newUser);
     //addUserImage(image)
   }
-  
- 
+
   return (
-    <div className="newFormBox ">      
-      <form className="newform needs-validation"
-            onSubmit={handleSubmit}
-            >
+    <div className="newFormBox ">
+      <form className="newform needs-validation" onSubmit={handleSubmit}>
         <MDBRow>
           <MDBCol md="8" className="mb-4">
             <MDBCard className="newForm-card">
               <MDBCardHeader className="py-2">
-                <MDBTypography tag="h6" className="mb-0 " ><strong>Profile Information</strong></MDBTypography>
+                <MDBTypography tag="h6" className="mb-0 ">
+                  <strong>Profile Information</strong>
+                </MDBTypography>
               </MDBCardHeader>
-                <MDBCardBody className='newForm-cardbody'>
-             
-                   {/* ********** Basic Info - Row 1 ********** */}  
+              <MDBCardBody className="newForm-cardbody">
+                {/* ********** Basic Info - Row 1 ********** */}
 
-                  <MDBRow className="mb-3">
-                    <MDBCol>
-                      <MDBInput
-                      className='background-light-purple' 
-                        label='First name'    type='text' 
-                        onChange={handleTextChange}
-                        value={newUser.first_name}
-                        id="first_name"       required
-                      /> 
-                      <div className="valid-feedback">Looks good!</div>
-                    </MDBCol>
-                    <MDBCol >
-                      <MDBInput 
-                      className='background-light-purple'
-                        label='Last name'   type='text' 
-                        onChange={handleTextChange}
-                        value={newUser.last_name}
-                        id="last_name"      required
-                      />
-                    </MDBCol>
-                  </MDBRow>
+                <MDBRow className="mb-3">
+                  <MDBCol>
+                    <MDBInput
+                      className="background-light-purple"
+                      label="First name"
+                      type="text"
+                      onChange={handleTextChange}
+                      value={newUser.first_name}
+                      id="first_name"
+                      required
+                    />
+                    <div className="valid-feedback">Looks good!</div>
+                  </MDBCol>
+                  <MDBCol>
+                    <MDBInput
+                      className="background-light-purple"
+                      label="Last name"
+                      type="text"
+                      onChange={handleTextChange}
+                      value={newUser.last_name}
+                      id="last_name"
+                      required
+                    />
+                  </MDBCol>
+                </MDBRow>
 
+                {/* ********** Basic Info -  Row 2 ********** */}
 
-                    {/* ********** Basic Info -  Row 2 ********** */}
-
-                  <MDBRow className="mb-3">
-                  <MDBCol >
-                    <MDBInput label='City' type='text'
-                    className='background-light-purple'
+                <MDBRow className="mb-3">
+                  <MDBCol>
+                    <MDBInput
+                      label="City"
+                      type="text"
+                      className="background-light-purple"
                       onChange={handleTextChange}
                       value={newUser.city}
                       id="city"
-                      required 
+                      required
                     />
                   </MDBCol>
 
                   <MDBCol>
-                    <MDBInput label='State' type='text' 
-                    className='background-light-purple'
+                    <MDBInput
+                      label="State"
+                      type="text"
+                      className="background-light-purple"
                       onChange={handleTextChange}
                       value={newUser.state}
                       id="state"
@@ -163,9 +167,10 @@ let navigate = useNavigate();
                   </MDBCol>
 
                   <MDBCol>
-                    <MDBInput 
-                    className='background-light-purple'
-                    label='Zip Code' type='number' 
+                    <MDBInput
+                      className="background-light-purple"
+                      label="Zip Code"
+                      type="number"
                       onChange={handleTextChange}
                       value={newUser.zip_code}
                       id="zip_code"
@@ -174,12 +179,16 @@ let navigate = useNavigate();
                   </MDBCol>
                 </MDBRow>
 
-                  {/* ********** Basic Info - Row 3 ********** */}
+                {/* ********** Basic Info - Row 3 ********** */}
 
                 <MDBRow className="mb-3">
-                  <MDBCol > {/* md="3" */}
-                    <MDBInput 
-                    className='birthDate-attribute birthdate-MDB-input background-light-purple' label='Date of Birth' type='date' 
+                  <MDBCol>
+                    {" "}
+                    {/* md="3" */}
+                    <MDBInput
+                      className="birthDate-attribute birthdate-MDB-input background-light-purple"
+                      label="Date of Birth"
+                      type="date"
                       onChange={handleTextChange}
                       value={newUser.birthday}
                       id="birthday"
@@ -193,8 +202,7 @@ let navigate = useNavigate();
                       onChange={handleTextChange}
                       value={newUser.gender}
                       id="gender"
-                      required
-                   > 
+                      required>
                       <option defaultValue={"gender"}>Gender</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
@@ -202,17 +210,19 @@ let navigate = useNavigate();
                       <option value="non-binary">Non-Binary</option>
                       <option value="transgender">Transgender</option>
                       <option value="other">Other</option>
-                      <option value="prefer-not-to-say">Prefer not to say</option>
+                      <option value="prefer-not-to-say">
+                        Prefer not to say
+                      </option>
                     </select>
                   </MDBCol>
 
-                   <MDBCol >     
-                    <select className="orientation-attribute form-control background-light-purple"
+                  <MDBCol>
+                    <select
+                      className="orientation-attribute form-control background-light-purple"
                       onChange={handleTextChange}
                       value={newUser.sexual_orientation}
                       id="sexual_orientation"
-                      required
-                    >  
+                      required>
                       <option defaultValue={"orientation"}>Orientation</option>
                       <option value="heterosexual">Heterosexual</option>
                       <option value="pansexual">Pansexual</option>
@@ -220,45 +230,51 @@ let navigate = useNavigate();
                       <option value="homosexual">Homosexual</option>
                       <option value="asexual">Asexual</option>
                       <option value="other">Other</option>
-                      <option value="prefer-not-to-say">Prefer not to say</option>
-                  
+                      <option value="prefer-not-to-say">
+                        Prefer not to say
+                      </option>
                     </select>
                   </MDBCol>
                 </MDBRow>
 
-                  {/*B  ********** Basic Info -  Row 4  **********  */}
+                {/*B  ********** Basic Info -  Row 4  **********  */}
 
                 <MDBRow className="mb-3">
                   <MDBCol>
-                    <MDBInput label='Email' type='text' className="background-light-purple"
+                    <MDBInput
+                      label="Email"
+                      type="text"
+                      className="background-light-purple"
                       onChange={handleTextChange}
                       value={newUser?.email}
                       id="email"
                       required
                     />
                   </MDBCol>
-                  
+
                   <MDBCol>
-                    <MDBInput label='Move-In Date' type='date'
-                    className='background-light-purple'
+                    <MDBInput
+                      label="Move-In Date"
+                      type="date"
+                      className="background-light-purple"
                       onChange={handleTextChange}
                       value={newUser.move_in_date}
                       id="move_in_date"
                       required
                     />
-                  </MDBCol>          
-                  
+                  </MDBCol>
                 </MDBRow>
 
-                  {/* ********** Basic Info - Row 5 (Financial Attributes) ********** */}
+                {/* ********** Basic Info - Row 5 (Financial Attributes) ********** */}
 
                 <MDBRow className="mb-5">
-                <MDBCol>
-                    <MDBInput label='Credit Score' 
-                    className='background-light-purple'
-                    type='number'
-                    min="300"
-                    max="850"
+                  <MDBCol>
+                    <MDBInput
+                      label="Credit Score"
+                      className="background-light-purple"
+                      type="number"
+                      min="300"
+                      max="850"
                       onChange={handleTextChange}
                       value={newUser.credit_score}
                       id="credit_score"
@@ -266,9 +282,11 @@ let navigate = useNavigate();
                     />
                   </MDBCol>
                   <MDBCol>
-                    <MDBInput label='Income (USD $)' type='number'
-                    className='background-light-purple'
-                    min="0"
+                    <MDBInput
+                      label="Income (USD $)"
+                      type="number"
+                      className="background-light-purple"
+                      min="0"
                       onChange={handleTextChange}
                       value={newUser.income}
                       id="income"
@@ -276,127 +294,128 @@ let navigate = useNavigate();
                     />
                   </MDBCol>
                   <MDBCol>
-                    <MDBInput label="Max Rent (USD $)" type='number' 
-                    className='background-light-purple'
-                    min="0"
+                    <MDBInput
+                      label="Max Rent (USD $)"
+                      type="number"
+                      className="background-light-purple"
+                      min="0"
                       onChange={handleTextChange}
                       value={newUser.max_rent}
                       id="max_rent"
                       required
-                    />                 
-                  </MDBCol> 
+                    />
+                  </MDBCol>
                 </MDBRow>
 
-                  {/* ********** Attributes (Financial) - Row 6 - (Checkboxes- Row A)********** */}
-    
+                {/* ********** Attributes (Financial) - Row 6 - (Checkboxes- Row A)********** */}
+
                 <MDBRow className="mb-3">
-                
-                {/* <MDBTypography tag="h6" className="mb-0 " ><strong>Your Attributes</strong><hr></hr></MDBTypography> */}
-                  <MDBCol className='check'>
+                  {/* <MDBTypography tag="h6" className="mb-0 " ><strong>Your Attributes</strong><hr></hr></MDBTypography> */}
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Agree To Share Bills"
                       onChange={handleCheckboxChange}
                       value={newUser.is_sharing_bills}
                       id="is_sharing_bills"
-                      />
+                    />
                   </MDBCol>
 
-                  <MDBCol className='check'>
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Have Open Rooms"
                       onChange={handleCheckboxChange}
                       value={newUser.has_open_rooms}
                       id="has_open_rooms"
-                      /> 
-                  </MDBCol> 
-                  <MDBCol className='check'>
+                    />
+                  </MDBCol>
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Live in a High Rise"
                       onChange={handleCheckboxChange}
                       value={newUser.high_rise}
                       id="high_rise"
-                      /> 
-                 </MDBCol> 
+                    />
+                  </MDBCol>
 
-                 <MDBCol className='check'>
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Live in a House"
                       onChange={handleCheckboxChange}
                       value={newUser.house}
                       id="house"
-                      /> 
-                  </MDBCol> 
+                    />
+                  </MDBCol>
                 </MDBRow>
 
                 {/* ********** Attributes (LifeStyle, Amenities) - Row 7 - (Checkboxes- Row B) ********** */}
 
                 <MDBRow className="mb-3">
-                  <MDBCol className='check'>
-                  <MDBCheckbox
+                  <MDBCol className="check">
+                    <MDBCheckbox
                       name="flexCheck"
                       label="Very Neat"
                       onChange={handleCheckboxChange}
                       value={newUser.is_neat}
                       id="is_neat"
-                      /> 
+                    />
                   </MDBCol>
-                  <MDBCol className='check'>
-                  <MDBCheckbox
+                  <MDBCol className="check">
+                    <MDBCheckbox
                       name="flexCheck"
                       label="Low Noise"
                       onChange={handleCheckboxChange}
                       value={newUser.low_noise}
                       id="low_noise"
-                      /> 
+                    />
                   </MDBCol>
-                  <MDBCol className='check'>
-                  <MDBCheckbox
+                  <MDBCol className="check">
+                    <MDBCheckbox
                       name="flexCheck"
                       label="Have Private Room"
                       onChange={handleCheckboxChange}
                       value={newUser.private_room}
                       id="private_room"
-                      /> 
-                    </MDBCol>
-                    <MDBCol className='check'>
+                    />
+                  </MDBCol>
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Have Private Bathroom"
                       onChange={handleCheckboxChange}
                       value={newUser.private_bathroom}
                       id="private_bathroom"
-                      /> 
-                    </MDBCol>
+                    />
+                  </MDBCol>
                 </MDBRow>
 
-                  {/* ********** Attributes (LifeStyle, Obligations) - Row 8 - (Checkboxes- Row C) ********** */}
+                {/* ********** Attributes (LifeStyle, Obligations) - Row 8 - (Checkboxes- Row C) ********** */}
 
                 <MDBRow className="mb-3">
-                  <MDBCol className='check'>
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Religious"
                       onChange={handleCheckboxChange}
                       value={newUser.is_religious}
                       id="is_religious"
-                      />
+                    />
                   </MDBCol>
 
-                  <MDBCol className='check'>
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Have Kids"
                       onChange={handleCheckboxChange}
                       value={newUser.has_kids}
                       id="has_kids"
-                  />
+                    />
                   </MDBCol>
 
-                  <MDBCol className='check'>
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Pet Owner"
@@ -406,7 +425,7 @@ let navigate = useNavigate();
                     />
                   </MDBCol>
 
-                  <MDBCol className='check'>
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Smoker"
@@ -420,34 +439,33 @@ let navigate = useNavigate();
                 {/* ********** Attributes (Activities) - Row 9 - (Checkboxes- Row D) ********** */}
 
                 <MDBRow className="mb-3">
-                  <MDBCol className='check'>
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Student"
                       onChange={handleCheckboxChange}
                       value={newUser.is_student}
                       id="is_student"
-                 />
+                    />
                   </MDBCol>
 
-                  <MDBCol className='check'>
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Musician"
                       onChange={handleCheckboxChange}
                       value={newUser.is_musician}
                       id="is_musician"
-                  />
+                    />
                   </MDBCol>
 
-                  
-                  <MDBCol className='check'>
+                  <MDBCol className="check">
                     <MDBCheckbox
-                        name="flexCheck"
-                        label="Party Host"
-                        onChange={handleCheckboxChange}
-                        value={newUser.host_parties}
-                        id="host_parties"
+                      name="flexCheck"
+                      label="Party Host"
+                      onChange={handleCheckboxChange}
+                      value={newUser.host_parties}
+                      id="host_parties"
                     />
                   </MDBCol>
                   <MDBCol>
@@ -460,33 +478,30 @@ let navigate = useNavigate();
                     />
                   </MDBCol>
                 </MDBRow>
-               
+
                 {/* ********** (Create Account Button) - Row 10 - (Checkboxes- Row E) ********** */}
 
                 <MDBRow className="mb-4">
                   <MDBCol>
-                    
-                      <MDBBtn 
-                        className='newForm-submitBtn sign-in-btn' 
-                        type="submit">Submit
-                      </MDBBtn>
-                  
+                    <MDBBtn
+                      className="newForm-submitBtn sign-in-btn"
+                      type="submit">
+                      Submit
+                    </MDBBtn>
                   </MDBCol>
-                </MDBRow> 
+                </MDBRow>
 
                 {/* ********** End of Input Fields  ********** */}
-             
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
         </MDBRow>
       </form>
     </div>
-) 
+  );
 }
 
-export default NewForm
-
+export default NewForm;
 
 // Additional Preferences
 

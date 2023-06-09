@@ -22,14 +22,13 @@ const User = ({ currentUser }) => {
     axios
       .get(`${API}/user/${uid}/images`) // changed from :id
       .then((response) => {
-        console.log(response.data);
-        console.log("userPROFILE-IMAGE=", response.data);
+        // console.log(response.data);
+        // console.log("userPROFILE-IMAGE=", response.data);
         setProfileImage(response.data[0].profile_image);
       })
       .catch((c) => console.warn("catch", c));
   }, []);
 
-  console.log("heeeeey", profileImage);
   return (
     <div>
       {/* provides link to single user card view */}

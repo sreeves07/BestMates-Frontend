@@ -40,7 +40,7 @@ const UploadWidget = () => {
       window.alert("Please upload an image.");
     }
 
-    console.log(uploadURL);
+    // console.log(uploadURL);
 
     axios
       .post(`${API}/user/${uid}/images`, {
