@@ -18,15 +18,21 @@ import {
 const API = process.env.REACT_APP_API_URL;
 
 const ShowOneUser = () => {
+  const [profileImage, setProfileImage] = useState("");
+  const [bio, setBio] = useState("");
+
   let dateConvert = (date) => {
-    console.log(date);
-    let reverseDate = " ";
-    reverseDate += date.slice(9, 11);
-    reverseDate += "/";
-    reverseDate += date.slice(6, 8);
-    reverseDate += "/";
-    reverseDate += date.slice(1, 5);
-    return reverseDate;
+    // console.log(date);
+    if (date !== "N/A") {
+      let reverseDate = " ";
+      reverseDate += date.slice(9, 11);
+      reverseDate += "/";
+      reverseDate += date.slice(6, 8);
+      reverseDate += "/";
+      reverseDate += date.slice(1, 5);
+      return reverseDate;
+    }
+    return date;
   };
   let { uid } = useParams();
   // const [user, loading] = useAuthState(auth);
@@ -36,17 +42,32 @@ const ShowOneUser = () => {
     axios
       .get(`${API}/user/${uid}`)
       .then((response) => {
-        console.log("user api response user data=", response.data);
-        setOneUser(response.data[0]);
+        // console.log("user api response user data=", response.data);
+        // setOneUser(response.data[0]);
+      })
+      .catch((c) => console.warn("catch", c));
+
+    axios
+      .get(`${API}/user/${uid}/images`) // changed from :id
+      .then((response) => {
+        console.log(response.data);
+        console.log("userPROFILE-IMAGE=", response.data);
+        setProfileImage(response.data[0].profile_image);
+      })
+      .catch((c) => console.warn("catch", c));
+
+    axios
+      .get(`${API}/user/${uid}/bios`) // changed from :id
+      .then((response) => {
+        console.log(response.data);
+        console.log("userPROFILE-IMAGE=", response.data);
+        setBio(response.data[0].small_bio);
       })
       .catch((c) => console.warn("catch", c));
   }, [uid]);
 
-  console.log("########", uid);
-
   const {
     small_bio,
-    profile_image,
     first_name,
     last_name,
     city,
@@ -119,9 +140,9 @@ const ShowOneUser = () => {
     return "N/A";
   };
 
-  let moveInDate = JSON.stringify(move_in_date);
+  let moveInDate = JSON.stringify(move_in_date) || "N/A";
   // let moveInDateToString = moveInDate.toString();
-  console.log(dateConvert(`${moveInDate}`));
+  // console.log(dateConvert(`${moveInDate}`));
 
   return (
     <div className="ShowOneUser">
@@ -137,12 +158,12 @@ const ShowOneUser = () => {
             <MDBCol>
               <img
                 id="showOneUserPhoto"
-                src={profile_image}
+                src={profileImage}
                 alt="profile"
                 className="rounded-circle"
                 style={{ width: "18rem", height: "18rem" }}></img>
               <p className="h1">{first_name}</p>
-              <p className="h6">Bio: {small_bio}</p>
+              <p className="h6">Bio: {bio || "N/A"}</p>
             </MDBCol>
           </MDBRow>
 

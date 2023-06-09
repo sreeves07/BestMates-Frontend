@@ -24,6 +24,7 @@ const UploadWidget = () => {
           // console.log("Result:", result);
           if (result.event === "success") {
             // console.log(result.info.url);
+            console.log(user);
             setUploadUrl(result.info.url);
           }
         }
@@ -42,7 +43,8 @@ const UploadWidget = () => {
     console.log(uploadURL);
 
     axios
-      .patch(`${API}/user/${uid}`, {
+      .post(`${API}/user/${uid}/images`, {
+        mate_uid: `${uid}`,
         profile_image: `${uploadURL}`,
       })
       .then((response) => {

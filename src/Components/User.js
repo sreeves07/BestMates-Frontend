@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
-// import { useState, useEffect } from "react";
-// import axios from "axios";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import "./User.css";
-
 import defaultProfilePic from "../Images/LOGO_favicon.png";
 
-// const API = process.env.REACT_APP_API_URL;
+const API = process.env.REACT_APP_API_URL;
 
 const User = ({ currentUser }) => {
   const { first_name, birthday, gender, profile_image, uid } = currentUser;
+
+  const [profileImage, setProfileImage] = useState("");
 
   const age = (birthday) => {
     const birthYearSplit = new Date(birthday).toString().split(" ");
@@ -17,6 +18,18 @@ const User = ({ currentUser }) => {
     return currentYear - birthYearToNum;
   };
 
+  useEffect(() => {
+    axios
+      .get(`${API}/user/${uid}/images`) // changed from :id
+      .then((response) => {
+        console.log(response.data);
+        console.log("userPROFILE-IMAGE=", response.data);
+        setProfileImage(response.data[0].profile_image);
+      })
+      .catch((c) => console.warn("catch", c));
+  }, []);
+
+  console.log("heeeeey", profileImage);
   return (
     <div>
       {/* provides link to single user card view */}
@@ -27,7 +40,7 @@ const User = ({ currentUser }) => {
             style={{ width: "9.0rem", height: "9.0rem" }}
             alt="Avatar"
             id="profileImage"
-            src={profile_image || defaultProfilePic}
+            src={profileImage || defaultProfilePic}
             // alt="user profile"
           />{" "}
           <br />
