@@ -247,10 +247,10 @@ select.orientation-attribute {
   margin-top: -9px;
 
   border-radius: 50%;
-  border: 2px solid var(--mainColor);
 }
 
 #profile-pic:hover {
+  box-shadow: 0px 0px 8px var(--darkMainColor);
   cursor: url("../Images/arrows.png"), auto;
 
 }
