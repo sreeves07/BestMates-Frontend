@@ -21,7 +21,7 @@ export default function Register({ justifyActive }) {
   const [registerPassword, setRegisterPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [confirmTerms, setConfirmTerms] = useState(false)
-  const [successfulReg, setSucccessfulReg] = useState("");
+  const [successfulReg, setSucccessfulReg] = useState(true);
 
   const navigate = useNavigate();
 
@@ -63,7 +63,7 @@ export default function Register({ justifyActive }) {
   return (
     <form onSubmit={handleRegister}>
       <MDBTabsPane show={justifyActive === "tab2"}>
-        <MDBInput
+        {successfulReg ? "" : <><MDBInput
           wrapperClass="mb-4"
           label="Email"
           type="email"
@@ -90,7 +90,7 @@ export default function Register({ justifyActive }) {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
-        />
+        /></>}
         {successfulReg === "" ? (
           ""
         ) : !successfulReg ? (
@@ -98,7 +98,7 @@ export default function Register({ justifyActive }) {
             <em>*Retype Password</em>
           </p>
         ) : (
-          <h4 id="success-message">
+          <h4 id="success-message" style={{padding: "25px"}}>
             <strong>BestMates Account Created!</strong>
           </h4>
         )}
