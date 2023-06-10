@@ -7,7 +7,7 @@ import {
 } from "firebase/auth";
 import { useContextAuthProvider } from "../../Firebase/context";
 
-import { MDBTabsPane, MDBBtn, MDBInput, MDBCheckbox, MDBRow, MDBCol } from "mdb-react-ui-kit";
+import { MDBTabsPane, MDBBtn, MDBInput, MDBCheckbox, MDBRow } from "mdb-react-ui-kit";
 
 import axios from "axios";
 
@@ -20,8 +20,7 @@ export default function Register({ justifyActive }) {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [confirmTerms, setConfirmTerms] = useState(false)
-  const [successfulReg, setSucccessfulReg] = useState(true);
+  const [successfulReg, setSucccessfulReg] = useState("");
 
   const navigate = useNavigate();
 
@@ -129,7 +128,8 @@ export default function Register({ justifyActive }) {
                 id="register-flexCheckDefault2"
                 label={`I have read and agree to the terms`}
                 // value="unchecked"
-                value="unchecked"
+                unchecked
+                required
               />
           </MDBRow>
         </div>
