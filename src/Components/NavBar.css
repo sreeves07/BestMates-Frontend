@@ -15,7 +15,7 @@ header {
     display: flex;
     justify-content: space-between;
     height: 90px;
-    min-width: 350px;
+    min-width: 700px;
     padding: 0 2rem;
     background-image: linear-gradient(0.7turn, var(--darkMainColor), 60%, var(--darkBackgroundColor));
 
@@ -97,6 +97,7 @@ header .nav-btn {
 
     height: 6px;
     margin-top: 27px;
+    padding-top: 2px;
 
     transition: all ease 0.1s;
 }
