@@ -20,10 +20,10 @@ function Terms() {
               <MDBCardHeader className=" terms-headerCard py-2">
                 <MDBTypography tag="h4" className="mb-3 termsHdg" >Terms and Conditions of Use for BestMates</MDBTypography>
               </MDBCardHeader>
-              
-                <MDBRow className="term-backBtn">
-                  <Link to={`/signin/`}>
-                    <MDBBtn className='terms-backBtn' 
+                <br></br>
+                <MDBRow>
+                  <Link style={{display: "flex", alignItems: "center", justifyContent: "center"}} to={`/signin/`}>
+                    <MDBBtn className='sign-in-btn' 
                     onClick={()=>window.close()}>Close</MDBBtn>
                   </Link>
                 </MDBRow>
@@ -156,9 +156,10 @@ function Terms() {
                   <MDBCol md="9" >If any provision of this Agreement is held to be invalid, illegal, or unenforceable, the validity, legality, or enforceability of the remaining provisions shall not be affected or impaired.
                   </MDBCol>   
                 </MDBRow>
-                <MDBRow className="term-backBtn">
-                  <Link to={`/signin`}>
-                    <MDBBtn className='terms-backBtn'onClick={()=>window.close()}>Close</MDBBtn>
+                <br></br>
+                <MDBRow>
+                  <Link style={{display: "flex", alignItems: "center", justifyContent: "center"}} to={`/signin`}>
+                    <MDBBtn className='sign-in-btn'onClick={()=>window.close()}>Close</MDBBtn>
                   </Link>
                 </MDBRow>          
               </MDBCardBody>

@@ -1,7 +1,8 @@
 :root {
     --mainColor: #c0a0ff;
+    --brightMainColor: #622fc9;
     --transparentMainColor: #cbb1ff26;
-    --darkMainColor: #2e008b;
+    --darkMainColor: #471d9a;
     --secondaryColor: #66ff33;
     --darkSecondaryColor: #228700;
     --darkBackgroundColor: #12061e;
@@ -14,8 +15,10 @@ header {
     display: flex;
     justify-content: space-between;
     height: 90px;
+    min-width: 350px;
     padding: 0 2rem;
-    background-image: linear-gradient(to right, var(--darkBackgroundColor), var(--darkMainColor));
+    background-image: linear-gradient(0.7turn, var(--darkMainColor), 60%, var(--darkBackgroundColor));
+
 
     color: var(--secondaryColor);
 
@@ -75,15 +78,19 @@ header .nav-btn {
 
 .sign-nav-btn {
     background-color: white;
-    color: var(--mainColor);
+    color: white;
     font-weight: bold;
     width: 90px;
+
+    text-shadow: 0px 0px 7px white;
 
     border-radius: 10px;
     border: 2px solid var(--mainColor);
 
-    height: 35px;
+    height: 6px;
     margin-top: 27px;
+
+    transition: all ease 0.1s;
 }
 
 .sign-nav-btn:hover {
@@ -92,6 +99,9 @@ header .nav-btn {
 
     border: 2px solid var(--secondaryColor);
     box-shadow: 2px 2px white;
+    text-shadow: none;
+
+    height: 35px;
 }
 
 .sign-nav-btn:active {
