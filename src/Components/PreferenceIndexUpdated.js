@@ -26,7 +26,7 @@ const PreferenceIndexUpdated = () => {
   const [answer, setAnswer] = useState({
     gender_preference: "does-not-matter",
     pets_preference: false,
-    sexual_orientation_preference: "does-not-matter",
+    sexual_orientation_preference: "",
     open_rooms_preference: false,
     neat_preference: false,
     kids_preference: false,
@@ -49,7 +49,6 @@ const PreferenceIndexUpdated = () => {
     //visiting_nurse_preference: false,     //need to be added to backend
     //home_assistance_preference: false,    //need to be added to backend
     musician_preference: false, //need to be added to backend
-    singer_preference: false, //need to be added to backend
     host_parties_preference: false, //need to be added to backend
     //romantic_visits_preference: false,    //need to be added to backend
     //family_friend_visits_preference: false,     //need to be added to backend
@@ -88,9 +87,9 @@ const PreferenceIndexUpdated = () => {
       <div className="locationBox">
         {/* ************ ROW 1 *********** */}
         <MDBCard>
-          <MDBCardHeader className="py-3">
+          <MDBCardHeader className="py-2">
             <MDBTypography tag="h5" className="mb-0">
-              Select location to search for a roommate
+              <strong>Select Location</strong>
             </MDBTypography>
           </MDBCardHeader>
           <MDBCardBody>
@@ -103,48 +102,94 @@ const PreferenceIndexUpdated = () => {
           </MDBCardBody>
         </MDBCard>
       </div>
+      <br></br>
 
       <form className="prefIndexForm" onSubmit={handleSubmit} noValidate>
         <MDBCard>
-          <MDBCardHeader className="py-0">
+          <MDBCardHeader className="py-2">
             <MDBTypography tag="h5" className="mb-0">
-              Your Preferences
+              <strong>Preferences</strong>
             </MDBTypography>
           </MDBCardHeader>
           <MDBCardBody>
             <MDBListGroup>
               {/* ************ PREFERENCES *********** */}
 
-              {/* ************ ROW 3 - Prefs *********** */}
+              {/* ************ ROW 1 - Prefs *********** */}
 
-              <MDBRow className="mb-4">
-                <MDBCol className="col-4">
+              <MDBRow className="mb-3">  
+                <MDBCol>
+                  <select 
+                    style={{fontWeight: "bold", color: "rgb(117, 117, 117"}} 
+                    className="gender-select-prefs form-control background-light-purple"
+                    name="flexCheck"
+                    onChange={handleTextChange}
+                    value={answer.gender_preference}
+                    id="gender_preference"
+                    required
+                    > 
+                    <option defaultValue={"does-not-matter"}>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="intersex">Intersex</option>
+                    <option value="non-binary">Non-Binary</option>
+                    <option value="transgender">Transgender</option>
+                    <option value="other">Other</option>
+                    <option value="prefer-not-to-say">Prefer not to say...</option>     
+                  </select>
+                </MDBCol>
+                <MDBCol>
+                  <select 
+                    style={{fontWeight: "bold", color: "rgb(117, 117, 117"}} 
+                    className="orientation-select-prefs form-control background-light-purple"
+                    name="flexCheck"
+                    onChange={handleTextChange}
+                    value={answer.sexual_orientation_preference}
+                    id="sexual_orientation_preference"
+                    required
+                  >   
+                    <option defaultValue={"does-not-matter"}>Orientation</option>
+                    <option value="heterosexual">Heterosexual</option>
+                    <option value="pansexual">Pansexual</option>
+                    <option value="bisexual">BiSexual</option>
+                    <option value="homosexual">Homosexual</option>
+                    <option value="asexual">Asexual</option>
+                    <option value="other">Other</option>
+                    <option value="prefer-not-to-say">Prefer not to say...</option>
+                  </select>
+                </MDBCol>
+              </MDBRow>
+
+              {/* ************ ROW 2 - Prefs *********** */}
+
+              <MDBRow className="mb-3">
+                <MDBCol className="check">
                   <MDBCheckbox
                     className="credit-pref"
                     name="flexCheck"
-                    label="Has Good Credit"
+                    label="Good Credit"
                     id="good_credit_preference"
                     onChange={handleCheckboxChange}
                     value={answer.good_credit_preference}
                     checked={checkedAlg(answer.good_credit_preference)}
                   />
                 </MDBCol>
-                <MDBCol className="col-4">
+                <MDBCol className="check">
                   <MDBCheckbox
                     className="hasJob-pref"
                     name="flexCheck"
-                    label="Has a Job"
+                    label="Employed"
                     id="employment_preference"
                     onChange={handleCheckboxChange}
                     value={answer.employment_preference}
                     checked={checkedAlg(answer.employment_preference)}
                   />
                 </MDBCol>
-                <MDBCol className="col-4">
+                <MDBCol className="check">
                   <MDBCheckbox
                     className="highIncome-pref"
                     name="flexCheck"
-                    label="Has High Income"
+                    label="High Income"
                     id="high_income_preference"
                     onChange={handleCheckboxChange}
                     value={answer.high_income_preference}
@@ -153,96 +198,93 @@ const PreferenceIndexUpdated = () => {
                 </MDBCol>
               </MDBRow>
 
-              {/* ************ ROW 4 - Prefs *********** */}
+              {/* ************ ROW 3 - Prefs *********** */}
 
-              <MDBRow className="mb-4">
-                <MDBCol>
+              <MDBRow className="mb-3">
+                <MDBCol className="check">
                   <MDBCheckbox
                     className="shareBills-pref"
                     name="flexCheck"
-                    label="Agree to Share Bills"
+                    label="Shares Bills"
                     id="share_bills_preference"
                     onChange={handleCheckboxChange}
                     value={answer.share_bills_preference}
                     checked={checkedAlg(answer.share_bills_preference)}
                   />
                 </MDBCol>
-                <MDBCol className="col-4">
+                <MDBCol className="check">
                   <MDBCheckbox
-                    className="openRooms-pref"
                     name="flexCheck"
-                    label="Has Open Room(s)"
-                    id="open_rooms_preference"
+                    id="religious_preference"
+                    label="Religious"
                     onChange={handleCheckboxChange}
-                    value={answer.open_rooms_preference}
-                    checked={checkedAlg(answer.open_rooms_preference)}
+                    value={answer.religious_preference}
+                    checked={checkedAlg(answer.religious_preference)}
                   />
                 </MDBCol>
-                <MDBCol className="col-4">
+                <MDBCol className="check">
                   <MDBCheckbox
-                    className="highRise-pref"
                     name="flexCheck"
-                    label="High Rise building"
-                    id="high_rise_preference"
+                    id="disabled_preference"
+                    label="Disabled"
                     onChange={handleCheckboxChange}
-                    value={answer.high_rise_preference}
-                    checked={checkedAlg(answer.high_rise_preference)}
-                  />
-
-                  {/* ************ ROW 5 - Prefs *********** */}
-                </MDBCol>
-              </MDBRow>
-              <MDBRow className="mb-4">
-                <MDBCol className="col-4">
-                  <MDBCheckbox
-                    className="house-pref"
-                    name="flexCheck"
-                    label="Private House"
-                    id="house_preference"
-                    onChange={handleCheckboxChange}
-                    value={answer.house_preference}
-                    checked={checkedAlg(answer.house_preference)}
-                  />
-                </MDBCol>
-                <MDBCol className="col-4">
-                  <MDBCheckbox
-                    className="privateRoom-pref"
-                    name="flexCheck"
-                    label="Private Room"
-                    id="private_room_preference"
-                    onChange={handleCheckboxChange}
-                    value={answer.private_room_preference}
-                    checked={checkedAlg(answer.private_room_preference)}
-                  />
-                </MDBCol>
-                <MDBCol className="col-4">
-                  <MDBCheckbox
-                    className="privateBathroom-pref"
-                    name="flexCheck"
-                    label="Private Bathroom"
-                    id="private_bathroom_preference"
-                    onChange={handleCheckboxChange}
-                    value={answer.private_bathroom_preference}
-                    checked={checkedAlg(answer.private_bathroom_preference)}
+                    value={answer.disabled_preference}
+                    checked={checkedAlg(answer.disabled_preference)}
                   />
                 </MDBCol>
               </MDBRow>
 
-              {/* ************ ROW 6 - Prefs *********** */}
+              {/* ************ ROW 4 - Prefs *********** */}
 
-              <MDBRow className="mb-4">
-                <MDBCol className="col-4">
+              <MDBRow className="mb-3">
+                <MDBCol className="check">
+                  <MDBCheckbox
+                    name="flexCheck"
+                    id="smoker_preference"
+                    label="Smoker"
+                    onChange={handleCheckboxChange}
+                    value={answer.smoker_preference}
+                    checked={checkedAlg(answer.smoker_preference)}
+                  />
+                </MDBCol>
+                <MDBCol className="check">
+                  <MDBCheckbox
+                    name="flexCheck"
+                    id="musician_preference"
+                    label="Musician"
+                    onChange={handleCheckboxChange}
+                    value={answer.musician_preference}
+                    checked={checkedAlg(answer.musician_preference)}
+                  />
+                </MDBCol>
+                <MDBCol className="check">
+                  <MDBCheckbox
+                    className="host_parties_preference"
+                    name="flexCheck"
+                    id="host_parties_preference"
+                    label="Party Host"
+                    onChange={handleCheckboxChange}
+                    value={answer.host_parties_preference}
+                    checked={checkedAlg(answer.host_parties_preference)}
+                  />
+                </MDBCol>
+              </MDBRow>
+
+              {/* ************ ROW 5 - Prefs *********** */}
+
+              <MDBRow className="mb-3">
+                <MDBCol className="check">
                   <MDBCheckbox
                     className="neat_preference"
                     name="flexCheck"
                     id="neat_preference"
-                    label="Is Very Neat"
+                    label="Very Neat"
                     onChange={handleCheckboxChange}
                     value={answer.neat_preference}
                     checked={checkedAlg(answer.neat_preference)}
                   />
                 </MDBCol>
-                <MDBCol className="col-4">
+                <MDBCol className="check">
                   <MDBCheckbox
                     name="flexCheck"
                     id="low_noise_preference"
@@ -252,131 +294,92 @@ const PreferenceIndexUpdated = () => {
                     checked={checkedAlg(answer.low_noise_preference)}
                   />
                 </MDBCol>
-                <MDBCol className="col-4">
+                <MDBCol className="check">
                   <MDBCheckbox
+                    className="openRooms-pref"
                     name="flexCheck"
-                    id="religious_preference"
-                    label="Is Religious"
+                    label="Has Open Room"
+                    id="open_rooms_preference"
                     onChange={handleCheckboxChange}
-                    value={answer.religious_preference}
-                    checked={checkedAlg(answer.religious_preference)}
+                    value={answer.open_rooms_preference}
+                    checked={checkedAlg(answer.open_rooms_preference)}
                   />
                 </MDBCol>
               </MDBRow>
 
-              {/* ************ ROW 7 - Prefs *********** */}
+              {/* ************ ROW 6 - Prefs *********** */}
 
-              <MDBRow className="mb-4">
-                <MDBCol className="col-4">
-                  <MDBCheckbox
-                    name="flexCheck"
-                    id="smoker_preference"
-                    label="Is a Smoker"
-                    onChange={handleCheckboxChange}
-                    value={answer.smoker_preference}
-                    checked={checkedAlg(answer.smoker_preference)}
-                  />
-                </MDBCol>
-                <MDBCol className="col-4">
-                  <MDBCheckbox
-                    name="flexCheck"
-                    id="disabled_preference"
-                    label="Has Disability"
-                    onChange={handleCheckboxChange}
-                    value={answer.disabled_preference}
-                    checked={checkedAlg(answer.disabled_preference)}
-                  />
-                </MDBCol>
-                <MDBCol className="col-4">
-                  <MDBCheckbox
-                    name="flexCheck"
-                    id="musician_preference"
-                    label="Is Active Musician"
-                    onChange={handleCheckboxChange}
-                    value={answer.musician_preference}
-                    checked={checkedAlg(answer.musician_preference)}
-                  />
-                </MDBCol>
-              </MDBRow>
+              <MDBRow className="mb-3" style={{display: `${answer.open_rooms_preference ? "" : "none"}`}} >
+              <MDBCol className='check'>
+                <MDBCheckbox
+                  className="privateRoom-pref"
+                  name="flexCheck"
+                  label="Private Room" 
+                  id="private_room_preference"
+                  onChange={handleCheckboxChange}
+                  value={answer.private_room_preference}
+                  checked={checkedAlg(answer.private_room_preference)}
+                /> 
+              </MDBCol>
+              <MDBCol className='check'>
+                <MDBCheckbox
+                  className="privateBathroom-pref"
+                  name="flexCheck"
+                  label="Private Bathroom" 
+                  id="private_bathroom_preference"
+                  onChange={handleCheckboxChange}
+                  value={answer.private_bathroom_preference}
+                  checked={checkedAlg(answer.private_bathroom_preference)}
+                /> 
+              </MDBCol>
+              <MDBCol className='check'>
+                <MDBCheckbox
+                  className="highRise-pref"
+                  name="flexCheck"
+                  label="High Rise Building" 
+                  id="high_rise_preference"
+                  onChange={handleCheckboxChange}
+                  value={answer.high_rise_preference}
+                  checked={checkedAlg(answer.high_rise_preference)}
+                /> 
+              </MDBCol>
+            </MDBRow>
 
-              {/* ************ ROW 8 - Prefs *********** */}
-
-              <MDBRow className="mb-4">
-                <MDBCol className="col-4">
+            {/* ************ ROW 7 - Prefs *********** */}
+            <MDBRow className="mb-3" style={{display: `${answer.open_rooms_preference ? "" : "none"}`}} >
+            {/* <MDBCol className="ms-0"> 
                   <MDBCheckbox
                     name="flexCheck"
                     id="singer_preference"
-                    label="Is Active Singer"
+                    label="Is Active Singer" 
                     onChange={handleCheckboxChange}
                     value={answer.singer_preference}
-                    checked={checkedAlg(answer.singer_preference)}
-                  />
-                </MDBCol>
-                <MDBCol className="col-4">
-                  <MDBCheckbox
-                    className="host_parties_preference"
-                    name="flexCheck"
-                    id="host_parties_preference"
-                    label="Hosts Parties"
-                    onChange={handleCheckboxChange}
-                    value={answer.host_parties_preference}
-                    checked={checkedAlg(answer.host_parties_preference)}
-                  />
-                </MDBCol>
-              </MDBRow>
-
-              {/* ************ ROW 11 - Prefs *********** */}
-              <MDBRow className="mb-5">
-                <MDBCol className="col-4">
-                  <label htmlFor="gender_preference">Gender:</label>
-                  <select
-                    className="col-12 select gender-select-prefs form-control"
-                    // name="flexCheck"
-                    onChange={handleTextChange}
-                    value={answer.gender_preference}
-                    id="gender_preference"
-                    required>
-                    <option defaultValue={"does-not-matter"}>Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="intersex">Intersex</option>
-                    <option value="non-binary">Non-Binary</option>
-                    <option value="transgender">Transgender</option>
-                    <option value="other">Other</option>
-                    <option value="does-not-matter">Does not matter</option>
-                  </select>
-                </MDBCol>
-                <MDBCol className="col-4">
-                  <label htmlFor="sexual_orientation_preference">
-                    Orientation:
-                  </label>
-                  <select
-                    className="basic-single col-12 orientation-select-prefs select form-control select"
-                    // name="flexCheck"
-
-                    onChange={handleTextChange}
-                    value={answer.sexual_orientation_preference}
-                    id="sexual_orientation_preference"
-                    required>
-                    <option defaultValue={"does-not-matter"}>
-                      Orientation
-                    </option>
-                    <option value="heterosexual">Heterosexual</option>
-                    <option value="pansexual">Pansexual</option>
-                    <option value="bisexual">Bisexual</option>
-                    <option value="homosexual">Homosexual</option>
-                    <option value="asexual">Asexual</option>
-                    <option value="other">Other</option>
-                    <option value="does-not-matter">Does not matter</option>
-                  </select>
-                </MDBCol>
-              </MDBRow>
+                  /> 
+                </MDBCol>   */}
+              <MDBCol className='check'>
+                <MDBCheckbox
+                  className="house-pref"
+                  name="flexCheck"
+                  label="Private House" 
+                  id="house_preference"
+                  onChange={handleCheckboxChange}
+                  value={answer.house_preference}
+                  checked={checkedAlg(answer.house_preference)}
+                /> 
+              </MDBCol>
+              <MDBCol className="ms-0"></MDBCol>
+              <MDBCol className="ms-0"></MDBCol>
+            </MDBRow>
+    
             </MDBListGroup>
 
             {/* <MDBBtn size="lg" block> */}
-            <MDBBtn type="submit" size="sm">
+            <br></br>
+            <MDBBtn className='sign-in-btn' type="submit">
               Save Updated Preferences
             </MDBBtn>
+            <br></br>
+            <br></br>
           </MDBCardBody>
         </MDBCard>
       </form>
