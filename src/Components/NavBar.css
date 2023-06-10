@@ -37,6 +37,11 @@ header {
     height: 7.1rem;
 }
 
+.logo:hover {
+    transform: rotate(360deg);
+    transition: all ease 0.3s;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -55,7 +60,10 @@ nav a:hover,
 .nav-btn:hover,
 .compose-btn:hover,
 .login-btn:hover {
-    color: var(--mainColor)
+    color: #9c6bff;
+    border-bottom: 4px solid white;
+    transform: scale(1.1);
+    transition: all ease 0.1s;
 }
 
 nav .nav-spacer {
