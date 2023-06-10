@@ -89,7 +89,8 @@ function NewForm() {
   // console.log("newly added user", newUser)
 
   const handleCheckboxChange = (event) => {
-    setNewUser({ ...newUser, [event.target.id]: !newUser[event.target.value] });
+    setNewUser({ ...newUser, [event.target.id]: !newUser[event.target.id] });
+    console.log(event.target.value, newUser[event.target.id])
   };
 
   function handleSubmit(event) {
@@ -106,7 +107,7 @@ function NewForm() {
           <MDBCol md="8" className="mb-4">
             <MDBCard className="newForm-card">
               <MDBCardHeader className="py-2">
-                <MDBTypography tag="h6" className="mb-0 ">
+                <MDBTypography tag="h5" className="mb-0 ">
                   <strong>Profile Information</strong>
                 </MDBTypography>
               </MDBCardHeader>
@@ -198,6 +199,7 @@ function NewForm() {
 
                   <MDBCol>
                     <select
+                      style={{color: "rgb(102, 102, 102)"}}
                       className="gender-attribute form-control background-light-purple"
                       onChange={handleTextChange}
                       value={newUser.gender}
@@ -218,6 +220,7 @@ function NewForm() {
 
                   <MDBCol>
                     <select
+                      style={{color: "rgb(102, 102, 102)"}}
                       className="orientation-attribute form-control background-light-purple"
                       onChange={handleTextChange}
                       value={newUser.sexual_orientation}
@@ -308,13 +311,13 @@ function NewForm() {
                 </MDBRow>
 
                 {/* ********** Attributes (Financial) - Row 6 - (Checkboxes- Row A)********** */}
-
+                <p><em>Select all that apply to you...</em></p>
                 <MDBRow className="mb-3">
                   {/* <MDBTypography tag="h6" className="mb-0 " ><strong>Your Attributes</strong><hr></hr></MDBTypography> */}
                   <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
-                      label="Agree To Share Bills"
+                      label="Share Bills"
                       onChange={handleCheckboxChange}
                       value={newUser.is_sharing_bills}
                       id="is_sharing_bills"
@@ -324,31 +327,32 @@ function NewForm() {
                   <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
-                      label="Have Open Rooms"
+                      label="Smoker"
                       onChange={handleCheckboxChange}
-                      value={newUser.has_open_rooms}
-                      id="has_open_rooms"
-                    />
-                  </MDBCol>
-                  <MDBCol className="check">
-                    <MDBCheckbox
-                      name="flexCheck"
-                      label="Live in a High Rise"
-                      onChange={handleCheckboxChange}
-                      value={newUser.high_rise}
-                      id="high_rise"
+                      value={newUser.is_smoker}
+                      id="is_smoker"
                     />
                   </MDBCol>
 
                   <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
-                      label="Live in a House"
+                      label="Party Host"
                       onChange={handleCheckboxChange}
-                      value={newUser.house}
-                      id="house"
+                      value={newUser.host_parties}
+                      id="host_parties"
                     />
                   </MDBCol>
+                  <MDBCol className='check'>
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Disabled"
+                      onChange={handleCheckboxChange}
+                      value={newUser.is_disabled}
+                      id="is_disabled"
+                    />
+                  </MDBCol>
+                  
                 </MDBRow>
 
                 {/* ********** Attributes (LifeStyle, Amenities) - Row 7 - (Checkboxes- Row B) ********** */}
@@ -372,24 +376,27 @@ function NewForm() {
                       id="low_noise"
                     />
                   </MDBCol>
+
                   <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
-                      label="Have Private Room"
+                      label="Student"
                       onChange={handleCheckboxChange}
-                      value={newUser.private_room}
-                      id="private_room"
+                      value={newUser.is_student}
+                      id="is_student"
                     />
                   </MDBCol>
+
                   <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
-                      label="Have Private Bathroom"
+                      label="Musician"
                       onChange={handleCheckboxChange}
-                      value={newUser.private_bathroom}
-                      id="private_bathroom"
+                      value={newUser.is_musician}
+                      id="is_musician"
                     />
                   </MDBCol>
+                  
                 </MDBRow>
 
                 {/* ********** Attributes (LifeStyle, Obligations) - Row 8 - (Checkboxes- Row C) ********** */}
@@ -428,53 +435,54 @@ function NewForm() {
                   <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
-                      label="Smoker"
+                      label="Have Rooms"
                       onChange={handleCheckboxChange}
-                      value={newUser.is_smoker}
-                      id="is_smoker"
+                      value={newUser.has_open_rooms}
+                      id="has_open_rooms"
                     />
                   </MDBCol>
+                  
                 </MDBRow>
 
                 {/* ********** Attributes (Activities) - Row 9 - (Checkboxes- Row D) ********** */}
 
-                <MDBRow className="mb-3">
+                <MDBRow className="mb-3" style={{display: `${newUser.has_open_rooms ? "" : "none"}`}} >
                   <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
-                      label="Student"
+                      label="Private Room"
                       onChange={handleCheckboxChange}
-                      value={newUser.is_student}
-                      id="is_student"
+                      value={newUser.private_room}
+                      id="private_room"
+                    />
+                  </MDBCol>
+                  <MDBCol className="check">
+                    <MDBCheckbox
+                      name="flexCheck"
+                      label="Private Bath"
+                      onChange={handleCheckboxChange}
+                      value={newUser.private_bathroom}
+                      id="private_bathroom"
                     />
                   </MDBCol>
 
                   <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
-                      label="Musician"
+                      label="High Rise"
                       onChange={handleCheckboxChange}
-                      value={newUser.is_musician}
-                      id="is_musician"
+                      value={newUser.high_rise}
+                      id="high_rise"
                     />
                   </MDBCol>
 
                   <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
-                      label="Party Host"
+                      label="House"
                       onChange={handleCheckboxChange}
-                      value={newUser.host_parties}
-                      id="host_parties"
-                    />
-                  </MDBCol>
-                  <MDBCol>
-                    <MDBCheckbox
-                      name="flexCheck"
-                      label="Disabled"
-                      onChange={handleCheckboxChange}
-                      value={newUser.is_disabled}
-                      id="is_disabled"
+                      value={newUser.house}
+                      id="house"
                     />
                   </MDBCol>
                 </MDBRow>
@@ -494,6 +502,7 @@ function NewForm() {
                 {/* ********** End of Input Fields  ********** */}
               </MDBCardBody>
             </MDBCard>
+            <br></br>
           </MDBCol>
         </MDBRow>
       </form>
