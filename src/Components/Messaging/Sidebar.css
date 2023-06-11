@@ -1,3 +1,23 @@
 .sidebar {
-    background-color: grey;
+    background-color: rgba(128, 128, 128, 0.179);
+}
+
+.messaging-nav {
+    border: 2px solid red;
+
+    height: 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+}
+
+.exit-profile-messaging-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    gap: 5px;
 }
