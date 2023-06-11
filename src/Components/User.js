@@ -60,16 +60,16 @@ const User = ({ currentUser }) => {
       <div className="user-btns">
         <MDBBtn
           id="fav-btn"
-          style={{width: "20%", padding: "1px"}}
+          style={{width: "40px", padding: "1px"}}
           className="sign-in-btn"
           onClick={(e) => console.log(e.target)}>
         ❤️
         </MDBBtn>
         <MDBBtn
           id="message-btn"
-          style={{width: "20%", padding: "1px", paddingTop: "4px"}}
+          style={{width: "40px", padding: "1px", paddingTop: "4px"}}
           className="sign-in-btn">
-          <BiMessageAltDetail size="25"/>
+          <BiMessageAltDetail size="20"/>
         </MDBBtn>
       </div>
     </div>

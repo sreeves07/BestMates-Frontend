@@ -111,31 +111,27 @@
 
 .user-btns {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 
   margin: 60px;
-  margin-top: 15px;
-  margin-bottom: 30px;
-
+  margin-top: 10px;
+  margin-bottom: 40px;
 }
 
 #fav-btn {
-  font-size: 20px;
+  font-size: 90%;
+  margin-right: 7px;
+  padding: 5px !important;
+}
+
+#message-btn {
+  margin-left: 7px;
+  padding: 6px 5px 5px 5px !important;
 }
 
 #fav-btn:hover,
 #message-btn:hover {
-  transition: all ease 0.1s;
-}
-
-#best-mate-btn:focus {
-  background-color: var(--darkMainColor);
-}
-
-#best-mate-btn:focus {
-  transform: rotate(360deg);
-  transition: all ease 1s;
+  transition: all ease 0.2s;
 }
 
 
