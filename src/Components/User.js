@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { MDBBtn } from 'mdb-react-ui-kit';
+import { BiMessageAltDetail, BiSmile } from "react-icons/bi"
+import "../Components/SignIn/SignInForm.css"
 import "./User.css";
+
+import logo from "../Images/LOGO_no_text.png"
 import defaultProfilePic from "../Images/LOGO_favicon.png";
 
 const API = process.env.REACT_APP_API_URL;
@@ -52,6 +57,27 @@ const User = ({ currentUser }) => {
           <br />
         </div>
       </Link>
+      <div className="user-btns">
+        <MDBBtn
+          id="fav-btn"
+          style={{width: "20%", padding: "1px"}}
+          className="sign-in-btn"
+          onClick={(e) => console.log(e.target)}>
+        ❤️
+        </MDBBtn>
+        <MDBBtn 
+          id="best-mate-btn"
+          style={{width: "30%", padding: "1px", paddingTop: "4px"}}
+          className="sign-in-btn">
+          <img width="50px" src={logo} alt="bestMate" />
+        </MDBBtn>
+        <MDBBtn
+          id="message-btn"
+          style={{width: "20%", padding: "1px", paddingTop: "4px"}}
+          className="sign-in-btn">
+          <BiMessageAltDetail size="25"/>
+        </MDBBtn>
+      </div>
     </div>
   );
 };

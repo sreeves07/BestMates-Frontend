@@ -109,6 +109,35 @@
   line-height: 2px;
 }
 
+.user-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin: 60px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+
+}
+
+#fav-btn {
+  font-size: 20px;
+}
+
+#fav-btn:hover,
+#message-btn:hover {
+  transition: all ease 0.1s;
+}
+
+#best-mate-btn:focus {
+  background-color: var(--darkMainColor);
+}
+
+#best-mate-btn:focus {
+  transform: rotate(360deg);
+  transition: all ease 1s;
+}
+
 
 
 /* MEDIA QUERIES - to be completed*/
