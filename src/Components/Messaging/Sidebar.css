@@ -1,5 +1,5 @@
 .sidebar {
-    background-color: rgba(128, 128, 128, 0.179);
+    margin: 10px;
 }
 
 .messaging-nav {
@@ -20,4 +20,20 @@
     align-items: center;
 
     gap: 5px;
+}
+
+.search {
+    border: 2px solid black;
+
+    height: 90%;
+    padding: 5px;
+}
+
+#search-input {
+    border: none;
+    background-color: none;
+}
+
+#search-input:active {
+    border: 1px solid yellow !important
 }
