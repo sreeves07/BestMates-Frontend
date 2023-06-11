@@ -32,7 +32,10 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/new" element={<New />} />
               <Route path="/preferences" element={<Preferences />} />
+
               <Route path="/users/:uid/edit" element={<EditUserForm />} />
+              <Route path="/chat" element={<Messaging />} />
+
               <Route path="/users" element={<Index />} />
               <Route path="/users/:uid" element={<Show />} />
               <Route path="/dummy" element={<Dummy />} />
@@ -45,7 +48,6 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/signin" element={<SignIn />} />
-              <Route path="/messages" element={<Messaging />} />
               <Route path="*" element={<p>Error</p>} />
             </>
           )}
