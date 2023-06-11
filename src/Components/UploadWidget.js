@@ -11,6 +11,7 @@ const UploadWidget = () => {
   const { user } = useContextAuthProvider();
   const { uid } = user;
 
+  const [hidden, setHidden] = useState(-1)
   let [picUploadSuccess, setPicUploadSuccess] = useState(false)
   let [uploadURL, setUploadUrl] = useState("");
   const cloudinaryRef = useRef();
@@ -29,6 +30,7 @@ const UploadWidget = () => {
             // console.log(result.info.url);
             console.log(user);
             setUploadUrl(result.info.url);
+            setHidden(1)
           }
         }
         if (error) {
@@ -36,7 +38,7 @@ const UploadWidget = () => {
         }
       }
     );
-  }, []);
+  }, [hidden]);
 
   const imgUploadHandleSubmit = () => {
     if (uploadURL === "") {
@@ -66,12 +68,13 @@ const UploadWidget = () => {
           alt="avatar"
           onClick={() => widgetRef.current.open()} />
         {!uploadURL ? <span className="tooltiptext">Upload Image</span> : ""}
-      {!picUploadSuccess ? <MDBBtn 
+      {!picUploadSuccess ? 
+      <MDBBtn 
+        style={{zIndex: `${hidden}`}}
         className='sign-in-btn'
         id="uploadWidget-Btn2"
         onClick={imgUploadHandleSubmit}
-      >
-        <AiOutlineCloudUpload size="30"/>
+      ><AiOutlineCloudUpload size="30"/>
       </MDBBtn> : <p><br></br>Upload Successful!</p>}
     </div>
   );
