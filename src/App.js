@@ -11,7 +11,7 @@ import New from "./Pages/New";
 import EditUserForm from "./Pages/Edit";
 import Preferences from "./Pages/Preferences";
 import FourOFour from "./Pages/FourOFour";
-import Messaging from './Pages/Messaging.';
+import Messaging from './Pages/Messaging';
 
 import Dummy from "./Pages/Dummy";
 
