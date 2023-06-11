@@ -65,12 +65,6 @@ const User = ({ currentUser }) => {
           onClick={(e) => console.log(e.target)}>
         ❤️
         </MDBBtn>
-        <MDBBtn 
-          id="best-mate-btn"
-          style={{width: "30%", padding: "1px", paddingTop: "4px"}}
-          className="sign-in-btn">
-          <img width="50px" src={logo} alt="bestMate" />
-        </MDBBtn>
         <MDBBtn
           id="message-btn"
           style={{width: "20%", padding: "1px", paddingTop: "4px"}}
