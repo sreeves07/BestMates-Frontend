@@ -11,6 +11,8 @@ import New from "./Pages/New";
 import EditUserForm from "./Pages/Edit";
 import Preferences from "./Pages/Preferences";
 import FourOFour from "./Pages/FourOFour";
+import Messaging from './Pages/Messaging.';
+
 import Dummy from "./Pages/Dummy";
 
 import "./App.css";
@@ -43,6 +45,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/signin" element={<SignIn />} />
+              <Route path="/messages" element={<Messaging />} />
               <Route path="*" element={<p>Error</p>} />
             </>
           )}
