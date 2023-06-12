@@ -3,8 +3,7 @@ import { db } from "../../Firebase/config"
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import "./Sidebar.css"
 
-function Search({ setSearchedUser, setError }) {
-    const [ searchUserInput, setSearchUserInput ] = useState("")
+function Search({ setSearchedUser, setError, searchUserInput, setSearchUserInput }) {
 
     const handleSearch = async () => {
         let q = query(collection(db, "users"), where("first_name", "==", searchUserInput))

@@ -3,7 +3,7 @@ import { collection, getDoc, query, serverTimestamp, doc, setDoc, updateDoc, whe
 import { db } from "../../Firebase/config";
 import { useContextAuthProvider } from '../../Firebase/context';
 
-function Chats({ searchedUser, error }) {
+function Chats({ setSearchedUser, searchedUser, error, setSearchUserInput }) {
   const { user, profilePhotoUrl, firstName } = useContextAuthProvider()
 
   const handleSelect = async () => {
@@ -13,7 +13,7 @@ function Chats({ searchedUser, error }) {
       const res = await getDoc(doc(db, "chats", combinedId));
 
       if (!res.exists()) {
-        await setDoc(doc, (db, "chats", combinedId), {messages: []})
+        await setDoc(doc(db, "chats", combinedId), {messages: []})
       }
 
       await updateDoc(doc(db, "userChats", user.uid), {
@@ -35,7 +35,8 @@ function Chats({ searchedUser, error }) {
       });
 
     } catch (e) {console.error(e)}
-
+    setSearchedUser(null)
+    setSearchUserInput("")
   }
 
   return (
