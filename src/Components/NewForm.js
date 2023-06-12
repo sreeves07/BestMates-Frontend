@@ -8,7 +8,7 @@ import { useContextAuthProvider } from "../Firebase/context";
 import axios from "axios";
 // Firebase Firestore Database
 import { db } from "../Firebase/config"
-import { collection, addDoc } from "firebase/firestore"
+import { collection, doc, addDoc, setDoc } from "firebase/firestore"
 // User Picture Upload Widget from Cloudinary
 // import UploadWidget from "./UploadWidget.js"
 import "../Components/NewForm.css";
@@ -100,13 +100,15 @@ function NewForm() {
     addNewUser(newUser);
 
     try {
-      const docRef = await addDoc(collection(db, "users"), {
+      await addDoc(collection(db, "users"), {
         uid: uid,
         email: email,
         profilePhotoUrl: profilePhotoUrl,
         ...newUser,
       })
-      console.log("Document written with ID: ", docRef.id)
+
+      await setDoc(doc(db, "userChats", uid), {});
+
     } catch (e) {
       console.error(e)
     }
