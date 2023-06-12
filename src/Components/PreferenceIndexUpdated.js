@@ -8,6 +8,7 @@ import "../Components/NewForm.css";
 // imports for material design bootstrap
 import {
   MDBBtn,
+  MDBInput,
   MDBCard,
   MDBCardBody,
   MDBCardHeader,
@@ -22,7 +23,7 @@ const API = process.env.REACT_APP_API_URL;
 
 const PreferenceIndexUpdated = () => {
   const { user } = useContextAuthProvider();
-
+  const [zipcode, setZipcode] = (`${user.zip_code}`)
   const [answer, setAnswer] = useState({
     gender_preference: "decline to say",
     pets_preference: false,
@@ -63,11 +64,18 @@ const PreferenceIndexUpdated = () => {
     setAnswer({ ...answer, [event.target.id]: !answer[event.target.id] });
   };
 
+  // handleZipCodeChange(){
+  //  
+  // }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const res = await axios.put(`${API}/user/${user.uid}/answers`, answer);
     console.log(res);
   };
+
+  
+
 
   const checkedAlg = (val) => {
     return val === true ? "checked" : "";
@@ -99,12 +107,24 @@ const PreferenceIndexUpdated = () => {
 
               {/* ************ ROW 1 - Prefs *********** */}
 
-              <MDBRow className="mb-3">  
-                <MDBCol>
-                  <select 
-                    style={{fontWeight: "bold", color: "rgb(117, 117, 117"}} 
-                    className="gender-select-prefs form-control background-light-purple"
-                    name="flexCheck"
+              <MDBRow className="mb-5">
+
+                <MDBCol className="col-4">
+                {/* <p>ZipCode placeholder</p> */}
+                 <MDBInput
+                      className="background-light-purple"
+                      label="Search for Roommate by Zip Code"
+                      type="number"
+                      // onChange={handleTextChange}
+                      id="zip_code"
+                  />
+                </MDBCol>
+
+                <MDBCol className="col-4">
+                  <label htmlFor="gender_preference">Gender:</label>
+                  <select
+                    className="col-12 select gender-select-prefs form-control"
+                    // name="flexCheck"
                     onChange={handleTextChange}
                     value={answer.gender_preference}
                     id="gender_preference"
