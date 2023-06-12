@@ -33,13 +33,13 @@ const UserBioPic = ({ id }) => {
 
   const addUserBio = () => {
     axios
-      .post(`${API}/user/${uid}/bios`, {
+      .post(`${API}/user/${uid}/bio`, {
         mate_uid: `${uid}`,
         small_bio: `${userBio}`,
-      } )
+      })
       .then((res) => console.log(res.data))
       .catch((c) => console.warn("catch", c));
-      alert("Your Bio has been saved!")
+    alert("Your Bio has been saved!");
   };
 
   return (
@@ -79,8 +79,7 @@ const UserBioPic = ({ id }) => {
             <MDBBtn
               style={{ width: "50%" }}
               className="btn-secondary sign-in-btn"
-              onClick={addUserBio}
-              >
+              onClick={addUserBio}>
               Save Bio
             </MDBBtn>
           </MDBRow>
