@@ -18,7 +18,6 @@
 
 #chat-mate-logo {
     position: absolute;
-    z-index: 1;
     left: -15px;
     top: -15px;
     border: 5px solid var(--darkBackgroundColor);
