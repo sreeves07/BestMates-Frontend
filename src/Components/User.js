@@ -79,7 +79,7 @@ const User = ({ currentUser }) => {
           />{" "}
         </Link>
         <br />
-        <br></br>
+       
         <span className="userCard-fname">{first_name} </span> <br />
         <span className="userCard-info">
           {" "}

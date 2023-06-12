@@ -2,7 +2,7 @@ import React from 'react'
 
 function Favorites() {
   return (
-    <div className='favsIndex'>Favorites</div>
+    <div className="preferenceIndex favsIndex"></div>
   )
 }
 
