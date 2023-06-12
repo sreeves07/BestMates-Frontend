@@ -34,7 +34,7 @@ const UserBioPic = () => {
   const addUserBio = (e) => {
     e.preventDefault()
     axios
-      .post(`${API}/user/${uid}/bios`, {
+      .post(`${API}/user/${uid}/bio`, {
         mate_uid: `${uid}`,
         small_bio: `${userBio}`,
       })
@@ -42,7 +42,7 @@ const UserBioPic = () => {
         setBioSubmitted(true);
       })
       .catch((c) => console.warn("catch", c));
-      alert("Your Bio has been saved!")
+    alert("Your Bio has been saved!");
   };
 
   return (
