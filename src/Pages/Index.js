@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import AllUsers from "../Components/AllUsers";
-import PreferenceIndexUpdated from "../Components/PreferenceIndexUpdated";
+import UserPreferencesContainer from "./UserPreferencesContainer";
+// import PreferenceIndexUpdated from "../Components/PreferenceIndexUpdated";
 import Pagination from "../Components/Pagination";
 
 const API = process.env.REACT_APP_API_URL;
 
 const Index = () => {
   const [users, setUsers] = useState([]);
-  // const [preferences, setPreferences] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(10);
 
@@ -22,16 +22,6 @@ const Index = () => {
       .catch((c) => console.warn("catch", c));
   }, []);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${API}/user/:uid/answers`) // changed from :id
-  //     .then((response) => {
-  //       console.log(response.data);
-  //       // console.log("user api response data=", response.data);
-  //       setPreferences(response.data);
-  //     })
-  //     .catch((c) => console.warn("catch", c));
-  // }, []);
 
   //get current posts
   const indexOfLastPost = currentPage * usersPerPage;
@@ -45,8 +35,10 @@ const Index = () => {
     <div className="Index">
       <div className="usersAndPreferencesContainer">
         <AllUsers currentUsers={currentUsers} />
-        <PreferenceIndexUpdated />
+        <UserPreferencesContainer />
+        {/* <PreferenceIndexUpdated /> */}
       </div>
+
       <Pagination
         usersPerPage={usersPerPage}
         totalUsers={users.length}
