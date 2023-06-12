@@ -11,12 +11,13 @@ function AuthProvider({ children }) {
   const [profilePhotoUrl, setProfilePhotoUrl] = useState(null)
   const [user, setUser] = useState(null);
   const [firstName, setFirstName] = useState(null) 
+  const [zipcode, setZipcode] = useState("")
   // we create our state like normal -- user in this case
 
   // normal return statement like in a normal component
   return (
     // value is passing the destructured state through to all children like a prop -- a prop on steroids ;)
-    <AuthContext.Provider value={{ user, setUser, profilePhotoUrl, setProfilePhotoUrl, firstName, setFirstName }}>
+    <AuthContext.Provider value={{ user, setUser, profilePhotoUrl, setProfilePhotoUrl, firstName, setFirstName, zipcode, setZipcode }}>
       {children}
     </AuthContext.Provider>
   );

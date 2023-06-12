@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useContextAuthProvider } from "../Firebase/context";
-import Location from "./Location";
+// import Location from "./Location";
 import "../Components/NewForm.css";
 
 // imports for material design bootstrap
@@ -22,8 +22,7 @@ import {
 const API = process.env.REACT_APP_API_URL;
 
 const PreferenceIndexUpdated = () => {
-  const { user } = useContextAuthProvider();
-  const [zipcode, setZipcode] = (`${user.zip_code}`)
+  const { user, zipcode, setZipcode } = useContextAuthProvider();
   const [answer, setAnswer] = useState({
     gender_preference: "decline to say",
     pets_preference: false,
@@ -64,18 +63,11 @@ const PreferenceIndexUpdated = () => {
     setAnswer({ ...answer, [event.target.id]: !answer[event.target.id] });
   };
 
-  // handleZipCodeChange(){
-  //  
-  // }
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const res = await axios.put(`${API}/user/${user.uid}/answers`, answer);
     console.log(res);
   };
-
-  
-
 
   const checkedAlg = (val) => {
     return val === true ? "checked" : "";
@@ -113,9 +105,10 @@ const PreferenceIndexUpdated = () => {
                 {/* <p>ZipCode placeholder</p> */}
                  <MDBInput
                       className="background-light-purple"
-                      label="Search for Roommate by Zip Code"
+                      label="Filter by Zipcode"
                       type="number"
-                      // onChange={handleTextChange}
+                      value={zipcode}
+                      onChange={(e) => (setZipcode(e.target.value))}
                       id="zip_code"
                   />
                 </MDBCol>
