@@ -6,14 +6,18 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import './index.css';
 import App from './App';
 import AuthProvider from './Firebase/context';
+import ChatContextProvider from './Components/Messaging/ChatContext';
 import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <React.StrictMode>
       <AuthProvider>
-        <App />
+        <ChatContextProvider>
+          <App />
+        </ChatContextProvider>
       </AuthProvider>
     </React.StrictMode>
   </Router>,
