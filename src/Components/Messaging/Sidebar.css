@@ -19,10 +19,10 @@
 #chat-mate-logo {
     position: absolute;
     z-index: 1;
-    left: 0px;
-    top: 0px;
-    border: 4px solid var(--darkBackgroundColor);
-    border-radius: 50% 10% 50% 0%;
+    left: -15px;
+    top: -15px;
+    border: 5px solid var(--darkBackgroundColor);
+    border-radius: 50% 10px 50% 50%;
 
     background-color: var(--darkBackgroundColor);
 }
@@ -49,36 +49,61 @@
 }
 
 .search {
-    border: 2px solid red;
-
-    height: inherit;
-    padding: 5px;
-
-    overflow-y: scroll;
+    height: 41px;
+    padding: 1px;
 }
 
 #search-input {
-    border: none;
-    background-color: none;
+    background-color: transparent;
+    box-shadow: 2px 2px 20px var(--mainColor) inset;
+
+    border-radius: 8px;
 
     padding: 2px;
     padding-left: 5px !important;
 
-    color: var(--darkMainColor);
+    color: white;
+    outline: none;
+}
+
+.chats {
+    border: 2px solid red;
+
+    height: inherit;
+    padding: 1px;
+
+    overflow-y: hidden;
+}
+
+.chats:hover {
+    overflow-y: scroll;
 }
 
 .user-messages {
-    border: 2px solid yellow;
+    border: 2px solid rgba(0, 0, 0, 0);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    margin: 20px;
+    margin: 13px;
     margin-left: 0px;
     margin-right: 0px;
 
-    padding-right: 2px;
+    padding-right: 4px;
+
+    cursor: pointer;
+}
+
+.user-messages:hover {
+    border-radius: 30px 7px 7px 30px;
+    border: 2px solid rgba(0, 0, 0, 0.354);
+    background-color: rgba(126, 126, 126, 0.288);
+}
+
+.user-chat {
+    color: white;
+    font-size: 16px;
 }
 
 .user-img {
