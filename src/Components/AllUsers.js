@@ -8,7 +8,7 @@ import "./AllUsers.css";
 
 function AllUsers({ currentUsers }) {
   // const [users, setUsers] = useState([...currentUsers]);
-  console.log(currentUsers);
+  console.log("currentUsers =", currentUsers);
   // const [preferences, setPreferences] = useState([]);
   // const [currentPage, setCurrentPage] = useState(1);
   // const [postsPerPage] = useState(10);
