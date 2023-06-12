@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import Messages from "./Messages"
 import ChatInput from "./Input"
 import { AiFillVideoCamera } from 'react-icons/ai'
@@ -13,6 +14,9 @@ function Chat(props) {
                 <div className='chat-icons'>
                     <AiFillVideoCamera id='cam-icon' size='30'/>
                     <FiMoreHorizontal id='more-icon' size='30'/>
+                    <Link to="/users" id="exit-chat-btn" className="sign-in-btn">
+                        Exit
+                    </Link>
                 </div>
             </div>
             <Messages />
