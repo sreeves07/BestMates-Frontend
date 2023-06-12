@@ -24,7 +24,7 @@ const UploadWidget = () => {
           // console.log("Result:", result);
           if (result.event === "success") {
             // console.log(result.info.url);
-            console.log(user);
+            // console.log(user);
             setUploadUrl(result.info.url);
           }
         }

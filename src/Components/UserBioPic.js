@@ -23,7 +23,7 @@ const UserBioPic = ({ id }) => {
   // const [user, loading] = useAuthState(auth);
   const { user } = useContextAuthProvider();
   const { uid } = user;
-  console.log(user);
+  // console.log(user);
 
   const [userBio, setUserBio] = useState("");
 

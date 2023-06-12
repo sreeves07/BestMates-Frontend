@@ -67,7 +67,6 @@ const ShowOneUser = () => {
   }, [uid]);
 
   const {
-    small_bio,
     first_name,
     last_name,
     city,
