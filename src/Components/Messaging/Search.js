@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Sidebar.css"
 
-import logo from "../../Images/LOGO_favicon.png"
+import logo from "../../Images/LOGO_favicon_color.png"
 
 function Search() {
     return (
@@ -14,10 +14,58 @@ function Search() {
                   type="text"
                 />
             </form>
-            <br></br>
             <div className="user-messages">
                 <img className='user-img' src={logo} alt="user"/>
-                <div>
+                <div style={{color: "var(--mainColor)", fontSize: "16px"}}>
+                    Name
+                    <div style={{scale: "0.5", }} >{"🟢"}</div>
+                </div>
+            </div>
+            <div className="user-messages">
+                <img className='user-img' src={logo} alt="user"/>
+                <div style={{color: "var(--mainColor)", fontSize: "16px"}}>
+                    Name
+                    <div style={{scale: "0.5", }} >{"🟢"}</div>
+                </div>
+            </div>
+            <div className="user-messages">
+                <img className='user-img' src={logo} alt="user"/>
+                <div style={{color: "var(--mainColor)", fontSize: "16px"}}>
+                    Name
+                    <div style={{scale: "0.5", }} >{"🟢"}</div>
+                </div>
+            </div>
+            <div className="user-messages">
+                <img className='user-img' src={logo} alt="user"/>
+                <div style={{color: "var(--mainColor)", fontSize: "16px"}}>
+                    Name
+                    <div style={{scale: "0.5", }} >{"🟢"}</div>
+                </div>
+            </div>
+            <div className="user-messages">
+                <img className='user-img' src={logo} alt="user"/>
+                <div style={{color: "var(--mainColor)", fontSize: "16px"}}>
+                    Name
+                    <div style={{scale: "0.5", }} >{"🟢"}</div>
+                </div>
+            </div>
+            <div className="user-messages">
+                <img className='user-img' src={logo} alt="user"/>
+                <div style={{color: "var(--mainColor)", fontSize: "16px"}}>
+                    Name
+                    <div style={{scale: "0.5", }} >{"🟢"}</div>
+                </div>
+            </div>
+            <div className="user-messages">
+                <img className='user-img' src={logo} alt="user"/>
+                <div style={{color: "var(--mainColor)", fontSize: "16px"}}>
+                    Name
+                    <div style={{scale: "0.5", }} >{"🟢"}</div>
+                </div>
+            </div>
+            <div className="user-messages">
+                <img className='user-img' src={logo} alt="user"/>
+                <div style={{color: "var(--mainColor)", fontSize: "16px"}}>
                     Name
                     <div style={{scale: "0.5", }} >{"🟢"}</div>
                 </div>
