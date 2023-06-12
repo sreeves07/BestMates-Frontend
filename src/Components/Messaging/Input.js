@@ -14,9 +14,17 @@ function ChatInput() {
           placeholder='Send a message...'
           />
         <div className='btns-input'>
-          <AiOutlinePaperClip size='25' />
+          <label htmlFor='img'>
+          <AiFillPicture size='25'/>
+            <input 
+              id='img'
+              type='file' 
+              accept='image/png, image/gif, image/jpeg'
+              style={{display: "none"}}
+            />
+          </label>
           <label htmlFor='file'>
-            <AiFillPicture size='25'/>
+            <AiOutlinePaperClip size='25' />
             <input 
               id='file'
               type='file' 
