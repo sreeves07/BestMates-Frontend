@@ -25,7 +25,7 @@ const UserPreferencesContainer = () => {
 
   return (
     <div className="user-preferences-container">
-      <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+      <MDBContainer className="d-flex flex-column w-50">
         <MDBTabs
           pills
           justify

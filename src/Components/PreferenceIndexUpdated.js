@@ -85,24 +85,7 @@ const PreferenceIndexUpdated = () => {
 
   return (
     <div className="preferenceIndex">
-      <div className="locationBox">
-        {/* ************ ROW 1 *********** */}
-        <MDBCard>
-          <MDBCardHeader className="py-3">
-            <MDBTypography tag="h5" className="mb-0">
-              Select location to search for a roommate
-            </MDBTypography>
-          </MDBCardHeader>
-          <MDBCardBody>
-            {/* rendering component for React Select Location drop down list */}
-            <MDBRow>
-              <MDBCol>
-                <Location />
-              </MDBCol>
-            </MDBRow>
-          </MDBCardBody>
-        </MDBCard>
-      </div>
+    {/* ************ removed country-state-city section *********** */}
 
       <form className="prefIndexForm" onSubmit={handleSubmit} noValidate>
         <MDBCard>
@@ -114,6 +97,57 @@ const PreferenceIndexUpdated = () => {
           <MDBCardBody>
             <MDBListGroup>
               {/* ************ PREFERENCES *********** */}
+
+
+              {/* ************ ROW 1 - Prefs *********** */}
+              <MDBRow className="mb-5">
+                <MDBCol className="col-4">
+                  <label htmlFor="gender_preference">Gender:</label>
+                  <select
+                    className="col-12 select gender-select-prefs form-control"
+                    // name="flexCheck"
+                    onChange={handleTextChange}
+                    value={answer.gender_preference}
+                    id="gender_preference"
+                    required>
+                    <option defaultValue={"does-not-matter"}>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="intersex">Intersex</option>
+                    <option value="non-binary">Non-Binary</option>
+                    <option value="transgender">Transgender</option>
+                    <option value="other">Other</option>
+                    <option value="does-not-matter">Does not matter</option>
+                  </select>
+                </MDBCol>
+                <MDBCol className="col-4">
+                  <label htmlFor="sexual_orientation_preference">
+                    Orientation:
+                  </label>
+                  <select
+                    className="basic-single col-12 orientation-select-prefs select form-control select"
+                    // name="flexCheck"
+
+                    onChange={handleTextChange}
+                    value={answer.sexual_orientation_preference}
+                    id="sexual_orientation_preference"
+                    required>
+                    <option defaultValue={"does-not-matter"}>
+                      Orientation
+                    </option>
+                    <option value="heterosexual">Heterosexual</option>
+                    <option value="pansexual">Pansexual</option>
+                    <option value="bisexual">Bisexual</option>
+                    <option value="homosexual">Homosexual</option>
+                    <option value="asexual">Asexual</option>
+                    <option value="other">Other</option>
+                    <option value="does-not-matter">Does not matter</option>
+                  </select>
+                </MDBCol>
+              </MDBRow>
+
+
+
 
               {/* ************ ROW 3 - Prefs *********** */}
 
@@ -324,53 +358,6 @@ const PreferenceIndexUpdated = () => {
                   />
                 </MDBCol>
               </MDBRow>
-
-              {/* ************ ROW 11 - Prefs *********** */}
-              <MDBRow className="mb-5">
-                <MDBCol className="col-4">
-                  <label htmlFor="gender_preference">Gender:</label>
-                  <select
-                    className="col-12 select gender-select-prefs form-control"
-                    // name="flexCheck"
-                    onChange={handleTextChange}
-                    value={answer.gender_preference}
-                    id="gender_preference"
-                    required>
-                    <option defaultValue={"does-not-matter"}>Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="intersex">Intersex</option>
-                    <option value="non-binary">Non-Binary</option>
-                    <option value="transgender">Transgender</option>
-                    <option value="other">Other</option>
-                    <option value="does-not-matter">Does not matter</option>
-                  </select>
-                </MDBCol>
-                <MDBCol className="col-4">
-                  <label htmlFor="sexual_orientation_preference">
-                    Orientation:
-                  </label>
-                  <select
-                    className="basic-single col-12 orientation-select-prefs select form-control select"
-                    // name="flexCheck"
-
-                    onChange={handleTextChange}
-                    value={answer.sexual_orientation_preference}
-                    id="sexual_orientation_preference"
-                    required>
-                    <option defaultValue={"does-not-matter"}>
-                      Orientation
-                    </option>
-                    <option value="heterosexual">Heterosexual</option>
-                    <option value="pansexual">Pansexual</option>
-                    <option value="bisexual">Bisexual</option>
-                    <option value="homosexual">Homosexual</option>
-                    <option value="asexual">Asexual</option>
-                    <option value="other">Other</option>
-                    <option value="does-not-matter">Does not matter</option>
-                  </select>
-                </MDBCol>
-              </MDBRow>
             </MDBListGroup>
 
             {/* <MDBBtn size="lg" block> */}
@@ -495,3 +482,22 @@ export default PreferenceIndexUpdated;
 // value={answer.night_life_preference}
 // />
 // </MDBRow>
+
+{/* <div className="locationBox"> */}
+{/* ************ ROW 1 *********** */}
+{/* <MDBCard>
+  <MDBCardHeader className="py-3">
+    <MDBTypography tag="h5" className="mb-0">
+      Select location to search for a roommate
+    </MDBTypography>
+  </MDBCardHeader>
+  <MDBCardBody> */}
+    {/* rendering component for React Select Location drop down list */}
+    {/* <MDBRow>
+      <MDBCol>
+        <Location />
+      </MDBCol>
+    </MDBRow>
+  </MDBCardBody>
+</MDBCard>
+</div> */}
