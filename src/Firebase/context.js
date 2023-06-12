@@ -9,12 +9,14 @@ export function useContextAuthProvider() {
 function AuthProvider({ children }) {
   // the "pseudo prop or pseudo selector" children is being destructured in param parens to allow access to all child nodes within App
   const [profilePhotoUrl, setProfilePhotoUrl] = useState(null)
-  const [user, setUser] = useState(null); // we create our state like normal -- user in this case
+  const [user, setUser] = useState(null);
+  const [firstName, setFirstName] = useState(null) 
+  // we create our state like normal -- user in this case
 
   // normal return statement like in a normal component
   return (
     // value is passing the destructured state through to all children like a prop -- a prop on steroids ;)
-    <AuthContext.Provider value={{ user, setUser, profilePhotoUrl, setProfilePhotoUrl }}>
+    <AuthContext.Provider value={{ user, setUser, profilePhotoUrl, setProfilePhotoUrl, firstName, setFirstName }}>
       {children}
     </AuthContext.Provider>
   );

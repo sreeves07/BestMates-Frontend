@@ -53,17 +53,18 @@
     outline: none;
 }
 
-.chats {
-    height: 42vh;
-    padding: 7px;
-    padding-top: 0px;
-    margin-top: 15px;
-
-    overflow-y: hidden;
+#search-input::placeholder {
+    color: rgba(255, 255, 255, 0.602);
 }
 
-.chats:hover {
-    overflow-y: scroll;
+.chats {
+    max-height: 420px;
+    min-height: fit-content;
+
+    margin-top: 15px;
+    padding: 10px;
+
+    overflow-y: auto;
 }
 
 .user-messages {
@@ -94,5 +95,5 @@
 }
 
 .user-img {
-    width: 50px
+    width: 50px;
 }
