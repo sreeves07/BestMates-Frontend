@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 // Enable Connection to Firebase User Authorization (Login)
 import { useContextAuthProvider } from "../Firebase/context";
 import axios from "axios";
+// Firebase Firestore Database
+import { db } from "../Firebase/config"
+import { collection, addDoc } from "firebase/firestore"
 // User Picture Upload Widget from Cloudinary
 // import UploadWidget from "./UploadWidget.js"
 import "../Components/NewForm.css";
@@ -27,18 +30,18 @@ const API = process.env.REACT_APP_API_URL;
 
 function NewForm() {
   //Set state for auth and newUser
-  const { user } = useContextAuthProvider();
-  const { uid } = user;
+  const { user, profilePhotoUrl } = useContextAuthProvider();
+  const { uid, email } = user;
 
   const [newUser, setNewUser] = useState({
-    first_name: "",
-    last_name: "",
-    city: "",
-    state: "",
-    zip_code: "",
+    first_name: "Juan",
+    last_name: "Bowers",
+    city: "Maspeth",
+    state: "NY",
+    zip_code: 11378,
     birthday: "",
-    gender: "",
-    sexual_orientation: "",
+    gender: "Male",
+    sexual_orientation: "Heterosexual",
     email: `${user.email}`,
     has_pets: false,
     has_open_rooms: false,
@@ -49,9 +52,9 @@ function NewForm() {
     is_neat: false,
     is_religious: false,
     move_in_date: "",
-    max_rent: "",
-    credit_score: "",
-    income: "",
+    max_rent: 1000,
+    credit_score: 800,
+    income: 80000,
     // is_employed: true,                //need to be added to backend
     // is_student: false, //need to be added to backend
     // is_healthy: true,                 //need to be added to backend
@@ -74,8 +77,7 @@ function NewForm() {
   const addNewUser = (newUser) => {
     axios
       .put(`${API}/user/${uid}`, newUser)
-      .then((res) => {
-        console.log(res.data);
+      .then(() => {
         navigate(`/preferences`);
       })
       .catch((c) => console.warn("catch", c));
@@ -90,14 +92,24 @@ function NewForm() {
 
   const handleCheckboxChange = (event) => {
     setNewUser({ ...newUser, [event.target.id]: !newUser[event.target.id] });
-    console.log(event.target.value, newUser[event.target.id])
   };
 
-  function handleSubmit(event) {
+  async function handleSubmit (event) {
     event.preventDefault();
     event.target.className += " was-validated";
     addNewUser(newUser);
-    //addUserImage(image)
+
+    try {
+      const docRef = await addDoc(collection(db, "users"), {
+        uid: uid,
+        email: email,
+        profilePhotoUrl: profilePhotoUrl,
+        ...newUser,
+      })
+      console.log("Document written with ID: ", docRef.id)
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   return (
@@ -206,13 +218,13 @@ function NewForm() {
                       id="gender"
                       required>
                       <option defaultValue={"gender"}>Gender</option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                      <option value="intersex">Intersex</option>
-                      <option value="non-binary">Non-Binary</option>
-                      <option value="transgender">Transgender</option>
-                      <option value="other">Other</option>
-                      <option value="prefer-not-to-say">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Intersex">Intersex</option>
+                      <option value="Non-Binary">Non-Binary</option>
+                      <option value="Transgender">Transgender</option>
+                      <option value="Other">Other</option>
+                      <option value="Prefer not to say">
                         Prefer not to say
                       </option>
                     </select>
@@ -227,13 +239,13 @@ function NewForm() {
                       id="sexual_orientation"
                       required>
                       <option defaultValue={"orientation"}>Orientation</option>
-                      <option value="heterosexual">Heterosexual</option>
-                      <option value="pansexual">Pansexual</option>
-                      <option value="bisexual">BiSexual</option>
-                      <option value="homosexual">Homosexual</option>
-                      <option value="asexual">Asexual</option>
-                      <option value="other">Other</option>
-                      <option value="prefer-not-to-say">
+                      <option value="Heterosexual">Heterosexual</option>
+                      <option value="Pansexual">Pansexual</option>
+                      <option value="BiSexual">BiSexual</option>
+                      <option value="Homosexual">Homosexual</option>
+                      <option value="Asexual">Asexual</option>
+                      <option value="Other">Other</option>
+                      <option value="Prefer not to say">
                         Prefer not to say
                       </option>
                     </select>

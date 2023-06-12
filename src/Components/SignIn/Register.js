@@ -38,17 +38,21 @@ export default function Register({ justifyActive }) {
 
         setSucccessfulReg(true);
 
-        await signInWithEmailAndPassword(auth, registerEmail, registerPassword);
-        setUser({ ...auth.currentUser });
-        setRegisterEmail("");
-        setRegisterPassword("");
-        setConfirmPassword("");
+        try {
+          await signInWithEmailAndPassword(auth, registerEmail, registerPassword);
+          setUser({ ...auth.currentUser });
+          setRegisterEmail("");
+          setRegisterPassword("");
+          setConfirmPassword("");
+        } catch (e) {console.error(e)}
 
         // console.log(auth.currentUser.uid)
-        await axios.post(`${API}/user/register`, {
-          email: auth.currentUser.email,
-          uid: auth.currentUser.uid,
-        });
+        try {
+          await axios.post(`${API}/user/register`, {
+            email: auth.currentUser.email,
+            uid: auth.currentUser.uid,
+          });
+        } catch(e) {console.error(e)}
 
         setTimeout(() => {
           navigate("/new");
@@ -97,48 +101,58 @@ export default function Register({ justifyActive }) {
             <em>*Retype Password</em>
           </p>
         ) : (
-          <h4 id="success-message" style={{padding: "25px"}}>
-            <strong>BestMates Account Created!</strong>
-          </h4>
+          <div>
+            <h4 id="success-message" style={{padding: "25px"}}>
+              <strong>BestMates Account Created!</strong>
+            </h4>
+            <br></br>
+          </div>
         )}
-        <div className="d-flex justify-content-center mb-0" id="terms-container">
-          <MDBRow className="mb-0 col-10" >
-            <Link to={`/terms`} target="blank">
-             <p className='termsLink'>View Terms of Usage of BestMates</p>
-            </Link>
-          </MDBRow>
+        {
+          !successfulReg &&
+          <div className="d-flex justify-content-center mb-0" id="terms-container">
+            <MDBRow className="mb-0 col-10" >
+              <Link to={`/terms`} target="blank">
+                <p className='termsLink'>View Terms of Usage of BestMates</p>
+              </Link>
+            </MDBRow>
 
-          {/* <div className="d-flex justify-content-center mb-4" id="terms-container">
-          <MDBCheckbox 
-            className="mb-1 col-10"
-            name="flexCheck"
-            id="register-flexCheckDefault"
-            label={`View Terms of Usage of BestMates`}
-            value={confirmTerms}
-            onChange={() => {
-              setConfirmTerms(!confirmTerms)
-              if (!confirmTerms) window.open("terms", "_blank" )
-            }}
-            required
-          />
-        </div> */}
-          <MDBRow className="mb-3 col-10"><br/>
+            {
+              /* <div className="d-flex justify-content-center mb-4"     id="terms-container">
+              <MDBCheckbox 
+              className="mb-1 col-10"
+              name="flexCheck"
+              id="register-flexCheckDefault"
+              label={`View Terms of Usage of BestMates`}
+              value={confirmTerms}
+              onChange={() => {
+                setConfirmTerms(!confirmTerms)
+                if (!confirmTerms) window.open("terms", "_blank" )
+              }}
+              required
+              />
+              </div> */
+            }
+            <MDBRow className="mb-3 col-10"><br/>
               <MDBCheckbox
                 name="flexCheck"
                 id="register-flexCheckDefault2"
                 label={`I have read and agree to the terms`}
                 // value="unchecked"
-                unchecked
+                unchecked="true"
                 required
               />
-          </MDBRow>
-        </div>
-        <div className="sign-in-btn-container">
-          <div></div>
-          <MDBBtn className="mb-4 w-100 sign-in-btn">Sign up</MDBBtn>
-          <div></div>
-      
-        </div>
+            </MDBRow>
+          </div>
+        }
+        {
+          !successfulReg && 
+          <div className="sign-in-btn-container">
+            <div></div>
+            <MDBBtn className="mb-4 w-100 sign-in-btn">Sign up</MDBBtn>
+            <div></div> 
+          </div>
+        }
       </MDBTabsPane>
     </form>
   );

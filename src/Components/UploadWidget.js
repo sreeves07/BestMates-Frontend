@@ -8,7 +8,7 @@ import logo from "../Images/LOGO_favicon.png"
 const API = process.env.REACT_APP_API_URL;
 
 const UploadWidget = () => {
-  const { user } = useContextAuthProvider();
+  const { user, setProfilePhotoUrl } = useContextAuthProvider();
   const { uid } = user;
 
   const [hidden, setHidden] = useState(-1)
@@ -54,7 +54,7 @@ const UploadWidget = () => {
       })
       .then((response) => {
         setPicUploadSuccess(true)
-        console.log("user api response data for images=", response.data);
+        setProfilePhotoUrl(uploadURL)
         // setImage(response.data[0].profile_image);
       })
       .catch((c) => console.warn("catch", c));

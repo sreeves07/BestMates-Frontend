@@ -18,13 +18,20 @@
     max-width: 600px;
 
     border-radius: 20px;
-    box-shadow: 3px 3px 3px var(--darkMainColor);
+    box-shadow: 3px 3px 5px var(--darkMainColor);
 }
 
 #login-pill,
 #register-pill {
     color: var(--darkMainColor);
     font-weight: bold;
+}
+
+#login-pill:hover,
+#register-pill:hover {
+    color: var(--mainColor);
+    scale: 1.15;
+    transition: all ease 0.5s;
 }
 
 #email,
