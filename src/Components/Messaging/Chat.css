@@ -1,3 +1,98 @@
 .chat {
-    background-color: lime;
+    background-color: white;
+
+    border-radius: 0px 28px 28px 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: inherit;
+}
+
+/* Top Bar */
+
+.chat-info {
+    border-radius: 0px 30px 0px 0px;
+
+    height: 80px;
+    background-image: linear-gradient(to right, rgba(182, 182, 182, 0.27), var(--transparentMainColor));
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--mainColor);
+
+    padding: 15px;
+}
+
+.chat-icons {
+    width: 100px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#cam-icon,
+#more-icon {
+    cursor: pointer;
+}
+
+/* Messages */
+
+.messages {
+    text-align: left;
+    padding: 20px;
+
+    background-image: linear-gradient(to left, rgba(210, 120, 255, 0.378), #66ff3350);
+
+    height: 100%;
+}
+
+/* Mesage Input */
+
+.chat-input {
+    background-image: linear-gradient(to right, rgba(182, 182, 182, 0.27), var(--transparentMainColor));
+
+    border-radius: 0px 0px 30px 0px;
+}
+
+.btns-input {
+    width: 195px;
+    padding-right: 10px;
+    padding-left: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.chat-input form {
+    display: flex;
+    flex-direction: row;
+}
+
+#message-input {
+    width: 100%;
+    background-color: transparent;
+}
+
+#message-input::placeholder {
+    color: rgba(128, 128, 128, 0.655);
+}
+
+.chat-input textarea {
+    resize: none;
+    outline: none;
+
+    padding: 5px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+}
+
+#message-submit-btn {
+    border: none;
+    width: 60px;
 }
