@@ -1,0 +1,27 @@
+.messages-page {
+
+    display: flex;
+    justify-content: center;
+
+    width: 100vw;
+    height: 86.5vh;
+}
+
+.messages-container {
+
+    background-image: linear-gradient(to bottom, var(--darkBackgroundColor), var(--darkMainColor));
+
+    width: 60vw;
+    min-width: 250px;
+    height: 60vh;
+
+    margin-top: 40px;
+    border-radius: 0px 30px 30px 30px;
+
+    display: grid;
+    grid-template-columns: minmax(125px, 220px) minmax(250px, 1fr);
+
+    box-shadow: -5px 5px 30px rgb(179, 179, 179);
+
+    overflow: visible;
+}

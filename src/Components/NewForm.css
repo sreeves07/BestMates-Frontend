@@ -15,11 +15,13 @@
 
 .check {
   height: 55px;
+  padding-top: 15px;
 }
 
 .check:hover {
   box-shadow: 0px 0px 2px rgb(200, 200, 200);
   background-color: var(--transparentMainColor);
+  transition: all ease 0.1s;
 
 }
 
@@ -32,6 +34,20 @@
   flex-direction: row;
   justify-content: center;
   align-items: top;
+
+  padding-top: 20px;
+}
+
+@media only screen and (max-width: 1305px) {
+  .newFormContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 20px;
+    margin: auto;
+  }
 }
 
 select {
@@ -48,23 +64,10 @@ strong {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
-  margin-top: 140px;
-}
+  margin-top: 143px;
 
-@media only screen and (max-width: 890px) {
-  .user-bio-pic-container {
-    display: flex;
-    flex-direction: column;
-
-    width: auto;
-    height: auto;
-
-    scale: 80%;
-    width: 36rem;
-
-    margin: 0;
-  }
 }
 
 .newform-header {
@@ -93,7 +96,8 @@ div.newForm-componentsBox.row {
 
 .newForm-cardbody {
   margin-bottom: -2.2rem !important;
-  padding: 2rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .bioBottomRow {
@@ -180,7 +184,7 @@ select.gender-attribute {
   margin-left: .38vw;
   background-color: white;
   background: white;
-  color: #4f4f4f;
+  font-weight: bold;
 }
 
 select.orientation-attribute {
@@ -194,20 +198,26 @@ select.orientation-attribute {
   padding-left: .4vw;
   height: 2.5rem;
   width: 11.5rem;
-  color: #4f4f4f;
+  font-weight: bold;
 }
 
-.newForm-submitBtn,
-.newPrefForm-submitBtn {
-  width: 11.5rem;
-  margin-top: -2rem;
+.newForm-submitBtn {
+  width: 20%;
+  margin-top: 0rem;
 }
 
-.userBio-submitBtn {
-  height: 2rem;
-  width: 11rem;
-  margin-bottom: 6rem;
-  justify-content: center;
+.userBio-card-img {
+  min-height: 270px;
+  margin-top: 38px;
+}
+
+.btn-secondary {
+  width: 20% !important;
+  margin-top: 10px;
+}
+
+.bioBottomRow {
+  padding-bottom: 10px;
 }
 
 #temp-profile-image {
@@ -220,13 +230,30 @@ select.orientation-attribute {
   /* margin-bottom:1rem; */
 }
 
-#uploadWidget-Btn {
-  width: 3rem;
-  height: 2rem;
-  margin-top: 20px;
+#uploadWidget-Btn2 {
+  width: 10%;
+  margin-top: 15px;
   /* margin-top: 2.15rem; */
+  border: none;
+  padding: 3px;
 }
 
+#profile-pic {
+  width: 140px;
+  height: 140px;
+
+  display: block;
+  margin: auto;
+  margin-top: -9px;
+
+  border-radius: 50%;
+}
+
+#profile-pic:hover {
+  box-shadow: 0px 0px 8px var(--darkMainColor);
+  cursor: url("../Images/arrows.png"), auto;
+
+}
 
 /* MEDIA QUERIES - to be completed*/
 
@@ -261,3 +288,23 @@ select.orientation-attribute {
   padding-left: .4vw;
 }
  */
+
+.upload-widget .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  left: 320px;
+  top: 55px;
+  z-index: 1;
+}
+
+.upload-widget:hover .tooltiptext {
+  visibility: visible;
+}

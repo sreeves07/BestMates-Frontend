@@ -79,8 +79,8 @@ function NavBar() {
           <Link to="/">
             <img className="logo" src={logo} alt="logo" />
           </Link>
-          <Link className="sign-nav-btn" to="/signin">
-            Sign In
+          <Link to="/signin">
+            <button className="sign-nav-btn">Sign In</button>
           </Link>
         </>
       )}

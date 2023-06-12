@@ -1,13 +1,11 @@
 import React from 'react'
-import { MDBTypography, MDBCardHeader } from 'mdb-react-ui-kit'
 import PreferenceIndexCreated from '../Components/PreferenceIndexCreated'
+
 function Preferences() {
   return (
-
-    <div><MDBCardHeader style={{marginLeft: "-8%"}}>
-    <MDBTypography id="preferences-heading" tag="h3" className="newform-header mb-0">Preferences
-    </MDBTypography>
-  </MDBCardHeader><PreferenceIndexCreated/></div>
+    <div style={{marginTop: "25px"}}>
+      <PreferenceIndexCreated />
+    </div>
   )
 }
 

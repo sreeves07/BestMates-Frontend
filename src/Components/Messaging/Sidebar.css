@@ -1,0 +1,101 @@
+.sidebar {
+    margin: 10px;
+    padding-top: 5px;
+
+    height: 100%;
+}
+
+.messaging-nav {
+    height: 50px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 10px;
+    padding-left: 0px;
+    margin-bottom: 16px;
+}
+
+#chat-mate-logo {
+    position: absolute;
+    left: -45px;
+    top: -30px;
+    border: 10px solid var(--darkBackgroundColor);
+    border-radius: 50% 10px 50% 50%;
+
+    background-color: var(--darkBackgroundColor);
+}
+
+#exit-chat-btn {
+    margin: 0px;
+    margin: 0;
+    padding-right: 9px;
+    padding-left: 9px;
+}
+
+.search {
+    height: 41px;
+    padding: 10px;
+
+}
+
+#search-input {
+    background-color: transparent;
+    box-shadow: 2px 2px 20px var(--mainColor) inset;
+
+    border-radius: 8px;
+
+    padding: 2px;
+    padding-left: 8px !important;
+
+    color: white;
+    outline: none;
+}
+
+#search-input::placeholder {
+    color: rgba(255, 255, 255, 0.602);
+}
+
+.chats {
+    max-height: 420px;
+    min-height: fit-content;
+
+    margin-top: 15px;
+    padding: 10px;
+
+    overflow-y: auto;
+}
+
+.user-messages {
+    border: 2px solid rgba(0, 0, 0, 0);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 13px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    padding-right: 10px;
+
+    cursor: pointer;
+}
+
+.user-messages:hover {
+    border-radius: 30px 7px 7px 30px;
+    scale: 1.1;
+    background-color: rgba(150, 150, 150, 0.232);
+
+    transition: all ease 0.1s;
+}
+
+.user-chat {
+    color: white;
+    font-size: 16px;
+}
+
+.user-img {
+    width: 50px;
+}

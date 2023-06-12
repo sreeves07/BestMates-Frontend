@@ -32,7 +32,7 @@ const Index = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="Index">
+    <div style={{padding: "50px", paddingBottom: "0px"}} className="Index">
       <div className="usersAndPreferencesContainer">
         <AllUsers currentUsers={currentUsers} />
         <UserPreferencesContainer />

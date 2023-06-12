@@ -1,14 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { MDBBtn } from 'mdb-react-ui-kit';
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { useContextAuthProvider } from "../Firebase/context";
+import logo from "../Images/LOGO_favicon.png" 
 
 const API = process.env.REACT_APP_API_URL;
 
 const UploadWidget = () => {
-  const { user } = useContextAuthProvider();
+  const { user, setProfilePhotoUrl } = useContextAuthProvider();
   const { uid } = user;
 
+  const [hidden, setHidden] = useState(-1)
+  let [picUploadSuccess, setPicUploadSuccess] = useState(false)
   let [uploadURL, setUploadUrl] = useState("");
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
@@ -26,6 +30,7 @@ const UploadWidget = () => {
             // console.log(result.info.url);
             // console.log(user);
             setUploadUrl(result.info.url);
+            setHidden(1)
           }
         }
         if (error) {
@@ -33,7 +38,7 @@ const UploadWidget = () => {
         }
       }
     );
-  }, []);
+  }, [hidden]);
 
   const imgUploadHandleSubmit = () => {
     if (uploadURL === "") {
@@ -48,20 +53,29 @@ const UploadWidget = () => {
         profile_image: `${uploadURL}`,
       })
       .then((response) => {
-        console.log("user api response data for images=", response.data);
+        setPicUploadSuccess(true)
+        setProfilePhotoUrl(uploadURL)
         // setImage(response.data[0].profile_image);
       })
       .catch((c) => console.warn("catch", c));
   };
 
   return (
-    <div>
-      <button
-        className="uploadWidget-Btn"
-        onClick={() => widgetRef.current.open()}>
-        Upload Profile Picture
-      </button>
-      <button onClick={imgUploadHandleSubmit}></button>
+    <div className="upload-widget">   
+        <img 
+          id="profile-pic" 
+          src={uploadURL || logo} 
+          alt="avatar"
+          onClick={() => widgetRef.current.open()} />
+        {!uploadURL ? <span className="tooltiptext">Upload Image</span> : ""}
+      {!picUploadSuccess ? 
+      <MDBBtn 
+        style={{zIndex: `${hidden}`}}
+        className='sign-in-btn'
+        id="uploadWidget-Btn2"
+        onClick={imgUploadHandleSubmit}
+      ><AiOutlineCloudUpload size="30"/>
+      </MDBBtn> : <p><br></br>Upload Successful!</p>}
     </div>
   );
 };
