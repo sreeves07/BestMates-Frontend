@@ -32,7 +32,7 @@ function Search({ setSearchedUser, setError, searchUserInput, setSearchUserInput
                 <input 
                   className="light-purple-background"
                   id="search-input" 
-                  placeholder="Search email..." 
+                  placeholder="Search user..." 
                   type="text"
                   value={searchUserInput}
                   onChange={(e) => setSearchUserInput(e.target.value)}
