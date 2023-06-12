@@ -5,12 +5,15 @@ import ChatInput from "./Input"
 import { AiFillVideoCamera } from 'react-icons/ai'
 import { FiMoreHorizontal } from 'react-icons/fi'
 import "./Chat.css"
+import { useContextChatProvider } from './ChatContext';
 
 function Chat(props) {
+    const { data } = useContextChatProvider()
+
     return (
         <div className='chat'>
             <div className='chat-info'>
-                <span style={{paddingLeft: '10px'}}>Jane</span>
+                <span style={{paddingLeft: '10px'}}>{data.user?.displayName}</span>
                 <div className='chat-icons'>
                     <AiFillVideoCamera id='cam-icon' size='30'/>
                     <FiMoreHorizontal id='more-icon' size='30'/>

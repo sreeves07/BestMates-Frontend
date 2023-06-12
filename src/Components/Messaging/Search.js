@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { db } from "../../Firebase/config"
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import "./Sidebar.css"

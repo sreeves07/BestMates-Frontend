@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { useContextAuthProvider } from '../../Firebase/context';
-import defaultProfile from "../../Images/LOGO_favicon.png"
 import logo from "../../Images/LOGO_chat.png"
 import "./Sidebar.css"
 
@@ -14,7 +12,6 @@ function MessagingNav() {
     const [ userDisplayName, setUserDisplayName ] = useState("")
     const [ userImg, setUserImg ] = useState("")
     const { user } = useContextAuthProvider()
-    const { first_name } = user;
 
     useEffect (() => {
         axios.get(`${API}/user/${user.uid}/images`, ) 
@@ -28,7 +25,7 @@ function MessagingNav() {
             setUserDisplayName(res.data[0].first_name)
         })
         .catch((e) => console.error(e))
-    }, [])
+    }, [user.uid])
 
     return (
         <div className="messaging-nav">
