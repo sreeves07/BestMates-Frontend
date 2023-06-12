@@ -13,7 +13,7 @@ function Chat(props) {
     return (
         <div className='chat'>
             <div className='chat-info'>
-                <span style={{paddingLeft: '10px'}}>{data.user?.displayName}</span>
+                <span style={{paddingLeft: '10px'}}>To: <span style={{color: "var(--darkMainColor)", fontSize: "20px", paddingLeft: "10px"}}>{data.user?.displayName}</span></span>
                 <div className='chat-icons'>
                     <AiFillVideoCamera id='cam-icon' size='30'/>
                     <FiMoreHorizontal id='more-icon' size='30'/>

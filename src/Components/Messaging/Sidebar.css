@@ -19,10 +19,10 @@
 
 #chat-mate-logo {
     position: absolute;
-    left: -60px;
-    top: 0px;
-    border: 5px solid var(--darkBackgroundColor);
-    border-radius: 50% 0% 0% 50%;
+    left: -45px;
+    top: -30px;
+    border: 10px solid var(--darkBackgroundColor);
+    border-radius: 50% 10px 50% 50%;
 
     background-color: var(--darkBackgroundColor);
 }
@@ -78,15 +78,17 @@
     margin-left: 0px;
     margin-right: 0px;
 
-    padding-right: 4px;
+    padding-right: 10px;
 
     cursor: pointer;
 }
 
 .user-messages:hover {
     border-radius: 30px 7px 7px 30px;
-    border: 2px solid rgba(0, 0, 0, 0.354);
-    background-color: rgba(126, 126, 126, 0.288);
+    scale: 1.1;
+    background-color: rgba(150, 150, 150, 0.232);
+
+    transition: all ease 0.1s;
 }
 
 .user-chat {

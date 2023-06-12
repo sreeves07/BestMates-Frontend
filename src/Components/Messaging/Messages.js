@@ -27,6 +27,29 @@ function Messages() {
           )
         })
       }
+
+      <div className='message'>
+        <div className='message-info'>
+          <img 
+            width='40px' 
+            src=""
+            alt='user'/>
+          <span>Just Now</span>
+        </div>
+        <div className='message-content'><p>Message this is a message</p></div>
+      </div>
+
+      <div className='message'>
+        <div className='message-info'>
+          <img 
+            width='40px' 
+            src=""
+            alt='user'/>
+          <span>Just Now</span>
+        </div>
+      <div className='message-content'><p>Render my messages</p></div>
+    </div>
+
     </div>
   );
 }

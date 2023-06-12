@@ -29,7 +29,7 @@ function MessagingNav() {
 
     return (
         <div className="messaging-nav">
-            <img id="chat-mate-logo" src={logo} width="70px" alt="ChatMate"/>
+            <img id="chat-mate-logo" src={logo} width="100px" alt="ChatMate"/>
                 <div style={{paddingLeft: "10px", paddingTop: "8px"}}>
                     <div 
                         style={{paddingRight: "6px", color: "white",    fontSize: "14px"}}>
