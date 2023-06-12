@@ -1,0 +1,8 @@
+.prefIndexForm .card .card-body {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.newPrefForm-submitBtn {
+    width: 20%;
+}

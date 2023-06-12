@@ -4,15 +4,12 @@
 .Index {
   display: flex;
   flex-direction: column;
-
-  padding: 15px;
+  padding: 30px 20px 0px 0px !important
 }
 
 .usersAndPreferencesContainer {
   display: flex;
   flex-direction: row;
-
-
 }
 
 /* ***************** User Grid  ************** */
@@ -25,8 +22,6 @@
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   height: 80%;
   width: 80%;
-  grid-gap: 15px;
-  row-gap: 30px;
 }
 
 @media only screen and (max-width: 1825px) {
@@ -36,8 +31,6 @@
     grid-template-columns: .7fr .7fr .7fr;
     height: 80%;
     width: 80%;
-    grid-gap: 15px;
-    row-gap: 30px;
   }
 }
 
@@ -48,8 +41,6 @@
     grid-template-columns: .7fr .7fr;
     height: 80%;
     width: 80%;
-    grid-gap: 15px;
-    row-gap: 30px;
     min-width: 600px;
   }
 }

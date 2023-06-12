@@ -53,8 +53,8 @@
 /* user pic and info container */
 
 .userCard {
-  width: 280px;
-  height: 320px;
+  width: 260px;
+  height: 300px;
   margin: 0 auto 0 auto;
   padding-top: 30px;
 
@@ -107,6 +107,31 @@
   text-align: left;
   font-style: italic;
   line-height: 2px;
+}
+
+.user-btns {
+  display: flex;
+  justify-content: center;
+
+  margin: 60px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+#fav-btn {
+  font-size: 90%;
+  margin-right: 7px;
+  padding: 5px !important;
+}
+
+#message-btn {
+  margin-left: 7px;
+  padding: 6px 5px 5px 5px !important;
+}
+
+#fav-btn:hover,
+#message-btn:hover {
+  transition: all ease 0.2s;
 }
 
 

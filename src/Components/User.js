@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useContextAuthProvider } from "../Firebase/context";
 import axios from "axios";
+import { MDBBtn } from 'mdb-react-ui-kit';
+import { BiMessageAltDetail, BiSmile } from "react-icons/bi"
+import "../Components/SignIn/SignInForm.css"
 import "./User.css";
+
+import logo from "../Images/LOGO_no_text.png"
 import defaultProfilePic from "../Images/LOGO_favicon.png";
 //import { MDBBtn } from "mdb-react-ui-kit";
 

@@ -56,7 +56,8 @@
 }
 
 
-#register-flexCheckDefault1, register-flexCheckDefault2  {
+#register-flexCheckDefault1,
+register-flexCheckDefault2 {
     width: 17px;
     height: 17px;
     font-size: .12px;
@@ -99,7 +100,7 @@
     color: var(--secondaryColor);
 
     border-radius: 15px;
-    transition: all 0.5s ease 0s;
+    transition: all ease 0.5s;
 }
 
 .sign-in-btn-container {

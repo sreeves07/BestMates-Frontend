@@ -5,10 +5,6 @@ import "./SignIn.css";
 const SignIn = () => {
   return (
     <div className="sign-in-page">
-      <MDBCardHeader className=" newForm-hdg py-2">
-        <MDBTypography tag="h3" className="newform-header mb-0">Sign In
-        </MDBTypography>
-      </MDBCardHeader>
       <SignInForm />
     </div>
   );
