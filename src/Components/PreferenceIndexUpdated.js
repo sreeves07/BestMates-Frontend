@@ -24,9 +24,9 @@ const PreferenceIndexUpdated = () => {
   const { user } = useContextAuthProvider();
 
   const [answer, setAnswer] = useState({
-    gender_preference: "does-not-matter",
+    gender_preference: "decline to say",
     pets_preference: false,
-    sexual_orientation_preference: "does-not-matter",
+    sexual_orientation_preference: "decline to say",
     open_rooms_preference: false,
     neat_preference: false,
     kids_preference: false,
