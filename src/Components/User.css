@@ -55,7 +55,7 @@
 .userCard {
   width: 260px;
   height: 300px;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 40px auto;
   padding-top: 30px;
 
   border: .1rem solid rgba(186, 183, 192, 0.288);
