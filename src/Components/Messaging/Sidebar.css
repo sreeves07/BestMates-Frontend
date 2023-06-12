@@ -18,10 +18,10 @@
 
 #chat-mate-logo {
     position: absolute;
-    left: -15px;
-    top: -15px;
+    left: -60px;
+    top: 0px;
     border: 5px solid var(--darkBackgroundColor);
-    border-radius: 50% 10px 50% 50%;
+    border-radius: 50% 0% 0% 50%;
 
     background-color: var(--darkBackgroundColor);
 }
@@ -66,10 +66,8 @@
 }
 
 .chats {
-    border: 2px solid red;
-
     height: 42vh;
-    padding: 1px;
+    padding: 7px;
 
     overflow-y: hidden;
 }
