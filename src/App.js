@@ -11,6 +11,8 @@ import New from "./Pages/New";
 import EditUserForm from "./Pages/Edit";
 import Preferences from "./Pages/Preferences";
 import FourOFour from "./Pages/FourOFour";
+import Messaging from './Pages/Messaging';
+
 import Dummy from "./Pages/Dummy";
 
 import "./App.css";
@@ -30,7 +32,10 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/new" element={<New />} />
               <Route path="/preferences" element={<Preferences />} />
+
               <Route path="/users/:uid/edit" element={<EditUserForm />} />
+              <Route path="/chat" element={<Messaging />} />
+
               <Route path="/users" element={<Index />} />
               <Route path="/users/:uid" element={<Show />} />
               <Route path="/dummy" element={<Dummy />} />
