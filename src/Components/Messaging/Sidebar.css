@@ -1,7 +1,7 @@
 .sidebar {
     margin: 10px;
 
-    height: 83%;
+    height: 100%;
 }
 
 .messaging-nav {
@@ -69,7 +69,7 @@
 .chats {
     border: 2px solid red;
 
-    height: inherit;
+    height: 42vh;
     padding: 1px;
 
     overflow-y: hidden;
