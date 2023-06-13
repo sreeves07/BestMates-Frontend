@@ -29,8 +29,7 @@
 
 #login-pill:hover,
 #register-pill:hover {
-    color: var(--mainColor);
-    scale: 1.15;
+    scale: 1.1;
     transition: all ease 0.5s;
 }
 
@@ -50,6 +49,11 @@
 #name:focus,
 #username:focus {
     background-color: var(--transparentMainColor);
+}
+
+.error {
+    font-size: 13px;
+    color: red;
 }
 
 #terms-container {

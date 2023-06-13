@@ -27,7 +27,20 @@ export default function Login({ justifyActive }) {
       setPassword("");
       navigate("/users");
     } catch (error) {
-      setError(error);
+      setError(Object.entries(error));
+      console.error(error);
+    }
+  };
+
+  const handleError = () => {
+    if (error) {
+      if (error[0][1] === "auth/user-not-found") {
+        return <span className="error">* Email Not Found *</span>;
+      } else if (error[0][1] === "auth/wrong-password") {
+        return <span className="error">* Incorrect Password *</span>;
+      } else if (error === true) {
+        return <span className="error">* Unable to Sign In*</span>;
+      }
     }
   };
 
@@ -54,16 +67,14 @@ export default function Login({ justifyActive }) {
         />
         <div className="sign-in-btn-container">
           <div></div>
-          <MDBBtn className="mb-4 w-100 sign-in-btn" type="submit">
+          <MDBBtn
+            style={{ display: "block" }}
+            className="mb-4 w-100 sign-in-btn"
+            type="submit">
             Sign in
           </MDBBtn>
-          <div></div>
         </div>
-        {error && (
-          <p style={{ color: "red" }}>
-            <em>*Incorrect Credentials</em>
-          </p>
-        )}
+        {handleError()}
       </MDBTabsPane>
     </form>
   );
