@@ -34,7 +34,7 @@ const UserBioPic = () => {
   const addUserBio = (e) => {
     e.preventDefault();
     axios
-      .post(`${API}/user/${uid}/bio`, {
+      .post(`${API}/user/${uid}/bios`, {
         mate_uid: `${uid}`,
         small_bio: `${userBio}`,
       })
