@@ -4,6 +4,7 @@
 .Index {
   display: flex;
   flex-direction: column;
+
   padding: 30px 20px 0px 0px !important
 }
 
@@ -18,30 +19,19 @@
 .users {
   grid-column: 1;
   display: grid;
-  grid-template-columns: .7fr .7fr .7fr;
+  grid-template-columns: .7fr .7fr .7fr .7fr;
   grid-template-rows: 1fr 1fr;
   height: 80%;
   width: 80%;
 }
 
-@media only screen and (max-width: 1825px) {
+@media screen and (max-width: 1410px) {
   .users {
     grid-column: 1;
     display: grid;
     grid-template-columns: .7fr .7fr .7fr;
     height: 80%;
     width: 80%;
-  }
-}
-
-@media only screen and (max-width: 1550px) {
-  .users {
-    grid-column: 1;
-    display: grid;
-    grid-template-columns: .7fr .7fr;
-    height: 80%;
-    width: 80%;
-    min-width: 600px;
   }
 }
 

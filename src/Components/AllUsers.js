@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 // import axios from "axios";
+import { useContextAuthProvider } from '../Firebase/context';
 import User from "./User";
 import "./AllUsers.css";
 
@@ -8,11 +9,16 @@ import "./AllUsers.css";
 // const API = process.env.REACT_APP_API_URL;
 
 function AllUsers({ currentUsers }) {
+  const { zipcode } = useContextAuthProvider()
   console.log("currentUsers =", currentUsers);
-  
+
   return (
     <div className="users">
-      {currentUsers.map((currentUser) => {
+      {currentUsers
+      .filter((currentUser) => {
+        return currentUser?.zip_code?.toString().includes(zipcode);
+      })
+      .map((currentUser) => {
         return currentUser.uid ? (
           <User key={currentUser.uid} currentUser={currentUser} />
         ) : null;

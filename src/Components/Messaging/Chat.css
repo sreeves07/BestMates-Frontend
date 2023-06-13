@@ -46,7 +46,8 @@
     text-align: left;
     padding: 20px;
 
-    background-image: linear-gradient(to left, rgba(210, 120, 255, 0.378), #66ff3350);
+    background-color: rgb(228, 224, 246);
+
 
     height: 100%;
 
@@ -119,10 +120,12 @@
 #message-input {
     width: 100%;
     background-color: transparent;
+
+    box-shadow: 3px 3px 5px grey inset;
 }
 
 #message-input::placeholder {
-    color: rgba(128, 128, 128, 0.655);
+    color: rgba(68, 68, 68, 0.853);
 }
 
 .chat-input textarea {

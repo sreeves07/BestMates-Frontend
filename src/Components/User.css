@@ -64,6 +64,26 @@
   background-color: white;
 }
 
+@media screen and (max-width: 1440px) {
+  .userCard {
+    width: 210px;
+    height: 210px;
+    margin: 0 auto 40px auto;
+    padding-top: 10px;
+
+  }
+
+  #profileImage {
+    /* height: 130px;
+      width: 130px; */
+    width: 45% !important;
+    height: 45% !important;
+    object-fit: cover;
+
+    border-radius: 5% 5%;
+  }
+}
+
 /* 
   .userCard {
     width: 100px;

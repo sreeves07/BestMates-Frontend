@@ -4,6 +4,7 @@ import axios from "axios";
 import { useContextAuthProvider } from "../Firebase/context";
 // import Location from "./Location";
 import "../Components/NewForm.css";
+import "./PreferencesIndex.css"
 
 // imports for material design bootstrap
 import {
@@ -99,14 +100,15 @@ const PreferenceIndexUpdated = () => {
 
               {/* ************ ROW 1 - Prefs *********** */}
 
-              <MDBRow className="mb-5">
+              <MDBRow className="mb-3">
 
                 <MDBCol className="col-4">
                 {/* <p>ZipCode placeholder</p> */}
                  <MDBInput
+                      
                       className="background-light-purple"
                       label="Filter by Zipcode"
-                      type="number"
+                      type="string"
                       value={zipcode}
                       onChange={(e) => (setZipcode(e.target.value))}
                       id="zip_code"
@@ -114,7 +116,6 @@ const PreferenceIndexUpdated = () => {
                 </MDBCol>
 
                 <MDBCol className="col-4">
-                  <label htmlFor="gender_preference">Gender:</label>
                   <select
                     className="col-12 select gender-select-prefs form-control"
                     // name="flexCheck"
@@ -157,7 +158,7 @@ const PreferenceIndexUpdated = () => {
 
               {/* ************ ROW 2 - Prefs *********** */}
 
-              <MDBRow className="mb-3">
+              <MDBRow className="mb-1">
                 <MDBCol className="check">
                   <MDBCheckbox
                     className="credit-pref"
@@ -195,7 +196,7 @@ const PreferenceIndexUpdated = () => {
 
               {/* ************ ROW 3 - Prefs *********** */}
 
-              <MDBRow className="mb-3">
+              <MDBRow className="mb-1">
                 <MDBCol className="check">
                   <MDBCheckbox
                     className="shareBills-pref"
@@ -231,7 +232,7 @@ const PreferenceIndexUpdated = () => {
 
               {/* ************ ROW 4 - Prefs *********** */}
 
-              <MDBRow className="mb-3">
+              <MDBRow className="mb-1">
                 <MDBCol className="check">
                   <MDBCheckbox
                     name="flexCheck"
@@ -267,7 +268,7 @@ const PreferenceIndexUpdated = () => {
 
               {/* ************ ROW 5 - Prefs *********** */}
 
-              <MDBRow className="mb-3">
+              <MDBRow className="mb-1">
                 <MDBCol className="check">
                   <MDBCheckbox
                     className="neat_preference"
@@ -293,7 +294,7 @@ const PreferenceIndexUpdated = () => {
                   <MDBCheckbox
                     className="openRooms-pref"
                     name="flexCheck"
-                    label="Has Open Room"
+                    label="Open Room"
                     id="open_rooms_preference"
                     onChange={handleCheckboxChange}
                     value={answer.open_rooms_preference}
@@ -304,7 +305,7 @@ const PreferenceIndexUpdated = () => {
 
               {/* ************ ROW 6 - Prefs *********** */}
 
-              <MDBRow className="mb-3" style={{display: `${answer.open_rooms_preference ? "" : "none"}`}} >
+              <MDBRow className="mb-1" style={{display: `${answer.open_rooms_preference ? "" : "none"}`}} >
               <MDBCol className='check'>
                 <MDBCheckbox
                   className="privateRoom-pref"
@@ -320,7 +321,7 @@ const PreferenceIndexUpdated = () => {
                 <MDBCheckbox
                   className="privateBathroom-pref"
                   name="flexCheck"
-                  label="Private Bathroom" 
+                  label="Private Bath" 
                   id="private_bathroom_preference"
                   onChange={handleCheckboxChange}
                   value={answer.private_bathroom_preference}
@@ -331,7 +332,7 @@ const PreferenceIndexUpdated = () => {
                 <MDBCheckbox
                   className="highRise-pref"
                   name="flexCheck"
-                  label="High Rise Building" 
+                  label="High Rise" 
                   id="high_rise_preference"
                   onChange={handleCheckboxChange}
                   value={answer.high_rise_preference}
@@ -341,7 +342,7 @@ const PreferenceIndexUpdated = () => {
             </MDBRow>
 
             {/* ************ ROW 7 - Prefs *********** */}
-            <MDBRow className="mb-3" style={{display: `${answer.open_rooms_preference ? "" : "none"}`}} >
+            <MDBRow className="mb-1" style={{display: `${answer.open_rooms_preference ? "" : "none"}`}} >
             {/* <MDBCol className="ms-0"> 
                   <MDBCheckbox
                     name="flexCheck"
@@ -351,6 +352,7 @@ const PreferenceIndexUpdated = () => {
                     value={answer.singer_preference}
                   /> 
                 </MDBCol>   */}
+                
               <MDBCol className='check'>
                 <MDBCheckbox
                   className="house-pref"
@@ -365,16 +367,28 @@ const PreferenceIndexUpdated = () => {
               <MDBCol className="ms-0"></MDBCol>
               <MDBCol className="ms-0"></MDBCol>
             </MDBRow>
+
+            
     
             </MDBListGroup>
 
             {/* <MDBBtn size="lg" block> */}
             <br></br>
-            <MDBBtn className='sign-in-btn' type="submit">
-              Save Updated Preferences
+            <MDBRow className="mb-1">
+          <MDBCol>
+          <MDBBtn
+              id="favorites-pill">
+              View Favorites
             </MDBBtn>
-            <br></br>
-            <br></br>
+          </MDBCol>
+          <MDBCol>
+          <MDBBtn className='sign-in-btn' type="submit">
+              Save
+            </MDBBtn>
+          </MDBCol>
+          <MDBCol></MDBCol>
+        </MDBRow>
+
           </MDBCardBody>
         </MDBCard>
       </form>

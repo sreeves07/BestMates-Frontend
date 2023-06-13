@@ -42,7 +42,7 @@
 
 #search-input {
     background-color: transparent;
-    box-shadow: 2px 2px 20px var(--mainColor) inset;
+    box-shadow: 2px 2px 60px var(--mainColor) inset;
 
     border-radius: 8px;
 
@@ -86,7 +86,7 @@
 .user-messages:hover {
     border-radius: 30px 7px 7px 30px;
     scale: 1.1;
-    background-color: rgba(150, 150, 150, 0.232);
+    background-color: rgba(226, 219, 243, 0.549);
 
     transition: all ease 0.1s;
 }

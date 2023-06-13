@@ -15,7 +15,13 @@
 
 .check {
   height: 55px;
+  text-align: left;
+  padding-right: 30px;
   padding-top: 15px;
+}
+
+.preferenceIndex .form-check-label {
+  padding-left: 35px;
 }
 
 .check:hover {

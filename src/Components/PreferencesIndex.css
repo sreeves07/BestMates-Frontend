@@ -6,3 +6,17 @@
 .newPrefForm-submitBtn {
     width: 20%;
 }
+
+#favorites-pill {
+
+    width: 140px;
+    height: 40px;
+    margin: auto;
+
+    color: var(--secondaryColor);
+    font-weight: 900;
+
+    background-color: rgb(84, 24, 167);
+
+    border-radius: 10px;
+}
