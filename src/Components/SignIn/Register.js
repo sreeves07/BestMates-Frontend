@@ -158,7 +158,7 @@ export default function Register({ justifyActive }) {
                 id="register-flexCheckDefault2"
                 label={`I have read and agree to the terms`}
                 // value="unchecked"
-                checked="true"
+                checked={true}
                 required
               />
             </MDBRow>
