@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useContextAuthProvider } from "../Firebase/context";
 import axios from "axios";
 // Firebase Firestore Database
-import { db } from "../Firebase/config"
-import { collection, doc, addDoc, setDoc } from "firebase/firestore"
+import { db } from "../Firebase/config";
+import { collection, doc, addDoc, setDoc } from "firebase/firestore";
 // User Picture Upload Widget from Cloudinary
 // import UploadWidget from "./UploadWidget.js"
 import "../Components/NewForm.css";
@@ -34,26 +34,26 @@ function NewForm() {
   const { uid, email } = user;
 
   const [newUser, setNewUser] = useState({
-    first_name: "Juan",
-    last_name: "Bowers",
-    city: "Maspeth",
+    first_name: "Cleo",
+    last_name: "Patra",
+    city: "Long Island City",
     state: "NY",
-    zip_code: 11378,
-    birthday: "",
+    zip_code: 11101,
+    birthday: "1990-06-19",
     gender: "Male",
     sexual_orientation: "Heterosexual",
     email: `${user.email}`,
-    has_pets: false,
+    has_pets: true,
     has_open_rooms: false,
     is_smoker: false,
     has_kids: false,
     is_disabled: false,
-    is_sharing_bills: false,
-    is_neat: false,
+    is_sharing_bills: true,
+    is_neat: true,
     is_religious: false,
-    move_in_date: "",
+    move_in_date: "2024-08-19",
     max_rent: 1000,
-    credit_score: 800,
+    credit_score: 600,
     income: 80000,
     // is_employed: true,                //need to be added to backend
     // is_student: false, //need to be added to backend
@@ -78,7 +78,7 @@ function NewForm() {
     axios
       .put(`${API}/user/${uid}`, newUser)
       .then(() => {
-        setFirstName(newUser.first_name)
+        setFirstName(newUser.first_name);
         navigate(`/preferences`);
       })
       .catch((c) => console.warn("catch", c));
@@ -88,6 +88,7 @@ function NewForm() {
   // set updated state of newUser to what the user enters
   const handleTextChange = (event) => {
     setNewUser({ ...newUser, [event.target.id]: event.target.value });
+    console.log(event.target.value);
   };
   // console.log("newly added user", newUser)
 
@@ -95,7 +96,7 @@ function NewForm() {
     setNewUser({ ...newUser, [event.target.id]: !newUser[event.target.id] });
   };
 
-  async function handleSubmit (event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     event.target.className += " was-validated";
     addNewUser(newUser);
@@ -106,12 +107,11 @@ function NewForm() {
         email: email,
         profilePhotoUrl: profilePhotoUrl,
         ...newUser,
-      })
+      });
 
       await setDoc(doc(db, "userChats", uid), {});
-
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
   }
 
@@ -214,7 +214,7 @@ function NewForm() {
 
                   <MDBCol>
                     <select
-                      style={{color: "rgb(102, 102, 102)"}}
+                      style={{ color: "rgb(102, 102, 102)" }}
                       className="gender-attribute form-control background-light-purple"
                       onChange={handleTextChange}
                       value={newUser.gender}
@@ -235,7 +235,7 @@ function NewForm() {
 
                   <MDBCol>
                     <select
-                      style={{color: "rgb(102, 102, 102)"}}
+                      style={{ color: "rgb(102, 102, 102)" }}
                       className="orientation-attribute form-control background-light-purple"
                       onChange={handleTextChange}
                       value={newUser.sexual_orientation}
@@ -278,7 +278,6 @@ function NewForm() {
                       onChange={handleTextChange}
                       value={newUser.move_in_date}
                       id="move_in_date"
-                      required
                     />
                   </MDBCol>
                 </MDBRow>
@@ -326,7 +325,9 @@ function NewForm() {
                 </MDBRow>
 
                 {/* ********** Attributes (Financial) - Row 6 - (Checkboxes- Row A)********** */}
-                <p><em>Select all that apply to you...</em></p>
+                <p>
+                  <em>Select all that apply to you...</em>
+                </p>
                 <MDBRow className="mb-3">
                   {/* <MDBTypography tag="h6" className="mb-0 " ><strong>Your Attributes</strong><hr></hr></MDBTypography> */}
                   <MDBCol className="check">
@@ -358,7 +359,7 @@ function NewForm() {
                       id="host_parties"
                     />
                   </MDBCol>
-                  <MDBCol className='check'>
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Disabled"
@@ -367,7 +368,6 @@ function NewForm() {
                       id="is_disabled"
                     />
                   </MDBCol>
-                  
                 </MDBRow>
 
                 {/* ********** Attributes (LifeStyle, Amenities) - Row 7 - (Checkboxes- Row B) ********** */}
@@ -411,7 +411,6 @@ function NewForm() {
                       id="is_musician"
                     />
                   </MDBCol>
-                  
                 </MDBRow>
 
                 {/* ********** Attributes (LifeStyle, Obligations) - Row 8 - (Checkboxes- Row C) ********** */}
@@ -456,12 +455,15 @@ function NewForm() {
                       id="has_open_rooms"
                     />
                   </MDBCol>
-                  
                 </MDBRow>
 
                 {/* ********** Attributes (Activities) - Row 9 - (Checkboxes- Row D) ********** */}
 
-                <MDBRow className="mb-3" style={{display: `${newUser.has_open_rooms ? "" : "none"}`}} >
+                <MDBRow
+                  className="mb-3"
+                  style={{
+                    display: `${newUser.has_open_rooms ? "" : "none"}`,
+                  }}>
                   <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"

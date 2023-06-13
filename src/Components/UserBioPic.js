@@ -24,15 +24,15 @@ const UserBioPic = () => {
   const { uid } = user;
   // console.log(user);
 
-  const [userBio, setUserBio] = useState("");
-  let [ bioSubmitted, setBioSubmitted ] = useState(false);
+  const [userBio, setUserBio] = useState("I am Queen of the Nile!");
+  let [bioSubmitted, setBioSubmitted] = useState(false);
 
   const handleTextChange = (e) => {
     setUserBio(e.target.value);
   };
 
   const addUserBio = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     axios
       .post(`${API}/user/${uid}/bio`, {
         mate_uid: `${uid}`,
@@ -68,8 +68,7 @@ const UserBioPic = () => {
             </MDBTypography>
           </MDBCardHeader>
           <MDBCardBody>
-            {
-              !bioSubmitted ? 
+            {!bioSubmitted ? (
               <>
                 <MDBTextArea
                   id="small_bio"
@@ -86,16 +85,18 @@ const UserBioPic = () => {
                   <MDBBtn
                     style={{ width: "50%" }}
                     className="btn-secondary sign-in-btn"
-                    type="submit"
-              >
+                    type="submit">
                     Save Bio
                   </MDBBtn>
                 </MDBRow>
-              </> 
-              : <p><br></br>"{userBio}"</p>
-            }
+              </>
+            ) : (
+              <p>
+                <br></br>"{userBio}"
+              </p>
+            )}
           </MDBCardBody>
-        </MDBCard>  
+        </MDBCard>
       </form>
     </div>
   );
