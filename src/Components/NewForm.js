@@ -36,13 +36,14 @@ function NewForm() {
   const [newUser, setNewUser] = useState({
     first_name: "Cleo",
     last_name: "Patra",
+    email: `${user.email}`,
     city: "Long Island City",
     state: "NY",
     zip_code: 11101,
     birthday: "1990-06-19",
+    move_in_date: "2024-08-19",
     gender: "Male",
     sexual_orientation: "Heterosexual",
-    email: `${user.email}`,
     has_pets: false,
     has_open_rooms: false,
     is_smoker: false,
@@ -51,17 +52,16 @@ function NewForm() {
     is_sharing_bills: false,
     is_neat: false,
     is_religious: false,
-    move_in_date: "2024-08-19",
-    max_rent: 1000,
-    credit_score: 600,
-    income: 80000,
     is_musician: false,
     is_partyhost: false,
     has_private_room: false,
     has_private_bathroom: false,
     has_house: false,
     has_high_rise: false,
-    low_noise: false,
+    // low_noise: false,
+    max_rent: 1000,
+    credit_score: 600,
+    income: 80000,
   });
 
   let navigate = useNavigate();
@@ -377,7 +377,7 @@ function NewForm() {
                       id="is_neat"
                     />
                   </MDBCol>
-                  <MDBCol className="check">
+                  {/* <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Low Noise"
@@ -385,7 +385,7 @@ function NewForm() {
                       value={newUser.low_noise}
                       id="low_noise"
                     />
-                  </MDBCol>
+                  </MDBCol> */}
 
                   <MDBCol className="check">
                     <MDBCheckbox
