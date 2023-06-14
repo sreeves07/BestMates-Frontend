@@ -3,6 +3,9 @@
     padding-top: 5px;
 
     height: 100%;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .messaging-nav {
@@ -17,12 +20,23 @@
     margin-bottom: 16px;
 }
 
+.messaging-nav img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--secondaryColor);
+    object-fit: cover;
+  }
+
 #chat-mate-logo {
     position: absolute;
     left: -45px;
     top: -30px;
     border: 10px solid var(--darkBackgroundColor);
     border-radius: 50% 10px 50% 50%;
+
+    width: 100px !important;
+    height: 100px !important;
 
     background-color: var(--darkBackgroundColor);
 }
@@ -35,9 +49,7 @@
 }
 
 .search {
-    height: 41px;
     padding: 10px;
-
 }
 
 #search-input {
@@ -61,8 +73,8 @@
     max-height: 420px;
     min-height: fit-content;
 
-    margin-top:55px;
     padding: 10px;
+    padding-top: 0px;
 
     overflow-y: auto;
 }
@@ -75,9 +87,7 @@
     justify-content: space-between;
     align-items: center;
 
-    margin: 13px;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin: 13px 0px 0px 0px;
 
     padding-right: 10px;
 
@@ -124,5 +134,9 @@
 }
 
 .user-img {
-    width: 50px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--secondaryColor);
+    object-fit: cover;
 }

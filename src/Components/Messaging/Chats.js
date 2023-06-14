@@ -29,7 +29,6 @@ function Chats() {
 
   return (
     <div className="chats">
-      <hr style={{ color: "var(--secondaryColor", height: "3px" }}></hr>
       <span style={{ color: "#cbb1ff", fontSize: "20px" }}>Chats</span>
       {Object.entries(chats)
         ?.sort((a, b) => {
