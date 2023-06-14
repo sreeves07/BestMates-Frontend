@@ -3,8 +3,9 @@ import axios from "axios";
 import { MDBBtn } from "mdb-react-ui-kit";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { useContextAuthProvider } from "../Firebase/context";
-import { auth } from "../Firebase/config";
+import { auth, db } from "../Firebase/config";
 import { updateProfile } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import logo from "../Images/LOGO_favicon.png";
 
 const API = process.env.REACT_APP_API_URL;
@@ -63,6 +64,12 @@ const UploadWidget = () => {
     updateProfile(auth.currentUser, {
       photoURL: uploadURL,
     })
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
+
+    setDoc(doc(db, "userChats", uid), {})
       .then(() => {})
       .catch((error) => {
         console.error(error);
