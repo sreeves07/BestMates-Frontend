@@ -33,7 +33,7 @@
 }
 
 .chat-top-bar img {
-    border: 2px solid grey;
+    border: 2px solid var(--darkBackgroundColor);
     margin-left: 15px;
 
     border-radius: 50px;
@@ -141,6 +141,10 @@
 
 #message-input::placeholder {
     color: rgba(68, 68, 68, 0.853);
+}
+
+.message img {
+    border-radius: 25px;
 }
 
 .chat-input textarea {

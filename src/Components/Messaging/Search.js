@@ -110,7 +110,7 @@ function Search() {
             alt="user"
           />
           <div>
-            <span style={{ display: "block" }} className="user-chat">
+            <span style={{ display: "block", color: "white" }}>
               {searchedUser.first_name}
             </span>
             <span style={{ fontSize: "10px", color: "var(--secondaryColor)" }}>

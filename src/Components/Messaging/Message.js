@@ -12,15 +12,20 @@ function Message({ message }) {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   }, [message]);
 
-  console.log(data);
+  console.log("user", user, "message", message);
 
   return (
-    <div ref={ref} className="message">
+    <div
+      ref={ref}
+      className="message"
+      style={
+        message.senderId === user.uid ? { flexDirection: "row-reverse" } : {}
+      }>
       <div className="message-info">
         <img
           width="40px"
           src={
-            message.senderId === user.uid ? profilePhotoUrl : data.user.photoURL
+            message.senderId === user.uid ? user.photoURL : data.user.photoURL
           }
           alt="user"
         />
