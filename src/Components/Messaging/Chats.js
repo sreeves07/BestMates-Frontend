@@ -39,7 +39,7 @@ function Chats() {
           return (
             <div
               key={chat[0]}
-              className="user-messages"
+              className="user-chat"
               onClick={() => handleSelect(chat[1].userInfo)}>
               <img
                 style={{
@@ -51,7 +51,7 @@ function Chats() {
                 alt="user"
               />
               <div>
-                <span style={{ display: "block" }} className="user-chat">
+                <span style={{ display: "block" }} className="user-chat-info">
                   {chat[1].userInfo.displayName}
                 </span>
                 <span
