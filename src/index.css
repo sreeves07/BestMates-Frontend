@@ -7,14 +7,14 @@ code {
 }
 
 :root {
-  --mainColor: #52ff9a43;
+  --mainColor: #8c52ff;
+  --brightMainColor: #622fc9;
   --transparentMainColor: #cbb1ff26;
   --darkMainColor: #2e008b;
   --secondaryColor: #66ff33;
   --darkSecondaryColor: #228700;
   --darkBackgroundColor: #12061e;
   --lightBackgroundColor: beige;
-
 }
 
 *,

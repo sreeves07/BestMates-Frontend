@@ -1,14 +1,3 @@
-:root {
-    --mainColor: #8c52ff;
-    --transparentMainColor: #cbb1ff26;
-    --darkMainColor: #2e008b;
-    --secondaryColor: #66ff33;
-    --darkSecondaryColor: #228700;
-    --darkBackgroundColor: #12061e;
-    --lightBackgroundColor: beige;
-
-}
-
 .sign-in-container {
     margin: auto;
     margin-top: 0;
