@@ -15,7 +15,7 @@
 .chat-info {
     border-radius: 0px 30px 0px 0px;
 
-    height: 80px;
+    height: 95px;
     background-color: white;
 
     display: flex;
@@ -27,6 +27,19 @@
     padding: 15px;
 }
 
+.chat-top-bar {
+    display: flex;
+    align-items: center;
+}
+
+.chat-top-bar img {
+    border: 2px solid grey;
+    margin-left: 15px;
+
+    border-radius: 50px;
+
+}
+
 .chat-icons {
     width: 160px;
 
@@ -36,8 +49,10 @@
 }
 
 #cam-icon,
-#more-icon {
+#more-icon,
+#exit-chat-btn {
     cursor: pointer;
+    color: var(--mainColor)
 }
 
 /* Messages */
