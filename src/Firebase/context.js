@@ -8,16 +8,29 @@ export function useContextAuthProvider() {
 //creates a component that we can use in index.js (not the page Index.js) to wrap around the entire App component -- allowing us to export the state to the entire App potentially
 function AuthProvider({ children }) {
   // the "pseudo prop or pseudo selector" children is being destructured in param parens to allow access to all child nodes within App
-  const [profilePhotoUrl, setProfilePhotoUrl] = useState(null)
+  const [userCity, setUserCity] = useState(null);
+  const [profilePhotoUrl, setProfilePhotoUrl] = useState(null);
   const [user, setUser] = useState(null);
-  const [firstName, setFirstName] = useState(null) 
-  const [zipcode, setZipcode] = useState("")
+  const [firstName, setFirstName] = useState(null);
+  const [zipcode, setZipcode] = useState("");
   // we create our state like normal -- user in this case
 
   // normal return statement like in a normal component
   return (
     // value is passing the destructured state through to all children like a prop -- a prop on steroids ;)
-    <AuthContext.Provider value={{ user, setUser, profilePhotoUrl, setProfilePhotoUrl, firstName, setFirstName, zipcode, setZipcode }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        setUser,
+        profilePhotoUrl,
+        setProfilePhotoUrl,
+        firstName,
+        setFirstName,
+        zipcode,
+        setZipcode,
+        userCity,
+        setUserCity,
+      }}>
       {children}
     </AuthContext.Provider>
   );

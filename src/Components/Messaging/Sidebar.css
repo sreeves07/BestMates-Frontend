@@ -61,14 +61,15 @@
     max-height: 420px;
     min-height: fit-content;
 
-    margin-top: 15px;
+    margin-top:55px;
     padding: 10px;
 
     overflow-y: auto;
 }
 
-.user-messages {
+.searched-users {
     border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 30px 7px 7px 30px;
 
     display: flex;
     justify-content: space-between;
@@ -83,8 +84,34 @@
     cursor: pointer;
 }
 
-.user-messages:hover {
+.searched-users:hover {
+    scale: 1.1;
+    background-color: rgba(24, 252, 75, 0.549);
+
+    transition: all ease 0.1s;
+}
+
+.user-messages {
+    border: 2px solid rgba(0, 0, 0, 0);
     border-radius: 30px 7px 7px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 13px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    padding-right: 10px;
+
+    cursor: pointer;
+
+    background-color: rgba(226, 219, 243, 0.239);
+}
+
+.user-messages:hover {
+    
     scale: 1.1;
     background-color: rgba(226, 219, 243, 0.549);
 

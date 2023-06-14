@@ -30,7 +30,7 @@ const API = process.env.REACT_APP_API_URL;
 
 function NewForm() {
   //Set state for auth and newUser
-  const { user, profilePhotoUrl, setFirstName } = useContextAuthProvider();
+  const { user, profilePhotoUrl, setFirstName, setUserCity } = useContextAuthProvider();
   const { uid, email } = user;
 
   const [newUser, setNewUser] = useState({
@@ -73,6 +73,7 @@ function NewForm() {
       .put(`${API}/user/${uid}`, newUser)
       .then((res) => {
         setFirstName(newUser.first_name);
+        setUserCity(newUser.city)
         navigate(`/preferences`);
         console.log("res.data", res.data);
       })
