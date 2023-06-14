@@ -3,6 +3,8 @@ import axios from "axios";
 import { MDBBtn } from "mdb-react-ui-kit";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { useContextAuthProvider } from "../Firebase/context";
+import { auth } from "../Firebase/config";
+import { updateProfile } from "firebase/auth";
 import logo from "../Images/LOGO_favicon.png";
 
 const API = process.env.REACT_APP_API_URL;
@@ -52,12 +54,19 @@ const UploadWidget = () => {
         mate_uid: `${uid}`,
         profile_image: `${uploadURL}`,
       })
-      .then((response) => {
+      .then(() => {
         setPicUploadSuccess(true);
         setProfilePhotoUrl(uploadURL);
-        // setImage(response.data[0].profile_image);
       })
       .catch((c) => console.warn("catch", c));
+
+    updateProfile(auth.currentUser, {
+      photoURL: uploadURL,
+    })
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
