@@ -37,14 +37,14 @@ function App() {
 
               <Route path="/terms" element={<Terms />} />
 
-              <Route path="*" element={<p>Error</p>} />
+              <Route path="*" element={<FourOFour />} />
             </>
           ) : (
             <>
               <Route path="/" element={<Home />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/signin" element={<SignIn />} />
-              <Route path="*" element={<p>Error</p>} />
+              <Route path="*" element={<FourOFour />} />
             </>
           )}
         </Routes>
