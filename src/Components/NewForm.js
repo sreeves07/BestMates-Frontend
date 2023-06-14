@@ -55,13 +55,12 @@ function NewForm() {
     max_rent: 1000,
     credit_score: 600,
     income: 80000,
-    is_musician: false, 
-    is_partyhost: false, 
-    has_private_room: false, 
+    is_musician: false,
+    is_partyhost: false,
+    has_private_room: false,
     has_private_bathroom: false,
-    has_open_rooms: false,
     has_house: false,
-    has_high_rise: false
+    has_high_rise: false,
   });
 
   let navigate = useNavigate();
@@ -74,7 +73,7 @@ function NewForm() {
       .then((res) => {
         setFirstName(newUser.first_name);
         navigate(`/preferences`);
-        console.log('res.data', res.data)
+        console.log("res.data", res.data);
       })
       .catch((c) => console.warn("catch", c));
   };
@@ -95,7 +94,7 @@ function NewForm() {
     event.preventDefault();
     event.target.className += " was-validated";
     addNewUser(newUser);
-    console.log('add new user', addNewUser(newUser))
+    console.log("add new user", addNewUser(newUser));
 
     try {
       await addDoc(collection(db, "users"), {
