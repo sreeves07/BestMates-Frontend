@@ -43,31 +43,25 @@ function NewForm() {
     gender: "Male",
     sexual_orientation: "Heterosexual",
     email: `${user.email}`,
-    has_pets: true,
+    has_pets: false,
     has_open_rooms: false,
     is_smoker: false,
     has_kids: false,
     is_disabled: false,
-    is_sharing_bills: true,
-    is_neat: true,
+    is_sharing_bills: false,
+    is_neat: false,
     is_religious: false,
     move_in_date: "2024-08-19",
     max_rent: 1000,
     credit_score: 600,
     income: 80000,
-    // is_employed: true,                //need to be added to backend
-    // is_student: false, //need to be added to backend
-    // is_healthy: true,                 //need to be added to backend
-    // has_allergies: false,             //need to be added to backend
-    // has_chronic_condition: false,     //need to be added to backend (in Answers table)
-    // has_visiting_nurse: false,        //need to be added to backend
-    // has_home_assistance: false,       //need to be added to backend
-    // is_musician: false, //need to be added to backend
-    // is_singer: false, //need to be added to backend
-    // host_parties: false, //need to be added to backend
-    // has_romantic_visits: false,       //need to be added to backend
-    // has_family_friend_visits: false,  //need to be added to backend
-    // has_night_life: false,            //need to be added to backend
+    is_musician: false, 
+    is_partyhost: false, 
+    has_private_room: false, 
+    has_private_bathroom: false,
+    has_open_rooms: false,
+    has_house: false,
+    has_high_rise: false
   });
 
   let navigate = useNavigate();
@@ -77,9 +71,10 @@ function NewForm() {
   const addNewUser = (newUser) => {
     axios
       .put(`${API}/user/${uid}`, newUser)
-      .then(() => {
+      .then((res) => {
         setFirstName(newUser.first_name);
         navigate(`/preferences`);
+        console.log('res.data', res.data)
       })
       .catch((c) => console.warn("catch", c));
   };
@@ -100,6 +95,7 @@ function NewForm() {
     event.preventDefault();
     event.target.className += " was-validated";
     addNewUser(newUser);
+    console.log('add new user', addNewUser(newUser))
 
     try {
       await addDoc(collection(db, "users"), {
@@ -355,8 +351,8 @@ function NewForm() {
                       name="flexCheck"
                       label="Party Host"
                       onChange={handleCheckboxChange}
-                      value={newUser.host_parties}
-                      id="host_parties"
+                      value={newUser.is_partyhost}
+                      id="is_partyhost"
                     />
                   </MDBCol>
                   <MDBCol className="check">
@@ -382,7 +378,7 @@ function NewForm() {
                       id="is_neat"
                     />
                   </MDBCol>
-                  <MDBCol className="check">
+                  {/* <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Low Noise"
@@ -390,7 +386,7 @@ function NewForm() {
                       value={newUser.low_noise}
                       id="low_noise"
                     />
-                  </MDBCol>
+                  </MDBCol> */}
 
                   <MDBCol className="check">
                     <MDBCheckbox
@@ -469,8 +465,8 @@ function NewForm() {
                       name="flexCheck"
                       label="Private Room"
                       onChange={handleCheckboxChange}
-                      value={newUser.private_room}
-                      id="private_room"
+                      value={newUser.has_private_room}
+                      id="has_private_room"
                     />
                   </MDBCol>
                   <MDBCol className="check">
@@ -478,8 +474,8 @@ function NewForm() {
                       name="flexCheck"
                       label="Private Bath"
                       onChange={handleCheckboxChange}
-                      value={newUser.private_bathroom}
-                      id="private_bathroom"
+                      value={newUser.has_private_bathroom}
+                      id="has_private_bathroom"
                     />
                   </MDBCol>
 
@@ -488,8 +484,8 @@ function NewForm() {
                       name="flexCheck"
                       label="High Rise"
                       onChange={handleCheckboxChange}
-                      value={newUser.high_rise}
-                      id="high_rise"
+                      value={newUser.has_high_rise}
+                      id="has_high_rise"
                     />
                   </MDBCol>
 
@@ -498,8 +494,8 @@ function NewForm() {
                       name="flexCheck"
                       label="House"
                       onChange={handleCheckboxChange}
-                      value={newUser.house}
-                      id="house"
+                      value={newUser.has_house}
+                      id="has_house"
                     />
                   </MDBCol>
                 </MDBRow>
