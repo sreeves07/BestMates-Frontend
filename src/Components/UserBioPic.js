@@ -40,10 +40,8 @@ const UserBioPic = () => {
       })
       .then(() => {
         setBioSubmitted(true);
-        console.log("got it");
       })
       .catch((c) => console.warn("catch", c));
-    alert("Your Bio has been saved!");
   };
 
   return (

@@ -313,3 +313,23 @@ select.orientation-attribute {
 .upload-widget:hover .tooltiptext {
   visibility: visible;
 }
+
+.upload-widget .tooltiptext2 {
+  visibility: hidden;
+  width: 140px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+
+  /* Position the tooltip */
+  position: absolute;
+  left: 320px;
+  top: 215px;
+  z-index: 1;
+}
+
+.upload-widget:hover .tooltiptext2 {
+  visibility: visible;
+}

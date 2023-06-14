@@ -61,6 +61,7 @@ function NewForm() {
     has_private_bathroom: false,
     has_house: false,
     has_high_rise: false,
+    low_noise: false,
   });
 
   let navigate = useNavigate();
@@ -82,7 +83,6 @@ function NewForm() {
   // set updated state of newUser to what the user enters
   const handleTextChange = (event) => {
     setNewUser({ ...newUser, [event.target.id]: event.target.value });
-    console.log(event.target.value);
   };
   // console.log("newly added user", newUser)
 
@@ -94,7 +94,6 @@ function NewForm() {
     event.preventDefault();
     event.target.className += " was-validated";
     addNewUser(newUser);
-    console.log("add new user", addNewUser(newUser));
 
     try {
       await addDoc(collection(db, "users"), {
@@ -106,6 +105,7 @@ function NewForm() {
 
       await setDoc(doc(db, "userChats", uid), {});
     } catch (e) {
+      console.log(e);
       console.error(e);
     }
   }
@@ -377,7 +377,7 @@ function NewForm() {
                       id="is_neat"
                     />
                   </MDBCol>
-                  {/* <MDBCol className="check">
+                  <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
                       label="Low Noise"
@@ -385,7 +385,7 @@ function NewForm() {
                       value={newUser.low_noise}
                       id="low_noise"
                     />
-                  </MDBCol> */}
+                  </MDBCol>
 
                   <MDBCol className="check">
                     <MDBCheckbox
