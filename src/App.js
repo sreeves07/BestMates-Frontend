@@ -12,6 +12,8 @@ import Preferences from "./Pages/Preferences";
 import FourOFour from "./Pages/FourOFour";
 import Messaging from "./Pages/Messaging";
 
+import favLogo from "./Images/LOGO_favorites.png";
+
 import "./App.css";
 
 function App() {
@@ -32,7 +34,10 @@ function App() {
               <Route path="/users" element={<Index />} />
               <Route path="/users/:uid" element={<Show />} />
               <Route path="/users/:uid/edit" element={<EditUserForm />} />
-
+              <Route
+                path="/favorites/:uid"
+                element={<img src={favLogo} alt="favorites" />}
+              />
               <Route path="/chat" element={<Messaging />} />
 
               <Route path="/terms" element={<Terms />} />
