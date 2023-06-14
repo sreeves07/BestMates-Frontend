@@ -7,7 +7,6 @@ import "./Sidebar.css";
 const API = process.env.REACT_APP_API_URL;
 
 function MessagingNav() {
-  const [userDisplayName, setUserDisplayName] = useState("");
   const [userImg, setUserImg] = useState("");
   const { user } = useContextAuthProvider();
 
@@ -16,13 +15,6 @@ function MessagingNav() {
       .get(`${API}/user/${user.uid}/images`)
       .then((res) => {
         setUserImg(res.data[0].profile_image);
-      })
-      .catch((e) => console.error(e));
-
-    axios
-      .get(`${API}/user/${user.uid}`)
-      .then((res) => {
-        setUserDisplayName(res.data[0].first_name);
       })
       .catch((e) => console.error(e));
   }, [user.uid]);
