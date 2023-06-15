@@ -259,7 +259,7 @@ const ShowOneUser = () => {
                 Shares Expenses:
                 {stringifyUserProperty(is_sharing_bills)}
               </MDBCol>
-              <MDBCol>
+              <MDBCol id="financialSituation-creditScore">
                 {" "}
                 Credit Score: {calculateCreditScore(credit_score)}
               </MDBCol>

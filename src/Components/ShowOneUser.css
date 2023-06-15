@@ -75,13 +75,13 @@ margin-left: 2rem;
 }
 
 .livingSituationRow1{
-margin-left: 5.3rem;
+margin-left: 5.2rem;
 
 }
 
 
 .livingSituationRow2 {
-margin-left: 5.3rem;
+margin-left: 5.2rem;
 
 }
 
@@ -95,7 +95,7 @@ margin-left: 1rem;
 }
 
 .financialSituationRow1{
-margin-left: 1.5rem;
+margin-left: .7rem;
 }
 
 #financialSituation-Income{
@@ -104,7 +104,11 @@ margin-left: -2rem;
 }
 
 #financialSituation-sharesExpenses{
-margin-left: 1.4rem;
+margin-left: 1.5rem;
+}
+
+#financialSituation-creditScore{
+margin-left: -2.2rem;
 }
 
 /* ACTIVITIES */
