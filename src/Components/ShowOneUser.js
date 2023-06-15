@@ -160,7 +160,7 @@ const ShowOneUser = () => {
                 src={profileImage}
                 alt="profile"
                 className="rounded-circle"
-                style={{ width: "18rem", height: "18rem" }}></img>
+                style={{ width: "17rem", height: "17rem" }}></img>
               <p className="h1">{first_name}</p>
               <p className="h6">Bio: {bio || "N/A"}</p>
             </MDBCol>
@@ -171,7 +171,7 @@ const ShowOneUser = () => {
           {/* ROW 1 -- BASIC INFO */}
           <MDBRow className="mb-3 basicInfo">
             <MDBCardHeader>
-              <MDBTypography tag="h5" className="mb-0 header">
+              <MDBTypography tag="h5" className="mb-0 header basicInfoHeader">
                 Basic Info
               </MDBTypography>
             </MDBCardHeader>
@@ -259,7 +259,7 @@ const ShowOneUser = () => {
                 Shares Expenses:
                 {stringifyUserProperty(is_sharing_bills)}
               </MDBCol>
-              <MDBCol>
+              <MDBCol id="financialSituation-creditScore">
                 {" "}
                 Credit Score: {calculateCreditScore(credit_score)}
               </MDBCol>
