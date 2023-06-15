@@ -2,20 +2,19 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useContextAuthProvider } from "../Firebase/context";
 import axios from "axios";
-import { MDBBtn } from 'mdb-react-ui-kit';
-import { BiMessageAltDetail, BiSmile } from "react-icons/bi"
-import "../Components/SignIn/SignInForm.css"
+import { MDBBtn } from "mdb-react-ui-kit";
+import { BiMessageAltDetail, BiSmile } from "react-icons/bi";
+import "../Components/SignIn/SignInForm.css";
 import "./User.css";
 
-import logo from "../Images/LOGO_no_text.png"
+import logo from "../Images/LOGO_no_text.png";
 import defaultProfilePic from "../Images/LOGO_favicon.png";
-
 //import { MDBBtn } from "mdb-react-ui-kit";
 
 const API = process.env.REACT_APP_API_URL;
 
 const User = ({ currentUser }) => {
-  const { first_name, birthday, gender, profile_image, uid } = currentUser;
+  const { first_name, birthday, gender, profile_image, uid, id } = currentUser;
 
   const { user } = useContextAuthProvider();
   const loggedInUserUID = user.uid;
@@ -27,7 +26,7 @@ const User = ({ currentUser }) => {
 
   const [profileImage, setProfileImage] = useState("");
   const [toggle, setToggle] = useState(false);
-
+  const [checkIfLikedUser, setCheckIfLikedUser] = useState([]);
   const [postedLikedUserUID, setPostedLikedUserUID] = useState("");
 
   const age = (birthday) => {
@@ -39,6 +38,7 @@ const User = ({ currentUser }) => {
 
   function addLikedMate() {
     setPostedLikedUserUID(likedUserUID);
+
     // if (toggle === true) {
 
     //   console.log("Liked User = ", postedLikedUserUID);
@@ -51,6 +51,7 @@ const User = ({ currentUser }) => {
     setToggle(!toggle);
   }
 
+  //profile images fetch
   useEffect(() => {
     axios
       .get(`${API}/user/${uid}/images`) // changed from :id
@@ -58,6 +59,18 @@ const User = ({ currentUser }) => {
         // console.log(response.data);
         // console.log("userPROFILE-IMAGE=", response.data);
         setProfileImage(response.data[0].profile_image);
+      })
+      .catch((c) => console.warn("catch", c));
+  }, []);
+
+  //faves fetch
+  useEffect(() => {
+    axios
+      .get(`${API}/user/${uid}/likes`) // changed from :id
+      .then((response) => {
+        console.log("*****LIKES*****", response.data);
+        // console.log("userPROFILE-IMAGE=", response.data);
+        setCheckIfLikedUser(response.data[0]);
       })
       .catch((c) => console.warn("catch", c));
   }, []);
@@ -84,7 +97,7 @@ const User = ({ currentUser }) => {
           />{" "}
         </Link>
         <br />
-       
+        <br></br>
         <span className="userCard-fname">{first_name} </span> <br />
         <span className="userCard-info">
           {" "}
