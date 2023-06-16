@@ -177,7 +177,7 @@ const PreferenceIndexUpdated = () => {
                     label="Employed"
                     id="employment_preference"
                     onChange={handleCheckboxChange}
-                    value={answer.employment_preference}
+                    value={answer.employed_preference}
                     checked={checkedAlg(answer.employed_preference)}
                   />
                 </MDBCol>
@@ -224,7 +224,7 @@ const PreferenceIndexUpdated = () => {
                     id="disabled_preference"
                     label="Disabled"
                     onChange={handleCheckboxChange}
-                    value={answer.disabled_preference}
+                    value={answer.disability_preference}
                     checked={checkedAlg(answer.disability_preference)}
                   />
                 </MDBCol>
@@ -260,7 +260,7 @@ const PreferenceIndexUpdated = () => {
                     id="host_parties_preference"
                     label="Party Host"
                     onChange={handleCheckboxChange}
-                    value={answer.host_parties_preference}
+                    value={answer.partyhost_preference}
                     checked={checkedAlg(answer.partyhost_preference)}
                   />
                 </MDBCol>
