@@ -28,8 +28,8 @@ const PreferenceIndexCreated = () => {
   const [answer, setAnswer] = useState({
     mate_uid: user.uid,
     gender_preference: "",
-    sexual_orientation_preference: "",
     pets_preference: false,
+    sexual_orientation_preference: "",
     open_rooms_preference: false,
     neat_preference: false,
     kids_preference: false,
@@ -43,16 +43,16 @@ const PreferenceIndexCreated = () => {
     religious_preference: false,
     good_credit_preference: false,
     high_income_preference: false,
-    //employment_preference: false,     //need to be added to backend
+    employed_preference: false, //need to be added to backend
     is_student_preference: false, //need to be added to backend
     //healthy_preference: true,        //need to be added to backend
     //allergies_preference: false,     //need to be added to backend
-    disabled_preference: false, //need to be added to backend
+    disability_preference: false, //need to be added to backend
     //chronic_condition_preference: false,  //need to be added to backend
     //visiting_nurse_preference: false,     //need to be added to backend
     //home_assistance_preference: false,    //need to be added to backend
     musician_preference: false, //need to be added to backend
-    host_parties_preference: false, //need to be added to backend
+    partyhost_preference: false, //need to be added to backend
     //romantic_visits_preference: false,    //need to be added to backend
     //family_friend_visits_preference: false,     //need to be added to backend
     //night_life_preference: false,         //need to be added to backend
@@ -202,9 +202,9 @@ const PreferenceIndexCreated = () => {
                     className="hasJob-pref"
                     name="flexCheck"
                     label="Employed"
-                    id="employment_preference"
+                    id="employed_preference"
                     onChange={handleCheckboxChange}
-                    value={answer.employment_preference}
+                    value={answer.employed_preference}
                   />
                 </MDBCol>
                 <MDBCol className="check">
@@ -243,10 +243,10 @@ const PreferenceIndexCreated = () => {
                 <MDBCol className="check">
                   <MDBCheckbox
                     name="flexCheck"
-                    id="disabled_preference"
+                    id="disability_preferencee"
                     label="Disabled"
                     onChange={handleCheckboxChange}
-                    value={answer.disabled_preference}
+                    value={answer.disability_preference}
                   />
                 </MDBCol>
               </MDBRow>
@@ -274,10 +274,10 @@ const PreferenceIndexCreated = () => {
                 <MDBCol className="ms-0 check">
                   <MDBCheckbox
                     name="flexCheck"
-                    id="host_parties_preference"
+                    id="partyhost_preference"
                     label="Party Host"
                     onChange={handleCheckboxChange}
-                    value={answer.host_parties_preference}
+                    value={answer.partyhost_preference}
                   />
                 </MDBCol>
               </MDBRow>

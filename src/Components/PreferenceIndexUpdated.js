@@ -25,7 +25,7 @@ const API = process.env.REACT_APP_API_URL;
 const PreferenceIndexUpdated = () => {
   const { user, zipcode, setZipcode } = useContextAuthProvider();
   const [answer, setAnswer] = useState({
-    gender_preference: "decline to say",
+    gender_preference: "",
     pets_preference: false,
     sexual_orientation_preference: "",
     open_rooms_preference: false,
@@ -41,16 +41,16 @@ const PreferenceIndexUpdated = () => {
     religious_preference: false,
     good_credit_preference: false,
     high_income_preference: false,
-    employment_preference: false, //need to be added to backend
+    employed_preference: false, //need to be added to backend
     is_student_preference: false, //need to be added to backend
     //healthy_preference: true,        //need to be added to backend
     //allergies_preference: false,     //need to be added to backend
-    disabled_preference: false, //need to be added to backend
+    disability_preference: false, //need to be added to backend
     //chronic_condition_preference: false,  //need to be added to backend
     //visiting_nurse_preference: false,     //need to be added to backend
     //home_assistance_preference: false,    //need to be added to backend
     musician_preference: false, //need to be added to backend
-    host_parties_preference: false, //need to be added to backend
+    partyhost_preference: false, //need to be added to backend
     //romantic_visits_preference: false,    //need to be added to backend
     //family_friend_visits_preference: false,     //need to be added to backend
     //night_life_preference: false,         //need to be added to backend
@@ -178,7 +178,7 @@ const PreferenceIndexUpdated = () => {
                     id="employment_preference"
                     onChange={handleCheckboxChange}
                     value={answer.employment_preference}
-                    checked={checkedAlg(answer.employment_preference)}
+                    checked={checkedAlg(answer.employed_preference)}
                   />
                 </MDBCol>
                 <MDBCol className="check">
@@ -225,7 +225,7 @@ const PreferenceIndexUpdated = () => {
                     label="Disabled"
                     onChange={handleCheckboxChange}
                     value={answer.disabled_preference}
-                    checked={checkedAlg(answer.disabled_preference)}
+                    checked={checkedAlg(answer.disability_preference)}
                   />
                 </MDBCol>
               </MDBRow>
@@ -261,7 +261,7 @@ const PreferenceIndexUpdated = () => {
                     label="Party Host"
                     onChange={handleCheckboxChange}
                     value={answer.host_parties_preference}
-                    checked={checkedAlg(answer.host_parties_preference)}
+                    checked={checkedAlg(answer.partyhost_preference)}
                   />
                 </MDBCol>
               </MDBRow>
