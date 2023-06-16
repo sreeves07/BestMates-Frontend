@@ -13,20 +13,20 @@ import defaultProfilePic from "../Images/LOGO_favicon.png";
 
 const API = process.env.REACT_APP_API_URL;
 
-const User = ({ currentUser }) => {
+const User = ({ currentUser, loggedInUserLikes }) => {
   const { first_name, birthday, gender, profile_image, uid, id } = currentUser;
-
   const { user } = useContextAuthProvider();
   const loggedInUserUID = user.uid;
   const likedUserUID = uid;
   // console.log(currentUser);
   // console.log("UID = ", uid)
   // console.log("USER.UID = ",user.uid)
-  // console.log("LoggedInUserUID = ",loggedInUserUID)
+  // console.log("LoggedInUserUID = ", loggedInUserUID);
 
   const [profileImage, setProfileImage] = useState("");
   const [toggle, setToggle] = useState(false);
-  const [checkIfLikedUser, setCheckIfLikedUser] = useState([]);
+  const [checkIfLikedUser, setCheckIfLikedUser] = useState();
+
   const [postedLikedUserUID, setPostedLikedUserUID] = useState("");
 
   const age = (birthday) => {
@@ -47,9 +47,7 @@ const User = ({ currentUser }) => {
     // setPostedLikedUserUID("LIKED USER DELETED");
   }
 
-  function handleClickToggle() {
-    setToggle(!toggle);
-  }
+  // _____________# -FETCHES-# _____________________
 
   //profile images fetch
   useEffect(() => {
@@ -63,23 +61,43 @@ const User = ({ currentUser }) => {
       .catch((c) => console.warn("catch", c));
   }, []);
 
-  //faves fetch
+  //faves fetch fetches the liked user table for each individual user on component load
   useEffect(() => {
     axios
-      .get(`${API}/user/${uid}/likes`) // changed from :id
+      .get(`${API}/user/${uid}/likes`)
       .then((response) => {
-        console.log("*****LIKES*****", response.data);
+        // console.log("*****LIKES*****", response.data);
         // console.log("userPROFILE-IMAGE=", response.data);
-        setCheckIfLikedUser(response.data[0]);
+
+        if (response.data[0]?.liked_mate_uid) {
+          // console.log("DATA LIKED UID", response.data[0]?.liked_mate_uid);
+          setCheckIfLikedUser(response.data[0]);
+        }
       })
       .catch((c) => console.warn("catch", c));
   }, []);
 
+  // console.log(loggedInUserLikes);
+
+  //************ */
   useEffect(() => {
-    if (toggle) {
-      addLikedMate();
+    const checkIfUserIsLikedByLoggedInUser = loggedInUserLikes?.find(
+      (likedUser) => likedUser.liked_mate_uid === uid
+    );
+    if (checkIfUserIsLikedByLoggedInUser) {
+      setToggle(true);
     }
-  }, [toggle]);
+  }, [checkIfLikedUser]);
+
+  // useEffect(() => {
+  //   if (toggle) {
+  //     addLikedMate();
+  //   }
+  // }, [toggle]);
+
+  const handleClickToggle = () => {
+    console.log("het");
+  };
 
   return (
     <div>
