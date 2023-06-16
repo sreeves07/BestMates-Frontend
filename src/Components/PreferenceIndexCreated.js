@@ -243,7 +243,7 @@ const PreferenceIndexCreated = () => {
                 <MDBCol className="check">
                   <MDBCheckbox
                     name="flexCheck"
-                    id="disability_preferencee"
+                    id="disability_preference"
                     label="Disabled"
                     onChange={handleCheckboxChange}
                     value={answer.disability_preference}
