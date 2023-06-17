@@ -96,7 +96,37 @@ const User = ({ currentUser, loggedInUserLikes }) => {
   // }, [toggle]);
 
   const handleClickToggle = () => {
-    console.log("het");
+    setToggle(!toggle);
+
+    if (toggle === false) {
+      const presentInLikes = loggedInUserLikes.find(
+        (likedUser) => !loggedInUserLikes.liked_mate_uid !== uid
+      );
+
+      if (!presentInLikes) {
+        axios
+          .post(`${API}/user/${likedUserUID}/likes`, {
+            mate_uid: `${loggedInUserUID}`,
+            liked_mate_uid: `${likedUserUID}`,
+          })
+          .then((response) => {
+            console.log(response.data);
+            window.alert("Added to Fave-Mates!");
+            // console.log("userPROFILE-IMAGE=", response.data);
+          })
+          .catch((c) => console.warn("catch", c));
+      }
+    }
+    if (toggle === true) {
+      axios
+        .delete(`${API}/user/${loggedInUserUID}/likes`)
+        .then((response) => {
+          console.log(response.data);
+          window.alert("Removed from Fave-Mates!");
+          // console.log("userPROFILE-IMAGE=", response.data);
+        })
+        .catch((c) => console.warn("catch", c));
+    }
   };
 
   return (
