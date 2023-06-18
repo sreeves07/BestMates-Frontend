@@ -94,13 +94,12 @@ margin-left: 5.2rem;
 margin-left: 1rem;
 }
 
-.financialSituationRow1{
+#financialSituationRow1{
 margin-left: .9rem;
 }
 
 #financialSituation-Income{
-margin-left: -2rem;
-        
+margin-left: -2rem;        
 }
 
 #financialSituation-sharesExpenses{
