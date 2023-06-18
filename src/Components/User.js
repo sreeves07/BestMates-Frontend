@@ -19,9 +19,9 @@ const User = ({ currentUser, loggedInUserLikes }) => {
   const loggedInUserUID = user.uid;
   const likedUserUID = uid;
   // console.log(currentUser);
-  // console.log("UID = ", uid)
+  // console.log("UID = ", uid);
   // console.log("USER.UID = ",user.uid)
-  // console.log("LoggedInUserUID = ", loggedInUserUID);
+  console.log("LoggedInUserUID = ", loggedInUserUID);
 
   const [profileImage, setProfileImage] = useState("");
   const [toggle, setToggle] = useState(false);
