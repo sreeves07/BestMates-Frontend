@@ -105,6 +105,16 @@ div.newForm-componentsBox.row {
   padding-right: 2.5rem;
 }
 
+/* corrects alignment on new form for 2nd row under "has rooms" */
+.row>* {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--mdb-gutter-x) * 0.5);
+  padding-left: 0 !important;
+  margin-top: var(--mdb-gutter-y);
+}
+
 .bioBottomRow {
   height: 35px;
   justify-content: center;
