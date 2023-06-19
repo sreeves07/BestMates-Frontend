@@ -38,11 +38,6 @@ const UserPreferencesContainer = () => {
           )}
         </MDBTabsContent>
         <br></br>
-        
-          
-          
-
-
       </MDBContainer>
     </div>
   );

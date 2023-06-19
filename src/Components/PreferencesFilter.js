@@ -60,7 +60,7 @@ const PreferencesFilter = ({ data }) => {
       });
     
     const mapFilter = {
-    'Has Good Credit' : answer.gender_preference,
+    'Gender' : answer.gender_preference,
     'Has Pets': answer.pets_preference,
     'Has Open Room(s)': answer.open_rooms_preference,
     'Is Very Neat': answer.neat_preference,
@@ -86,7 +86,7 @@ const PreferencesFilter = ({ data }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await axios.get(`${API}/userP/${user.uid}/answers`, answer)
+    const res = await axios.get(`${API}/user/${user.uid}/answers`, answer)
     console.log(res)
   }
 

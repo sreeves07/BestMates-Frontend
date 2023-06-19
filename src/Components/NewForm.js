@@ -518,7 +518,7 @@ function NewForm() {
                   <MDBCol className="check">
                     <MDBCheckbox
                       name="flexCheck"
-                      label="Pet Owner"
+                      label="Have Pets"
                       onChange={handleCheckboxChange}
                       value={newUser.has_pets}
                       id="has_pets"
