@@ -22,9 +22,10 @@ import {
 
 const API = process.env.REACT_APP_API_URL;
 
-const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
+const PreferenceIndexUpdated = ({ answer, setAnswer, users }) => {
+  console.log("ANSWER BEFORE", answer);
   const { user, zipcode, setZipcode } = useContextAuthProvider();
-  const [users, setUsers] = useState([]);
+
   const [filteredUsers, setFilteredUsers] = useState([]);
   const {
     gender_preference,
@@ -84,11 +85,11 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
         }
       }
     }));
+    setFilteredUsers(filtered);
   };
 
   const handleTextChange = (event) => {
     setAnswer({ ...answer, [event.target.id]: event.target.value });
-    
   };
 
   const handleCheckboxChange = (event) => {
@@ -99,25 +100,14 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
     event.preventDefault();
     const res = await axios.put(`${API}/user/${user.uid}/answers`, answer);
     // console.log(res);
-    // console.log("ANSWER", answer);
-    setFilteredUsers(findUserWithPreferences(answer, users));
+    console.log("ANSWER", answer);
+    findUserWithPreferences(answer, users);
     console.log("FILTERED USERS", filteredUsers);
   };
 
   const checkedAlg = (val) => {
     return val === true ? "checked" : "";
   };
-
-  // fetches all the users on component load
-  useEffect(() => {
-    axios
-      .get(`${API}/user`)
-      .then((response) => {
-        setUsers([...response.data]);
-        // console.log("##### ALL USERS #####", users);
-      })
-      .catch((c) => console.warn("catch", c));
-  }, []);
 
   // fetches the singular user on component load
   useEffect(() => {
@@ -280,7 +270,7 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
 
               {/* ************ ROW 4 - Prefs *********** */}
               <MDBRow>
-              <MDBCol className="check">
+                <MDBCol className="check">
                   <MDBCheckbox
                     className="kids_preference"
                     name="flexCheck"
@@ -292,8 +282,7 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                   />
                 </MDBCol>
 
-
-              <MDBCol className="check">
+                <MDBCol className="check">
                   <MDBCheckbox
                     className="pets_preference"
                     name="flexCheck"
@@ -314,15 +303,12 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                     checked={checkedAlg(answer.smoker_preference)}
                   />
                 </MDBCol>
-
               </MDBRow>
-                {/* ************ ROW 4 B- Prefs *********** */}
+              {/* ************ ROW 4 B- Prefs *********** */}
               {/* ************ ROW 6 - Prefs *********** */}
 
- 
-
               <MDBRow className="mb-1">
-              <MDBCol className="check">
+                <MDBCol className="check">
                   <MDBCheckbox
                     className="neat_preference"
                     name="flexCheck"
@@ -353,8 +339,8 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                     checked={checkedAlg(answer.musician_preference)}
                   />
                 </MDBCol>
-                </MDBRow>
-                <MDBRow> 
+              </MDBRow>
+              <MDBRow>
                 <MDBCol className="check">
                   <MDBCheckbox
                     className="partyhost_preference  md=0"
@@ -365,7 +351,7 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                     value={answer.partyhost_preference}
                     checked={checkedAlg(answer.partyhost_preference)}
                   />
-                </MDBCol>  
+                </MDBCol>
                 <MDBCol className="check">
                   <MDBCheckbox
                     className="openRooms-pref"
@@ -378,13 +364,11 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                   />
                 </MDBCol>
                 <MDBCol
-                style={{
-                  display: `${answer.open_rooms_preference ? "none" : ""}`,
-                }}
-                >
-
-                </MDBCol>
-                <MDBCol className="check" 
+                  style={{
+                    display: `${answer.open_rooms_preference ? "none" : ""}`,
+                  }}></MDBCol>
+                <MDBCol
+                  className="check"
                   style={{
                     display: `${answer.open_rooms_preference ? "" : "none"}`,
                   }}>
@@ -398,16 +382,14 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                     checked={checkedAlg(answer.high_rise_preference)}
                   />
                 </MDBCol>
+              </MDBRow>
 
-                </MDBRow>
-           
-                <MDBRow
-                className="mb-1">
-
-<MDBCol className="check"
-                style={{
-                  display: `${answer.open_rooms_preference ? "" : "none"}`,
-                }}>
+              <MDBRow className="mb-1">
+                <MDBCol
+                  className="check"
+                  style={{
+                    display: `${answer.open_rooms_preference ? "" : "none"}`,
+                  }}>
                   <MDBCheckbox
                     className="house-pref"
                     name="flexCheck"
@@ -419,12 +401,11 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                   />
                 </MDBCol>
 
-    
-                <MDBCol className="check"
+                <MDBCol
+                  className="check"
                   style={{
-                  display: `${answer.open_rooms_preference ? "" : "none"}`,
-                }}
-                >
+                    display: `${answer.open_rooms_preference ? "" : "none"}`,
+                  }}>
                   <MDBCheckbox
                     className="privateRoom-pref"
                     name="flexCheck"
@@ -435,11 +416,11 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                     checked={checkedAlg(answer.private_room_preference)}
                   />
                 </MDBCol>
-                <MDBCol className="check"
+                <MDBCol
+                  className="check"
                   style={{
-                  display: `${answer.open_rooms_preference ? "" : "none"}`,
-                }}
-                >
+                    display: `${answer.open_rooms_preference ? "" : "none"}`,
+                  }}>
                   <MDBCheckbox
                     className="privateBathroom-pref"
                     name="flexCheck"
@@ -450,13 +431,10 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                     checked={checkedAlg(answer.private_bathroom_preference)}
                   />
                 </MDBCol>
+              </MDBRow>
 
-                </MDBRow>
-
-                {/* <MDBCol className="ms-0"></MDBCol>
+              {/* <MDBCol className="ms-0"></MDBCol>
                 <MDBCol className="ms-0"></MDBCol> */}
-           
-
             </MDBListGroup>
 
             {/* <MDBBtn size="lg" block> */}
@@ -470,7 +448,7 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                   Save
                 </MDBBtn>
               </MDBCol>
-              <MDBCol></MDBCol>
+              <MDBCol> </MDBCol>
             </MDBRow>
           </MDBCardBody>
         </MDBCard>
