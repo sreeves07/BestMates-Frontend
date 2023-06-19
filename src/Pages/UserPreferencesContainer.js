@@ -16,7 +16,7 @@ import Favorites from "../Components/Favorites";
 
 import "../Components/SignIn/SignInForm.css";
 
-const UserPreferencesContainer = () => {
+const UserPreferencesContainer = ({ answer, setAnswer }) => {
   const [justifyActive, setJustifyActive] = useState("tab1");
 
   const handleJustifyClick = (value) => {
@@ -29,12 +29,20 @@ const UserPreferencesContainer = () => {
   return (
     <div className="user-preferences-container">
       <MDBContainer className="d-flex flex-column w-50">
-        
-
         <MDBTabsContent>
-          {justifyActive === "tab1" && <PreferenceIndexUpdated justifyActive={justifyActive} />}
+          {justifyActive === "tab1" && (
+            <PreferenceIndexUpdated
+              justifyActive={justifyActive}
+              answer={answer}
+              setAnswer={setAnswer}
+            />
+          )}
           {justifyActive === "tab2" && (
-            <PreferenceIndexUpdated justifyActive={justifyActive} />
+            <PreferenceIndexUpdated
+              justifyActive={justifyActive}
+              answer={answer}
+              setAnswer={setAnswer}
+            />
           )}
         </MDBTabsContent>
         <br></br>

@@ -13,6 +13,7 @@ function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [firstName, setFirstName] = useState(null);
   const [zipcode, setZipcode] = useState("");
+
   // we create our state like normal -- user in this case
 
   // normal return statement like in a normal component
