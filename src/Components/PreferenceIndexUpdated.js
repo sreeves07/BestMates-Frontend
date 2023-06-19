@@ -4,7 +4,7 @@ import axios from "axios";
 import { useContextAuthProvider } from "../Firebase/context";
 // import Location from "./Location";
 import "../Components/NewForm.css";
-import "./PreferencesIndex.css"
+import "./PreferencesIndex.css";
 
 // imports for material design bootstrap
 import {
@@ -22,39 +22,69 @@ import {
 
 const API = process.env.REACT_APP_API_URL;
 
-const PreferenceIndexUpdated = () => {
+const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
   const { user, zipcode, setZipcode } = useContextAuthProvider();
-  const [answer, setAnswer] = useState({
-    gender_preference: "",
-    pets_preference: false,
-    sexual_orientation_preference: "",
-    open_rooms_preference: false,
-    neat_preference: false,
-    kids_preference: false,
-    low_noise_preference: false,
-    smoker_preference: false,
-    high_rise_preference: false,
-    house_preference: false,
-    private_bathroom_preference: false,
-    private_room_preference: false,
-    share_bills_preference: false,
-    religious_preference: false,
-    good_credit_preference: false,
-    high_income_preference: false,
-    employed_preference: false, //need to be added to backend
-    is_student_preference: false, //need to be added to backend
+  const [users, setUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  const {
+    gender_preference,
+    pets_preference,
+    sexual_orientation_preference,
+    open_rooms_preference,
+    neat_preference,
+    kids_preference,
+    low_noise_preference,
+    smoker_preference,
+    high_rise_preference,
+    house_preference,
+    private_bathroom_preference,
+    private_room_preference,
+    share_bills_preference,
+    religious_preference,
+    good_credit_preference,
+    high_income_preference,
+    employed_preference, //need to be added to backend
+    is_student_preference, //need to be added to backend
     //healthy_preference: true,        //need to be added to backend
     //allergies_preference: false,     //need to be added to backend
-    disability_preference: false, //need to be added to backend
+    disability_preference, //need to be added to backend
     //chronic_condition_preference: false,  //need to be added to backend
     //visiting_nurse_preference: false,     //need to be added to backend
     //home_assistance_preference: false,    //need to be added to backend
-    musician_preference: false, //need to be added to backend
-    partyhost_preference: false, //need to be added to backend
+    musician_preference, //need to be added to backend
+    partyhost_preference, //need to be added to backend
     //romantic_visits_preference: false,    //need to be added to backend
     //family_friend_visits_preference: false,     //need to be added to backend
     //night_life_preference: false,         //need to be added to backend
-  });
+  } = answer;
+
+  const findUserWithPreferences = (answer, users) => {
+    let filtered = null;
+    return (filtered = users.filter((U) => {
+      for (const ans in answer) {
+        if (
+          U.has_pets === answer.pets_preference &&
+          U.has_open_rooms === answer.open_rooms_preference &&
+          U.is_smoker === answer.smoker_preference &&
+          U.has_kids === answer.kids_preference &&
+          U.is_disabled === answer.disability_preference &&
+          U.is_sharing_bills === answer.share_bills_preference &&
+          U.is_neat === answer.neat_preference &&
+          U.is_religious === answer.religious_preference &&
+          U.is_musician === answer.musician_preference &&
+          U.is_partyhost === answer.partyhost_preference &&
+          U.low_noise === answer.low_noise_preference &&
+          U.has_private_room === answer.private_room_preference &&
+          U.has_private_bathroom === answer.private_bathroom_preference &&
+          U.has_high_rise === answer.high_rise_preference &&
+          U.has_house === answer.house_preference &&
+          U.is_employed === answer.employed_preference
+        ) {
+          return U;
+        }
+      }
+    }));
+  };
 
   const handleTextChange = (event) => {
     setAnswer({ ...answer, [event.target.id]: event.target.value });
@@ -67,13 +97,28 @@ const PreferenceIndexUpdated = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const res = await axios.put(`${API}/user/${user.uid}/answers`, answer);
-    console.log(res);
+    // console.log(res);
+    // console.log("ANSWER", answer);
+    setFilteredUsers(findUserWithPreferences(answer, users));
+    console.log("FILTERED USERS", filteredUsers);
   };
 
   const checkedAlg = (val) => {
     return val === true ? "checked" : "";
   };
 
+  // fetches all the users on component load
+  useEffect(() => {
+    axios
+      .get(`${API}/user`)
+      .then((response) => {
+        setUsers([...response.data]);
+        // console.log("##### ALL USERS #####", users);
+      })
+      .catch((c) => console.warn("catch", c));
+  }, [users]);
+
+  // fetches the singular user on component load
   useEffect(() => {
     axios
       .get(`${API}/user/${user.uid}/answers`)
@@ -85,7 +130,7 @@ const PreferenceIndexUpdated = () => {
 
   return (
     <div className="preferenceIndex">
-    {/* ************ removed country-state-city section *********** */}
+      {/* ************ removed country-state-city section *********** */}
 
       <form className="prefIndexForm" onSubmit={handleSubmit} noValidate>
         <MDBCard>
@@ -101,17 +146,15 @@ const PreferenceIndexUpdated = () => {
               {/* ************ ROW 1 - Prefs *********** */}
 
               <MDBRow className="mb-3">
-
                 <MDBCol className="col-4">
-                {/* <p>ZipCode placeholder</p> */}
-                 <MDBInput
-                      
-                      className="background-light-purple"
-                      label="Filter by Zipcode"
-                      type="string"
-                      value={zipcode}
-                      onChange={(e) => (setZipcode(e.target.value))}
-                      id="zip_code"
+                  {/* <p>ZipCode placeholder</p> */}
+                  <MDBInput
+                    className="background-light-purple"
+                    label="Filter by Zipcode"
+                    type="string"
+                    value={zipcode}
+                    onChange={(e) => setZipcode(e.target.value)}
+                    id="zip_code"
                   />
                 </MDBCol>
 
@@ -122,8 +165,7 @@ const PreferenceIndexUpdated = () => {
                     onChange={handleTextChange}
                     value={answer.gender_preference}
                     id="gender_preference"
-                    required
-                    > 
+                    required>
                     <option defaultValue={"does-not-matter"}>Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -131,27 +173,32 @@ const PreferenceIndexUpdated = () => {
                     <option value="non-binary">Non-Binary</option>
                     <option value="transgender">Transgender</option>
                     <option value="other">Other</option>
-                    <option value="prefer-not-to-say">Prefer not to say...</option>     
+                    <option value="prefer-not-to-say">
+                      Prefer not to say...
+                    </option>
                   </select>
                 </MDBCol>
                 <MDBCol>
-                  <select 
-                    style={{fontWeight: "bold", color: "rgb(117, 117, 117"}} 
+                  <select
+                    style={{ fontWeight: "bold", color: "rgb(117, 117, 117" }}
                     className="orientation-select-prefs form-control background-light-purple"
                     name="flexCheck"
                     onChange={handleTextChange}
                     value={answer.sexual_orientation_preference}
                     id="sexual_orientation_preference"
-                    required
-                  >   
-                    <option defaultValue={"does-not-matter"}>Orientation</option>
+                    required>
+                    <option defaultValue={"does-not-matter"}>
+                      Orientation
+                    </option>
                     <option value="heterosexual">Heterosexual</option>
                     <option value="pansexual">Pansexual</option>
                     <option value="bisexual">BiSexual</option>
                     <option value="homosexual">Homosexual</option>
                     <option value="asexual">Asexual</option>
                     <option value="other">Other</option>
-                    <option value="prefer-not-to-say">Prefer not to say...</option>
+                    <option value="prefer-not-to-say">
+                      Prefer not to say...
+                    </option>
                   </select>
                 </MDBCol>
               </MDBRow>
@@ -305,45 +352,53 @@ const PreferenceIndexUpdated = () => {
 
               {/* ************ ROW 6 - Prefs *********** */}
 
-              <MDBRow className="mb-1" style={{display: `${answer.open_rooms_preference ? "" : "none"}`}} >
-              <MDBCol className='check'>
-                <MDBCheckbox
-                  className="privateRoom-pref"
-                  name="flexCheck"
-                  label="Private Room" 
-                  id="private_room_preference"
-                  onChange={handleCheckboxChange}
-                  value={answer.private_room_preference}
-                  checked={checkedAlg(answer.private_room_preference)}
-                /> 
-              </MDBCol>
-              <MDBCol className='check'>
-                <MDBCheckbox
-                  className="privateBathroom-pref"
-                  name="flexCheck"
-                  label="Private Bath" 
-                  id="private_bathroom_preference"
-                  onChange={handleCheckboxChange}
-                  value={answer.private_bathroom_preference}
-                  checked={checkedAlg(answer.private_bathroom_preference)}
-                /> 
-              </MDBCol>
-              <MDBCol className='check'>
-                <MDBCheckbox
-                  className="highRise-pref"
-                  name="flexCheck"
-                  label="High Rise" 
-                  id="high_rise_preference"
-                  onChange={handleCheckboxChange}
-                  value={answer.high_rise_preference}
-                  checked={checkedAlg(answer.high_rise_preference)}
-                /> 
-              </MDBCol>
-            </MDBRow>
+              <MDBRow
+                className="mb-1"
+                style={{
+                  display: `${answer.open_rooms_preference ? "" : "none"}`,
+                }}>
+                <MDBCol className="check">
+                  <MDBCheckbox
+                    className="privateRoom-pref"
+                    name="flexCheck"
+                    label="Private Room"
+                    id="private_room_preference"
+                    onChange={handleCheckboxChange}
+                    value={answer.private_room_preference}
+                    checked={checkedAlg(answer.private_room_preference)}
+                  />
+                </MDBCol>
+                <MDBCol className="check">
+                  <MDBCheckbox
+                    className="privateBathroom-pref"
+                    name="flexCheck"
+                    label="Private Bath"
+                    id="private_bathroom_preference"
+                    onChange={handleCheckboxChange}
+                    value={answer.private_bathroom_preference}
+                    checked={checkedAlg(answer.private_bathroom_preference)}
+                  />
+                </MDBCol>
+                <MDBCol className="check">
+                  <MDBCheckbox
+                    className="highRise-pref"
+                    name="flexCheck"
+                    label="High Rise"
+                    id="high_rise_preference"
+                    onChange={handleCheckboxChange}
+                    value={answer.high_rise_preference}
+                    checked={checkedAlg(answer.high_rise_preference)}
+                  />
+                </MDBCol>
+              </MDBRow>
 
-            {/* ************ ROW 7 - Prefs *********** */}
-            <MDBRow className="mb-1" style={{display: `${answer.open_rooms_preference ? "" : "none"}`}} >
-            {/* <MDBCol className="ms-0"> 
+              {/* ************ ROW 7 - Prefs *********** */}
+              <MDBRow
+                className="mb-1"
+                style={{
+                  display: `${answer.open_rooms_preference ? "" : "none"}`,
+                }}>
+                {/* <MDBCol className="ms-0"> 
                   <MDBCheckbox
                     name="flexCheck"
                     id="singer_preference"
@@ -352,43 +407,36 @@ const PreferenceIndexUpdated = () => {
                     value={answer.singer_preference}
                   /> 
                 </MDBCol>   */}
-                
-              <MDBCol className='check'>
-                <MDBCheckbox
-                  className="house-pref"
-                  name="flexCheck"
-                  label="Private House" 
-                  id="house_preference"
-                  onChange={handleCheckboxChange}
-                  value={answer.house_preference}
-                  checked={checkedAlg(answer.house_preference)}
-                /> 
-              </MDBCol>
-              <MDBCol className="ms-0"></MDBCol>
-              <MDBCol className="ms-0"></MDBCol>
-            </MDBRow>
 
-            
-    
+                <MDBCol className="check">
+                  <MDBCheckbox
+                    className="house-pref"
+                    name="flexCheck"
+                    label="Private House"
+                    id="house_preference"
+                    onChange={handleCheckboxChange}
+                    value={answer.house_preference}
+                    checked={checkedAlg(answer.house_preference)}
+                  />
+                </MDBCol>
+                <MDBCol className="ms-0"></MDBCol>
+                <MDBCol className="ms-0"></MDBCol>
+              </MDBRow>
             </MDBListGroup>
 
             {/* <MDBBtn size="lg" block> */}
             <br></br>
             <MDBRow className="mb-1">
-          <MDBCol>
-          <MDBBtn
-              id="favorites-pill">
-              View Favorites
-            </MDBBtn>
-          </MDBCol>
-          <MDBCol>
-          <MDBBtn className='sign-in-btn' type="submit">
-              Save
-            </MDBBtn>
-          </MDBCol>
-          <MDBCol></MDBCol>
-        </MDBRow>
-
+              <MDBCol>
+                <MDBBtn id="favorites-pill">View Favorites</MDBBtn>
+              </MDBCol>
+              <MDBCol>
+                <MDBBtn className="sign-in-btn" type="submit">
+                  Save
+                </MDBBtn>
+              </MDBCol>
+              <MDBCol></MDBCol>
+            </MDBRow>
           </MDBCardBody>
         </MDBCard>
       </form>
@@ -508,21 +556,31 @@ export default PreferenceIndexUpdated;
 // />
 // </MDBRow>
 
-{/* <div className="locationBox"> */}
-{/* ************ ROW 1 *********** */}
-{/* <MDBCard>
+{
+  /* <div className="locationBox"> */
+}
+{
+  /* ************ ROW 1 *********** */
+}
+{
+  /* <MDBCard>
   <MDBCardHeader className="py-3">
     <MDBTypography tag="h5" className="mb-0">
       Select location to search for a roommate
     </MDBTypography>
   </MDBCardHeader>
-  <MDBCardBody> */}
-    {/* rendering component for React Select Location drop down list */}
-    {/* <MDBRow>
+  <MDBCardBody> */
+}
+{
+  /* rendering component for React Select Location drop down list */
+}
+{
+  /* <MDBRow>
       <MDBCol>
         <Location />
       </MDBCol>
     </MDBRow>
   </MDBCardBody>
 </MDBCard>
-</div> */}
+</div> */
+}

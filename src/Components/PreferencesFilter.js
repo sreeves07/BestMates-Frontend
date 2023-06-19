@@ -19,63 +19,64 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 
-
 const PreferencesFilter = ({ data }) => {
+  const API = process.env.REACT_APP_API_URL;
 
-    const API = process.env.REACT_APP_API_URL;
-    
-    const { user } = useContextAuthProvider();
+  const { user } = useContextAuthProvider();
 
-    const [answer, setAnswer] = useState({
-        gender_preference: "does-not-matter",
-        pets_preference: false,
-        sexual_orientation_preference: "does-not-matter",
-        open_rooms_preference: false,
-        neat_preference: false,
-        kids_preference: false,
-        low_noise_preference: false,
-        smoker_preference: false,
-        high_rise_preference: false,
-        house_preference: false,
-        private_bathroom_preference: false,
-        private_room_preference: false,
-        share_bills_preference: false,
-        religious_preference: false,
-        good_credit_preference: false,
-        high_income_preference: false,
-        employment_preference: false, //need to be added to backend
-        is_student_preference: false, //need to be added to backend
-        //healthy_preference: true,        //need to be added to backend
-        //allergies_preference: false,     //need to be added to backend
-        disabled_preference: false, //need to be added to backend
-        //chronic_condition_preference: false,  //need to be added to backend
-        //visiting_nurse_preference: false,     //need to be added to backend
-        //home_assistance_preference: false,    //need to be added to backend
-        musician_preference: false, //need to be added to backend
-        singer_preference: false, //need to be added to backend
-        host_parties_preference: false, //need to be added to backend
-        //romantic_visits_preference: false,    //need to be added to backend
-        //family_friend_visits_preference: false,     //need to be added to backend
-        //night_life_preference: false,         //need to be added to backend
-      });
-    
-    const mapFilter = {
-    'Has Good Credit' : answer.gender_preference,
-    'Has Pets': answer.pets_preference,
-    'Has Open Room(s)': answer.open_rooms_preference,
-    'Is Very Neat': answer.neat_preference,
-    'Has Kids': answer.kids_preference,
-    'Low Noise': answer.low_noise_preference,
-    'Is a smoker': answer.smoker_preference,
-    'High Rise Building': answer.high_rise_preference,
-    'House Preference': answer.house_preference,
-    'Private Bathroom': answer.private_bathroom_preference,
-    'Private Room': answer.private_room_preference,
-    'Agree to Share Bills': answer.share_bills_preference,
-    'Is Religious': answer.religious_preference,
-    'Has Good Credit': answer.good_credit_preference,
-    'Has High Income': answer.high_income_preference,
-  }
+  const [answer, setAnswer] = useState({
+    gender_preference: "does-not-matter",
+    pets_preference: false,
+    sexual_orientation_preference: "does-not-matter",
+    open_rooms_preference: false,
+    neat_preference: false,
+    kids_preference: false,
+    low_noise_preference: false,
+    smoker_preference: false,
+    high_rise_preference: false,
+    house_preference: false,
+    private_bathroom_preference: false,
+    private_room_preference: false,
+    share_bills_preference: false,
+    religious_preference: false,
+    good_credit_preference: false,
+    high_income_preference: false,
+    employment_preference: false, //need to be added to backend
+    is_student_preference: false, //need to be added to backend
+    //healthy_preference: true,        //need to be added to backend
+    //allergies_preference: false,     //need to be added to backend
+    disabled_preference: false, //need to be added to backend
+    //chronic_condition_preference: false,  //need to be added to backend
+    //visiting_nurse_preference: false,     //need to be added to backend
+    //home_assistance_preference: false,    //need to be added to backend
+    musician_preference: false, //need to be added to backend
+    singer_preference: false, //need to be added to backend
+    host_parties_preference: false, //need to be added to backend
+    //romantic_visits_preference: false,    //need to be added to backend
+    //family_friend_visits_preference: false,     //need to be added to backend
+    //night_life_preference: false,         //need to be added to backend
+  });
+
+  const mapFilter = {
+    "Has Good Credit": answer.gender_preference,
+    "Has Pets": answer.pets_preference,
+    "Has Open Room(s)": answer.open_rooms_preference,
+    "Is Very Neat": answer.neat_preference,
+    "Has Kids": answer.kids_preference,
+    "Low Noise": answer.low_noise_preference,
+    "Is a smoker": answer.smoker_preference,
+    "High Rise Building": answer.high_rise_preference,
+    "House Preference": answer.house_preference,
+    "Private Bathroom": answer.private_bathroom_preference,
+    "Private Room": answer.private_room_preference,
+    "Agree to Share Bills": answer.share_bills_preference,
+    "Is Religious": answer.religious_preference,
+    "Has Good Credit": answer.good_credit_preference,
+    "Has High Income": answer.high_income_preference,
+  };
+
+  console.log("MAFILTER", mapFilter);
+
   const handleTextChange = (event) => {
     setAnswer({ ...answer, [event.target.id]: event.target.value });
   };
@@ -86,39 +87,41 @@ const PreferencesFilter = ({ data }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await axios.get(`${API}/userP/${user.uid}/answers`, answer)
-    console.log(res)
-  }
+    const res = await axios.get(`${API}/userP/${user.uid}/answers`, answer);
+    console.log(res);
+  };
 
   const checkedAlg = (val) => {
     return val === true ? "checked" : "";
-  }
+  };
 
   // gets all the preferences for the user
   const checkedAlg2 = () => {
-    return Object.entries(answer).map(([key, value]) => value ? key : null).filter((elem) => elem !== null && elem !== 'id' && elem !== 'mate_uid')
-  }
+    return Object.entries(answer)
+      .map(([key, value]) => (value ? key : null))
+      .filter((elem) => elem !== null && elem !== "id" && elem !== "mate_uid");
+  };
 
-  // generates a SQL query with the selected preferences that we can use to query our db with and 
+  // generates a SQL query with the selected preferences that we can use to query our db with and
   // get all users matching these preferences
   const generateQuery = (arr) => {
-    let query = 'SELECT * from answers WHERE ';
+    let query = "SELECT * from answers WHERE ";
     for (let i = 0; i < arr.length; i++) {
-        let suffix = i === arr.length - 1 ? ' = true' : ' = true AND ';
-        query += arr[i] + suffix;
+      let suffix = i === arr.length - 1 ? " = true" : " = true AND ";
+      query += arr[i] + suffix;
     }
     return query;
-  }
+  };
 
   // TODO: Pass query to the db somehow, get a
 
-  console.log(generateQuery(checkedAlg2()), '***')
-  
+  console.log(generateQuery(checkedAlg2()), "***");
+
   useEffect(() => {
     axios
       .get(`${API}/user/${user.uid}/answers`)
       .then((response) => {
-        setAnswer({...answer, ...response.data[0]});
+        setAnswer({ ...answer, ...response.data[0] });
       })
       .catch((c) => console.warn("catch", c));
   }, [user]);
@@ -368,10 +371,7 @@ const PreferencesFilter = ({ data }) => {
               {/* ************ ROW 11 - Prefs *********** */}
               <MDBRow className="mb-5">
                 <MDBCol className="col-4">
-                  <label
-                      htmlFor="gender_preference">
-                      Gender:
-                  </label>
+                  <label htmlFor="gender_preference">Gender:</label>
                   <select
                     className="col-12 select gender-select-prefs form-control"
                     // name="flexCheck"
@@ -390,7 +390,10 @@ const PreferencesFilter = ({ data }) => {
                   </select>
                 </MDBCol>
                 <MDBCol className="col-4">
-                  <label htmlFor="sexual_orientation_preference">Orientation:</label><select
+                  <label htmlFor="sexual_orientation_preference">
+                    Orientation:
+                  </label>
+                  <select
                     className="basic-single col-12 orientation-select-prefs select form-control select"
                     // name="flexCheck"
 
@@ -414,7 +417,9 @@ const PreferencesFilter = ({ data }) => {
             </MDBListGroup>
 
             {/* <MDBBtn size="lg" block> */}
-            <MDBBtn type="submit" size="sm">Save Updated Preferences</MDBBtn>
+            <MDBBtn type="submit" size="sm">
+              Save Updated Preferences
+            </MDBBtn>
           </MDBCardBody>
         </MDBCard>
       </form>
@@ -423,7 +428,6 @@ const PreferencesFilter = ({ data }) => {
 };
 
 export default PreferencesFilter;
-
 
 // Additional Checkboxes
 // <MDBCheckbox

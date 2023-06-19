@@ -21,7 +21,7 @@ const User = ({ currentUser, loggedInUserLikes }) => {
   // console.log(currentUser);
   // console.log("UID = ", uid);
   // console.log("USER.UID = ",user.uid)
-  console.log("LoggedInUserUID = ", loggedInUserUID);
+  // console.log("LoggedInUserUID = ", loggedInUserUID);
 
   const [profileImage, setProfileImage] = useState("");
   const [toggle, setToggle] = useState(false);
@@ -105,7 +105,7 @@ const User = ({ currentUser, loggedInUserLikes }) => {
 
       if (!presentInLikes) {
         axios
-          .post(`${API}/user/${likedUserUID}/likes`, {
+          .post(`${API}/user/${loggedInUserUID}/likes`, {
             mate_uid: `${loggedInUserUID}`,
             liked_mate_uid: `${likedUserUID}`,
           })
