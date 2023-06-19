@@ -223,7 +223,7 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                     className="hasJob-pref"
                     name="flexCheck"
                     label="Employed"
-                    id="employment_preference"
+                    id="employed_preference"
                     onChange={handleCheckboxChange}
                     value={answer.employed_preference}
                     checked={checkedAlg(answer.employed_preference)}
@@ -269,7 +269,7 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                 <MDBCol className="check">
                   <MDBCheckbox
                     name="flexCheck"
-                    id="disabled_preference"
+                    id="disability_preference"
                     label="Disabled"
                     onChange={handleCheckboxChange}
                     value={answer.disability_preference}
@@ -305,7 +305,7 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                   <MDBCheckbox
                     className="host_parties_preference"
                     name="flexCheck"
-                    id="host_parties_preference"
+                    id="partyhost_preference"
                     label="Party Host"
                     onChange={handleCheckboxChange}
                     value={answer.partyhost_preference}
