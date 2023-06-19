@@ -12,11 +12,6 @@ function NewFormContainer() {
 
   return (
     <div className="newFormContainer">
-      <MDBCardHeader className=" newForm-hdg py-2">
-        <MDBTypography tag="h3" className="newform-header mb-0">
-          New Mate Profile Form
-        </MDBTypography>
-      </MDBCardHeader>
 
       {/* ********** UserBio Component ********** */}
 

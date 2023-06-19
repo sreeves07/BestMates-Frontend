@@ -47,7 +47,7 @@ const Index = () => {
     axios
       .get(`${API}/user`)
       .then((response) => {
-        // console.log("user api response data=", response.data);
+        console.log("user api response data=", response.data);
         setUsers(response.data);
       })
       .catch((c) => console.warn("catch", c));

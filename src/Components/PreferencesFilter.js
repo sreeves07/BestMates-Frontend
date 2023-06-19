@@ -74,9 +74,6 @@ const PreferencesFilter = ({ data }) => {
     "Has Good Credit": answer.good_credit_preference,
     "Has High Income": answer.high_income_preference,
   };
-
-  console.log("MAFILTER", mapFilter);
-
   const handleTextChange = (event) => {
     setAnswer({ ...answer, [event.target.id]: event.target.value });
   };

@@ -108,9 +108,9 @@ let navigate = useNavigate();
         <MDBRow>
           <MDBCol md="8" className="mb-4">
             <MDBCard className="mb-4 editUserForm-card">
-              <MDBCardHeader className="py-2">
+              {/* <MDBCardHeader className="py-2">
                 <MDBTypography tag="h5" className="mb-0">Account Settings</MDBTypography>
-              </MDBCardHeader>
+              </MDBCardHeader> */}
                 <MDBCardBody>
              
                    {/* ********** Basic Info - Row 1 ********** */}  

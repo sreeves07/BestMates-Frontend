@@ -39,9 +39,7 @@ function App() {
                 element={<img src={favLogo} alt="favorites" />}
               />
               <Route path="/chat" element={<Messaging />} />
-
               <Route path="/terms" element={<Terms />} />
-
               <Route path="*" element={<FourOFour />} />
             </>
           ) : (
