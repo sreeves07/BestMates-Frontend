@@ -116,7 +116,7 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
         // console.log("##### ALL USERS #####", users);
       })
       .catch((c) => console.warn("catch", c));
-  }, [users]);
+  }, []);
 
   // fetches the singular user on component load
   useEffect(() => {
