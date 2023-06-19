@@ -22,9 +22,9 @@ import {
 
 const API = process.env.REACT_APP_API_URL;
 
-const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
+const PreferenceIndexUpdated = ({ answer, setAnswer, users }) => {
   const { user, zipcode, setZipcode } = useContextAuthProvider();
-  const [users, setUsers] = useState([]);
+
   const [filteredUsers, setFilteredUsers] = useState([]);
   const {
     gender_preference,
@@ -88,7 +88,6 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
 
   const handleTextChange = (event) => {
     setAnswer({ ...answer, [event.target.id]: event.target.value });
-    
   };
 
   const handleCheckboxChange = (event) => {
@@ -107,17 +106,6 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
   const checkedAlg = (val) => {
     return val === true ? "checked" : "";
   };
-
-  // fetches all the users on component load
-  useEffect(() => {
-    axios
-      .get(`${API}/user`)
-      .then((response) => {
-        setUsers([...response.data]);
-        // console.log("##### ALL USERS #####", users);
-      })
-      .catch((c) => console.warn("catch", c));
-  }, []);
 
   // fetches the singular user on component load
   useEffect(() => {
@@ -470,7 +458,7 @@ const PreferenceIndexUpdated = ({ answer, setAnswer }) => {
                   Save
                 </MDBBtn>
               </MDBCol>
-              <MDBCol></MDBCol>
+              <MDBCol> </MDBCol>
             </MDBRow>
           </MDBCardBody>
         </MDBCard>

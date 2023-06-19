@@ -47,7 +47,7 @@ const Index = () => {
     axios
       .get(`${API}/user`)
       .then((response) => {
-        console.log("user api response data=", response.data);
+        // console.log("user api response data=", response.data);
         setUsers(response.data);
       })
       .catch((c) => console.warn("catch", c));
@@ -65,7 +65,11 @@ const Index = () => {
     <div style={{ padding: "50px", paddingBottom: "0px" }} className="Index">
       <div className="usersAndPreferencesContainer">
         <AllUsers currentUsers={currentUsers} />
-        <UserPreferencesContainer answer={answer} setAnswer={setAnswer} />
+        <UserPreferencesContainer
+          answer={answer}
+          setAnswer={setAnswer}
+          users={users}
+        />
         {/* <PreferenceIndexUpdated /> */}
       </div>
 
