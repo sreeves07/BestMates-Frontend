@@ -11,6 +11,8 @@ function AuthProvider({ children }) {
   const [userCity, setUserCity] = useState(null);
   const [profilePhotoUrl, setProfilePhotoUrl] = useState(null);
   const [user, setUser] = useState(null);
+  const [prefs, setPrefs] = useState(null);
+  const [users, setUsers] = useState(null);
   const [firstName, setFirstName] = useState(null);
   const [zipcode, setZipcode] = useState("");
 
@@ -23,6 +25,10 @@ function AuthProvider({ children }) {
       value={{
         user,
         setUser,
+        prefs,
+        setPrefs,
+        users,
+        setUsers,
         profilePhotoUrl,
         setProfilePhotoUrl,
         firstName,
