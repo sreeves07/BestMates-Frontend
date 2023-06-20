@@ -22,7 +22,7 @@ function AllUsers({ currentUsers }) {
         if (response.data.length) setLoggedInUserLikes(response.data);
       })
       .catch((c) => console.warn("catch", c));
-  }, []);
+  }, [user]);
 
   return (
     <div className="users">

@@ -16,7 +16,7 @@ import Favorites from "../Components/Favorites";
 
 import "../Components/SignIn/SignInForm.css";
 
-const UserPreferencesContainer = ({ users }) => {
+const UserPreferencesContainer = ({ users, setUsers }) => {
   const [justifyActive, setJustifyActive] = useState("tab1");
 
   const [answer, setAnswer] = useState({
@@ -70,6 +70,7 @@ const UserPreferencesContainer = ({ users }) => {
               answer={answer}
               setAnswer={setAnswer}
               users={users}
+              setUsers={setUsers}
             />
           )}
           {justifyActive === "tab2" && (
@@ -78,6 +79,7 @@ const UserPreferencesContainer = ({ users }) => {
               answer={answer}
               setAnswer={setAnswer}
               users={users}
+              setUsers={setUsers}
             />
           )}
         </MDBTabsContent>

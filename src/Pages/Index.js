@@ -34,7 +34,7 @@ const Index = () => {
     <div style={{ padding: "50px", paddingBottom: "0px" }} className="Index">
       <div className="usersAndPreferencesContainer">
         <AllUsers currentUsers={currentUsers} />
-        <UserPreferencesContainer users={users} />
+        <UserPreferencesContainer users={users} setUsers={setUsers}  />
         {/* <PreferenceIndexUpdated /> */}
       </div>
 

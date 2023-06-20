@@ -22,7 +22,7 @@ import {
 
 const API = process.env.REACT_APP_API_URL;
 
-const PreferenceIndexUpdated = ({ answer, setAnswer, users }) => {
+const PreferenceIndexUpdated = ({ answer, setAnswer, users, setUsers  }) => {
   console.log("ANSWER BEFORE", answer);
   const { user, zipcode, setZipcode } = useContextAuthProvider();
 
