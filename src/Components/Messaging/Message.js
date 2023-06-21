@@ -25,7 +25,7 @@ function Message({ message }) {
         <img
           width="40px"
           src={
-            message.senderId === user.uid ? user.photoURL : data.user.photoURL
+            message.senderId === user.uid ? profilePhotoUrl : data.user.photoURL
           }
           alt="user"
         />
