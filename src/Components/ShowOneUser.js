@@ -8,7 +8,10 @@ import {
   MDBCol,
   MDBRow,
   MDBTypography,
+  MDBCard,
+  MDBCardBody,
   MDBCardHeader,
+  MDBCardImage,
   MDBBtn,
 } from "mdb-react-ui-kit";
 
@@ -65,7 +68,7 @@ const ShowOneUser = () => {
 
   const {
     first_name,
-    // last_name,
+    last_name,
     city,
     state,
     zip_code,
@@ -158,8 +161,8 @@ const ShowOneUser = () => {
                 alt="profile"
                 className="rounded-circle"
                 style={{ width: "17rem", height: "17rem" }}></img>
-              <p className="h1" id="firstName-Header">{first_name}</p>
-              <p className="h6" id="bio-Header">Bio: {bio || "N/A"}</p>
+              <p className="h1">{first_name}</p>
+              <p className="h6">Bio: {bio || "N/A"}</p>
             </MDBCol>
           </MDBRow>
 
@@ -218,16 +221,15 @@ const ShowOneUser = () => {
             </MDBCardHeader>
             {/* LIVING SITUATION -- ROW 1  */}
             <MDBRow className="livingSituationRow1">
-            <MDBCol></MDBCol>
               <MDBCol id="livingSituation-City">City: {city}</MDBCol>
               <MDBCol id="livingSituation-State">State: {state}</MDBCol>
               <MDBCol id="livingSituation-Zip">Zip: {zip_code}</MDBCol>
-              <MDBCol></MDBCol>
             </MDBRow>
             {/* LIVING SITUATION -- ROW 2  */}
             <MDBRow className="livingSituationRow2">
-            <MDBCol className="md=0"></MDBCol>
-              <MDBCol id="livingSituation-MaxRent">Max Rent: {max_rent}</MDBCol>
+              <MDBCol id="livingSituation-MaxRent">
+                Max Rent:$ {max_rent}
+              </MDBCol>
               <MDBCol id="livingSituation-HasOpenRooms">
                 Open Rooms: {stringifyUserProperty(has_open_rooms)}
               </MDBCol>
@@ -236,7 +238,6 @@ const ShowOneUser = () => {
                 Move-In:
                 {dateConvert(`${moveInDate}`)}
               </MDBCol>
-              <MDBCol></MDBCol>
             </MDBRow>
           </MDBRow>
 
@@ -286,9 +287,7 @@ const ShowOneUser = () => {
                 {stringifyUserProperty(is_singer)}
               </MDBCol>
               <MDBCol id="activities-hostsParties">
-                {" "}
-                Hosts Parties:
-                {stringifyUserProperty(host_parties)}
+                Hosts Parties:{stringifyUserProperty(host_parties)}
               </MDBCol>
             </MDBRow>
           </MDBRow>
