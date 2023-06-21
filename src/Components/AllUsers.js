@@ -19,10 +19,11 @@ function AllUsers({ currentUsers }) {
     axios
       .get(`${API}/user/${loggedInUserUID}/likes`)
       .then((response) => {
-        if (response.data.length) setLoggedInUserLikes(response.data);
+        if (response.data !== undefined) setLoggedInUserLikes(response.data);
       })
       .catch((c) => console.warn("catch", c));
   }, []);
+  console.log("LIKES", loggedInUserLikes);
 
   return (
     <div className="users">

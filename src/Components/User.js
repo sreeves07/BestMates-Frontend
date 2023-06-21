@@ -21,7 +21,7 @@ const User = ({ currentUser, loggedInUserLikes }) => {
   // console.log(currentUser);
   // console.log("UID = ", uid);
   // console.log("USER.UID = ",user.uid)
-  console.log("LoggedInUserUID = ", loggedInUserUID);
+  // console.log("LoggedInUserUID = ", loggedInUserUID);
 
   const [profileImage, setProfileImage] = useState("");
   const [toggle, setToggle] = useState(false);
@@ -72,6 +72,7 @@ const User = ({ currentUser, loggedInUserLikes }) => {
         if (response.data[0]?.liked_mate_uid) {
           // console.log("DATA LIKED UID", response.data[0]?.liked_mate_uid);
           setCheckIfLikedUser(response.data[0]);
+          console.log("CHECK IF LIKED USER", uid, checkIfLikedUser);
         }
       })
       .catch((c) => console.warn("catch", c));
@@ -98,14 +99,14 @@ const User = ({ currentUser, loggedInUserLikes }) => {
   const handleClickToggle = () => {
     setToggle(!toggle);
 
-    if (toggle === false) {
+    if (toggle === false && loggedInUserLikes) {
       const presentInLikes = loggedInUserLikes.find(
         (likedUser) => !loggedInUserLikes.liked_mate_uid !== uid
       );
 
       if (!presentInLikes) {
         axios
-          .post(`${API}/user/${likedUserUID}/likes`, {
+          .post(`${API}/user/${loggedInUserUID}/likes`, {
             mate_uid: `${loggedInUserUID}`,
             liked_mate_uid: `${likedUserUID}`,
           })
