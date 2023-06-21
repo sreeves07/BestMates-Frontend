@@ -33,6 +33,8 @@ display: inline-block;
 #showOneUserPhoto {
 margin-top: 5%;
 margin-bottom: 3%;
+margin-left: auto;  
+margin-right: auto;
 width: 70%;
 height: 70%;
 object-fit: cover;
@@ -44,11 +46,19 @@ border: solid rgb(43, 0, 128);
 .header {
 text-align: center;
 font-weight: bold;
+margin-left: auto;  
+margin-right: auto;
 }
 
 .basicInfoHeader{
-margin-left: -1rem;
+margin-left: auto;  
+margin-right: auto;
 }
+#firstName-Header, #bio-Header{
+ margin-left: auto;  
+ margin-right: auto;     
+}
+
 
 .userInfo {
 display: grid;
@@ -69,13 +79,23 @@ margin-left: 1.8rem;
 }
 
 
+#basicInfo-Disabled, #basicInfo-Children{
+        margin-left: 2.8rem;       
+}
+
+
+
 /* LIVING SITUATION */
 #livingSituationHeader {
-margin-left: 2rem;
+/* margin-left: 2rem; */
+margin-left: auto;  
+margin-right: auto;
 }
 
 .livingSituationRow1{
-margin-left: 5.2rem;
+/* margin-left: 5.2rem; */
+margin-left: auto;  
+margin-right: auto;
 
 }
 
@@ -85,14 +105,35 @@ margin-left: 5.2rem;
 
 }
 
-#livingSituation-City, #livingSituation-MaxRent {
-        margin-right: .6rem;
+#livingSituation-City {
+/* margin-right: .6rem; */
+margin-left: 1.5rem;
+}
+#livingSituation-MaxRent {
+/* margin-right: .6rem; */
+margin-left: -5rem;
 }
 
-/* FINANCIAL INFO */
-#financialSituationHeader {
-margin-left: 1rem;
+#livingSituation-State {
+/* margin-right: .6rem; */
+margin-left: 1.5rem;
 }
+
+#livingSituation-Zip {
+/* margin-right: .6rem; */
+margin-left: 1.5rem;
+}
+
+#livingSituation-HasOpenRooms {
+/* margin-right: .6rem; */
+/* margin-left: 1.5rem; */
+}
+
+
+/* FINANCIAL INFO */
+/* #financialSituationHeader {
+margin-left: 1rem;
+} */
 
 #financialSituationRow1{
 margin-left: .9rem;
@@ -111,9 +152,9 @@ margin-left: -1.7rem;
 }
 
 /* ACTIVITIES */
-#activitiesHeader{
+/* #activitiesHeader{
 margin-left: -1rem;
-}
+} */
 
 #activities-singer{
 margin-left: 1rem;
