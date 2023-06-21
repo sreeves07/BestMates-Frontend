@@ -10,7 +10,7 @@ function Message({ message }) {
 
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
-  }, [message]);
+  }, [message, user]);
 
   console.log("user", user, "message", message);
 

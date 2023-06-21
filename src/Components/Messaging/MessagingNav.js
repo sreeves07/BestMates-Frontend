@@ -8,7 +8,7 @@ const API = process.env.REACT_APP_API_URL;
 
 function MessagingNav() {
   const [userImg, setUserImg] = useState("");
-  const { user } = useContextAuthProvider();
+  const { user, profilePhotoUrl } = useContextAuthProvider();
 
   useEffect(() => {
     axios
