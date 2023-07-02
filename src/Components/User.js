@@ -162,4 +162,3 @@ const User = ({ currentUser, loggedInUserLikes }) => {
 };
 
 export default User;
-

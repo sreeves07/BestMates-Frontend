@@ -72,14 +72,14 @@ const UserPreferencesContainer = ({ users }) => {
               users={users}
             />
           )}
-          {justifyActive === "tab2" && (
+          {/* {justifyActive === "tab2" && (
             <PreferenceIndexUpdated
               justifyActive={justifyActive}
               answer={answer}
               setAnswer={setAnswer}
               users={users}
             />
-          )}
+          )} */}
         </MDBTabsContent>
         <br></br>
       </MDBContainer>
