@@ -16,7 +16,7 @@ import Favorites from "../Components/Favorites";
 
 import "../Components/SignIn/SignInForm.css";
 
-const UserPreferencesContainer = ({ users }) => {
+const UserPreferencesContainer = ({ users, setUsers }) => {
   const [justifyActive, setJustifyActive] = useState("tab1");
 
   const [answer, setAnswer] = useState({
@@ -51,7 +51,7 @@ const UserPreferencesContainer = ({ users }) => {
     //night_life_preference: false,         //need to be added to backend
   });
 
-  console.log("CONTAINER ANSWERS", answer);
+  // console.log("CONTAINER ANSWERS", answer);
 
   const handleJustifyClick = (value) => {
     if (value === justifyActive) {
@@ -70,6 +70,7 @@ const UserPreferencesContainer = ({ users }) => {
               answer={answer}
               setAnswer={setAnswer}
               users={users}
+              setUsers={setUsers}
             />
           )}
           {/* {justifyActive === "tab2" && (

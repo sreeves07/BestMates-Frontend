@@ -22,8 +22,9 @@ import {
 
 const API = process.env.REACT_APP_API_URL;
 
-const PreferenceIndexUpdated = ({ answer, setAnswer, users }) => {
-  console.log("ANSWER BEFORE", answer);
+const PreferenceIndexUpdated = ({ answer, setAnswer, users, setUsers }) => {
+  // console.log("ANSWER BEFORE", answer);
+  console.log("USERS in PreferenceIndexUpdated = ", users)
   const { user, zipcode, setZipcode } = useContextAuthProvider();
 
   const [filteredUsers, setFilteredUsers] = useState([]);
@@ -59,34 +60,57 @@ const PreferenceIndexUpdated = ({ answer, setAnswer, users }) => {
     //night_life_preference: false,         //need to be added to backend
   } = answer;
 
-  const findUserWithPreferences = (answer, users) => {
-    let filtered = null;
-    return (filtered = users.filter((U) => {
-      for (const ans in answer) {
-        if (
-          U.has_pets === answer.pets_preference &&
-          U.has_open_rooms === answer.open_rooms_preference &&
-          U.is_smoker === answer.smoker_preference &&
-          U.has_kids === answer.kids_preference &&
-          U.is_disabled === answer.disability_preference &&
-          U.is_sharing_bills === answer.share_bills_preference &&
-          U.is_neat === answer.neat_preference &&
-          U.is_religious === answer.religious_preference &&
-          U.is_musician === answer.musician_preference &&
-          U.is_partyhost === answer.partyhost_preference &&
-          U.low_noise === answer.low_noise_preference &&
-          U.has_private_room === answer.private_room_preference &&
-          U.has_private_bathroom === answer.private_bathroom_preference &&
-          U.has_high_rise === answer.high_rise_preference &&
-          U.has_house === answer.house_preference &&
-          U.is_employed === answer.employed_preference
-        ) {
-          return U;
-        }
-      }
-    }));
-    setFilteredUsers(filtered);
-  };
+  const findUserWithPreferences = (a, u) => {
+    console.log("users, answers=", u, a)
+    const filtered = u.filter(U => {
+      if (
+        U.has_pets === a.pets_preference &&
+        U.has_open_rooms === answer.open_rooms_preference &&
+        U.is_smoker === answer.smoker_preference &&
+        U.has_kids === answer.kids_preference &&
+        U.is_disabled === answer.disability_preference &&
+        U.is_sharing_bills === answer.share_bills_preference &&
+        U.is_neat === answer.neat_preference &&
+        U.is_religious === answer.religious_preference &&
+        U.is_musician === answer.musician_preference &&
+        U.is_partyhost === answer.partyhost_preference &&
+        U.low_noise === answer.low_noise_preference &&
+        U.has_private_room === answer.private_room_preference &&
+        U.has_private_bathroom === answer.private_bathroom_preference &&
+        U.has_high_rise === answer.high_rise_preference &&
+        U.has_house === answer.house_preference &&
+        U.is_employed === answer.employed_preference
+      ){
+        return U
+      }})
+    console.log("FILTERED = ", filtered)
+   return filtered
+  } 
+    //   for (const ans in answer) {
+    //     if (
+    //       U.has_pets === answer.pets_preference &&
+    //       U.has_open_rooms === answer.open_rooms_preference &&
+    //       U.is_smoker === answer.smoker_preference &&
+    //       U.has_kids === answer.kids_preference &&
+    //       U.is_disabled === answer.disability_preference &&
+    //       U.is_sharing_bills === answer.share_bills_preference &&
+    //       U.is_neat === answer.neat_preference &&
+    //       U.is_religious === answer.religious_preference &&
+    //       U.is_musician === answer.musician_preference &&
+    //       U.is_partyhost === answer.partyhost_preference &&
+    //       U.low_noise === answer.low_noise_preference &&
+    //       U.has_private_room === answer.private_room_preference &&
+    //       U.has_private_bathroom === answer.private_bathroom_preference &&
+    //       U.has_high_rise === answer.high_rise_preference &&
+    //       U.has_house === answer.house_preference &&
+    //       U.is_employed === answer.employed_preference
+    //     ) {
+    //       return U;
+    //     }
+    //   }
+    // }));
+    // setFilteredUsers(filtered);
+  
 
   const handleTextChange = (event) => {
     setAnswer({ ...answer, [event.target.id]: event.target.value });
@@ -96,13 +120,14 @@ const PreferenceIndexUpdated = ({ answer, setAnswer, users }) => {
     setAnswer({ ...answer, [event.target.id]: !answer[event.target.id] });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit =  (event) => {
     event.preventDefault();
-    const res = await axios.put(`${API}/user/${user.uid}/answers`, answer);
+    // const res = await axios.put(`${API}/user/${user.uid}/answers`, answer);
     // console.log(res);
-    console.log("ANSWER", answer);
-    findUserWithPreferences(answer, users);
-    console.log("FILTERED USERS", filteredUsers);
+    // console.log("ANSWERS in PreferenceIndexUpdated", answer);
+    setUsers(findUserWithPreferences(answer, users));
+    // console.log("FILTERED USERS", filteredUsers);
+    console.log("Save is clicked")
   };
 
   const checkedAlg = (val) => {
@@ -122,8 +147,8 @@ const PreferenceIndexUpdated = ({ answer, setAnswer, users }) => {
   return (
     <div className="preferenceIndex">
       {/* ************ removed country-state-city section *********** */}
-
-      <form className="prefIndexForm" onSubmit={handleSubmit} noValidate>
+     
+      <form className="prefIndexForm"  noValidate>
         <MDBCard>
           <MDBCardHeader className="py-2">
             <MDBTypography tag="h5" className="mb-0">
@@ -444,9 +469,10 @@ const PreferenceIndexUpdated = ({ answer, setAnswer, users }) => {
                 <MDBBtn id="favorites-pill">View Favorites</MDBBtn>
               </MDBCol>
               <MDBCol>
-                <MDBBtn className="sign-in-btn" type="submit">
+                <MDBBtn className="sign-in-btn"  onClick={handleSubmit}>
                   Save
                 </MDBBtn>
+                <button onClick={handleSubmit}>Click</button>
               </MDBCol>
               <MDBCol> </MDBCol>
             </MDBRow>
